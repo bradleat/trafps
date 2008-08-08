@@ -32,7 +32,6 @@ C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Release\TRA Game.pdb
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\obj\x86\Release\TRA Game.pdb
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\obj\x86\Release\ResolveAssemblyReference.cache
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\obj\x86\Release\TRA_Game.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\bin\x86\Release\Content\terrain.xnb
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\bin\x86\Release\Content\terrain%0.xnb
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\bin\x86\Release\Content\sunset%0.xnb
@@ -42,3 +41,4 @@ C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\bin\x86\Release\EGGEng
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\bin\x86\Release\EGGEngine.pdb
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\obj\x86\Release\TRA Game.exe
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\bin\x86\Release\Content\Debug\Font.xnb
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\obj\x86\Release\EGGEngine.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt

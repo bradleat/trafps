@@ -27,23 +27,25 @@ using System;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.GamerServices;
 
-namespace TRA_Game.Networking
+namespace EGGEngine.Networking
 {
      public class NetworkHelper
     {
         // The Game Session
-        private NetworkSession session;
+        public NetworkSession session = null;
         // Maximum 16 players
-        private int maximumGamers = 16;
+        public int maximumGamers = 16;
         // No split-scren, only remote players
-        private int maximumLocalPlayers = 1;
-        // Tracks the status of the asynchronous searching
-        IAsyncResult AsyncSessionFind = null;
+        public int maximumLocalPlayers = 1;
         // PacketWriter/Reader to send/recieve packets
-        private readonly PacketWriter serverPacketWriter = new PacketWriter();
-        private readonly PacketReader serverPacketReader = new PacketReader();
-        private readonly PacketWriter clientPacketWriter = new PacketWriter();
-        private readonly PacketReader clientPacketReader = new PacketReader();
+        public readonly PacketWriter serverPacketWriter = new PacketWriter();
+        public readonly PacketReader serverPacketReader = new PacketReader();
+        public readonly PacketWriter clientPacketWriter = new PacketWriter();
+        public readonly PacketReader clientPacketReader = new PacketReader();
+        // All sessions found
+         public AvailableNetworkSessionCollection availableSessions;
+         // The session we'll join
+         public AvailableNetworkSession availableSession = null;
 
         /// <summary>
         /// The active network session
@@ -83,107 +85,6 @@ namespace TRA_Game.Networking
             get { return serverPacketReader; }
         }
 
-        /// <summary>
-        /// Send all server data
-        /// </summary>
-        public void SendServerData()
-        {
-            if (serverPacketWriter.Length > 0)
-            {
-                // Send the combined data to everyone in the session
-                LocalNetworkGamer server = (LocalNetworkGamer) session.Host;
-
-                server.SendData(serverPacketWriter, SendDataOptions.InOrder);
-            }
-        }
-
-        public NetworkGamer ReadServerData(LocalNetworkGamer gamer)
-        {
-            NetworkGamer sender;
-
-            // Read a single packet from the network
-            gamer.ReceiveData(serverPacketReader, out sender);
-            return sender;
-        }
-
-        /// <summary>
-        /// Send the Client Data
-        /// </summary>
-        public void SendClientData()
-        {
-            if (ClientPacketWriter.Length > 0)
-            {
-                // The first player is always running in the server...
-                session.LocalGamers[0].SendData(ClientPacketWriter,
-                    SendDataOptions.InOrder, session.Host);
-            }
-        }
-
-        public NetworkGamer ReadClientData(LocalNetworkGamer gamer)
-        {
-            NetworkGamer sender;
-
-            // Read a single packet from the network
-            gamer.ReceiveData(ClientPacketReader, out sender);
-            return sender;
-        }
-
-        public void SetPlayerReady()
-        {
-            foreach (LocalNetworkGamer gamer in session.LocalGamers)
-            {
-                gamer.IsReady = true;
-            }
-        }
-
-
-        public void session_SessionFound(IAsyncResult result)
-        {
-            // All sessions found
-            AvailableNetworkSessionCollection availableSessions;
-            // The session we will join
-            AvailableNetworkSession availableSession = null;
-
-            if (AsyncSessionFind.IsCompleted)
-            {
-                availableSessions = NetworkSession.EndFind(result);
-
-                // Look for a session with available gamer slots
-                foreach (AvailableNetworkSession  curSession in availableSessions)
-                {
-                    int TotalSessionSlots = curSession.OpenPublicGamerSlots +
-                        curSession.OpenPrivateGamerSlots;
-                    if (TotalSessionSlots > curSession.CurrentGamerCount)
-                    {
-                        availableSession = curSession;
-                    }
-                }
-
-                // If a session was found, connect to it
-                if (availableSession != null)
-                {
-                    session = NetworkSession.Join(availableSession);
-                }
-                else
-                {
-                    // Todo: add spectator code
-
-                    // Reset the session finding result
-                    AsyncSessionFind = null;
-                }
-            }
-        }
-
-        public void AsyncFindSystemLinkSession()
-        {
-            if (AsyncSessionFind == null)
-            {
-                // Asynchoronously finds a session
-                AsyncSessionFind = NetworkSession.BeginFind(NetworkSessionType.SystemLink, maximumLocalPlayers, null,
-                    new AsyncCallback(session_SessionFound), null);
-            }
-        }
-
         public void Update()
         {
             if (session != null)
@@ -192,64 +93,6 @@ namespace TRA_Game.Networking
                 session.Update();
             }
         }
-        public void CreateSystemLinkSession()
-        {
-            if (session == null)
-            {
-                // Creates a System Link Session
-                session = NetworkSession.Create(NetworkSessionType.SystemLink, 
-                    maximumLocalPlayers, maximumGamers);
-
-                // If the host goes out, another machine will assume as new host
-                session.AllowHostMigration = true;
-                // Allow players to join a game in progress
-                session.AllowJoinInProgress = true;
-
-                // Event hooks
-                session.GamerJoined += new EventHandler<GamerJoinedEventArgs>(session_GamerJoined);
-                session.GamerLeft += new EventHandler<GamerLeftEventArgs>(session_GamerLeft);
-                session.GameStarted += new EventHandler<GameStartedEventArgs>(session_GameStarted);
-                session.GameEnded += new EventHandler<GameEndedEventArgs>(session_GameEnded);
-                session.SessionEnded += new EventHandler<NetworkSessionEndedEventArgs>(session_SessionEnded);
-                session.HostChanged += new EventHandler<HostChangedEventArgs>(session_HostChanged);
-            }
-        }
-        void session_GamerJoined(object sender, GamerJoinedEventArgs e)
-        {
-            // Todo: add events
-        }
-
-        void session_GamerLeft(object sender, GamerLeftEventArgs e)
-        {
-            // Todo: add events
-        }
-
-        void session_GameStarted(object sender, GameStartedEventArgs e)
-        {
-            // Todo: add events
-        }
-
-        void session_GameEnded(object sender, GameEndedEventArgs e)
-        {
-            // Todo: add events
-        }
-
-        void session_SessionEnded(object sender, NetworkSessionEndedEventArgs e)
-        {
-            // Todo: add events
-        }
-
-        void session_HostChanged(object sender, HostChangedEventArgs e)
-        {
-            // Todo: add events
-        }
-       
-        public void SignInGamer()
-        {
-            if (!Guide.IsVisible)
-            {
-                Guide.ShowSignIn(1, false);
-            }
-        }
+        
     }
 }
