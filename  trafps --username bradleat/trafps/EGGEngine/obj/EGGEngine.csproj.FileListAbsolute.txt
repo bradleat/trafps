@@ -5,3 +5,13 @@ C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\obj\x86\Debug\Microsoft.Xna.Fra
 C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\obj\x86\Debug\EGGEngine.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\obj\x86\Debug\EGGEngine.dll
 C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\obj\x86\Debug\EGGEngine.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\bin\x86\Release\Content\terrain.xnb
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\bin\x86\Release\Content\terrain%0.xnb
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\bin\x86\Release\Content\sunset%0.xnb
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\bin\x86\Release\EGGEngine.dll
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\bin\x86\Release\EGGEngine.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\obj\x86\Release\EGGEngine.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\obj\x86\Release\EGGEngine.dll
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\obj\x86\Release\EGGEngine.pdb

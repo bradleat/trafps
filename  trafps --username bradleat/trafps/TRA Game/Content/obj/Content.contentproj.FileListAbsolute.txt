@@ -1,3 +1,4 @@
 C:\Users\Bradley\Desktop\New Folder\TRA Game\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Bradley\Desktop\TRA Game\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\Content\obj\x86\Release\ResolveAssemblyReference.cache

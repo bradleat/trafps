@@ -17,3 +17,15 @@ C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Debug\TRA Game.exe
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Debug\TRA Game.pdb
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\TRA Game.exe
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\TRA Game.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Release\Content\terrain.xnb
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Release\Content\terrain%0.xnb
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Release\Content\sunset%0.xnb
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Release\TRA Game.exe
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Release\TRA Game.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Release\EGGEngine.dll
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Release\EGGEngine.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Release\TRA_Game.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Release\TRA Game.exe
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Release\TRA Game.pdb
