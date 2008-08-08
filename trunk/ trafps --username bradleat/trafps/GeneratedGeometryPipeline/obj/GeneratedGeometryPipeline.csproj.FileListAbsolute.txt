@@ -1,0 +1,5 @@
+C:\Users\Bradley\Desktop\GeneratedGeometrySample\GeneratedGeometrySample\GeneratedGeometryPipeline\bin\x86\Debug\GeneratedGeometryPipeline.dll
+C:\Users\Bradley\Desktop\GeneratedGeometrySample\GeneratedGeometrySample\GeneratedGeometryPipeline\bin\x86\Debug\GeneratedGeometryPipeline.pdb
+C:\Users\Bradley\Desktop\GeneratedGeometrySample\GeneratedGeometrySample\GeneratedGeometryPipeline\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\GeneratedGeometrySample\GeneratedGeometrySample\GeneratedGeometryPipeline\obj\x86\Debug\GeneratedGeometryPipeline.dll
+C:\Users\Bradley\Desktop\GeneratedGeometrySample\GeneratedGeometrySample\GeneratedGeometryPipeline\obj\x86\Debug\GeneratedGeometryPipeline.pdb
