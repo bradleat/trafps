@@ -1,0 +1,10 @@
+bin\x86\Release\EGGEngine.dll
+bin\x86\Release\EGGEngine.pdb
+obj\x86\Release\ResolveAssemblyReference.cache
+obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Release\EGGEngine.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Release\EGGEngine.dll
+obj\x86\Release\EGGEngine.pdb
+bin\x86\Release\Content\terrain.xnb
+bin\x86\Release\Content\terrain%0.xnb
+bin\x86\Release\Content\sunset%0.xnb

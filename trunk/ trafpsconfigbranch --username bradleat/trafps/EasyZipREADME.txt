@@ -1,0 +1,2 @@
+README
+Easy Zip allows us to save space on game content files, I would like to start early using this technolgy, but i need everyone to install the program on their machines, but NOT to point it to the file's directory. I would like to have some time to plan where using it would be the most effective.

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Graphics="Microsoft.Xna.Framework.Graphics" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>terrain.fbx</Source>
+      <Name>terrain</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\bin\x86\Debug\Content\terrain.xnb</Output>
+      <Time>2008-08-08T18:39:42.223041-04:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\terrain%0.xml</Key>
+        <Value>2008-08-08T19:32:07.475041-04:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\bin\x86\Debug\Content\terrain%0.xnb</Request>
+      <Request>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\bin\x86\Debug\Content\sunset%0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>terrain.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\terrain%0.xml</Output>
+      <Time>2008-08-08T18:39:42.223041-04:00</Time>
+    </Item>
+    <Item>
+      <Source>terrain.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\bin\x86\Debug\Content\terrain%0.xnb</Output>
+      <Time>2008-08-08T18:39:42.269041-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sunset.tga</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\bin\x86\Debug\Content\sunset%0.xnb</Output>
+      <Time>2008-08-08T18:39:42.228041-04:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <RootDirectory>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>c:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2007-11-28T12:08:00-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>c:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2007-11-28T12:08:42-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>c:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2007-11-28T12:08:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>c:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2007-11-28T12:07:44-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\2.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2008-06-30T11:55:13.9361178-04:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

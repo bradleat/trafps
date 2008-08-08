@@ -1,0 +1,21 @@
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EasyConfig\bin\x86\Release\EasyConfig.dll
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EasyConfig\bin\x86\Release\EasyConfig.pdb
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EasyConfig\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EasyConfig\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EasyConfig\obj\x86\Release\EasyConfig.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EasyConfig\obj\x86\Release\EasyConfig.dll
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EasyConfig\obj\x86\Release\EasyConfig.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\bin\x86\Debug\EasyConfig.dll
+C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\bin\x86\Debug\EasyConfig.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\EasyConfig.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\EasyConfig.dll
+C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\EasyConfig.pdb
+C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EasyConfig\bin\x86\Debug\EasyConfig.dll
+C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EasyConfig\bin\x86\Debug\EasyConfig.pdb
+C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EasyConfig\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EasyConfig\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EasyConfig\obj\x86\Debug\EasyConfig.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EasyConfig\obj\x86\Debug\EasyConfig.dll
+C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EasyConfig\obj\x86\Debug\EasyConfig.pdb
