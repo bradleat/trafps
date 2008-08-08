@@ -103,6 +103,10 @@ namespace TRA_Game
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
             MouseState mouseState = Mouse.GetState();
             KeyboardState keyState = Keyboard.GetState();
 
