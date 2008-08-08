@@ -44,7 +44,7 @@ namespace TRA_Game
     public class TRA_Game : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-                SpriteBatch spriteBatch;
+        SpriteBatch spriteBatch;
         
         
         //Demo Stuff
@@ -53,7 +53,7 @@ namespace TRA_Game
         //It will not read this in from the EasyConfigLib, can someone fix this
         //bool FPS_Counter_On = config.SettingGroups["Debug_Features"].Settings["FPS_Counter_On"].GetValueAsBool();
         //Workaround for NOW, if u can see if u can get the code above working
-        bool FPS_Counter_On = true;
+        bool FPS_Counter_On = false; //Setting this to true messes up the Image
 
         public TRA_Game()
         {
