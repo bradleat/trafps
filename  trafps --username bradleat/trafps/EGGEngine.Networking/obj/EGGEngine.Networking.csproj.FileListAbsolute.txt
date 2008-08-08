@@ -13,3 +13,10 @@ C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\bin\x86\Release\EGGE
 C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Release\EGGEngine.Networking.dll
 C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Release\EGGEngine.Networking.pdb
 =======
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\bin\x86\Debug\EGGEngine.Networking.dll
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\bin\x86\Debug\EGGEngine.Networking.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Debug\EGGEngine.Networking.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Debug\EGGEngine.Networking.dll
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Debug\EGGEngine.Networking.pdb

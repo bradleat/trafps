@@ -1,1 +1,2 @@
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EasyConfig\Content\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\Content\obj\x86\Debug\ResolveAssemblyReference.cache

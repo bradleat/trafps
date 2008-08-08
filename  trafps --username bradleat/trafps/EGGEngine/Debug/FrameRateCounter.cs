@@ -18,6 +18,7 @@ namespace EGGEngine.Debug
         ContentManager content;
         SpriteBatch spriteBatch;
         SpriteFont spriteFont;
+        
 
         int frameRate = 0;
         int frameCounter = 0;
