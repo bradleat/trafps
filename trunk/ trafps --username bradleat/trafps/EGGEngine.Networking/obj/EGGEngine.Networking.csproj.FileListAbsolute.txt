@@ -1,3 +1,10 @@
 C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Release\ResolveAssemblyReference.cache
 C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Release\EGGEngine.Networking.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Release\EGGEngine.Networking.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EGGEngine.Networking\bin\x86\Release\EGGEngine.Networking.dll
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EGGEngine.Networking\bin\x86\Release\EGGEngine.Networking.pdb
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Release\EGGEngine.Networking.dll
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EGGEngine.Networking\obj\x86\Release\EGGEngine.Networking.pdb
