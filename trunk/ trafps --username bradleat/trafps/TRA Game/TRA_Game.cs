@@ -44,11 +44,16 @@ namespace TRA_Game
     public class TRA_Game : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+                SpriteBatch spriteBatch;
+        
         
         //Demo Stuff
         Model model;
-        FPSCamera camera;       
+        FPSCamera camera;
+        //It will not read this in from the EasyConfigLib, can someone fix this
+        //bool FPS_Counter_On = config.SettingGroups["Debug_Features"].Settings["FPS_Counter_On"].GetValueAsBool();
+        //Workaround for NOW, if u can see if u can get the code above working
+        bool FPS_Counter_On = true;
 
         public TRA_Game()
         {
@@ -67,7 +72,10 @@ namespace TRA_Game
             camera = new FPSCamera(GraphicsDevice.Viewport);
 
             // Comment this to remove the framerate counter
-            Components.Add(new FrameRateCounter(this));
+            if (FPS_Counter_On == true)
+            {
+                Components.Add(new FrameRateCounter(this));
+            }
 
             base.Initialize();
         }
