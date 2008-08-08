@@ -1,3 +1,23 @@
+﻿#region Licence
+// Compiler: Microsoft C#
+//
+// This file contains the Game Loop.
+//
+// This code is published under the Microsoft Reciprocal License (Ms-RL). A 
+// copy of the license should be distributed with the code. It can also be found
+// at the project website: http://www.CodePlex.com/trafps. This notice, the
+// author's name, and all copyright notices must remain intact in all
+// applications, documentation, and source files.
+//
+// Revision Number 2
+// Sign
+// Dustin Heffron, Revision 2
+// 
+// Todos: 
+//
+// ============================================================================ 
+#endregion
+
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
@@ -18,6 +38,7 @@ namespace NetworkingTestGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+               
 
         public Game1()
         {
@@ -33,7 +54,6 @@ namespace NetworkingTestGame
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
 
             base.Initialize();
         }
@@ -70,8 +90,6 @@ namespace NetworkingTestGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
-
             base.Update(gameTime);
         }
 
@@ -82,10 +100,8 @@ namespace NetworkingTestGame
         protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
-
             base.Draw(gameTime);
         }
     }
 }
+
