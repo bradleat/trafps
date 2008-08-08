@@ -1,19 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Debug\Font.spritefont</Source>
+      <Name>Debug\Font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\bin\x86\Release\Content\Debug\Font.xnb</Output>
+      <Time>2008-08-04T23:21:49.412+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Release</BuildConfiguration>
-      <RootDirectory>C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\Content\obj\x86\Release\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Release\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\Content\obj\x86\Release\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\bin\x86\Release\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2007-11-28T12:08:00+00:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2007-11-28T12:08:42+00:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2007-11-28T12:08:30+00:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2007-11-28T12:07:44+00:00</Value>
+      </Assembly>
+      <Assembly>
         <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\2.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2008-06-30T11:55:13.9361178-04:00</Value>
+        <Value>2008-05-06T15:50:05.1962+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

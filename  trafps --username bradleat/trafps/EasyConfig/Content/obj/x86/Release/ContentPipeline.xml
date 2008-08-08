@@ -5,15 +5,15 @@
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Release</BuildConfiguration>
-      <RootDirectory>C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\Content\obj\x86\Release\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\bin\x86\Release\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EasyConfig\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EasyConfig\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EasyConfig\Content\obj\x86\Release\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EasyConfig\bin\x86\Release\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\2.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2008-06-30T11:55:13.9361178-04:00</Value>
+        <Value>2008-05-06T15:50:05.1962+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
