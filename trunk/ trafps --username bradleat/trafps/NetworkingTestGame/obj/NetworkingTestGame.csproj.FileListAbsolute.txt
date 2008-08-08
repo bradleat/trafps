@@ -1,0 +1,7 @@
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\NetworkingTestGame\bin\x86\Release\NetworkingTestGame.exe
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\NetworkingTestGame\bin\x86\Release\NetworkingTestGame.pdb
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\NetworkingTestGame\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\NetworkingTestGame\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\NetworkingTestGame\obj\x86\Release\NetworkingTestGame.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\NetworkingTestGame\obj\x86\Release\NetworkingTestGame.exe
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\NetworkingTestGame\obj\x86\Release\NetworkingTestGame.pdb

@@ -8,3 +8,8 @@ C:\Users\Bradley\Desktop\trafps\trafps\GeneratedGeometryPipeline\bin\Xbox 360\Re
 C:\Users\Bradley\Desktop\trafps\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Release\ResolveAssemblyReference.cache
 C:\Users\Bradley\Desktop\trafps\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Release\GeneratedGeometryPipeline.dll
 C:\Users\Bradley\Desktop\trafps\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Release\GeneratedGeometryPipeline.pdb
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\GeneratedGeometryPipeline\bin\Xbox 360\Release\GeneratedGeometryPipeline.dll
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\GeneratedGeometryPipeline\bin\Xbox 360\Release\GeneratedGeometryPipeline.pdb
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Release\ResolveAssemblyReference.cache
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Release\GeneratedGeometryPipeline.dll
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Release\GeneratedGeometryPipeline.pdb

@@ -34,6 +34,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 using EGGEngine.Cameras;
+using EGGEngine.Debug;
 
 namespace TRA_Game
 {

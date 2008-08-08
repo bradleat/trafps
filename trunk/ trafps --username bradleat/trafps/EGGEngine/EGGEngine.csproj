@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Cameras\FPSCamera.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Debug\FrameRateCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
