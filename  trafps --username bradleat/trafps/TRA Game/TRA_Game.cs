@@ -65,6 +65,9 @@ namespace TRA_Game
         {
             camera = new FPSCamera(GraphicsDevice.Viewport);
 
+            // Comment this to remove the framerate counter
+            Components.Add(new FrameRateCounter(this));
+
             base.Initialize();
         }
 
