@@ -1,0 +1,7 @@
+C:\Users\Bradley\Desktop\trafps\trafps\JigLibX\bin\x86\Release\JigLibX.dll
+C:\Users\Bradley\Desktop\trafps\trafps\JigLibX\bin\x86\Release\JigLibX.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\JigLibX\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\trafps\trafps\JigLibX\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafps\trafps\JigLibX\obj\x86\Release\JigLibX.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafps\trafps\JigLibX\obj\x86\Release\JigLibX.dll
+C:\Users\Bradley\Desktop\trafps\trafps\JigLibX\obj\x86\Release\JigLibX.pdb

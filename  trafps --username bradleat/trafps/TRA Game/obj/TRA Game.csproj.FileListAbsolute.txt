@@ -1,0 +1,19 @@
+C:\Users\Bradley\Desktop\New Folder\TRA Game\TRA Game\bin\x86\Debug\TRA Game.exe
+C:\Users\Bradley\Desktop\New Folder\TRA Game\TRA Game\bin\x86\Debug\TRA Game.pdb
+C:\Users\Bradley\Desktop\New Folder\TRA Game\TRA Game\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\New Folder\TRA Game\TRA Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\New Folder\TRA Game\TRA Game\obj\x86\Debug\TRA_Game.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\New Folder\TRA Game\TRA Game\obj\x86\Debug\TRA Game.exe
+C:\Users\Bradley\Desktop\New Folder\TRA Game\TRA Game\obj\x86\Debug\TRA Game.pdb
+C:\Users\Bradley\Desktop\TRA Game\TRA Game\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\TRA Game\TRA Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\TRA Game\TRA Game\obj\x86\Debug\TRA_Game.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\TRA Game\TRA Game\obj\x86\Debug\TRA Game.exe
+C:\Users\Bradley\Desktop\TRA Game\TRA Game\obj\x86\Debug\TRA Game.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Debug\TRA_Game.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Debug\TRA Game.exe
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Debug\TRA Game.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\TRA Game.exe
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\TRA Game.pdb

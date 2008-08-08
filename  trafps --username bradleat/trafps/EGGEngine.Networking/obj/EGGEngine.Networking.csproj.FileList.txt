@@ -1,0 +1,3 @@
+obj\x86\Release\ResolveAssemblyReference.cache
+obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Release\EGGEngine.Networking.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
