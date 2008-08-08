@@ -1,0 +1,12 @@
+bin\x86\Release\TRA Game.exe
+bin\x86\Release\TRA Game.pdb
+obj\x86\Release\ResolveAssemblyReference.cache
+obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Release\TRA_Game.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Release\TRA Game.exe
+obj\x86\Release\TRA Game.pdb
+bin\x86\Release\EGGEngine.dll
+bin\x86\Release\EGGEngine.pdb
+bin\x86\Release\Content\terrain.xnb
+bin\x86\Release\Content\terrain%0.xnb
+bin\x86\Release\Content\sunset%0.xnb

@@ -1,0 +1,5 @@
+bin\Xbox 360\Release\GeneratedGeometryPipeline.dll
+bin\Xbox 360\Release\GeneratedGeometryPipeline.pdb
+obj\Xbox 360\Release\ResolveAssemblyReference.cache
+obj\Xbox 360\Release\GeneratedGeometryPipeline.dll
+obj\Xbox 360\Release\GeneratedGeometryPipeline.pdb

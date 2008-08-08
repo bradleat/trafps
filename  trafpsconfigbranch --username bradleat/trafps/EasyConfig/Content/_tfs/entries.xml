@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<entries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <entry name="" kind="folder" url="https://tfs05.codeplex.com:443/" path="$/easyconfig/EasyConfig/Content/" id="153412" changeset="9426" shadow="6d7b2a74c3fb4564b3b840983027b4ee" />
+  <entry name="Content.contentproj" kind="file" id="153413" changeset="9426" />
+</entries>

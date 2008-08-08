@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<entries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <entry name="" kind="folder" url="https://tfs05.codeplex.com:443/" path="$/easyconfig/EasyConfig/" id="7096" changeset="180" shadow="89397917413d48f092d86ccdff891ee5" />
+  <entry name="ConfigFile.cs" kind="file" id="7104" changeset="211" />
+  <entry name="Content" kind="folder" id="153412" changeset="9426" shadow="6d7b2a74c3fb4564b3b840983027b4ee" />
+  <entry name="EasyConfig.csproj" kind="file" id="7105" changeset="9426" />
+  <entry name="EasyConfigXbox.csproj" kind="file" id="9914" changeset="9426" />
+  <entry name="Properties" kind="folder" id="7106" changeset="180" shadow="a2fee6183db2421c80b2b3722a1c3ab6" />
+  <entry name="Setting.cs" kind="file" id="7107" changeset="211" />
+  <entry name="SettingsGroup.cs" kind="file" id="7108" changeset="211" />
+</entries>

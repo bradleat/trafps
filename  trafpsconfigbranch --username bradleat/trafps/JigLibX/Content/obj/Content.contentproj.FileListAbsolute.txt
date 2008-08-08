@@ -1,0 +1,4 @@
+C:\Users\Bradley\Desktop\trafps\trafps\JigLibX\Content\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\JigLibX\Content\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\trafps\trafps\JigLibX\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\JigLibX\Content\obj\x86\Debug\ResolveAssemblyReference.cache
