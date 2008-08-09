@@ -3,3 +3,8 @@ bin\Xbox 360\Release\GeneratedGeometryPipeline.pdb
 obj\Xbox 360\Release\ResolveAssemblyReference.cache
 obj\Xbox 360\Release\GeneratedGeometryPipeline.dll
 obj\Xbox 360\Release\GeneratedGeometryPipeline.pdb
+bin\Xbox 360\Debug\GeneratedGeometryPipeline.dll
+bin\Xbox 360\Debug\GeneratedGeometryPipeline.pdb
+obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+obj\Xbox 360\Debug\GeneratedGeometryPipeline.dll
+obj\Xbox 360\Debug\GeneratedGeometryPipeline.pdb

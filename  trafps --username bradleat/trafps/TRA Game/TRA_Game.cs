@@ -45,6 +45,10 @@ namespace TRA_Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        //Debugging Stuff
+        SpriteFont font;
+
         //Config File Stuff
         ConfigFile config = new ConfigFile("content\\config.ini");
 
@@ -92,9 +96,10 @@ namespace TRA_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //Demo stuff
-            model = Content.Load<Model>("terrain");
+            model = Content.Load<Model>("Ship");
 
-            // TODO: use this.Content to load your game content here
+            //Debugging Stuff
+            font = Content.Load<SpriteFont>("Debug\\Font");
         }
 
         /// <summary>
@@ -119,7 +124,7 @@ namespace TRA_Game
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
-                Exit();
+                this.Exit();
             }
             MouseState mouseState = Mouse.GetState();
             KeyboardState keyState = Keyboard.GetState();
@@ -135,12 +140,19 @@ namespace TRA_Game
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            graphics.GraphicsDevice.Clear(ClearOptions.Target | ClearOptions.DepthBuffer,
+                Color.CornflowerBlue, 1, 0);
+            
+            
             //Demo Stuff
             Matrix[] transforms = new Matrix[model.Bones.Count];
             model.CopyAbsoluteBoneTransformsTo(transforms);
 
+            GraphicsDevice.RenderState.CullMode = CullMode.None;
+            GraphicsDevice.RenderState.DepthBufferEnable = true; 
+            GraphicsDevice.RenderState.AlphaBlendEnable = false; 
+            GraphicsDevice.RenderState.AlphaTestEnable = false;
+           
             foreach (ModelMesh mesh in model.Meshes)
             {
                 foreach (BasicEffect effect in mesh.Effects)
@@ -153,7 +165,8 @@ namespace TRA_Game
                 }
                 mesh.Draw();
             }
-            base.Draw(gameTime);
+
+           base.Draw(gameTime);
         }
     }
 }
