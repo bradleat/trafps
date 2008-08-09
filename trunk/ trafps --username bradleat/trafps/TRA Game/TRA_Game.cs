@@ -2,7 +2,7 @@
 //=============================================================================
 // System  : Game Loop
 // File    : TRA_Game.cs
-// Author  : Dustin
+// Author  : Dustin, Bradley Leaterwood
 // Note    : Copyright 2008, Portal Games, All Rights Reserved
 // Compiler: Microsoft C#
 //
@@ -14,9 +14,6 @@
 // author's name, and all copyright notices must remain intact in all
 // applications, documentation, and source files.
 //
-// Revision Number 2
-// Sign
-// Dustin Heffron, Revision 2
 // 
 // Todos: 
 //

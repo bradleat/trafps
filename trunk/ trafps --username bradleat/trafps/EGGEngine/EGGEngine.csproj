@@ -53,7 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cameras\FPSCamera.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Debug\FrameRateCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,9 +61,6 @@
       <Project>8084c53f-51ff-425a-9d43-6b050efb6e17</Project>
       <Visible>False</Visible>
     </NestedContentProject>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Setings.ini" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyConfig\EasyConfig.csproj">

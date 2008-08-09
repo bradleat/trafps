@@ -1,3 +1,4 @@
+#region License
 //=============================================================================
 // System  : Cameras
 // File    : FPSCamera.cs
@@ -13,14 +14,15 @@
 // author's name, and all copyright notices must remain intact in all
 // applications, documentation, and source files.
 //
-// Revision Number 1
-// Sign
-// Dustin Heffron, Revision 1
 // 
 // Todos:   Add input handling for GamePad, find a way to integrate weapon 
-//          movement when the player looks around.
+//          movement when the player looks around. Or Create a movement system 
+//          links to the player, then physics, then updates the camera.
+//          The incorprate Weapon movement, etc. Read Bradleat's Topic on
+//          Codeplex
 //
 // ============================================================================ 
+#endregion
 
 using System;
 using System.Collections.Generic;
