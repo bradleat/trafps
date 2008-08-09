@@ -12,3 +12,5 @@ C:\Users\Bradley\Desktop\trafps\trafps\NetworkingTestGame\obj\x86\Debug\Microsof
 C:\Users\Bradley\Desktop\trafps\trafps\NetworkingTestGame\obj\x86\Debug\NetworkingTestGame.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Bradley\Desktop\trafps\trafps\NetworkingTestGame\obj\x86\Debug\NetworkingTestGame.exe
 C:\Users\Bradley\Desktop\trafps\trafps\NetworkingTestGame\obj\x86\Debug\NetworkingTestGame.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\NetworkingTestGame\bin\x86\Debug\EasyConfig.dll
+C:\Users\Bradley\Desktop\trafps\trafps\NetworkingTestGame\bin\x86\Debug\EasyConfig.pdb

@@ -48,3 +48,6 @@ C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\Content\sunset%0.x
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\Content\Debug\Font.xnb
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\EGGEngine.dll
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\EGGEngine.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\Content\config.ini
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\EasyConfig.dll
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\EasyConfig.pdb

@@ -33,8 +33,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+using EasyConfig;
 using EGGEngine.Cameras;
 using EGGEngine.Debug;
+
+
 
 namespace TRA_Game
 {
@@ -45,15 +48,16 @@ namespace TRA_Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        
-        
+        //Config File Stuff
+        ConfigFile config = new ConfigFile("content\\config.ini");
+
+
         //Demo Stuff
         Model model;
         FPSCamera camera;
-        //It will not read this in from the EasyConfigLib, can someone fix this
-        //bool FPS_Counter_On = config.SettingGroups["Debug_Features"].Settings["FPS_Counter_On"].GetValueAsBool();
-        //Workaround for NOW, if u can see if u can get the code above working
-        bool FPS_Counter_On = false; //Setting this to true messes up the Image
+
+        bool FPS_Counter_On;
+
 
         public TRA_Game()
         {
@@ -70,6 +74,7 @@ namespace TRA_Game
         protected override void Initialize()
         {
             camera = new FPSCamera(GraphicsDevice.Viewport);
+            FPS_Counter_On = config.SettingGroups["DebugFeatures"].Settings["FPSCounterOn"].GetValueAsBool();
 
             // Comment this to remove the framerate counter
             if (FPS_Counter_On == true)
@@ -88,7 +93,7 @@ namespace TRA_Game
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+
             //Demo stuff
             model = Content.Load<Model>("terrain");
 
@@ -145,7 +150,7 @@ namespace TRA_Game
                 {
                     effect.EnableDefaultLighting();
                     effect.World = Matrix.Identity;//transforms[mesh.ParentBone.Index] * 
-                        //Matrix.CreateTranslation(new Vector3(0, 0, -10));
+                    //Matrix.CreateTranslation(new Vector3(0, 0, -10));
                     effect.View = camera.ViewMatrix;
                     effect.Projection = camera.ProjectionMatrix;
                 }

@@ -71,13 +71,14 @@
     </NestedContentProject>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EasyConfig\EasyConfig.csproj">
+      <Project>{65ADC634-10D5-4F25-B765-0F804D3D19C9}</Project>
+      <Name>EasyConfig</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EGGEngine\EGGEngine.csproj">
       <Project>{64581985-40BE-44EF-8F40-6DA37AD71E2B}</Project>
       <Name>EGGEngine</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="config.ini" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\v2.0\Microsoft.Xna.GameStudio.Common.targets" />

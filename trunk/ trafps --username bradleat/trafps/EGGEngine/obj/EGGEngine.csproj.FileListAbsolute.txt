@@ -28,3 +28,5 @@ C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EGGEngine\obj\x86\Release\EGGEn
 C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\terrain.xnb
 C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\terrain%0.xnb
 C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\sunset%0.xnb
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\EasyConfig.dll
+C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\EasyConfig.pdb
