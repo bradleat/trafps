@@ -8,10 +8,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\bin\x86\Debug\Content\terrain.xnb</Output>
-      <Time>2008-08-08T18:39:42.223041-04:00</Time>
+      <Time>2008-08-08T19:48:39.540041-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\terrain%0.xml</Key>
-        <Value>2008-08-08T19:32:07.475041-04:00</Value>
+        <Value>2008-08-08T20:37:37.955041-04:00</Value>
       </Dependency>
       <Request>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\bin\x86\Debug\Content\terrain%0.xnb</Request>
       <Request>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\bin\x86\Debug\Content\sunset%0.xnb</Request>
@@ -21,7 +21,7 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\terrain%0.xml</Output>
-      <Time>2008-08-08T18:39:42.223041-04:00</Time>
+      <Time>2008-08-08T19:48:39.540041-04:00</Time>
     </Item>
     <Item>
       <Source>terrain.tga</Source>
@@ -36,7 +36,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\bin\x86\Debug\Content\terrain%0.xnb</Output>
-      <Time>2008-08-08T18:39:42.269041-04:00</Time>
+      <Time>2008-08-08T19:48:39.812041-04:00</Time>
     </Item>
     <Item>
       <Source>sunset.tga</Source>
@@ -51,7 +51,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine\bin\x86\Debug\Content\sunset%0.xnb</Output>
-      <Time>2008-08-08T18:39:42.228041-04:00</Time>
+      <Time>2008-08-08T19:48:39.673041-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

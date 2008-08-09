@@ -5,10 +5,10 @@
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
-      <RootDirectory>C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine.Networking\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine.Networking\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine.Networking\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine.Networking\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\EGGEngine.Networking\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
