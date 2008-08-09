@@ -1,7 +1,7 @@
 ﻿#region License
 //=============================================================================
 // System  : TRA Game.Networking
-// File    : NetworkHelper.cs
+// File    : SignIn.cs
 // Author  : EV
 // Note    : Copyright 2008, Portal Games, All Rights Reserved
 // Compiler: Microsoft C#
@@ -14,11 +14,6 @@
 // author's name, and all copyright notices must remain intact in all
 // applications, documentation, and source files.
 //
-// Revision Number (add one each time you edit code) 2
-// Sign:
-// Bradley Leatherwood, Revision 1
-// 
-// Todos: Design, Add Spectator code.
 //
 // ============================================================================ 
 #endregion

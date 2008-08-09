@@ -75,6 +75,10 @@
       <Project>{65ADC634-10D5-4F25-B765-0F804D3D19C9}</Project>
       <Name>EasyConfig</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EGGEngine.Networking\EGGEngine.Networking.csproj">
+      <Project>{38DFDC14-0F98-41F7-BBD4-0FE4B782080C}</Project>
+      <Name>EGGEngine.Networking</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\v2.0\Microsoft.Xna.GameStudio.Common.targets" />

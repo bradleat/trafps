@@ -14,11 +14,6 @@
 // author's name, and all copyright notices must remain intact in all
 // applications, documentation, and source files.
 //
-// Revision Number (add one each time you edit code) 2
-// Sign:
-// Bradley Leatherwood, Revision 1
-// 
-// Todos: Design, Add Spectator code.
 //
 // ============================================================================ 
 #endregion

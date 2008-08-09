@@ -16,9 +16,6 @@
 // author's name, and all copyright notices must remain intact in all
 // applications, documentation, and source files.
 //
-// Revision Number (add one each time you edit code) 1
-// Sign:
-// Bradley Leatherwood, Revision 1
 // 
 // Todos: Add in Try-Catch
 //
