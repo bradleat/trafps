@@ -5,3 +5,10 @@ obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
 obj\x86\Release\JigLibX.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
 obj\x86\Release\JigLibX.dll
 obj\x86\Release\JigLibX.pdb
+bin\x86\Debug\JigLibX.dll
+bin\x86\Debug\JigLibX.pdb
+obj\x86\Debug\ResolveAssemblyReference.cache
+obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Debug\JigLibX.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Debug\JigLibX.dll
+obj\x86\Debug\JigLibX.pdb

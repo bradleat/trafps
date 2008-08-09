@@ -8,3 +8,17 @@ obj\x86\Release\EGGEngine.pdb
 bin\x86\Release\Content\terrain.xnb
 bin\x86\Release\Content\terrain%0.xnb
 bin\x86\Release\Content\sunset%0.xnb
+bin\x86\Debug\Content\terrain.xnb
+bin\x86\Debug\Content\terrain%0.xnb
+bin\x86\Debug\Content\sunset%0.xnb
+bin\x86\Debug\EGGEngine.dll
+bin\x86\Debug\EGGEngine.pdb
+bin\x86\Debug\EasyConfig.dll
+bin\x86\Debug\EasyConfig.pdb
+obj\x86\Debug\ResolveAssemblyReference.cache
+obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Debug\EGGEngine.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Debug\EGGEngine.dll
+obj\x86\Debug\EGGEngine.pdb
+bin\x86\Debug\Content\Ship.xnb
+bin\x86\Debug\Content\ShipDiffuse%0.xnb

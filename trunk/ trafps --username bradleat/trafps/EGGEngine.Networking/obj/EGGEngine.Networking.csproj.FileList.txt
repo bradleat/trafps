@@ -1,3 +1,10 @@
 obj\x86\Release\ResolveAssemblyReference.cache
 obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
 obj\x86\Release\EGGEngine.Networking.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Debug\ResolveAssemblyReference.cache
+obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Debug\EGGEngine.Networking.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+bin\x86\Debug\EGGEngine.Networking.dll
+bin\x86\Debug\EGGEngine.Networking.pdb
+obj\x86\Debug\EGGEngine.Networking.dll
+obj\x86\Debug\EGGEngine.Networking.pdb

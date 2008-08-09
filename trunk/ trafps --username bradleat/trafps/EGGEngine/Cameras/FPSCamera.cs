@@ -132,7 +132,7 @@ namespace EGGEngine.Cameras
 
         private void AddToCameraPosition(Vector3 vectorToAdd)
         {
-            float moveSpeed = 1.0f;
+            float moveSpeed = 10.0f;
             Matrix cameraRotation = Matrix.CreateRotationX(upDownRot) *
                 Matrix.CreateRotationY(leftRightRot);
             Vector3 rotatedVector = Vector3.Transform
