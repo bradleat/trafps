@@ -74,7 +74,7 @@ namespace TRA_Game
         protected override void Initialize()
         {
             camera = new FPSCamera(GraphicsDevice.Viewport);
-            FPS_Counter_On = config.SettingGroups["Debug_Features"].Settings["FPS_Counter_On"].GetValueAsBool();
+            FPS_Counter_On = config.SettingGroups["DebugFeatures"].Settings["FPSCounterOn"].GetValueAsBool();
 
             // Comment this to remove the framerate counter
             if (FPS_Counter_On == true)

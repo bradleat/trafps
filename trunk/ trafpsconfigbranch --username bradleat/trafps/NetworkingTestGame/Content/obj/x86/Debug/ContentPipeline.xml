@@ -5,10 +5,10 @@
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
-      <RootDirectory>C:\Users\Bradley\Desktop\trafps\trafps\NetworkingTestGame\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Bradley\Desktop\trafps\trafps\NetworkingTestGame\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Bradley\Desktop\trafps\trafps\NetworkingTestGame\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Bradley\Desktop\trafps\trafps\NetworkingTestGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\NetworkingTestGame\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\NetworkingTestGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\NetworkingTestGame\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Bradley\Desktop\trafpsconfigbranch\trafps\NetworkingTestGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
