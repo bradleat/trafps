@@ -42,7 +42,6 @@ C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\obj\x86\Release\TRA Ga
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\bin\x86\Release\Content\Debug\Font.xnb
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\obj\x86\Release\EGGEngine.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\obj\x86\Debug\EGGEngine.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\Content\terrain.xnb
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\Content\terrain%0.xnb
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\Content\sunset%0.xnb
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\Content\Debug\Font.xnb
@@ -51,3 +50,4 @@ C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\EGGEngine.pdb
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\Content\config.ini
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\EasyConfig.dll
 C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\EasyConfig.pdb
+C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\bin\x86\Debug\Content\Ship.xnb
