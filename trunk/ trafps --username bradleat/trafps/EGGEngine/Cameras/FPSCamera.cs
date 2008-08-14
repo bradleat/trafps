@@ -31,6 +31,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
+using EGGEngine.Helpers;
 
 namespace EGGEngine.Cameras
 {
@@ -45,6 +46,8 @@ namespace EGGEngine.Cameras
         const float rotationSpeed = 0.005f;
         Vector3 cameraPosition;
         MouseState originalMouseState;
+
+        InputHelper input;
 
         #region Properties
         public float UpDownRot
@@ -102,9 +105,10 @@ namespace EGGEngine.Cameras
 
             Mouse.SetPosition(viewPort.Width / 2, viewPort.Height / 2);
             originalMouseState = Mouse.GetState();
+            input = new InputHelper();
         }
 
-        public void Update(MouseState currentMouseState, KeyboardState keyState)
+        public void Update(MouseState currentMouseState)
         {
             if (currentMouseState != originalMouseState)
             {
@@ -116,17 +120,17 @@ namespace EGGEngine.Cameras
                 UpdateViewMatrix();
             }
 
-            if (keyState.IsKeyDown(Keys.Up) || keyState.IsKeyDown(Keys.W))
+            if (input.KeyDown(Keys.Up))
                 AddToCameraPosition(new Vector3(0, 0, -1));
-            if (keyState.IsKeyDown(Keys.Down) || keyState.IsKeyDown(Keys.S))
+            if (input.KeyDown(Keys.Down))
                 AddToCameraPosition(new Vector3(0, 0, 1));
-            if (keyState.IsKeyDown(Keys.Right) || keyState.IsKeyDown(Keys.D))
+            if (input.KeyDown(Keys.Right))
                 AddToCameraPosition(new Vector3(1, 0, 0));
-            if (keyState.IsKeyDown(Keys.Left) || keyState.IsKeyDown(Keys.A))
+            if (input.KeyDown(Keys.Left))
                 AddToCameraPosition(new Vector3(-1, 0, 0));
-            if (keyState.IsKeyDown(Keys.Q))
+            if (input.KeyDown(Keys.Q))
                 AddToCameraPosition(new Vector3(0, 1, 0));
-            if (keyState.IsKeyDown(Keys.Z))
+            if (input.KeyDown(Keys.Z))
                 AddToCameraPosition(new Vector3(0, -1, 0));
         }
 

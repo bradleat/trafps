@@ -20,6 +20,7 @@
 // ============================================================================ 
 #endregion
 
+#region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
@@ -33,8 +34,8 @@ using Microsoft.Xna.Framework.Storage;
 using EasyConfig;
 using EGGEngine.Cameras;
 using EGGEngine.Debug;
-
-
+using EGGEngine.Helpers;
+#endregion
 
 namespace TRA_Game
 {
@@ -46,24 +47,22 @@ namespace TRA_Game
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        //Debugging Stuff
-        SpriteFont font;
-
         //Config File Stuff
         ConfigFile config = new ConfigFile("content\\config.ini");
-
-
+        
         //Demo Stuff
         Model model;
         FPSCamera camera;
 
         bool FPS_Counter_On;
 
+        InputHelper input;
 
         public TRA_Game()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            input = new InputHelper();
         }
 
         /// <summary>
@@ -97,9 +96,6 @@ namespace TRA_Game
 
             //Demo stuff
             model = Content.Load<Model>("Ship");
-
-            //Debugging Stuff
-            font = Content.Load<SpriteFont>("Debug\\Font");
         }
 
         /// <summary>
@@ -119,17 +115,16 @@ namespace TRA_Game
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            if (input.ButtonDown(Buttons.B))
                 this.Exit();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (input.KeyDown(Keys.Escape))
             {
                 this.Exit();
             }
             MouseState mouseState = Mouse.GetState();
-            KeyboardState keyState = Keyboard.GetState();
 
-            camera.Update(mouseState, keyState);
+            camera.Update(mouseState);
 
             base.Update(gameTime);
         }
