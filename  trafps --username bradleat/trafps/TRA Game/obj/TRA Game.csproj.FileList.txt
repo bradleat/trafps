@@ -10,9 +10,6 @@ bin\x86\Release\EGGEngine.pdb
 bin\x86\Release\Content\terrain.xnb
 bin\x86\Release\Content\terrain%0.xnb
 bin\x86\Release\Content\sunset%0.xnb
-bin\x86\Debug\Content\terrain.xnb
-bin\x86\Debug\Content\terrain%0.xnb
-bin\x86\Debug\Content\sunset%0.xnb
 bin\x86\Debug\Content\Debug\Font.xnb
 bin\x86\Debug\Content\config.ini
 bin\x86\Debug\TRA Game.exe

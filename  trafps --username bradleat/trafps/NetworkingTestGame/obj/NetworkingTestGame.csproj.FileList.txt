@@ -1,0 +1,12 @@
+obj\x86\Debug\ResolveAssemblyReference.cache
+obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Debug\NetworkingTestGame.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Debug\NetworkingTestGame.exe
+obj\x86\Debug\NetworkingTestGame.pdb
+bin\x86\Debug\Content\Arial.xnb
+bin\x86\Debug\NetworkingTestGame.exe
+bin\x86\Debug\NetworkingTestGame.pdb
+bin\x86\Debug\EasyConfig.dll
+bin\x86\Debug\EGGEngine.Networking.dll
+bin\x86\Debug\EasyConfig.pdb
+bin\x86\Debug\EGGEngine.Networking.pdb
