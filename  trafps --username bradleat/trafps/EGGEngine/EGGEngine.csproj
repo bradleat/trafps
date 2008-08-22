@@ -58,6 +58,8 @@
     <Compile Include="Debug\FrameRateCounter.cs" />
     <Compile Include="Helpers\InputHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rendering\DrawableModel.cs" />
+    <Compile Include="Rendering\PostProcessing.cs" />
   </ItemGroup>
   <ItemGroup>
     <NestedContentProject Include="Content\Content.contentproj">

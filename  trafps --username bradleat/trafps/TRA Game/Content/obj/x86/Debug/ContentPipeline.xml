@@ -7,32 +7,57 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Debug\Font.xnb</Output>
+      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Debug\Font.xnb</Output>
       <Time>2008-08-09T11:49:07.6875-07:00</Time>
     </Item>
     <Item>
-      <Source>Ship.fbx</Source>
-      <Name>Ship</Name>
+      <Source>Models\Ship.fbx</Source>
+      <Name>Models\Ship</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Ship.xnb</Output>
+      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\Ship.xnb</Output>
       <Time>2008-08-10T12:31:18.625-07:00</Time>
       <Dependency>
-        <Key>obj\x86\Debug\Ship%0.xml</Key>
-        <Value>2008-08-10T12:31:52.578125-07:00</Value>
+        <Key>obj\x86\Debug\Models\Ship%0.xml</Key>
+        <Value>2008-08-22T09:27:28.953125-07:00</Value>
       </Dependency>
-      <Request>C:\Documents and Settings\Administrator\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\ShipDiffuse%0.xnb</Request>
+      <Request>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\ShipDiffuse%0.xnb</Request>
     </Item>
     <Item>
-      <Source>Ship.fbx</Source>
+      <Source>Models\model.x</Source>
+      <Name>Models\model</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\model.xnb</Output>
+      <Time>2008-08-15T08:32:46.59375-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\model%0.xml</Key>
+        <Value>2008-08-22T09:27:29.640625-07:00</Value>
+      </Dependency>
+      <Request>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-359.RdBitmap%0.xnb</Request>
+      <Request>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35b.RdBitmap%0.xnb</Request>
+      <Request>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35d.RdBitmap%0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Effects\PostProcessing.fx</Source>
+      <Name>Effects\PostProcessing</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Effects\PostProcessing.xnb</Output>
+      <Time>2008-08-21T06:33:53.453125-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ship.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Ship%0.xml</Output>
+      <Output>obj\x86\Debug\Models\Ship%0.xml</Output>
       <Time>2008-08-10T12:31:18.625-07:00</Time>
     </Item>
     <Item>
-      <Source>ShipDiffuse.tga</Source>
+      <Source>Models\ShipDiffuse.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -43,17 +68,69 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\ShipDiffuse%0.xnb</Output>
-      <Time>2008-08-10T12:31:18.609375-07:00</Time>
+      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\ShipDiffuse%0.xnb</Output>
+      <Time>2008-08-21T06:56:09.984375-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\model.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\model%0.xml</Output>
+      <Time>2008-08-15T08:32:46.59375-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-359.RdBitmap.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-359.RdBitmap%0.xnb</Output>
+      <Time>2008-08-21T06:56:34.28125-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35b.RdBitmap.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35b.RdBitmap%0.xnb</Output>
+      <Time>2008-08-21T06:56:34.296875-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35d.RdBitmap.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35d.RdBitmap%0.xnb</Output>
+      <Time>2008-08-21T06:56:34.296875-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
-      <RootDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games\trafps\TRA Game\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games\trafps\TRA Game\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games\trafps\TRA Game\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

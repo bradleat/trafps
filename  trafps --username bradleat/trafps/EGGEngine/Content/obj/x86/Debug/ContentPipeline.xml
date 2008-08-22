@@ -5,10 +5,10 @@
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
-      <RootDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games\trafps\EGGEngine\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games\trafps\EGGEngine\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games\trafps\EGGEngine\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games\trafps\EGGEngine\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\EGGEngine\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\EGGEngine\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\EGGEngine\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\EGGEngine\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
