@@ -7,8 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Debug\Font.xnb</Output>
-      <Time>2008-08-09T11:49:07.6875-07:00</Time>
+      <Output>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Debug\Font.xnb</Output>
+      <Time>2008-08-21T21:46:09.71-04:00</Time>
     </Item>
     <Item>
       <Source>Models\Ship.fbx</Source>
@@ -16,13 +16,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\Ship.xnb</Output>
-      <Time>2008-08-10T12:31:18.625-07:00</Time>
+      <Output>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\Ship.xnb</Output>
+      <Time>2008-08-21T22:00:59.172-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ship%0.xml</Key>
-        <Value>2008-08-22T09:27:28.953125-07:00</Value>
+        <Value>2008-08-21T22:01:29.171-04:00</Value>
       </Dependency>
-      <Request>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\ShipDiffuse%0.xnb</Request>
+      <Request>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\ShipDiffuse%0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\model.x</Source>
@@ -30,15 +30,15 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\model.xnb</Output>
-      <Time>2008-08-15T08:32:46.59375-07:00</Time>
+      <Output>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\model.xnb</Output>
+      <Time>2008-08-21T22:07:27.917-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\model%0.xml</Key>
-        <Value>2008-08-22T09:27:29.640625-07:00</Value>
+        <Value>2008-08-21T22:10:01.344-04:00</Value>
       </Dependency>
-      <Request>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-359.RdBitmap%0.xnb</Request>
-      <Request>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35b.RdBitmap%0.xnb</Request>
-      <Request>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35d.RdBitmap%0.xnb</Request>
+      <Request>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-359.RdBitmap%0.xnb</Request>
+      <Request>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35b.RdBitmap%0.xnb</Request>
+      <Request>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35d.RdBitmap%0.xnb</Request>
     </Item>
     <Item>
       <Source>Effects\PostProcessing.fx</Source>
@@ -46,15 +46,15 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Effects\PostProcessing.xnb</Output>
-      <Time>2008-08-21T06:33:53.453125-07:00</Time>
+      <Output>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Effects\PostProcessing.xnb</Output>
+      <Time>2008-08-21T22:00:48.878-04:00</Time>
     </Item>
     <Item>
       <Source>Models\Ship.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Ship%0.xml</Output>
-      <Time>2008-08-10T12:31:18.625-07:00</Time>
+      <Time>2008-08-21T22:00:59.172-04:00</Time>
     </Item>
     <Item>
       <Source>Models\ShipDiffuse.tga</Source>
@@ -68,15 +68,15 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\ShipDiffuse%0.xnb</Output>
-      <Time>2008-08-21T06:56:09.984375-07:00</Time>
+      <Output>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\ShipDiffuse%0.xnb</Output>
+      <Time>2008-08-21T22:00:59.182-04:00</Time>
     </Item>
     <Item>
       <Source>Models\model.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\model%0.xml</Output>
-      <Time>2008-08-15T08:32:46.59375-07:00</Time>
+      <Time>2008-08-21T22:07:27.917-04:00</Time>
     </Item>
     <Item>
       <Source>Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-359.RdBitmap.jpg</Source>
@@ -90,8 +90,8 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-359.RdBitmap%0.xnb</Output>
-      <Time>2008-08-21T06:56:34.28125-07:00</Time>
+      <Output>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-359.RdBitmap%0.xnb</Output>
+      <Time>2008-08-21T22:07:27.832-04:00</Time>
     </Item>
     <Item>
       <Source>Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35b.RdBitmap.jpg</Source>
@@ -105,8 +105,8 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35b.RdBitmap%0.xnb</Output>
-      <Time>2008-08-21T06:56:34.296875-07:00</Time>
+      <Output>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35b.RdBitmap%0.xnb</Output>
+      <Time>2008-08-21T22:07:27.974-04:00</Time>
     </Item>
     <Item>
       <Source>Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35d.RdBitmap.jpg</Source>
@@ -120,38 +120,38 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35d.RdBitmap%0.xnb</Output>
-      <Time>2008-08-21T06:56:34.296875-07:00</Time>
+      <Output>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35d.RdBitmap%0.xnb</Output>
+      <Time>2008-08-21T22:07:28.002-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
-      <RootDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Documents and Settings\Administrator\Desktop\Portal Games (Dustin)\trafps\TRA Game\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2007-11-28T12:08:00-08:00</Value>
+        <Key>c:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2007-11-28T12:08:00-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2007-11-28T12:08:42-08:00</Value>
+        <Key>c:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2007-11-28T12:08:42-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2007-11-28T12:08:30-08:00</Value>
+        <Key>c:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2007-11-28T12:08:30-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2007-11-28T12:07:44-08:00</Value>
+        <Key>c:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2007-11-28T12:07:44-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\2.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2008-08-06T12:47:31.71875-07:00</Value>
+        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\2.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2008-06-30T11:55:13.9361178-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
