@@ -35,6 +35,7 @@ using EasyConfig;
 using EGGEngine.Cameras;
 using EGGEngine.Debug;
 using EGGEngine.Helpers;
+using EGGEngine.Rendering;
 #endregion
 
 namespace TRA_Game
@@ -51,9 +52,11 @@ namespace TRA_Game
         ConfigFile config = new ConfigFile("content\\config.ini");
         
         //Demo Stuff
-        Model model;
+        DrawableModel model;
         FPSCamera camera;
+        PostProcessing postProc; 
 
+        //Debugging Stuff
         bool FPS_Counter_On;
 
         InputHelper input;
@@ -76,6 +79,10 @@ namespace TRA_Game
             camera = new FPSCamera(GraphicsDevice.Viewport);
             FPS_Counter_On = config.SettingGroups["DebugFeatures"].Settings["FPSCounterOn"].GetValueAsBool();
 
+            string name = config.SettingGroups["Filenames"].Settings["model"].GetValueAsString();
+
+            model = new DrawableModel(Content.Load<Model>(name), Matrix.Identity);
+            
             // Comment this to remove the framerate counter
             if (FPS_Counter_On == true)
             {
@@ -95,7 +102,8 @@ namespace TRA_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //Demo stuff
-            model = Content.Load<Model>("Ship");
+            postProc = new PostProcessing(GraphicsDevice);
+            postProc.LoadEffect(Content, "Effects\\PostProcessing");
         }
 
         /// <summary>
@@ -126,6 +134,11 @@ namespace TRA_Game
 
             camera.Update(mouseState);
 
+            model.WorldMatrix = Matrix.CreateScale(5.0f)
+                * Matrix.CreateRotationY(MathHelper.ToRadians(0))
+                * Matrix.CreateTranslation(new Vector3(0, 0, -50));
+            model.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
+
             base.Update(gameTime);
         }
 
@@ -137,31 +150,23 @@ namespace TRA_Game
         {
             graphics.GraphicsDevice.Clear(ClearOptions.Target | ClearOptions.DepthBuffer,
                 Color.CornflowerBlue, 1, 0);
-            
-            
+                        
             //Demo Stuff
-            Matrix[] transforms = new Matrix[model.Bones.Count];
-            model.CopyAbsoluteBoneTransformsTo(transforms);
-
             GraphicsDevice.RenderState.CullMode = CullMode.None;
             GraphicsDevice.RenderState.DepthBufferEnable = true; 
             GraphicsDevice.RenderState.AlphaBlendEnable = false; 
             GraphicsDevice.RenderState.AlphaTestEnable = false;
-           
-            foreach (ModelMesh mesh in model.Meshes)
-            {
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.EnableDefaultLighting();
-                    effect.World = Matrix.Identity;//transforms[mesh.ParentBone.Index] * 
-                    //Matrix.CreateTranslation(new Vector3(0, 0, -10));
-                    effect.View = camera.ViewMatrix;
-                    effect.Projection = camera.ProjectionMatrix;
-                }
-                mesh.Draw();
-            }
 
-           base.Draw(gameTime);
+            model.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
+
+            //Demo Stuff
+            if (input.KeyDown(Keys.I))
+                postProc.PostProcess("Invert");
+            if (input.KeyDown(Keys.T))
+                postProc.PostProcess("TimeChange",
+                    (float)gameTime.TotalGameTime.TotalMilliseconds / 1000.0f);
+
+            base.Draw(gameTime);
         }
     }
 }

@@ -11,7 +11,6 @@ bin\x86\Release\Content\terrain.xnb
 bin\x86\Release\Content\terrain%0.xnb
 bin\x86\Release\Content\sunset%0.xnb
 bin\x86\Debug\Content\Debug\Font.xnb
-bin\x86\Debug\Content\config.ini
 bin\x86\Debug\TRA Game.exe
 bin\x86\Debug\TRA Game.pdb
 bin\x86\Debug\EasyConfig.dll
@@ -23,5 +22,11 @@ obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 obj\x86\Debug\EGGEngine.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
 obj\x86\Debug\TRA Game.exe
 obj\x86\Debug\TRA Game.pdb
-bin\x86\Debug\Content\Ship.xnb
-bin\x86\Debug\Content\ShipDiffuse%0.xnb
+bin\x86\Debug\Content\Models\Ship.xnb
+bin\x86\Debug\Content\Models\model.xnb
+bin\x86\Debug\Content\Effects\PostProcessing.xnb
+bin\x86\Debug\Content\Models\ShipDiffuse%0.xnb
+bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-359.RdBitmap%0.xnb
+bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35b.RdBitmap%0.xnb
+bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35d.RdBitmap%0.xnb
+bin\x86\Debug\Content\config.ini
