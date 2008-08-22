@@ -12,3 +12,10 @@ C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\Microsoft.Xna.Fr
 C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\EasyConfig.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\EasyConfig.dll
 C:\Users\Bradley\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\EasyConfig.pdb
+C:\Users\Bradley\Desktop\EGGEngine\trafps\EasyConfig\bin\x86\Debug\EasyConfig.dll
+C:\Users\Bradley\Desktop\EGGEngine\trafps\EasyConfig\bin\x86\Debug\EasyConfig.pdb
+C:\Users\Bradley\Desktop\EGGEngine\trafps\EasyConfig\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\EGGEngine\trafps\EasyConfig\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\EGGEngine\trafps\EasyConfig\obj\x86\Debug\EasyConfig.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\EGGEngine\trafps\EasyConfig\obj\x86\Debug\EasyConfig.dll
+C:\Users\Bradley\Desktop\EGGEngine\trafps\EasyConfig\obj\x86\Debug\EasyConfig.pdb

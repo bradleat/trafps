@@ -1,2 +1,3 @@
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\NetworkingTestGame\Content\obj\x86\Release\ResolveAssemblyReference.cache
 C:\Users\Bradley\Desktop\trafps\trafps\NetworkingTestGame\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\EGGEngine\trafps\NetworkingTestGame\Content\obj\x86\Debug\ResolveAssemblyReference.cache
