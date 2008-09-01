@@ -34,8 +34,8 @@ using Microsoft.Xna.Framework.Storage;
 using EasyConfig;
 using EGGEngine.Cameras;
 using EGGEngine.Debug;
-using EGGEngine.Helpers;
 using EGGEngine.Rendering;
+using EGGEngine.Helpers;
 #endregion
 
 namespace TRA_Game
@@ -48,17 +48,20 @@ namespace TRA_Game
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        //Config File Stuff
-        ConfigFile config = new ConfigFile("content\\config.ini");
-        
-        //Demo Stuff
-        DrawableModel model;
-        FPSCamera camera;
-        PostProcessing postProc; 
-
         //Debugging Stuff
         bool FPS_Counter_On;
 
+        Vector3 temp = new Vector3(0, 0, -50);
+        
+        //Config File Stuff
+        ConfigFile config = new ConfigFile("content\\config.ini");
+
+        //Demo Stuff
+        DrawableModel model1;
+        Model model2;
+        FPSCamera camera;
+        PostProcessing postProc;
+        Vector3 translate = Vector3.Zero;
         InputHelper input;
 
         public TRA_Game()
@@ -80,9 +83,11 @@ namespace TRA_Game
             FPS_Counter_On = config.SettingGroups["DebugFeatures"].Settings["FPSCounterOn"].GetValueAsBool();
 
             string name = config.SettingGroups["Filenames"].Settings["model"].GetValueAsString();
+            model1 = new DrawableModel(Content.Load<Model>(name), Matrix.Identity);
 
-            model = new DrawableModel(Content.Load<Model>(name), Matrix.Identity);
-            
+            name = config.SettingGroups["Filenames"].Settings["model2"].GetValueAsString();
+            model2 = Content.Load<Model>(name);
+
             // Comment this to remove the framerate counter
             if (FPS_Counter_On == true)
             {
@@ -125,20 +130,28 @@ namespace TRA_Game
             // Allows the game to exit
             if (input.ButtonDown(Buttons.B))
                 this.Exit();
-
+            Window.Title = model1.temp.ToString();
             if (input.KeyDown(Keys.Escape))
             {
                 this.Exit();
             }
             MouseState mouseState = Mouse.GetState();
 
-            camera.Update(mouseState);
+            if (input.KeyDown(Keys.S))
+                camera.AddToCameraPosition(new Vector3(0, 0, 1), ref temp);
+            if (input.KeyDown(Keys.W))
+                camera.AddToCameraPosition(new Vector3(0, 0, -1), ref temp);
+            if (input.KeyDown(Keys.A))
+                camera.AddToCameraPosition(new Vector3(-1, 0, 0), ref temp);
+            if (input.KeyDown(Keys.D))
+                camera.AddToCameraPosition(new Vector3(1, 0, 0), ref temp);
 
-            model.WorldMatrix = Matrix.CreateScale(5.0f)
-                * Matrix.CreateRotationY(MathHelper.ToRadians(0))
-                * Matrix.CreateTranslation(new Vector3(0, 0, -50));
-            model.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
+            model1.Position = temp;
+           
+            camera.Update(mouseState, model1.Position);
 
+            model1.WorldMatrix = Matrix.CreateScale(5.0f) * Matrix.CreateRotationY(4.05f);
+             
             base.Update(gameTime);
         }
 
@@ -150,14 +163,25 @@ namespace TRA_Game
         {
             graphics.GraphicsDevice.Clear(ClearOptions.Target | ClearOptions.DepthBuffer,
                 Color.CornflowerBlue, 1, 0);
-                        
-            //Demo Stuff
+            
             GraphicsDevice.RenderState.CullMode = CullMode.None;
             GraphicsDevice.RenderState.DepthBufferEnable = true; 
             GraphicsDevice.RenderState.AlphaBlendEnable = false; 
             GraphicsDevice.RenderState.AlphaTestEnable = false;
 
-            model.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
+            model1.Draw(camera);
+
+            foreach (ModelMesh mesh in model2.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.EnableDefaultLighting();
+                    effect.World = Matrix.Identity;
+                    effect.View = camera.ViewMatrix;
+                    effect.Projection = camera.ProjectionMatrix;
+                }
+                mesh.Draw();
+            }
 
             //Demo Stuff
             if (input.KeyDown(Keys.I))
@@ -166,7 +190,7 @@ namespace TRA_Game
                 postProc.PostProcess("TimeChange",
                     (float)gameTime.TotalGameTime.TotalMilliseconds / 1000.0f);
 
-            base.Draw(gameTime);
+           base.Draw(gameTime);
         }
     }
 }

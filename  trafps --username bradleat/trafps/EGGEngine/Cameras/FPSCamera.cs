@@ -45,8 +45,10 @@ namespace EGGEngine.Cameras
         float upDownRot;
         const float rotationSpeed = 0.005f;
         Vector3 cameraPosition;
-        MouseState originalMouseState;
+        Vector3 modelPosition;
 
+        Matrix cameraRotation;
+        MouseState originalMouseState;
         InputHelper input;
 
         #region Properties
@@ -80,6 +82,10 @@ namespace EGGEngine.Cameras
                 UpdateViewMatrix();
             }
         }
+        public Matrix CameraRotation
+        {
+            get { return cameraRotation; }
+        }
         #endregion
 
         public FPSCamera(Viewport viewPort)
@@ -94,7 +100,7 @@ namespace EGGEngine.Cameras
             this.upDownRot = udRot;
             this.cameraPosition = startingPos;
             this.viewPort = viewPort;
-
+        
             float viewAngle = MathHelper.PiOver4;
             float nearPlane = 0.5f;
             float farPlane = 10000.0f;
@@ -108,8 +114,9 @@ namespace EGGEngine.Cameras
             input = new InputHelper();
         }
 
-        public void Update(MouseState currentMouseState)
+        public void Update(MouseState currentMouseState, Vector3 modelPosition)
         {
+            this.modelPosition = modelPosition;
             if (currentMouseState != originalMouseState)
             {
                 float xDifference = currentMouseState.X - originalMouseState.X;
@@ -117,9 +124,11 @@ namespace EGGEngine.Cameras
                 leftRightRot -= rotationSpeed * xDifference;
                 upDownRot -= rotationSpeed * yDifference;
                 Mouse.SetPosition(viewPort.Width / 2, viewPort.Height / 2);
-                UpdateViewMatrix();
-            }
 
+            }
+            UpdateViewMatrix();
+
+/*
             if (input.KeyDown(Keys.Up))
                 AddToCameraPosition(new Vector3(0, 0, -1));
             if (input.KeyDown(Keys.Down))
@@ -132,37 +141,52 @@ namespace EGGEngine.Cameras
                 AddToCameraPosition(new Vector3(0, 1, 0));
             if (input.KeyDown(Keys.Z))
                 AddToCameraPosition(new Vector3(0, -1, 0));
+ * */
         }
 
-        private void AddToCameraPosition(Vector3 vectorToAdd)
+        public void AddToCameraPosition(Vector3 vectorToAdd, ref Vector3 position)
         {
             float moveSpeed = 10.0f;
-            Matrix cameraRotation = Matrix.CreateRotationX(upDownRot) *
-                Matrix.CreateRotationY(leftRightRot);
+           // Matrix cameraRotation = Matrix.CreateRotationX(upDownRot) *
+             //   Matrix.CreateRotationY(leftRightRot);
             Vector3 rotatedVector = Vector3.Transform
                 (vectorToAdd, cameraRotation);
-            cameraPosition += moveSpeed * rotatedVector;
+            position += moveSpeed * rotatedVector;
             UpdateViewMatrix();
         }
 
         private void UpdateViewMatrix()
         {
-            Matrix cameraRotation = Matrix.CreateRotationX(upDownRot) *
+            cameraRotation = Matrix.CreateRotationX(upDownRot) *
                 Matrix.CreateRotationY(leftRightRot);
 
             Vector3 cameraOriginalTarget = new Vector3(0, 0, -1);
             Vector3 cameraOriginalUpVector = new Vector3(0, 1, 0);
 
+            UpdateModelView(cameraRotation);
+            
             Vector3 cameraRotatedTarget = Vector3.Transform
                 (cameraOriginalTarget, cameraRotation);
             Vector3 cameraFinalTarget = cameraPosition + cameraRotatedTarget;
 
             Vector3 cameraRotatedUpVector = Vector3.Transform
                 (cameraOriginalUpVector, cameraRotation);
-            Vector3 cameraFinalUpVector = cameraPosition + cameraRotatedUpVector;
+            Vector3 cameraFinalUpVector = cameraPosition + cameraRotatedUpVector;        
 
             viewMatrix = Matrix.CreateLookAt(cameraPosition,
-                cameraFinalTarget, cameraRotatedUpVector);
+                cameraFinalTarget, cameraRotatedUpVector);            
         }
+
+        private void UpdateModelView(Matrix rotation)
+        {
+
+            //Change the Z value of the offset to 0 for complete first-person mode
+            Vector3 avatarHeadOffset = new Vector3(-8, 20, 20);
+
+            Vector3 headOffset = Vector3.Transform(avatarHeadOffset, rotation);
+
+            cameraPosition = modelPosition + headOffset;
+        }
+
     }
 }
