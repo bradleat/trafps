@@ -25,7 +25,7 @@ namespace EGGEngine.Networking
      public class SendNetworkData
     {
         NetworkHelper networkHelper = new NetworkHelper();
-
+         /*
         /// <summary>
         /// Send all server data
         /// </summary>
@@ -51,6 +51,6 @@ namespace EGGEngine.Networking
                 networkHelper.session.LocalGamers[0].SendData(networkHelper.ClientPacketWriter,
                     SendDataOptions.InOrder, networkHelper.session.Host);
             }
-        }
+        }*/
     }
 }

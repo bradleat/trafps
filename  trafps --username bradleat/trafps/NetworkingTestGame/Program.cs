@@ -9,7 +9,7 @@ namespace NetworkingTestGame
         /// </summary>
         static void Main(string[] args)
         {
-            using (NetworkingTestGame game = new NetworkingTestGame())
+            using (Game1 game = new Game1())
             {
                 game.Run();
             }

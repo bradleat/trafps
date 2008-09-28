@@ -35,50 +35,50 @@ namespace EGGEngine.Networking
     {
          NetworkHelper networkHelper = new NetworkHelper();
          HandleEvents eventHandler = new HandleEvents();
-
-        public void CreateSession(NetworkSessionType sessionType, int maxLocalPlayers, int maxGamers, 
-            int privateSlots, NetworkSessionProperties properties)
+/*
+        public void CreateSession(NetworkSessionType sessionType, int maxLocalPlayers, int maxGamers)
         {
             if (networkHelper.session == null)
             {
-                networkHelper.session = NetworkSession.Create(sessionType, maxLocalPlayers, 
-                    maxGamers, privateSlots, properties);
+                networkHelper.session = NetworkSession.Create(sessionType, maxLocalPlayers, maxGamers);
 
                 // If the host goes out, another machine will asume as a new host
                 networkHelper.session.AllowHostMigration = true;
                 // Allow players to join a game in progress
                 networkHelper.session.AllowJoinInProgress = true;
-
-                eventHandler.HookSessionEvents();
             }
         }
 
-        public void FindSession(NetworkSessionType sessionType, int maxLocalPlayers, NetworkSessionProperties properties)
+        /// <summary>
+        /// Joins an existing network session.
+        /// </summary>
+        public void JoinSession(NetworkSessionType sessionType, int maxLoxalGamers,
+            NetworkSessionProperties sessionProperties) 
         {
-            // all sessions found
-            AvailableNetworkSessionCollection availableSessions;
-            // The session we'll join
-            AvailableNetworkSession availableSession = null;
 
-            availableSessions = NetworkSession.Find(sessionType, maxLocalPlayers, properties);
-
-            // Get a session with available gamer slots
-            foreach (AvailableNetworkSession  curSession in availableSessions)
+            try
             {
-                int TotalSessionSlots = curSession.OpenPublicGamerSlots + curSession.OpenPrivateGamerSlots;
-                if (TotalSessionSlots > curSession.CurrentGamerCount)
+                // Search for sessions.
+                using (AvailableNetworkSessionCollection availableSessions =
+                            NetworkSession.Find(sessionType, maxLoxalGamers, sessionProperties)) 
                 {
-                    availableSession = curSession;
+                    if (availableSessions.Count == 0)
+                    {
+                        errorMessage = "No network sessions found.";
+                        return;
+                    }
+
+                    // Join the first session we found.
+                    networkHelper.NetworkGameSession = NetworkSession.Join(availableSessions[0]);
+                    
                 }
             }
-
-            // if a session was found, connect to it
-            if (availableSession != null)
+            catch (Exception e)
             {
-                networkHelper.session = NetworkSession.Join(availableSession);
+                errorMessage = e.Message;
             }
         }
-        
+        */
 
     }
 }

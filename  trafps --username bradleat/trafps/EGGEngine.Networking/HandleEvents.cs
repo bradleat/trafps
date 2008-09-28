@@ -26,7 +26,7 @@ namespace EGGEngine.Networking
     public class HandleEvents
     {
         NetworkHelper networkHelper;
-
+        /*
         public void HookSessionEvents()
         {
             networkHelper.session.GamerJoined += new EventHandler<GamerJoinedEventArgs>(session_GamerJoined);
@@ -67,7 +67,7 @@ namespace EGGEngine.Networking
         {
             
         }
-        
+        */
         
         
     }
