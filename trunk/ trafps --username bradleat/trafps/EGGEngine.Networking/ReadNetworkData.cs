@@ -27,8 +27,8 @@ namespace EGGEngine.Networking
     {
         NetworkHelper networkHelper = new NetworkHelper();
 
-        public NetworkGamer ReadServerData(LocalNetworkGamer gamer)
-        {
+         //public NetworkGamer ReadServerData(LocalNetworkGamer gamer);
+        /*{
             NetworkGamer sender;
 
             // Read a single packet from the network
@@ -43,6 +43,7 @@ namespace EGGEngine.Networking
             // Read a single packet from the network
             gamer.ReceiveData(networkHelper.ClientPacketReader, out sender);
             return sender;
-        }
+        }*/
     }
 }
+     

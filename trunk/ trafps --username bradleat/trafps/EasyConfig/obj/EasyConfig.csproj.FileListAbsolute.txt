@@ -19,3 +19,10 @@ C:\Users\Bradley\Desktop\EGGEngine\trafps\EasyConfig\obj\x86\Debug\Microsoft.Xna
 C:\Users\Bradley\Desktop\EGGEngine\trafps\EasyConfig\obj\x86\Debug\EasyConfig.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Bradley\Desktop\EGGEngine\trafps\EasyConfig\obj\x86\Debug\EasyConfig.dll
 C:\Users\Bradley\Desktop\EGGEngine\trafps\EasyConfig\obj\x86\Debug\EasyConfig.pdb
+C:\Users\Pádraigh Griffin\Desktop\trafps --username bradleat\trafps\EasyConfig\bin\x86\Debug\EasyConfig.dll
+C:\Users\Pádraigh Griffin\Desktop\trafps --username bradleat\trafps\EasyConfig\bin\x86\Debug\EasyConfig.pdb
+C:\Users\Pádraigh Griffin\Desktop\trafps --username bradleat\trafps\EasyConfig\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Pádraigh Griffin\Desktop\trafps --username bradleat\trafps\EasyConfig\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Pádraigh Griffin\Desktop\trafps --username bradleat\trafps\EasyConfig\obj\x86\Debug\EasyConfig.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Pádraigh Griffin\Desktop\trafps --username bradleat\trafps\EasyConfig\obj\x86\Debug\EasyConfig.dll
+C:\Users\Pádraigh Griffin\Desktop\trafps --username bradleat\trafps\EasyConfig\obj\x86\Debug\EasyConfig.pdb
