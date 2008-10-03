@@ -1,3 +1,27 @@
+
+#region (License)
+//=============================================================================
+// System  : Networking Game Loop
+// File    : Player.cs
+// Author  : Evan
+// Note    : Copyright 2008, Portal Games, All Rights Reserved
+// Compiler: Microsoft C#
+//
+// This file contains the Player.
+//
+// This code is published under the Microsoft Reciprocal License (Ms-RL). A 
+// copy of the license should be distributed with the code. It can also be found
+// at the project website: http://www.CodePlex.com/trafps. This notice, the
+// author's name, and all copyright notices must remain intact in all
+// applications, documentation, and source files.
+//
+// 
+// Todos: 
+//
+// ============================================================================ 
+#endregion
+
+#region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
@@ -7,6 +31,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Content;
+#endregion
 
 namespace NetworkingTestGame
 {
@@ -15,6 +40,8 @@ namespace NetworkingTestGame
     /// </summary>
     public class Player : Microsoft.Xna.Framework.DrawableGameComponent
     {
+        #region Properties
+
         protected Texture2D texture;
         protected Rectangle spriteRectangle;
         public Vector2 position;
@@ -31,6 +58,7 @@ namespace NetworkingTestGame
 
         // Screen Area
         public Rectangle screenBounds;
+        #endregion
 
 
         public Player(Game game, ref Texture2D theTexture,int gamerIndex)

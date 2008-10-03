@@ -1,4 +1,27 @@
-﻿using System;
+﻿#region (License)
+//=============================================================================
+// System  : Networking Game Loop
+// File    : NetworkPlayer.cs
+// Author  : Evan
+// Note    : Copyright 2008, Portal Games, All Rights Reserved
+// Compiler: Microsoft C#
+//
+// This file contains the NetworkPlayer.
+//
+// This code is published under the Microsoft Reciprocal License (Ms-RL). A 
+// copy of the license should be distributed with the code. It can also be found
+// at the project website: http://www.CodePlex.com/trafps. This notice, the
+// author's name, and all copyright notices must remain intact in all
+// applications, documentation, and source files.
+//
+// 
+// Todos: 
+//
+// ============================================================================ 
+#endregion
+
+#region Using Statements
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -8,15 +31,16 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Net;
+#endregion
 
 namespace NetworkingTestGame
 {
-
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class NetworkPlayer 
+    public class NetworkPlayer
     {
+        #region Properties
         // Constants control how fast the tank moves and turns.
         const float TankTurnRate = 0.01f;
         const float TurretTurnRate = 0.03f;
@@ -46,6 +70,8 @@ namespace NetworkingTestGame
 
         // Screen Area
         public Rectangle screenBounds;
+        #endregion
+
 
         public NetworkPlayer(int gamerIndex, ContentManager content,
                     int screenWidth, int screenHeight)
