@@ -17,6 +17,13 @@
 //
 // ============================================================================ 
 #endregion
+
+#region Revision Number
+// Revision Number: 0.1.0.0
+// Revision Number: Major.Minor.Build.Bug
+#endregion
+
+#region Using Statements
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
@@ -28,6 +35,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 using EGGEngine.Networking;
+#endregion
 
 namespace EGGEngine.Networking
 {

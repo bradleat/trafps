@@ -18,15 +18,23 @@
 // ============================================================================ 
 #endregion
 
+#region Revision Number
+// Revision Number: 0.1.0.0
+// Revision Number: Major.Minor.Build.Bug
+#endregion
+
+#region Using Statements
 using System;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.GamerServices;
+#endregion
 
 namespace EGGEngine.Networking
 {
      public class NetworkHelper
-    {
-        // NetworkStuff
+     {
+         #region Properties
+         // NetworkStuff
         private NetworkSession networkSession;
         private readonly PacketWriter serverPacketWriter = new PacketWriter();
         private readonly PacketReader serverPacketReader = new PacketReader();
@@ -73,6 +81,8 @@ namespace EGGEngine.Networking
         {
             get { return serverPacketReader; }
         }
+#endregion
+
 
         /// <summary>
         /// Send all server data
