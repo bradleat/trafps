@@ -77,6 +77,10 @@ namespace NetworkingTestGame
 
         #endregion
 
+        /// <summary>
+        /// Prepares the graphics device
+        /// Adds LIVE services
+        /// </summary>
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -84,7 +88,9 @@ namespace NetworkingTestGame
             Components.Add(new GamerServicesComponent(this));
         }
 
-
+        /// <summary>
+        /// Changes Title of window
+        /// </summary>
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
@@ -94,6 +100,9 @@ namespace NetworkingTestGame
             this.Window.Title = "Network Demo";
         }
 
+        /// <summary>
+        /// Loads a spritebatch, textures and a font.
+        /// </summary>
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -110,7 +119,9 @@ namespace NetworkingTestGame
         }
 
 
-
+        /// <summary>
+        /// Starts the Single Player game.
+        /// </summary>
         private void Start()
         {
             //RemoveAllBullets();
@@ -134,7 +145,9 @@ namespace NetworkingTestGame
             lifeTime = System.Environment.TickCount;
             bulletCount = STARTBULLETCOUNT;
         }
-
+        /// <summary>
+        /// Starts the Network Game
+        /// </summary>
         private void StartNetworkGame()
         {
             // Create (if necessary) and put the player in start position
@@ -148,7 +161,10 @@ namespace NetworkingTestGame
         }
 
 
-
+        /// <summary>
+        /// Checks for input and changes Gamemode accordingly.
+        /// </summary>
+        /// <param name="gameTime"></param>
         protected override void Update(GameTime gameTime)
         {
 
@@ -504,7 +520,13 @@ namespace NetworkingTestGame
 
 
 
-
+        /// <summary>
+        /// Draws the screen based on the Gamemode
+        /// 0 = MenuScreen
+        /// 1 = Single PLayer
+        /// 2 = Multiplayer
+        /// </summary>
+        /// <param name="gameTime"></param>
         protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.Black);
@@ -539,12 +561,6 @@ namespace NetworkingTestGame
                     DrawNetworkGame(gameTime);
                     break;
 
-                case 3:
-                    spriteBatch.Begin();
-                    spriteBatch.DrawString(gameFont, "Connected to session", new Vector2(100, 100), Color.White);
-                    spriteBatch.End();
-                    break;
-
 
                 case 0:
                     string message = string.Empty;
@@ -571,7 +587,10 @@ namespace NetworkingTestGame
 
             }
         }
-
+        /// <summary>
+        /// Draws the Network Game
+        /// </summary>
+        /// <param name="gameTime"></param>
         void DrawNetworkGame(GameTime gameTime)
         {
             // Start rendering sprites
@@ -630,7 +649,7 @@ namespace NetworkingTestGame
 
         /// <summary>
         /// Reads input data from keyboard and gamepad, and stores
-        /// it into the specified tank object.
+        /// it into the specified player object.
         /// </summary>
         void ReadShipInputs(NetworkPlayer ship, PlayerIndex playerIndex)
         {
@@ -674,7 +693,9 @@ namespace NetworkingTestGame
             ship.TankInput = tankInput;
             ship.TurretInput = turretInput;
         }
-
+        /// <summary>
+        /// Removes all bullets when exiting the Single Player game.
+        /// </summary>
         private void RemoveAllBullets()
         {
             for (int i = 0; i < Components.Count; i++)
