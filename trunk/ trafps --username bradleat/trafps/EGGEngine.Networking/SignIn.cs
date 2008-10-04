@@ -26,6 +26,11 @@ namespace EGGEngine.Networking
 {
      public class SignIn
     {
+         /// <summary>
+         /// Signs In a gamer
+         /// </summary>
+         /// <param name="paneCount"></param>
+         /// <param name="onlineOnly"></param>
         public void SignInGamer(int paneCount, bool onlineOnly)
         {
             if (!Guide.IsVisible)
