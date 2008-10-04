@@ -60,7 +60,12 @@ namespace NetworkingTestGame
         public Rectangle screenBounds;
         #endregion
 
-
+        /// <summary>
+        /// Creates the Player (singleplayer)
+        /// </summary>
+        /// <param name="game"></param>
+        /// <param name="theTexture"></param>
+        /// <param name="gamerIndex"></param>
         public Player(Game game, ref Texture2D theTexture,int gamerIndex)
             : base(game)
           
@@ -83,6 +88,9 @@ namespace NetworkingTestGame
                 Game.Window.ClientBounds.Height);
         }
 
+        /// <summary>
+        /// Starts the Player in the centre along the bottom of the screen
+        /// </summary>
         public void PutinStartPosition()
         {
             position.X = screenBounds.Width / 2;
@@ -97,7 +105,10 @@ namespace NetworkingTestGame
             base.Initialize();
         }
 
-
+        /// <summary>
+        /// Changes position using input and keeps within the screen.
+        /// </summary>
+        /// <param name="keyboard"></param>
         public void Update(/*GameTime gameTime*/ KeyboardState keyboard)
         {
             // TODO: Add your update code here
@@ -146,6 +157,10 @@ namespace NetworkingTestGame
             //base.Update(gameTime);
         }
 
+        /// <summary>
+        /// Draws the Ship
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void Draw(GameTime gameTime)
         {
             // Get the current spritebatch
@@ -159,6 +174,10 @@ namespace NetworkingTestGame
             base.Draw(gameTime);
         }
 
+        /// <summary>
+        /// Gets the screen bounds
+        /// </summary>
+        /// <returns></returns>
         public Rectangle GetBounds()
         {
             return new Rectangle((int)position.X, (int)position.Y, 

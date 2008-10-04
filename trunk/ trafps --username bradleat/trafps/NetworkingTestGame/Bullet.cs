@@ -53,6 +53,11 @@ namespace NetworkingTestGame
         protected const int BULLETHEIGHT = 12;
         #endregion
 
+        /// <summary>
+        /// An object which the player must avoid to survive
+        /// </summary>
+        /// <param name="game"></param>
+        /// <param name="theTexture"></param>
         public Bullet(Game game, ref Texture2D theTexture)
             : base(game)
         {
@@ -70,7 +75,9 @@ namespace NetworkingTestGame
             PutinStartPosition();
         }
 
-
+        /// <summary>
+        /// Starts the bulets in random positions at the top of the screen
+        /// </summary>
         protected void PutinStartPosition( )
         {
             position.X = random.Next(Game.Window.ClientBounds.Width - BULLETWIDTH);
@@ -80,7 +87,10 @@ namespace NetworkingTestGame
         }
 
 
-
+        /// <summary>
+        /// Draws the Bullets
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void Draw(GameTime gameTime)
         {
             // Get the current spritebatch
@@ -109,6 +119,11 @@ namespace NetworkingTestGame
             base.Update(gameTime);
         }
 
+        /// <summary>
+        /// Checks for collision between the bullets
+        /// </summary>
+        /// <param name="rect"></param>
+        /// <returns></returns>
         public bool CheckCollision(Rectangle rect)
         {
             Rectangle spriterect = new Rectangle((int)position.X, (int)position.Y,

@@ -72,7 +72,13 @@ namespace NetworkingTestGame
         public Rectangle screenBounds;
         #endregion
 
-
+        /// <summary>
+        /// The player in a multiplayer game
+        /// </summary>
+        /// <param name="gamerIndex"></param>
+        /// <param name="content"></param>
+        /// <param name="screenWidth"></param>
+        /// <param name="screenHeight"></param>
         public NetworkPlayer(int gamerIndex, ContentManager content,
                     int screenWidth, int screenHeight)
         {
@@ -96,7 +102,7 @@ namespace NetworkingTestGame
         }
 
         /// <summary>
-        /// Moves the tank in response to the current input settings.
+        /// Moves the ship in response to the current input settings.
         /// </summary>
         public void Update()
         {
@@ -175,7 +181,7 @@ namespace NetworkingTestGame
 
 
         /// <summary>
-        /// Draws the tank and turret.
+        /// Draws the ship.
         /// </summary>
         public void Draw(SpriteBatch spriteBatch)
         {
