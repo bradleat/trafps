@@ -27,13 +27,16 @@ namespace EGGEngine.Networking
     public class PlayerReady
     {
         NetworkHelper networkHelper = new NetworkHelper();
-        /*
+        
+        /// <summary>
+        /// Sets the player to ready while in a lobby.
+        /// </summary>
         public void SetPlayerReady()
         {
             foreach (LocalNetworkGamer gamer in networkHelper.session.LocalGamers)
             {
                 gamer.IsReady = true;
             }
-        }*/
+        }
     }
 }

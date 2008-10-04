@@ -26,9 +26,9 @@ namespace EGGEngine.Networking
      public class ReadNetworkData
     {
         NetworkHelper networkHelper = new NetworkHelper();
-
-         //public NetworkGamer ReadServerData(LocalNetworkGamer gamer);
-        /*{
+         /*
+         public NetworkGamer ReadServerData(LocalNetworkGamer gamer);
+        {
             NetworkGamer sender;
 
             // Read a single packet from the network

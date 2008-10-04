@@ -23,6 +23,7 @@
     <NoStdLib>true</NoStdLib>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <PlatformTarget>x86</PlatformTarget>
+    <DocumentationFile>bin\x86\Debug\EGGEngine.Networking.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
@@ -57,7 +58,6 @@
     <Compile Include="ReadNetworkData.cs" />
     <Compile Include="SendNetworkData.cs" />
     <Compile Include="Session.cs" />
-    <Compile Include="HandleEvents.cs" />
     <Compile Include="NetworkHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PlayerReady.cs" />
