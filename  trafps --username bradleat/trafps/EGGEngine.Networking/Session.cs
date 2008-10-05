@@ -39,10 +39,12 @@ using EGGEngine.Networking;
 
 namespace EGGEngine.Networking
 {
+    /// <summary>
+    /// Contains methods for jjoining and creating network sessions
+    /// </summary>
      public class Session
     {
          NetworkHelper networkHelper = new NetworkHelper();
-         HandleEvents eventHandler = new HandleEvents();
 /*
         public void CreateSession(NetworkSessionType sessionType, int maxLocalPlayers, int maxGamers)
         {

@@ -31,10 +31,13 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace EGGEngine.Networking 
 {
+    /// <summary>
+    /// Contains a method to sign in a gamer while in a lobby
+    /// </summary>
     public class PlayerReady
     {
         NetworkHelper networkHelper = new NetworkHelper();
-        
+        /*
         /// <summary>
         /// Sets the player to ready while in a lobby.
         /// </summary>
@@ -44,6 +47,6 @@ namespace EGGEngine.Networking
             {
                 gamer.IsReady = true;
             }
-        }
+        }*/
     }
 }
