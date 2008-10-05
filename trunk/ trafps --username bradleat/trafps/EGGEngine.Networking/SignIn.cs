@@ -31,6 +31,9 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace EGGEngine.Networking
 {
+    /// <summary>
+    /// Contains a method for signing in a gamer.
+    /// </summary>
      public class SignIn
     {
          /// <summary>

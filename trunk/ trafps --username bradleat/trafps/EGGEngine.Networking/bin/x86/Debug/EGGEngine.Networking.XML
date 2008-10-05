@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EGGEngine.Networking</name>
+    </assembly>
+    <members>
+        <member name="T:EGGEngine.Networking.SendNetworkData">
+            <summary>
+            Contains methods for sending Server and Client Data
+            </summary>
+        </member>
+        <member name="T:EGGEngine.Networking.PlayerReady">
+            <summary>
+            Contains a method to sign in a gamer while in a lobby
+            </summary>
+        </member>
+        <member name="T:EGGEngine.Networking.Session">
+            <summary>
+            Contains methods for jjoining and creating network sessions
+            </summary>
+        </member>
+        <member name="T:EGGEngine.Networking.SignIn">
+            <summary>
+            Contains a method for signing in a gamer.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Networking.SignIn.SignInGamer(System.Int32,System.Boolean)">
+            <summary>
+            Signs In a gamer
+            </summary>
+            <param name="paneCount"></param>
+            <param name="onlineOnly"></param>
+        </member>
+        <member name="T:EGGEngine.Networking.NetworkHelper">
+            <summary>
+            Contains the current Packet reader and writer states.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkHelper.SendServerData">
+            <summary>
+            Send all server data
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkHelper.ReadServerData(Microsoft.Xna.Framework.Net.LocalNetworkGamer)">
+            <summary>
+            Read server data
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkHelper.SendClientData">
+            <summary>
+            Send all client data
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkHelper.ReadClientData(Microsoft.Xna.Framework.Net.LocalNetworkGamer)">
+            <summary>
+            Read the Client Data
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Networking.NetworkHelper.NetworkGameSession">
+            <summary>
+            The active network session
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Networking.NetworkHelper.ServerPacketWriter">
+            <summary>
+            Writer for the server data
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Networking.NetworkHelper.ClientPacketWriter">
+            <summary>
+            Writer for the client data
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Networking.NetworkHelper.ClientPacketReader">
+            <summary>
+            Reader for the client data
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Networking.NetworkHelper.ServerPacketReader">
+            <summary>
+            Reader for the server data
+            </summary>
+        </member>
+        <member name="T:EGGEngine.Networking.ReadNetworkData">
+            <summary>
+            Contains methods for handling server and client data.
+            </summary>
+        </member>
+    </members>
+</doc>

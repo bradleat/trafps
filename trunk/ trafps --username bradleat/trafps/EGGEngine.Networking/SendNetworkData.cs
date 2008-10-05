@@ -30,10 +30,13 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace EGGEngine.Networking
 {
+    /// <summary>
+    /// Contains methods for sending Server and Client Data
+    /// </summary>
      public class SendNetworkData
     {
         NetworkHelper networkHelper = new NetworkHelper();
-         
+         /*
         /// <summary>
         /// Send all server data
         /// </summary>
@@ -60,5 +63,6 @@ namespace EGGEngine.Networking
                     SendDataOptions.InOrder, networkHelper.session.Host);
             }
         }
+         */
     }
 }

@@ -31,6 +31,9 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace EGGEngine.Networking
 {
+    /// <summary>
+    /// Contains methods for handling server and client data.
+    /// </summary>
      public class ReadNetworkData
     {
         NetworkHelper networkHelper = new NetworkHelper();

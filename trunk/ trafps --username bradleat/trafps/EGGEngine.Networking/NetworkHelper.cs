@@ -31,6 +31,9 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace EGGEngine.Networking
 {
+    /// <summary>
+    /// Contains the current Packet reader and writer states.
+    /// </summary>
      public class NetworkHelper
      {
          #region Properties
