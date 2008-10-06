@@ -40,22 +40,24 @@ using Microsoft.Xna.Framework.Content;
 
 namespace NetworkingTestGame
 {
-
+    /// <summary>
+    /// Contains methods for creating, updating, drawing and checks for collision between bullets
+    /// </summary>
     public class Bullet : Microsoft.Xna.Framework.DrawableGameComponent
     {
         #region Properties
-        protected Texture2D texture;
-        protected Rectangle spriteRectangle;
-        protected Vector2 position;
-        protected int Yspeed;
-        protected int Xspeed;
-        protected Random random;
+        Texture2D texture;
+        Rectangle spriteRectangle;
+        Vector2 position;
+        int Yspeed;
+        int Xspeed;
+        Random random;
 
       
 
         // Width and Heigh of sprite in texture
-        protected const int BULLETWIDTH = 12;
-        protected const int BULLETHEIGHT = 12;
+        const int BULLETWIDTH = 12;
+        const int BULLETHEIGHT = 12;
         #endregion
 
         /// <summary>
@@ -108,6 +110,10 @@ namespace NetworkingTestGame
             base.Draw(gameTime);
         }
 
+        /// <summary>
+        /// Updates the position of the bullet.
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
             

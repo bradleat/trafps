@@ -52,19 +52,28 @@ namespace NetworkingTestGame
         const float TankSpeed = 0.3f;
         const float TankFriction = 0.9f;
 
-        // The current position and rotation of the tank.
+        
+        /// <summary>
+        /// The current position of the ship.
+        /// </summary>
         public Vector2 Position;
-        public Vector2 Velocity;
-        public float TankRotation;
-        public float TurretRotation;
+        //Vector2 Velocity;
+        float TankRotation;
+        float TurretRotation;
 
-        // Input controls can be read from keyboard, gamepad, or the network.
-        public Vector2 TankInput;
-        public Vector2 TurretInput;
+        /// <summary>
+        /// Input controls can be read from keyboard, gamepad, or the network.
+        /// </summary>
+        public  Vector2 TankInput;
+
+        /// <summary>
+        /// Input controls can be read from keyboard, gamepad, or the network.
+        /// </summary>
+        public  Vector2 TurretInput;
 
         // Width and Heigh of sprite in texture
-        public const int SHIPWIDTH = 30;
-        public const int SHIPHEIGHT = 30;
+        const int SHIPWIDTH = 30;
+        const int SHIPHEIGHT = 30;
 
         Rectangle spriteRectangle;
 
@@ -74,7 +83,7 @@ namespace NetworkingTestGame
         Vector2 screenSize;
 
         // Screen Area
-        public Rectangle screenBounds;
+        Rectangle screenBounds;
         #endregion
 
         /// <summary>

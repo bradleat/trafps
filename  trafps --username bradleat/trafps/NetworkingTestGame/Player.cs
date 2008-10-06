@@ -47,9 +47,9 @@ namespace NetworkingTestGame
     {
         #region Properties
 
-        protected Texture2D texture;
-        protected Rectangle spriteRectangle;
-        public Vector2 position;
+        Texture2D texture;
+        Rectangle spriteRectangle;
+        Vector2 position;
 
         // Input controls can be read from keyboard, gamepad, or the network.
         //public Vector2 TankInput;
@@ -58,11 +58,11 @@ namespace NetworkingTestGame
       
 
         // Width and Heigh of sprite in texture
-        public const int SHIPWIDTH = 30;
-        public const int SHIPHEIGHT = 30;
+        const int SHIPWIDTH = 30;
+        const int SHIPHEIGHT = 30;
 
         // Screen Area
-        public Rectangle screenBounds;
+        Rectangle screenBounds;
         #endregion
 
         /// <summary>
@@ -101,13 +101,6 @@ namespace NetworkingTestGame
             position.X = screenBounds.Width / 2;
             position.Y = screenBounds.Height - SHIPHEIGHT;
           
-        }
-
-        public override void Initialize()
-        {
-            // TODO: Add your initialization code here
-
-            base.Initialize();
         }
 
         /// <summary>
