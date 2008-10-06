@@ -58,7 +58,7 @@ namespace NetworkingTestGame
         private Texture2D meteorTexture;
 
         private int lastTickCount, lifeTime = 0;
-        public Player player;
+        Player player;
         private KeyboardState keyboard;
         private int bulletCount;
         private const int STARTBULLETCOUNT = 50;
