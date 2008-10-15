@@ -4,19 +4,9 @@
         <name>EGGEngine.Networking</name>
     </assembly>
     <members>
-        <member name="T:EGGEngine.Networking.SendNetworkData">
+        <member name="T:EGGEngine.Networking.ReadNetworkData">
             <summary>
-            Contains methods for sending Server and Client Data
-            </summary>
-        </member>
-        <member name="T:EGGEngine.Networking.PlayerReady">
-            <summary>
-            Contains a method to sign in a gamer while in a lobby
-            </summary>
-        </member>
-        <member name="T:EGGEngine.Networking.Session">
-            <summary>
-            Contains methods for jjoining and creating network sessions
+            Contains methods for handling server and client data.
             </summary>
         </member>
         <member name="T:EGGEngine.Networking.SignIn">
@@ -30,6 +20,16 @@
             </summary>
             <param name="paneCount"></param>
             <param name="onlineOnly"></param>
+        </member>
+        <member name="T:EGGEngine.Networking.Session">
+            <summary>
+            Contains methods for jjoining and creating network sessions
+            </summary>
+        </member>
+        <member name="T:EGGEngine.Networking.SendNetworkData">
+            <summary>
+            Contains methods for sending Server and Client Data
+            </summary>
         </member>
         <member name="T:EGGEngine.Networking.NetworkHelper">
             <summary>
@@ -81,9 +81,9 @@
             Reader for the server data
             </summary>
         </member>
-        <member name="T:EGGEngine.Networking.ReadNetworkData">
+        <member name="T:EGGEngine.Networking.PlayerReady">
             <summary>
-            Contains methods for handling server and client data.
+            Contains a method to sign in a gamer while in a lobby
             </summary>
         </member>
     </members>

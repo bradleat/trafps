@@ -114,6 +114,11 @@ namespace EGGEngine.Cameras
             input = new InputHelper();
         }
 
+        /// <summary>
+        /// Updates the camera based on the current mouse state.
+        /// </summary>
+        /// <param name="currentMouseState">The current state of the mouse</param>
+        /// <param name="modelPosition">The position of the model in 3D space</param>
         public void Update(MouseState currentMouseState, Vector3 modelPosition)
         {
             this.modelPosition = modelPosition;
@@ -127,34 +132,26 @@ namespace EGGEngine.Cameras
 
             }
             UpdateViewMatrix();
-
-/*
-            if (input.KeyDown(Keys.Up))
-                AddToCameraPosition(new Vector3(0, 0, -1));
-            if (input.KeyDown(Keys.Down))
-                AddToCameraPosition(new Vector3(0, 0, 1));
-            if (input.KeyDown(Keys.Right))
-                AddToCameraPosition(new Vector3(1, 0, 0));
-            if (input.KeyDown(Keys.Left))
-                AddToCameraPosition(new Vector3(-1, 0, 0));
-            if (input.KeyDown(Keys.Q))
-                AddToCameraPosition(new Vector3(0, 1, 0));
-            if (input.KeyDown(Keys.Z))
-                AddToCameraPosition(new Vector3(0, -1, 0));
- * */
         }
 
-        public void AddToCameraPosition(Vector3 vectorToAdd, ref Vector3 position)
+        /// <summary>
+        /// Helper method that enables moving based on the camera's current
+        /// heading.
+        /// </summary>
+        /// <param name="vectorToAdd">The direction being applied</param>
+        /// <param name="position">The position of the model</param>
+        public void AddToCameraPosition(Vector3 vectorToAdd, ref Vector3 modelPosition)
         {
             float moveSpeed = 10.0f;
-           // Matrix cameraRotation = Matrix.CreateRotationX(upDownRot) *
-             //   Matrix.CreateRotationY(leftRightRot);
             Vector3 rotatedVector = Vector3.Transform
                 (vectorToAdd, cameraRotation);
-            position += moveSpeed * rotatedVector;
+            modelPosition += moveSpeed * rotatedVector;
             UpdateViewMatrix();
         }
 
+        /// <summary>
+        /// Updates the view matrix accordingly.
+        /// </summary>
         private void UpdateViewMatrix()
         {
             cameraRotation = Matrix.CreateRotationX(upDownRot) *
@@ -177,11 +174,17 @@ namespace EGGEngine.Cameras
                 cameraFinalTarget, cameraRotatedUpVector);            
         }
 
+        /// <summary>
+        /// Updates the camera position based on the position and offset
+        /// of the model.  Makes it seem like we are viewing from the model's
+        /// point of view.
+        /// </summary>
+        /// <param name="rotation">The current rotation of the camera</param>
         private void UpdateModelView(Matrix rotation)
         {
 
             //Change the Z value of the offset to 0 for complete first-person mode
-            Vector3 avatarHeadOffset = new Vector3(-8, 20, 20);
+            Vector3 avatarHeadOffset = new Vector3(-8, 20, 0);
 
             Vector3 headOffset = Vector3.Transform(avatarHeadOffset, rotation);
 

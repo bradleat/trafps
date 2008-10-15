@@ -43,15 +43,15 @@ namespace GeneratedGeometryPipeline
             output.WriteObject(value.Texture);
         }
 
-        
+
         /// <summary>
         /// Tells the content pipeline what CLR type the sky
         /// data will be loaded into at runtime.
         /// </summary>
         public override string GetRuntimeType(TargetPlatform targetPlatform)
         {
-            return "GeneratedGeometry.Sky, " +
-                "GeneratedGeometry, Version=1.0.0.0, Culture=neutral";
+            return "EGGEngine.Rendering.Sky, " +
+                "TRA_Game, Version=1.0.0.0, Culture=neutral";
         }
 
 
@@ -61,8 +61,8 @@ namespace GeneratedGeometryPipeline
         /// </summary>
         public override string GetRuntimeReader(TargetPlatform targetPlatform)
         {
-            return "GeneratedGeometry.SkyReader, " +
-                "GeneratedGeometry, Version=1.0.0.0, Culture=neutral";
+            return "EGGEngine.Rendering.SkyReader, " +
+                "EGGEngine, Version=1.0.0.0, Culture=neutral";
         }
     }
 }

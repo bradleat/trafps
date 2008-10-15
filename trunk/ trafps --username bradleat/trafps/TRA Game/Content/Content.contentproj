@@ -63,6 +63,22 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
     </Compile>
+    <Compile Include="Models\sky1.bmp">
+      <Name>sky1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>SkyProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\yhsjw2.bmp">
+      <Name>yhsjw2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TerrainProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GeneratedGeometryPipeline\GeneratedGeometryPipeline.csproj">
+      <Project>{96B02956-4EB9-4AA1-972D-A211507EFC85}</Project>
+      <Name>GeneratedGeometryPipeline</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\v2.0\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
