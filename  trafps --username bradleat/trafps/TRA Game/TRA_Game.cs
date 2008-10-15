@@ -57,12 +57,13 @@ namespace TRA_Game
         ConfigFile config = new ConfigFile("content\\config.ini");
 
         //Demo Stuff
-        DrawableModel model1;
-        Model model2;
+        DrawableModel person;
+        Model terrain;
         FPSCamera camera;
         PostProcessing postProc;
         Vector3 translate = Vector3.Zero;
         InputHelper input;
+        Sky sky;
 
         public TRA_Game()
         {
@@ -82,12 +83,13 @@ namespace TRA_Game
             camera = new FPSCamera(GraphicsDevice.Viewport);
             FPS_Counter_On = config.SettingGroups["DebugFeatures"].Settings["FPSCounterOn"].GetValueAsBool();
 
-            string name = config.SettingGroups["Filenames"].Settings["model"].GetValueAsString();
-            model1 = new DrawableModel(Content.Load<Model>(name), Matrix.Identity);
+            string name = config.SettingGroups["Filenames"].Settings["person"].GetValueAsString();
+            person = new DrawableModel(Content.Load<Model>(name), Matrix.Identity);
 
-            name = config.SettingGroups["Filenames"].Settings["model2"].GetValueAsString();
-            model2 = Content.Load<Model>(name);
+            name = config.SettingGroups["Filenames"].Settings["terrain"].GetValueAsString();
+            terrain = Content.Load<Model>(name);
 
+            sky = Content.Load<Sky>("Models\\sky1");
             // Comment this to remove the framerate counter
             if (FPS_Counter_On == true)
             {
@@ -117,7 +119,6 @@ namespace TRA_Game
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
         }
 
         /// <summary>
@@ -130,7 +131,7 @@ namespace TRA_Game
             // Allows the game to exit
             if (input.ButtonDown(Buttons.B))
                 this.Exit();
-            Window.Title = model1.temp.ToString();
+            Window.Title = person.temp.ToString();
             if (input.KeyDown(Keys.Escape))
             {
                 this.Exit();
@@ -146,11 +147,11 @@ namespace TRA_Game
             if (input.KeyDown(Keys.D))
                 camera.AddToCameraPosition(new Vector3(1, 0, 0), ref temp);
 
-            model1.Position = temp;
+            person.Position = temp;
            
-            camera.Update(mouseState, model1.Position);
+            camera.Update(mouseState, person.Position);
 
-            model1.WorldMatrix = Matrix.CreateScale(5.0f) * Matrix.CreateRotationY(4.05f);
+            person.WorldMatrix = Matrix.CreateScale(5.0f) * Matrix.CreateRotationY(4.05f);
              
             base.Update(gameTime);
         }
@@ -169,9 +170,9 @@ namespace TRA_Game
             GraphicsDevice.RenderState.AlphaBlendEnable = false; 
             GraphicsDevice.RenderState.AlphaTestEnable = false;
 
-            model1.Draw(camera);
+            person.Draw(camera);
 
-            foreach (ModelMesh mesh in model2.Meshes)
+            foreach (ModelMesh mesh in terrain.Meshes)
             {
                 foreach (BasicEffect effect in mesh.Effects)
                 {
@@ -183,6 +184,7 @@ namespace TRA_Game
                 mesh.Draw();
             }
 
+            sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
             //Demo Stuff
             if (input.KeyDown(Keys.I))
                 postProc.PostProcess("Invert");

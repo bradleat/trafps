@@ -60,6 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rendering\DrawableModel.cs" />
     <Compile Include="Rendering\PostProcessing.cs" />
+    <Compile Include="Rendering\Sky.cs" />
   </ItemGroup>
   <ItemGroup>
     <NestedContentProject Include="Content\Content.contentproj">

@@ -25,8 +25,13 @@ obj\x86\Debug\TRA Game.pdb
 bin\x86\Debug\Content\Models\Ship.xnb
 bin\x86\Debug\Content\Models\model.xnb
 bin\x86\Debug\Content\Effects\PostProcessing.xnb
-bin\x86\Debug\Content\Models\ShipDiffuse%0.xnb
 bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-359.RdBitmap%0.xnb
 bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35b.RdBitmap%0.xnb
 bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35d.RdBitmap%0.xnb
 bin\x86\Debug\Content\config.ini
+bin\x86\Debug\Content\Models\terrain%0.xnb
+bin\x86\Debug\Content\Models\sunset%0.xnb
+bin\x86\Debug\Content\Models\yhsjw2.xnb
+bin\x86\Debug\Content\Models\rocks%0.xnb
+bin\x86\Debug\Content\Models\sky1.xnb
+bin\x86\Debug\Content\Models\sky%0.xnb

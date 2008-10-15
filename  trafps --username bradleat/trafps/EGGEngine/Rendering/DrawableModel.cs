@@ -59,14 +59,18 @@ namespace EGGEngine.Rendering
                 WriteModelStructure(model);
         }
 
+        /// <summary>
+        /// Draws the model in 3D space using the current camera's view matrix 
+        /// and projection matrix.
+        /// </summary>
+        /// <param name="camera">The current camera being used</param>
         public void Draw(FPSCamera camera)
         {
             InputHelper input = new InputHelper();
             if (input.KeyDown(Keys.F))
                 temp += 0.05f;
 
-            model.Bones[0].Transform = //Matrix.CreateRotationX(camera.UpDownRot) *
-                originalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
+            model.Bones[0].Transform = originalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
                 * Matrix.CreateRotationY(camera.LeftRightRot);
 
 
@@ -85,6 +89,11 @@ namespace EGGEngine.Rendering
             }
         }
 
+        /// <summary>
+        /// Debugging method that writes the structure of the model into
+        /// a text file, including bone names, mesh names, and indices of each.
+        /// </summary>
+        /// <param name="model">The model being used</param>
         private void WriteModelStructure(Model model)
         {
             StreamWriter writer = new StreamWriter(model.Root.Name + "modelStructure.txt");
@@ -107,6 +116,13 @@ namespace EGGEngine.Rendering
             writer.Close();
         }
 
+        /// <summary>
+        /// Debugging method that handles the writing of the bone structure.
+        /// </summary>
+        /// <param name="bone">The current bone</param>
+        /// <param name="level">The level in the bone structure (number of tabs)</param>
+        /// <param name="writer">The stream writer used to write the information
+        /// to a text file</param>
         private void WriteBone(ModelBone bone, int level, StreamWriter writer)
         {
             for (int i = 0; i < level; ++i)
@@ -125,6 +141,13 @@ namespace EGGEngine.Rendering
                 WriteBone(childBone, level + 1, writer);
         }
 
+        /// <summary>
+        /// Debugging method that handles the writing of the mesh structure.
+        /// </summary>
+        /// <param name="ID">The index of the current mesh</param>
+        /// <param name="mesh">The current mesh</param>
+        /// <param name="writer">The stream writer used to write the information
+        /// to a text file</param>
         private void WriteModelMesh(int ID, ModelMesh mesh, StreamWriter writer)
         {
             writer.WriteLine("- ID : " + ID);

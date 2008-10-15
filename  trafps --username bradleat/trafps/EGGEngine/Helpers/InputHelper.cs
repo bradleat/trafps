@@ -11,7 +11,7 @@ namespace EGGEngine.Helpers
         /// Returns true if the given key is pressed and false otherwise.
         /// </summary>
         /// <param name="key">Key being checked</param>
-        /// <returns></returns>
+        /// <returns>Boolean value representing whether the key is down or not</returns>
         public bool KeyDown(Keys key)
         {
             return (Keyboard.GetState().IsKeyDown(key));
@@ -22,7 +22,7 @@ namespace EGGEngine.Helpers
         /// false otherwise.
         /// </summary>
         /// <param name="keys">Array of keys being checked</param>
-        /// <returns></returns>
+        /// <returns>Boolean value representing whether the keys are down or not</returns>
         public bool KeysDown(Keys[] keys)
         {
             bool isDown = true;
@@ -37,7 +37,7 @@ namespace EGGEngine.Helpers
         /// Returns true if the given button is pressed and false otherwise
         /// </summary>
         /// <param name="button">Button being checked</param>
-        /// <returns></returns>
+        /// <returns>Boolean value representing whether the button is down or not</returns>
         public bool ButtonDown(Buttons button)
         {
             return (GamePad.GetState(PlayerIndex.One).IsButtonDown(button));
@@ -48,7 +48,7 @@ namespace EGGEngine.Helpers
         /// otherwise.
         /// </summary>
         /// <param name="buttons">Array of buttons being checked</param>
-        /// <returns></returns>
+        /// <returns>Boolean value representing whether the buttons are down or not</returns>
         public bool ButtonsDown(Buttons[] buttons)
         {
             bool isDown = true;
@@ -74,7 +74,7 @@ namespace EGGEngine.Helpers
         /// Returns the X value of the thumbstick being used.
         /// </summary>
         /// <param name="thumbstick">The thumbstick being manipulated</param>
-        /// <returns></returns>
+        /// <returns>Float value representing the direction the thumbstick is being pushed in the x direction</returns>
         public float GetThumbstickX(string thumbstick)
         {
             float retVal = 0f;
@@ -94,7 +94,7 @@ namespace EGGEngine.Helpers
         /// Returns the Y value of the thumbstick being used.
         /// </summary>
         /// <param name="thumbstick">The thumbstick being manipulated</param>
-        /// <returns></returns>
+        /// <returns>Float value representing the direction the thumbstick is being pushed in the y direction</returns>
         public float GetThumbstickY(string thumbstick)
         {
             float retVal = 0f;

@@ -20,6 +20,9 @@ namespace EGGEngine.Rendering
             InitPostProcessingVertices();
         }
 
+        /// <summary>
+        /// Sets up the vertices that cover the viewport
+        /// </summary>
         private void InitPostProcessingVertices()
         {
             ppVertices = new VertexPositionTexture[4];
@@ -34,6 +37,11 @@ namespace EGGEngine.Rendering
                 new Vector2(1, 1));
         }
 
+        /// <summary>
+        /// Loads the appropriate effect
+        /// </summary>
+        /// <param name="content">Content manager needed to load the appropriate effect</param>
+        /// <param name="filename">The name of the file containing the effect</param>
         public void LoadEffect(ContentManager content, string filename)
         {
             PresentationParameters pp = device.PresentationParameters;
@@ -44,6 +52,10 @@ namespace EGGEngine.Rendering
             ppEffect = content.Load<Effect>(filename);
         }
 
+        /// <summary>
+        /// Runs the appropriate postprocess technique
+        /// </summary>
+        /// <param name="technique">The technique that is to be run</param>
         public void PostProcess(string technique)
         {
             device.ResolveBackBuffer(resolveTexture, 0);
@@ -66,6 +78,11 @@ namespace EGGEngine.Rendering
             ppEffect.End();
         }
 
+        /// <summary>
+        /// Runs the given technique for postprocessing and sets the time if needed
+        /// </summary>
+        /// <param name="technique">The technique that is to be run</param>
+        /// <param name="time">The time parameter used for the change over time effect</param>
         public void PostProcess(string technique, float time)
         {
             ppEffect.Parameters["xTime"].SetValue(time);

@@ -52,20 +52,19 @@ namespace EGGEngine.Debug
             content = new ContentManager(game.Services);
         }
 
-
+        /// <summary>
+        /// Loads the SpriteBatch and font.
+        /// </summary>
         protected override void LoadContent()
         {  
                 spriteBatch = new SpriteBatch(GraphicsDevice);
                 spriteFont = content.Load<SpriteFont>("Content\\Debug\\Font");
         }
 
-
-        protected override void UnloadContent()
-        {
-                content.Unload();
-        }
-
-
+        /// <summary>
+        /// Updates the frame counter
+        /// </summary>
+        /// <param name="gameTime">The current game time</param>
         public override void Update(GameTime gameTime)
         {
             elapsedTime += gameTime.ElapsedGameTime;
@@ -78,7 +77,9 @@ namespace EGGEngine.Debug
             }
         }
 
-
+        /// <summary>
+        /// Draws the frame counter to the screen
+        /// </summary>
         public override void Draw(GameTime gameTime)
         {
             frameCounter++;

@@ -10,3 +10,5 @@ bin\x86\Debug\EasyConfig.dll
 bin\x86\Debug\EGGEngine.Networking.dll
 bin\x86\Debug\EasyConfig.pdb
 bin\x86\Debug\EGGEngine.Networking.pdb
+bin\x86\Debug\NetworkingTestGame.xml
+bin\x86\Debug\EGGEngine.Networking.xml
