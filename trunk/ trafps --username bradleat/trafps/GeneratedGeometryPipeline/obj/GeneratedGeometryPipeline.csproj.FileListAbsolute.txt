@@ -23,3 +23,8 @@ C:\Users\Bradley\Desktop\EGGEngine\trafps\GeneratedGeometryPipeline\bin\Xbox 360
 C:\Users\Bradley\Desktop\EGGEngine\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
 C:\Users\Bradley\Desktop\EGGEngine\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Debug\GeneratedGeometryPipeline.dll
 C:\Users\Bradley\Desktop\EGGEngine\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Debug\GeneratedGeometryPipeline.pdb
+C:\Users\Bradley\Desktop\tra\trafps\GeneratedGeometryPipeline\bin\Xbox 360\Debug\GeneratedGeometryPipeline.dll
+C:\Users\Bradley\Desktop\tra\trafps\GeneratedGeometryPipeline\bin\Xbox 360\Debug\GeneratedGeometryPipeline.pdb
+C:\Users\Bradley\Desktop\tra\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\tra\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Debug\GeneratedGeometryPipeline.dll
+C:\Users\Bradley\Desktop\tra\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Debug\GeneratedGeometryPipeline.pdb

@@ -39,3 +39,13 @@ C:\Users\Bradley\Desktop\EGGEngine\trafps\EGGEngine\bin\x86\Debug\EGGEngine.dll
 C:\Users\Bradley\Desktop\EGGEngine\trafps\EGGEngine\bin\x86\Debug\EGGEngine.pdb
 C:\Users\Bradley\Desktop\EGGEngine\trafps\EGGEngine\bin\x86\Debug\EasyConfig.dll
 C:\Users\Bradley\Desktop\EGGEngine\trafps\EGGEngine\bin\x86\Debug\EasyConfig.pdb
+C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\bin\x86\Debug\EGGEngine.dll
+C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\bin\x86\Debug\EGGEngine.pdb
+C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\bin\x86\Debug\EasyConfig.dll
+C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\bin\x86\Debug\EasyConfig.pdb
+C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\obj\x86\Debug\EGGEngine.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\obj\x86\Debug\EGGEngine.dll
+C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\obj\x86\Debug\EGGEngine.pdb
+C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\bin\x86\Debug\EGGEngine.XML

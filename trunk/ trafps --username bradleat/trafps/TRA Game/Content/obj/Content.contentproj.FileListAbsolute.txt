@@ -5,3 +5,4 @@ C:\Users\Bradley\Desktop\trafps\trafps\TRA Game\Content\obj\x86\Release\ResolveA
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\Content\obj\x86\Release\ResolveAssemblyReference.cache
 C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Pádraigh Griffin\Desktop\trafps --username bradleat\trafps\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\tra\trafps\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
