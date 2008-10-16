@@ -1,7 +1,7 @@
 ﻿#region License
 //=============================================================================
 // System  : EGGEngine.Networking
-// File    : NetworkHelper.cs
+// File    : PacketReader.cs
 // Author  : EV
 // Note    : Copyright 2008, Portal Games, All Rights Reserved
 // Compiler: Microsoft C#
@@ -29,10 +29,9 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.GamerServices;
 #endregion
 
-
 namespace EGGEngine.Networking
 {
-    class NetworkHelper
+    class PacketReader
     {
     }
 }
