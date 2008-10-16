@@ -26,3 +26,10 @@ C:\Users\Bradley\Desktop\EGGEngine\trafps\JigLibX\obj\x86\Debug\Microsoft.Xna.Fr
 C:\Users\Bradley\Desktop\EGGEngine\trafps\JigLibX\obj\x86\Debug\JigLibX.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Bradley\Desktop\EGGEngine\trafps\JigLibX\obj\x86\Debug\JigLibX.dll
 C:\Users\Bradley\Desktop\EGGEngine\trafps\JigLibX\obj\x86\Debug\JigLibX.pdb
+C:\Users\Bradley\Desktop\tra\trafps\JigLibX\bin\x86\Debug\JigLibX.dll
+C:\Users\Bradley\Desktop\tra\trafps\JigLibX\bin\x86\Debug\JigLibX.pdb
+C:\Users\Bradley\Desktop\tra\trafps\JigLibX\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\tra\trafps\JigLibX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\tra\trafps\JigLibX\obj\x86\Debug\JigLibX.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley\Desktop\tra\trafps\JigLibX\obj\x86\Debug\JigLibX.dll
+C:\Users\Bradley\Desktop\tra\trafps\JigLibX\obj\x86\Debug\JigLibX.pdb

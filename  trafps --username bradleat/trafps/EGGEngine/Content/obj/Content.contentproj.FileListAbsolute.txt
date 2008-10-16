@@ -2,3 +2,4 @@ C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\Content\obj\x86\Debug\ResolveAs
 C:\Users\Bradley\Desktop\trafps\trafps\EGGEngine\Content\obj\x86\Release\ResolveAssemblyReference.cache
 C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\EGGEngine\Content\obj\x86\Release\ResolveAssemblyReference.cache
 C:\Users\Bradley\Desktop\EGGEngine\trafps\EGGEngine\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\Content\obj\x86\Debug\ResolveAssemblyReference.cache

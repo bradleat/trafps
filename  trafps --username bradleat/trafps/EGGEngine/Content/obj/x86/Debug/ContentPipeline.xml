@@ -5,15 +5,15 @@
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
-      <RootDirectory>C:\Documents and Settings\Administrator\Desktop\New Folder\trafps\EGGEngine\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Documents and Settings\Administrator\Desktop\New Folder\trafps\EGGEngine\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Documents and Settings\Administrator\Desktop\New Folder\trafps\EGGEngine\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Documents and Settings\Administrator\Desktop\New Folder\trafps\EGGEngine\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\2.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2008-08-06T15:47:31.71875-04:00</Value>
+        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\2.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2008-08-01T09:07:35.1066645-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

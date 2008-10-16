@@ -4,6 +4,78 @@
         <name>NetworkingTestGame</name>
     </assembly>
     <members>
+        <member name="T:NetworkingTestGame.Player">
+            <summary>
+            This is a game component that implements IUpdateable.
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.Player.#ctor(Microsoft.Xna.Framework.Game,Microsoft.Xna.Framework.Graphics.Texture2D@,System.Int32)">
+            <summary>
+            Creates the Player (singleplayer)
+            </summary>
+            <param name="game"></param>
+            <param name="theTexture"></param>
+            <param name="gamerIndex"></param>
+        </member>
+        <member name="M:NetworkingTestGame.Player.PutinStartPosition">
+            <summary>
+            Starts the Player in the centre along the bottom of the screen
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.Player.Update(Microsoft.Xna.Framework.Input.KeyboardState)">
+            <summary>
+            Changes position using input and keeps within the screen.
+            </summary>
+            <param name="keyboard"></param>
+        </member>
+        <member name="M:NetworkingTestGame.Player.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the Ship
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:NetworkingTestGame.Player.GetBounds">
+            <summary>
+            Gets the screen bounds
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NetworkingTestGame.Bullet">
+            <summary>
+            Contains methods for creating, updating, drawing and checks for collision between bullets
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.Bullet.#ctor(Microsoft.Xna.Framework.Game,Microsoft.Xna.Framework.Graphics.Texture2D@)">
+            <summary>
+            An object which the player must avoid to survive
+            </summary>
+            <param name="game"></param>
+            <param name="theTexture"></param>
+        </member>
+        <member name="M:NetworkingTestGame.Bullet.PutinStartPosition">
+            <summary>
+            Starts the bulets in random positions at the top of the screen
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.Bullet.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the Bullets
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:NetworkingTestGame.Bullet.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates the position of the bullet.
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:NetworkingTestGame.Bullet.CheckCollision(Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            Checks for collision between the bullets
+            </summary>
+            <param name="rect"></param>
+            <returns></returns>
+        </member>
         <member name="T:NetworkingTestGame.Game1">
             <summary>
             This is the main type for your game
@@ -136,6 +208,11 @@
             Removes all bullets when exiting the Single Player game.
             </summary>
         </member>
+        <member name="M:NetworkingTestGame.Program.Main(System.String[])">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
         <member name="T:NetworkingTestGame.NetworkPlayer">
             <summary>
             This is a game component that implements IUpdateable.
@@ -179,83 +256,6 @@
             <summary>
             Draws the ship.
             </summary>
-        </member>
-        <member name="T:NetworkingTestGame.Player">
-            <summary>
-            This is a game component that implements IUpdateable.
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.Player.#ctor(Microsoft.Xna.Framework.Game,Microsoft.Xna.Framework.Graphics.Texture2D@,System.Int32)">
-            <summary>
-            Creates the Player (singleplayer)
-            </summary>
-            <param name="game"></param>
-            <param name="theTexture"></param>
-            <param name="gamerIndex"></param>
-        </member>
-        <member name="M:NetworkingTestGame.Player.PutinStartPosition">
-            <summary>
-            Starts the Player in the centre along the bottom of the screen
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.Player.Update(Microsoft.Xna.Framework.Input.KeyboardState)">
-            <summary>
-            Changes position using input and keeps within the screen.
-            </summary>
-            <param name="keyboard"></param>
-        </member>
-        <member name="M:NetworkingTestGame.Player.Draw(Microsoft.Xna.Framework.GameTime)">
-            <summary>
-            Draws the Ship
-            </summary>
-            <param name="gameTime"></param>
-        </member>
-        <member name="M:NetworkingTestGame.Player.GetBounds">
-            <summary>
-            Gets the screen bounds
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:NetworkingTestGame.Program.Main(System.String[])">
-            <summary>
-            The main entry point for the application.
-            </summary>
-        </member>
-        <member name="T:NetworkingTestGame.Bullet">
-            <summary>
-            Contains methods for creating, updating, drawing and checks for collision between bullets
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.Bullet.#ctor(Microsoft.Xna.Framework.Game,Microsoft.Xna.Framework.Graphics.Texture2D@)">
-            <summary>
-            An object which the player must avoid to survive
-            </summary>
-            <param name="game"></param>
-            <param name="theTexture"></param>
-        </member>
-        <member name="M:NetworkingTestGame.Bullet.PutinStartPosition">
-            <summary>
-            Starts the bulets in random positions at the top of the screen
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.Bullet.Draw(Microsoft.Xna.Framework.GameTime)">
-            <summary>
-            Draws the Bullets
-            </summary>
-            <param name="gameTime"></param>
-        </member>
-        <member name="M:NetworkingTestGame.Bullet.Update(Microsoft.Xna.Framework.GameTime)">
-            <summary>
-            Updates the position of the bullet.
-            </summary>
-            <param name="gameTime"></param>
-        </member>
-        <member name="M:NetworkingTestGame.Bullet.CheckCollision(Microsoft.Xna.Framework.Rectangle)">
-            <summary>
-            Checks for collision between the bullets
-            </summary>
-            <param name="rect"></param>
-            <returns></returns>
         </member>
     </members>
 </doc>
