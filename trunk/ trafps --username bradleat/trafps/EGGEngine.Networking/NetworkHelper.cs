@@ -34,5 +34,47 @@ namespace EGGEngine.Networking
 {
     class NetworkHelper
     {
+        PacketWriter serverPacketWriter;
+        PacketWriter clientPacketWriter;
+        PacketReader serverPacketReader;
+        PacketReader clientPacketReader;
+
+        NetworkSession networkSession;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        int SendSvData()
+        {
+            return 5;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        int SendClData()
+        {
+            return 5;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        int ReadSvData()
+        {
+            return 5;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        int ReadClData()
+        {
+            return 5;
+        }
     }
 }

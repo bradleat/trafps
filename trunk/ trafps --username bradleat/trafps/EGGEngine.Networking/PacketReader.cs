@@ -33,5 +33,14 @@ namespace EGGEngine.Networking
 {
     class PacketReader
     {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="packet"></param>
+        void ReadPacket(string packet)
+        {
+
+        }
     }
 }

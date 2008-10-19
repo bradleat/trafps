@@ -33,5 +33,17 @@ namespace EGGEngine.Networking
 {
     class NetworkSession
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        void CreateSession()
+        {
+
+        }
+
+        void JoinSession()
+        {
+
+        }
     }
 }
