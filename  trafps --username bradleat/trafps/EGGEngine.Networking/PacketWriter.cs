@@ -33,5 +33,10 @@ namespace EGGEngine.Networking
 {
     class PacketWriter
     {
+
+        string WritePacket()
+        {
+            return "placeholder Text";
+        }
     }
 }

@@ -33,5 +33,25 @@ namespace EGGEngine.Networking
 {
     class NetworkStatus
     {
+        string HostList;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        string GetHostList()
+        {
+            return "placeholder Text";
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hostList"></param>
+        /// <returns></returns>
+        int SetHostList(string hostList)
+        {
+            return 5;
+        }
     }
 }

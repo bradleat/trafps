@@ -33,5 +33,61 @@ namespace EGGEngine.Networking
 {
     class NetworkInterface
     {
+        NetworkHelper networkHelper;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        int InitNetwork()
+        {
+            return 5;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        int CreateNetwork()
+        {
+            return 5;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        int FrameNetwork()
+        {
+            return 5;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        int JoinNetwork()
+        {
+            return 5;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        int KillNetwork()
+        {
+            return 5;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="networkCommand"></param>
+        /// <returns></returns>
+        int UpdateStatus(string networkCommand)
+        {
+            return 5;
+        }
     }
 }
