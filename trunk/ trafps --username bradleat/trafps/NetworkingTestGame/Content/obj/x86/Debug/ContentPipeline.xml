@@ -7,17 +7,17 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bradley\Desktop\tra\trafps\NetworkingTestGame\bin\x86\Debug\Content\Arial.xnb</Output>
-      <Time>2008-10-16T10:01:29.0718477-04:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\Content\Arial.xnb</Output>
+      <Time>2008-11-04T14:27:42.8345719-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
-      <RootDirectory>C:\Users\Bradley\Desktop\tra\trafps\NetworkingTestGame\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Bradley\Desktop\tra\trafps\NetworkingTestGame\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Bradley\Desktop\tra\trafps\NetworkingTestGame\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Bradley\Desktop\tra\trafps\NetworkingTestGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -37,8 +37,8 @@
         <Value>2007-11-28T12:07:44-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\2.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2008-08-01T09:07:35.1066645-04:00</Value>
+        <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\2.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2008-09-06T17:33:46.953125-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

@@ -35,3 +35,6 @@ bin\x86\Debug\Content\Models\yhsjw2.xnb
 bin\x86\Debug\Content\Models\rocks%0.xnb
 bin\x86\Debug\Content\Models\sky1.xnb
 bin\x86\Debug\Content\Models\sky%0.xnb
+bin\x86\Debug\Content\Models\LevelPreVis1.xnb
+bin\x86\Debug\EGGEngine.xml
+bin\x86\Debug\TRA Game.XML

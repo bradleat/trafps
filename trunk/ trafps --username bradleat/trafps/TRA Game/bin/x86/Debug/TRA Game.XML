@@ -4,6 +4,11 @@
         <name>TRA Game</name>
     </assembly>
     <members>
+        <member name="M:TRA_Game.Program.Main(System.String[])">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
         <member name="T:TRA_Game.TRA_Game">
             <summary>
             This is the main type for your game
@@ -41,11 +46,6 @@
             This is called when the game should draw itself.
             </summary>
             <param name="gameTime">Provides a snapshot of timing values.</param>
-        </member>
-        <member name="M:TRA_Game.Program.Main(System.String[])">
-            <summary>
-            The main entry point for the application.
-            </summary>
         </member>
     </members>
 </doc>

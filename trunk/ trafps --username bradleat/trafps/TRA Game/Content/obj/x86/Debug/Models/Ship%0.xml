@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>Fbx_Root</Name>
     <Identity>
-      <SourceFilename>C:\Users\Bradley\Desktop\tra\trafps\TRA Game\Content\Models\Ship.fbx</SourceFilename>
+      <SourceFilename>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\Content\Models\Ship.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>5 0 0 0 0 3.061516E-16 -5 0 0 5 3.061516E-16 0 0 0 0 1</Transform>
@@ -43,7 +43,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>terrain</Name>
       <Identity>
-        <SourceFilename>C:\Users\Bradley\Desktop\tra\trafps\TRA Game\Content\Models\Ship.fbx</SourceFilename>
+        <SourceFilename>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\Content\Models\Ship.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <Textures>
@@ -55,7 +55,7 @@
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Name>sunset</Name>
       <Identity>
-        <SourceFilename>C:\Users\Bradley\Desktop\tra\trafps\TRA Game\Content\Models\Ship.fbx</SourceFilename>
+        <SourceFilename>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\Content\Models\Ship.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <Textures>

@@ -6,3 +6,4 @@ C:\Users\Pádraigh Griffin\Desktop\trafps\trafps\TRA Game\Content\obj\x86\Releas
 C:\Users\Bradley\Desktop\EGGEngine\trafps\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Pádraigh Griffin\Desktop\trafps --username bradleat\trafps\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Bradley\Desktop\tra\trafps\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache

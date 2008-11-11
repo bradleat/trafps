@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Input;
 using System.IO;
 using EGGEngine.Helpers;
 using EGGEngine.Cameras;
+using EGGEngine.Utils; 
 #endregion
 
 namespace EGGEngine.Rendering
@@ -53,6 +54,8 @@ namespace EGGEngine.Rendering
             originalTransforms = new Matrix[model.Bones.Count];
             model.CopyBoneTransformsTo(originalTransforms);
 
+            LoadModelBoundingSphere();
+
             position = new Vector3();
 
             if (debug)
@@ -70,10 +73,6 @@ namespace EGGEngine.Rendering
             if (input.KeyDown(Keys.F))
                 temp += 0.05f;
 
-            model.Bones[0].Transform = originalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
-                * Matrix.CreateRotationY(camera.LeftRightRot);
-
-
             model.CopyAbsoluteBoneTransformsTo(modelTransforms);
             foreach (ModelMesh mesh in model.Meshes)
             {
@@ -87,6 +86,24 @@ namespace EGGEngine.Rendering
                 }
                 mesh.Draw();
             }
+        }
+
+        /// <summary>
+        /// Loads the bounding sphere of the model into it's tag.
+        /// </summary>
+        private void LoadModelBoundingSphere()
+        {
+            BoundingSphere completeBoundingSphere = new BoundingSphere();
+
+            foreach (ModelMesh mesh in model.Meshes)
+            {
+                BoundingSphere origMeshSphere = mesh.BoundingSphere;
+                BoundingSphere transMeshSphere = XNAUtils.TransformBoundingSphere(origMeshSphere,
+                    originalTransforms[mesh.ParentBone.Index]);
+                completeBoundingSphere =
+                    BoundingSphere.CreateMerged(completeBoundingSphere, transMeshSphere);
+            }
+            model.Tag = completeBoundingSphere.Transform(Matrix.CreateScale(0.5f));
         }
 
         /// <summary>
