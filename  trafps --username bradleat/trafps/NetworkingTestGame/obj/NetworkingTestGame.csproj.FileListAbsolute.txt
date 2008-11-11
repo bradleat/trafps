@@ -43,3 +43,17 @@ C:\Users\Bradley\Desktop\tra\trafps\NetworkingTestGame\obj\x86\Debug\Microsoft.X
 C:\Users\Bradley\Desktop\tra\trafps\NetworkingTestGame\obj\x86\Debug\NetworkingTestGame.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Bradley\Desktop\tra\trafps\NetworkingTestGame\obj\x86\Debug\NetworkingTestGame.exe
 C:\Users\Bradley\Desktop\tra\trafps\NetworkingTestGame\obj\x86\Debug\NetworkingTestGame.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\Content\Arial.xnb
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\NetworkingTestGame.exe
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\NetworkingTestGame.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\NetworkingTestGame.xml
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\EasyConfig.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\EGGEngine.Networking.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\EasyConfig.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\EGGEngine.Networking.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\EGGEngine.Networking.xml
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\obj\x86\Debug\NetworkingTestGame.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\obj\x86\Debug\NetworkingTestGame.exe
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\NetworkingTestGame\obj\x86\Debug\NetworkingTestGame.pdb

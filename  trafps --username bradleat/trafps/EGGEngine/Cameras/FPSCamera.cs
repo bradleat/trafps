@@ -43,9 +43,11 @@ namespace EGGEngine.Cameras
 
         float leftRightRot;
         float upDownRot;
-        const float rotationSpeed = 0.005f;
+        const float maxRotationSpeed = 0.005f;
+        const float maxAcceleration = 30.0f;
         Vector3 cameraPosition;
         Vector3 modelPosition;
+        Vector3 velocity = new Vector3(0, 0, 0);
 
         Matrix cameraRotation;
         MouseState originalMouseState;
@@ -126,8 +128,8 @@ namespace EGGEngine.Cameras
             {
                 float xDifference = currentMouseState.X - originalMouseState.X;
                 float yDifference = currentMouseState.Y - originalMouseState.Y;
-                leftRightRot -= rotationSpeed * xDifference;
-                upDownRot -= rotationSpeed * yDifference;
+                leftRightRot -= maxRotationSpeed * xDifference;
+                upDownRot -= maxRotationSpeed * yDifference;
                 Mouse.SetPosition(viewPort.Width / 2, viewPort.Height / 2);
 
             }
@@ -140,12 +142,19 @@ namespace EGGEngine.Cameras
         /// </summary>
         /// <param name="vectorToAdd">The direction being applied</param>
         /// <param name="position">The position of the model</param>
-        public void AddToCameraPosition(Vector3 vectorToAdd, ref Vector3 modelPosition)
+        public void AddToCameraPosition(Vector3 vectorToAdd, float forwardReq, ref Vector3 modelPosition, GameTime gameTime)
         {
-            float moveSpeed = 10.0f;
+            float elapsedTime = (float)gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
+
             Vector3 rotatedVector = Vector3.Transform
                 (vectorToAdd, cameraRotation);
-            modelPosition += moveSpeed * rotatedVector;
+            
+            velocity = velocity + elapsedTime * forwardReq * maxAcceleration * rotatedVector;
+
+            float forwardSpeed = Vector3.Dot(velocity, rotatedVector);
+            velocity = forwardSpeed * rotatedVector;
+                        
+            modelPosition += velocity * elapsedTime;
             UpdateViewMatrix();
         }
 
@@ -184,7 +193,7 @@ namespace EGGEngine.Cameras
         {
 
             //Change the Z value of the offset to 0 for complete first-person mode
-            Vector3 avatarHeadOffset = new Vector3(-8, 20, 0);
+            Vector3 avatarHeadOffset = new Vector3(-8, 10, 40);
 
             Vector3 headOffset = Vector3.Transform(avatarHeadOffset, rotation);
 

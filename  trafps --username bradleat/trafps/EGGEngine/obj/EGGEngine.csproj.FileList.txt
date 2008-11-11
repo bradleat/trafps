@@ -17,3 +17,4 @@ obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 obj\x86\Debug\EGGEngine.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
 obj\x86\Debug\EGGEngine.dll
 obj\x86\Debug\EGGEngine.pdb
+bin\x86\Debug\EGGEngine.XML

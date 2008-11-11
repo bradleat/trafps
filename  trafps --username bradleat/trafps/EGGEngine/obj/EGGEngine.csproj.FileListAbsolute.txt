@@ -49,3 +49,13 @@ C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\obj\x86\Debug\EGGEngine.obj.x86.De
 C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\obj\x86\Debug\EGGEngine.dll
 C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\obj\x86\Debug\EGGEngine.pdb
 C:\Users\Bradley\Desktop\tra\trafps\EGGEngine\bin\x86\Debug\EGGEngine.XML
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\EGGEngine\bin\x86\Debug\EGGEngine.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\EGGEngine\bin\x86\Debug\EGGEngine.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\EGGEngine\bin\x86\Debug\EasyConfig.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\EGGEngine\bin\x86\Debug\EasyConfig.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\EGGEngine\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\EGGEngine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\EGGEngine\obj\x86\Debug\EGGEngine.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\EGGEngine\obj\x86\Debug\EGGEngine.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\EGGEngine\obj\x86\Debug\EGGEngine.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\EGGEngine\bin\x86\Debug\EGGEngine.XML

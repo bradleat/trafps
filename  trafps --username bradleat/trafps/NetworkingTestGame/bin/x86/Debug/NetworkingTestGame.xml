@@ -4,6 +4,50 @@
         <name>NetworkingTestGame</name>
     </assembly>
     <members>
+        <member name="T:NetworkingTestGame.NetworkPlayer">
+            <summary>
+            This is a game component that implements IUpdateable.
+            </summary>
+        </member>
+        <member name="F:NetworkingTestGame.NetworkPlayer.Position">
+            <summary>
+            The current position of the ship.
+            </summary>
+        </member>
+        <member name="F:NetworkingTestGame.NetworkPlayer.TankInput">
+            <summary>
+            Input controls can be read from keyboard, gamepad, or the network.
+            </summary>
+        </member>
+        <member name="F:NetworkingTestGame.NetworkPlayer.TurretInput">
+            <summary>
+            Input controls can be read from keyboard, gamepad, or the network.
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.NetworkPlayer.#ctor(System.Int32,Microsoft.Xna.Framework.Content.ContentManager,System.Int32,System.Int32)">
+            <summary>
+            The player in a multiplayer game
+            </summary>
+            <param name="gamerIndex"></param>
+            <param name="content"></param>
+            <param name="screenWidth"></param>
+            <param name="screenHeight"></param>
+        </member>
+        <member name="M:NetworkingTestGame.NetworkPlayer.Update">
+            <summary>
+            Moves the ship in response to the current input settings.
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.NetworkPlayer.TurnToFace(System.Single,Microsoft.Xna.Framework.Vector2,System.Single)">
+            <summary>
+            Gradually rotates the tank to face the specified direction.
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.NetworkPlayer.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Draws the ship.
+            </summary>
+        </member>
         <member name="T:NetworkingTestGame.Player">
             <summary>
             This is a game component that implements IUpdateable.
@@ -38,42 +82,6 @@
             <summary>
             Gets the screen bounds
             </summary>
-            <returns></returns>
-        </member>
-        <member name="T:NetworkingTestGame.Bullet">
-            <summary>
-            Contains methods for creating, updating, drawing and checks for collision between bullets
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.Bullet.#ctor(Microsoft.Xna.Framework.Game,Microsoft.Xna.Framework.Graphics.Texture2D@)">
-            <summary>
-            An object which the player must avoid to survive
-            </summary>
-            <param name="game"></param>
-            <param name="theTexture"></param>
-        </member>
-        <member name="M:NetworkingTestGame.Bullet.PutinStartPosition">
-            <summary>
-            Starts the bulets in random positions at the top of the screen
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.Bullet.Draw(Microsoft.Xna.Framework.GameTime)">
-            <summary>
-            Draws the Bullets
-            </summary>
-            <param name="gameTime"></param>
-        </member>
-        <member name="M:NetworkingTestGame.Bullet.Update(Microsoft.Xna.Framework.GameTime)">
-            <summary>
-            Updates the position of the bullet.
-            </summary>
-            <param name="gameTime"></param>
-        </member>
-        <member name="M:NetworkingTestGame.Bullet.CheckCollision(Microsoft.Xna.Framework.Rectangle)">
-            <summary>
-            Checks for collision between the bullets
-            </summary>
-            <param name="rect"></param>
             <returns></returns>
         </member>
         <member name="T:NetworkingTestGame.Game1">
@@ -208,53 +216,45 @@
             Removes all bullets when exiting the Single Player game.
             </summary>
         </member>
+        <member name="T:NetworkingTestGame.Bullet">
+            <summary>
+            Contains methods for creating, updating, drawing and checks for collision between bullets
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.Bullet.#ctor(Microsoft.Xna.Framework.Game,Microsoft.Xna.Framework.Graphics.Texture2D@)">
+            <summary>
+            An object which the player must avoid to survive
+            </summary>
+            <param name="game"></param>
+            <param name="theTexture"></param>
+        </member>
+        <member name="M:NetworkingTestGame.Bullet.PutinStartPosition">
+            <summary>
+            Starts the bulets in random positions at the top of the screen
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.Bullet.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the Bullets
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:NetworkingTestGame.Bullet.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates the position of the bullet.
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:NetworkingTestGame.Bullet.CheckCollision(Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            Checks for collision between the bullets
+            </summary>
+            <param name="rect"></param>
+            <returns></returns>
+        </member>
         <member name="M:NetworkingTestGame.Program.Main(System.String[])">
             <summary>
             The main entry point for the application.
-            </summary>
-        </member>
-        <member name="T:NetworkingTestGame.NetworkPlayer">
-            <summary>
-            This is a game component that implements IUpdateable.
-            </summary>
-        </member>
-        <member name="F:NetworkingTestGame.NetworkPlayer.Position">
-            <summary>
-            The current position of the ship.
-            </summary>
-        </member>
-        <member name="F:NetworkingTestGame.NetworkPlayer.TankInput">
-            <summary>
-            Input controls can be read from keyboard, gamepad, or the network.
-            </summary>
-        </member>
-        <member name="F:NetworkingTestGame.NetworkPlayer.TurretInput">
-            <summary>
-            Input controls can be read from keyboard, gamepad, or the network.
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.NetworkPlayer.#ctor(System.Int32,Microsoft.Xna.Framework.Content.ContentManager,System.Int32,System.Int32)">
-            <summary>
-            The player in a multiplayer game
-            </summary>
-            <param name="gamerIndex"></param>
-            <param name="content"></param>
-            <param name="screenWidth"></param>
-            <param name="screenHeight"></param>
-        </member>
-        <member name="M:NetworkingTestGame.NetworkPlayer.Update">
-            <summary>
-            Moves the ship in response to the current input settings.
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.NetworkPlayer.TurnToFace(System.Single,Microsoft.Xna.Framework.Vector2,System.Single)">
-            <summary>
-            Gradually rotates the tank to face the specified direction.
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.NetworkPlayer.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
-            <summary>
-            Draws the ship.
             </summary>
         </member>
     </members>

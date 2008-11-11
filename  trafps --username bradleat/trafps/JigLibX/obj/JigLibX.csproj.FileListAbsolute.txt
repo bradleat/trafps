@@ -33,3 +33,10 @@ C:\Users\Bradley\Desktop\tra\trafps\JigLibX\obj\x86\Debug\Microsoft.Xna.Framewor
 C:\Users\Bradley\Desktop\tra\trafps\JigLibX\obj\x86\Debug\JigLibX.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Bradley\Desktop\tra\trafps\JigLibX\obj\x86\Debug\JigLibX.dll
 C:\Users\Bradley\Desktop\tra\trafps\JigLibX\obj\x86\Debug\JigLibX.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\JigLibX\bin\x86\Debug\JigLibX.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\JigLibX\bin\x86\Debug\JigLibX.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\JigLibX\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\JigLibX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\JigLibX\obj\x86\Debug\JigLibX.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\JigLibX\obj\x86\Debug\JigLibX.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\JigLibX\obj\x86\Debug\JigLibX.pdb

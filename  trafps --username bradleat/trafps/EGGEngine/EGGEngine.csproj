@@ -62,6 +62,8 @@
     <Compile Include="Rendering\DrawableModel.cs" />
     <Compile Include="Rendering\PostProcessing.cs" />
     <Compile Include="Rendering\Sky.cs" />
+    <Compile Include="Utils\Collision.cs" />
+    <Compile Include="Utils\XNAUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <NestedContentProject Include="Content\Content.contentproj">
