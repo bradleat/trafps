@@ -33,3 +33,8 @@ C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\Generat
 C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Debug\GeneratedGeometryPipeline.dll
 C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Debug\GeneratedGeometryPipeline.pdb
+C:\Users\Bradley\Desktop\EGGEditor\trafps\GeneratedGeometryPipeline\bin\Xbox 360\Debug\GeneratedGeometryPipeline.dll
+C:\Users\Bradley\Desktop\EGGEditor\trafps\GeneratedGeometryPipeline\bin\Xbox 360\Debug\GeneratedGeometryPipeline.pdb
+C:\Users\Bradley\Desktop\EGGEditor\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\EGGEditor\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Debug\GeneratedGeometryPipeline.dll
+C:\Users\Bradley\Desktop\EGGEditor\trafps\GeneratedGeometryPipeline\obj\Xbox 360\Debug\GeneratedGeometryPipeline.pdb

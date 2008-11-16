@@ -4,6 +4,12 @@
         <name>EGGEngine.Networking</name>
     </assembly>
     <members>
+        <member name="M:EGGEngine.Networking.PacketReader.ReadPacket(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="packet"></param>
+        </member>
         <member name="M:EGGEngine.Networking.NetworkHelper.SendSvData">
             <summary>
             
@@ -28,16 +34,23 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:EGGEngine.Networking.PacketReader.ReadPacket(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="packet"></param>
-        </member>
         <member name="M:EGGEngine.Networking.NetworkSession.CreateSession">
             <summary>
             
             </summary>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkStatus.GetHostList">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkStatus.SetHostList(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hostList"></param>
+            <returns></returns>
         </member>
         <member name="M:EGGEngine.Networking.NetworkInterface.InitNetwork">
             <summary>
@@ -74,19 +87,6 @@
             
             </summary>
             <param name="networkCommand"></param>
-            <returns></returns>
-        </member>
-        <member name="M:EGGEngine.Networking.NetworkStatus.GetHostList">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:EGGEngine.Networking.NetworkStatus.SetHostList(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="hostList"></param>
             <returns></returns>
         </member>
     </members>

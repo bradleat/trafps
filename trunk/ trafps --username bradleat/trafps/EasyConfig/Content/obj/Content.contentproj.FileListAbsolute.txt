@@ -4,3 +4,4 @@ C:\Users\Bradley\Desktop\EGGEngine\trafps\EasyConfig\Content\obj\x86\Debug\Resol
 C:\Users\Pádraigh Griffin\Desktop\trafps --username bradleat\trafps\EasyConfig\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Bradley\Desktop\tra\trafps\EasyConfig\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\drh242.ARL6256\Desktop\XNA\Portal Games\trafps\EasyConfig\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley\Desktop\EGGEditor\trafps\EasyConfig\Content\obj\x86\Debug\ResolveAssemblyReference.cache
