@@ -4,86 +4,6 @@
         <name>EGGEngine</name>
     </assembly>
     <members>
-        <member name="T:EGGEngine.Rendering.Sky">
-            <summary>
-            Runtime class for loading and rendering a textured skydome
-            that was created during the build process by the SkyProcessor.
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Rendering.Sky.#ctor(Microsoft.Xna.Framework.Content.ContentReader)">
-            <summary>
-            Constructor is internal: this should only ever
-            be called by the SkyReader class.
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Rendering.Sky.Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
-            <summary>
-            Helper for drawing the skydome mesh.
-            </summary>
-        </member>
-        <member name="T:EGGEngine.Rendering.SkyReader">
-            <summary>
-            Helper for reading a Sky object from the compiled XNB format.
-            </summary>
-        </member>
-        <member name="T:EGGEngine.Debug.FrameRateCounter">
-            <summary>
-            This is a game component that implements IUpdateable.
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Debug.FrameRateCounter.LoadContent">
-            <summary>
-            Loads the SpriteBatch and font.
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Debug.FrameRateCounter.Update(Microsoft.Xna.Framework.GameTime)">
-            <summary>
-            Updates the frame counter
-            </summary>
-            <param name="gameTime">The current game time</param>
-        </member>
-        <member name="M:EGGEngine.Debug.FrameRateCounter.Draw(Microsoft.Xna.Framework.GameTime)">
-            <summary>
-            Draws the frame counter to the screen
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Rendering.DrawableModel.Draw(EGGEngine.Cameras.FPSCamera)">
-            <summary>
-            Draws the model in 3D space using the current camera's view matrix 
-            and projection matrix.
-            </summary>
-            <param name="camera">The current camera being used</param>
-        </member>
-        <member name="M:EGGEngine.Rendering.DrawableModel.LoadModelBoundingSphere">
-            <summary>
-            Loads the bounding sphere of the model into it's tag.
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Rendering.DrawableModel.WriteModelStructure(Microsoft.Xna.Framework.Graphics.Model)">
-            <summary>
-            Debugging method that writes the structure of the model into
-            a text file, including bone names, mesh names, and indices of each.
-            </summary>
-            <param name="model">The model being used</param>
-        </member>
-        <member name="M:EGGEngine.Rendering.DrawableModel.WriteBone(Microsoft.Xna.Framework.Graphics.ModelBone,System.Int32,System.IO.StreamWriter)">
-            <summary>
-            Debugging method that handles the writing of the bone structure.
-            </summary>
-            <param name="bone">The current bone</param>
-            <param name="level">The level in the bone structure (number of tabs)</param>
-            <param name="writer">The stream writer used to write the information
-            to a text file</param>
-        </member>
-        <member name="M:EGGEngine.Rendering.DrawableModel.WriteModelMesh(System.Int32,Microsoft.Xna.Framework.Graphics.ModelMesh,System.IO.StreamWriter)">
-            <summary>
-            Debugging method that handles the writing of the mesh structure.
-            </summary>
-            <param name="ID">The index of the current mesh</param>
-            <param name="mesh">The current mesh</param>
-            <param name="writer">The stream writer used to write the information
-            to a text file</param>
-        </member>
         <member name="M:EGGEngine.Helpers.InputHelper.KeyDown(Microsoft.Xna.Framework.Input.Keys)">
             <summary>
             Returns true if the given key is pressed and false otherwise.
@@ -135,6 +55,111 @@
             <param name="thumbstick">The thumbstick being manipulated</param>
             <returns>Float value representing the direction the thumbstick is being pushed in the y direction</returns>
         </member>
+        <member name="T:EGGEngine.Rendering.Sky">
+            <summary>
+            Runtime class for loading and rendering a textured skydome
+            that was created during the build process by the SkyProcessor.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Rendering.Sky.#ctor(Microsoft.Xna.Framework.Content.ContentReader)">
+            <summary>
+            Constructor is internal: this should only ever
+            be called by the SkyReader class.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Rendering.Sky.Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Helper for drawing the skydome mesh.
+            </summary>
+        </member>
+        <member name="T:EGGEngine.Rendering.SkyReader">
+            <summary>
+            Helper for reading a Sky object from the compiled XNB format.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Rendering.PostProcessing.InitPostProcessingVertices">
+            <summary>
+            Sets up the vertices that cover the viewport
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Rendering.PostProcessing.LoadEffect(Microsoft.Xna.Framework.Content.ContentManager,System.String)">
+            <summary>
+            Loads the appropriate effect
+            </summary>
+            <param name="content">Content manager needed to load the appropriate effect</param>
+            <param name="filename">The name of the file containing the effect</param>
+        </member>
+        <member name="M:EGGEngine.Rendering.PostProcessing.PostProcess(System.String)">
+            <summary>
+            Runs the appropriate postprocess technique
+            </summary>
+            <param name="technique">The technique that is to be run</param>
+        </member>
+        <member name="M:EGGEngine.Rendering.PostProcessing.PostProcess(System.String,System.Single)">
+            <summary>
+            Runs the given technique for postprocessing and sets the time if needed
+            </summary>
+            <param name="technique">The technique that is to be run</param>
+            <param name="time">The time parameter used for the change over time effect</param>
+        </member>
+        <member name="M:EGGEngine.Rendering.DrawableModel.Draw(EGGEngine.Cameras.FPSCamera)">
+            <summary>
+            Draws the model in 3D space using the current camera's view matrix 
+            and projection matrix.
+            </summary>
+            <param name="camera">The current camera being used</param>
+        </member>
+        <member name="M:EGGEngine.Rendering.DrawableModel.LoadModelBoundingSphere">
+            <summary>
+            Loads the bounding sphere of the model into it's tag.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Rendering.DrawableModel.WriteModelStructure(Microsoft.Xna.Framework.Graphics.Model)">
+            <summary>
+            Debugging method that writes the structure of the model into
+            a text file, including bone names, mesh names, and indices of each.
+            </summary>
+            <param name="model">The model being used</param>
+        </member>
+        <member name="M:EGGEngine.Rendering.DrawableModel.WriteBone(Microsoft.Xna.Framework.Graphics.ModelBone,System.Int32,System.IO.StreamWriter)">
+            <summary>
+            Debugging method that handles the writing of the bone structure.
+            </summary>
+            <param name="bone">The current bone</param>
+            <param name="level">The level in the bone structure (number of tabs)</param>
+            <param name="writer">The stream writer used to write the information
+            to a text file</param>
+        </member>
+        <member name="M:EGGEngine.Rendering.DrawableModel.WriteModelMesh(System.Int32,Microsoft.Xna.Framework.Graphics.ModelMesh,System.IO.StreamWriter)">
+            <summary>
+            Debugging method that handles the writing of the mesh structure.
+            </summary>
+            <param name="ID">The index of the current mesh</param>
+            <param name="mesh">The current mesh</param>
+            <param name="writer">The stream writer used to write the information
+            to a text file</param>
+        </member>
+        <member name="T:EGGEngine.Debug.FrameRateCounter">
+            <summary>
+            This is a game component that implements IUpdateable.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Debug.FrameRateCounter.LoadContent">
+            <summary>
+            Loads the SpriteBatch and font.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Debug.FrameRateCounter.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates the frame counter
+            </summary>
+            <param name="gameTime">The current game time</param>
+        </member>
+        <member name="M:EGGEngine.Debug.FrameRateCounter.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the frame counter to the screen
+            </summary>
+        </member>
         <member name="M:EGGEngine.Cameras.FPSCamera.Update(Microsoft.Xna.Framework.Input.MouseState,Microsoft.Xna.Framework.Vector3)">
             <summary>
             Updates the camera based on the current mouse state.
@@ -162,31 +187,6 @@
             point of view.
             </summary>
             <param name="rotation">The current rotation of the camera</param>
-        </member>
-        <member name="M:EGGEngine.Rendering.PostProcessing.InitPostProcessingVertices">
-            <summary>
-            Sets up the vertices that cover the viewport
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Rendering.PostProcessing.LoadEffect(Microsoft.Xna.Framework.Content.ContentManager,System.String)">
-            <summary>
-            Loads the appropriate effect
-            </summary>
-            <param name="content">Content manager needed to load the appropriate effect</param>
-            <param name="filename">The name of the file containing the effect</param>
-        </member>
-        <member name="M:EGGEngine.Rendering.PostProcessing.PostProcess(System.String)">
-            <summary>
-            Runs the appropriate postprocess technique
-            </summary>
-            <param name="technique">The technique that is to be run</param>
-        </member>
-        <member name="M:EGGEngine.Rendering.PostProcessing.PostProcess(System.String,System.Single)">
-            <summary>
-            Runs the given technique for postprocessing and sets the time if needed
-            </summary>
-            <param name="technique">The technique that is to be run</param>
-            <param name="time">The time parameter used for the change over time effect</param>
         </member>
     </members>
 </doc>
