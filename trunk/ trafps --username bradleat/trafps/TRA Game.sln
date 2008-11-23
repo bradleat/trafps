@@ -30,7 +30,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkingTestGame", "Netwo
 		{38DFDC14-0F98-41F7-BBD4-0FE4B782080C} = {38DFDC14-0F98-41F7-BBD4-0FE4B782080C}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGGEditor01", "..\..\..\..\Documents\Visual Studio 2008\Projects\EGGEditor01\EGGEditor01\EGGEditor01.csproj", "{82BD8D9A-C9A9-4E27-BD26-C78675E5A68D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGGEditor01", "EGGEditor01\EGGEditor01\EGGEditor01.csproj", "{82BD8D9A-C9A9-4E27-BD26-C78675E5A68D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
