@@ -17,6 +17,10 @@ namespace EGGEditor01
             InitializeComponent();
         }
 
+        private void pctSurface_MouseHover(object sender, EventArgs e)
+        {
+            
+        }
         private void EGGEditor_Load(object sender, EventArgs e)
         {
 
@@ -48,7 +52,21 @@ namespace EGGEditor01
 
         private void pctSurface_Click(object sender, EventArgs e)
         {
+            pctSurface.Show();
+        }
 
+        private void pctSurface_MouseDoubleClick(object sender, EventArgs e)
+        {
+            if (pctSurface.Visible == true)
+            {
+                pctSurface.Hide();
+            }
+            else
+            {
+                pctSurface.Show();
+                pctSurface.PerformLayout();
+
+            }
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -64,8 +82,14 @@ namespace EGGEditor01
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }  
-        
-        
+        }
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void EGGEditor_FormClosed(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
