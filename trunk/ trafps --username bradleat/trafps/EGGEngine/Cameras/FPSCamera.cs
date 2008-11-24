@@ -111,7 +111,7 @@ namespace EGGEngine.Cameras
 
             UpdateViewMatrix();
 
-            //Mouse.SetPosition(viewPort.Width / 2, viewPort.Height / 2);
+            Mouse.SetPosition(viewPort.Width / 2, viewPort.Height / 2);
             originalMouseState = Mouse.GetState();
             input = new InputHelper();
         }
@@ -130,7 +130,7 @@ namespace EGGEngine.Cameras
                 float yDifference = currentMouseState.Y - originalMouseState.Y;
                 leftRightRot -= maxRotationSpeed * xDifference;
                 upDownRot -= maxRotationSpeed * yDifference;
-                //Mouse.SetPosition(viewPort.Width / 2, viewPort.Height / 2);
+                Mouse.SetPosition(viewPort.Width / 2, viewPort.Height / 2);
 
             }*/
             UpdateViewMatrix();

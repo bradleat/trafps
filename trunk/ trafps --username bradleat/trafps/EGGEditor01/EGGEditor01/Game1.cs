@@ -17,7 +17,7 @@ using EGGEngine.Helpers;
 using EGGEngine.Utils;
 #endregion
 
-namespace TRA_Game
+namespace EGGEditor01
 {
     /// <summary>
     /// This is the main type for your game

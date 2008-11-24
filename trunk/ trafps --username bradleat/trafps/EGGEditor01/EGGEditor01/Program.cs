@@ -1,5 +1,4 @@
 ﻿using System;
-using TRA_Game;
 
 namespace EGGEditor01
 {

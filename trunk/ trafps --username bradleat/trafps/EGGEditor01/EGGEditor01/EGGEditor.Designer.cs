@@ -96,6 +96,7 @@
             this.pctSurface.TabIndex = 0;
             this.pctSurface.TabStop = false;
             this.pctSurface.Click += new System.EventHandler(this.pctSurface_Click);
+            this.pctSurface.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(pctSurface_MouseDoubleClick);
             // 
             // toolStrip1
             // 
@@ -267,6 +268,7 @@
             this.propertyGrid1.Size = new System.Drawing.Size(147, 574);
             this.propertyGrid1.TabIndex = 5;
             this.propertyGrid1.Click += new System.EventHandler(this.propertyGrid1_Click);
+            this.propertyGrid1.SelectedObject = this.pctSurface;
             // 
             // checkBox1
             // 
@@ -388,6 +390,7 @@
             // 
             // EGGEditor
             // 
+            this.FormClosed +=new System.Windows.Forms.FormClosedEventHandler(EGGEditor_FormClosed); 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 623);
@@ -417,7 +420,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pctSurface;
+        public System.Windows.Forms.PictureBox pctSurface;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.MenuStrip menuStrip1;
