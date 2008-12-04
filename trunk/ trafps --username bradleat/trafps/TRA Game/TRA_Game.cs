@@ -2,7 +2,7 @@
 //=============================================================================
 // System  : Game Loop
 // File    : TRA_Game.cs
-// Author  : Dustin, Bradley Leaterwood
+// Author  : Dustin, Bradley Leaterwood, Wenguang LIU
 // Note    : Copyright 2008, Portal Games, All Rights Reserved
 // Compiler: Microsoft C#
 //
@@ -37,6 +37,7 @@ using EGGEngine.Debug;
 using EGGEngine.Rendering;
 using EGGEngine.Helpers;
 using EGGEngine.Utils;
+
 #endregion
 
 namespace TRA_Game
@@ -53,11 +54,11 @@ namespace TRA_Game
         bool FPS_Counter_On;
 
         Vector3 initalPos1 = new Vector3(0, 15, 0);
-        
+
         //Config File Stuff
         ConfigFile config = new ConfigFile("content\\config.ini");
 
-        
+
         DrawableModel person1;
         Model terrain;
         FPSCamera camera;
@@ -65,6 +66,7 @@ namespace TRA_Game
         Vector3 translate = Vector3.Zero;
         InputHelper input;
         Sky sky;
+
 
         //Stuff for networking
         DrawableModel person2;
@@ -75,6 +77,12 @@ namespace TRA_Game
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             input = new InputHelper();
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 720;
+
+
+
+
         }
 
         /// <summary>
@@ -85,6 +93,8 @@ namespace TRA_Game
         /// </summary>
         protected override void Initialize()
         {
+
+
             camera = new FPSCamera(GraphicsDevice.Viewport);
             FPS_Counter_On = config.SettingGroups["DebugFeatures"].Settings["FPSCounterOn"].GetValueAsBool();
 
@@ -98,6 +108,8 @@ namespace TRA_Game
             terrain = Content.Load<Model>(name);
 
             sky = Content.Load<Sky>("Models\\sky1");
+
+            Components.Add(new MainMenu(this));
             // Comment this to remove the framerate counter
             if (FPS_Counter_On == true)
             {
@@ -139,7 +151,7 @@ namespace TRA_Game
             // Allows the game to exit
             if (input.ButtonDown(Buttons.B))
                 this.Exit();
-            
+
             if (input.KeyDown(Keys.Escape))
             {
                 this.Exit();
@@ -148,7 +160,7 @@ namespace TRA_Game
 
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
             float forwardReq = 0;
-           
+
             Vector3 moveDirection = new Vector3(0, 0, 0);
 
             if (input.KeyDown(Keys.S))
@@ -182,7 +194,7 @@ namespace TRA_Game
             camera.Update(mouseState, person1.Position);
 
             person1.WorldMatrix = Matrix.CreateScale(2.0f) * Matrix.CreateRotationY(4.05f);
-             
+
             base.Update(gameTime);
         }
 
@@ -192,12 +204,15 @@ namespace TRA_Game
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+
             graphics.GraphicsDevice.Clear(ClearOptions.Target | ClearOptions.DepthBuffer,
-                Color.CornflowerBlue, 1, 0);
-            
+                Color.Black, 1, 0);
+
+
+
             GraphicsDevice.RenderState.CullMode = CullMode.None;
-            GraphicsDevice.RenderState.DepthBufferEnable = true; 
-            GraphicsDevice.RenderState.AlphaBlendEnable = false; 
+            GraphicsDevice.RenderState.DepthBufferEnable = true;
+            GraphicsDevice.RenderState.AlphaBlendEnable = false;
             GraphicsDevice.RenderState.AlphaTestEnable = false;
 
             person1.Model.Bones[0].Transform = person1.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
@@ -215,11 +230,12 @@ namespace TRA_Game
                     effect.View = camera.ViewMatrix;
                     effect.Projection = camera.ProjectionMatrix;
                 }
-                
+
                 mesh.Draw();
             }
 
             sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
+
             //Demo Stuff
             if (input.KeyDown(Keys.I))
                 postProc.PostProcess("Invert");
@@ -227,7 +243,7 @@ namespace TRA_Game
                 postProc.PostProcess("TimeChange",
                     (float)gameTime.TotalGameTime.TotalMilliseconds / 1000.0f);
 
-           base.Draw(gameTime);
+            base.Draw(gameTime);
         }
     }
 }
