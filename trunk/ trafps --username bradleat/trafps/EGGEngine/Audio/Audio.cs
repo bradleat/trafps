@@ -23,38 +23,42 @@ namespace EGGEngine.Audio
         Cue cue;
         AudioCategory musicCategory;
 
-        // 3D audio objects
-        AudioEmitter emitter = new AudioEmitter();
-        AudioListener listener = new AudioListener();
-
-
-        public Audio(string audioFilePath, string initialsound, AudioCategory category, string categoryname, int offset, short packetsize)
+        public Audio(string audioFilePath)
         {
             // Initialize audio objects.
             engine = new AudioEngine(audioFilePath);
-                //"Content\\Audio\\PlaySound.xgs");
-            soundBank = new SoundBank(engine, "Content\\Audio\\Sound Bank.xsb");
+            //"Content\\Audio\\PlaySound.xgs");
+            soundBank = new SoundBank(engine, "Content\\Sound Bank.xsb");
             // Create streaming wave bank.
-            waveBank = new WaveBank(engine, "Content\\Audio\\Wave Bank.xwb", offset, packetsize);
-
-            category = engine.GetCategory(categoryname);
+            waveBank = new WaveBank(engine, "Content\\Wave Bank.xwb");
             // must call update
             engine.Update();
 
-            cue = soundBank.GetCue(initialsound);
-            cue.Play();
-
+        }
+        public AudioCategory GetCategory(string categoryname)
+        {
+            musicCategory = engine.GetCategory(categoryname);
+            return musicCategory;
         }
         public Cue GetCue(string sound)
         {
             cue = soundBank.GetCue(sound);
             return cue;
         }
-        public void PlaySound(Cue cue)
+        public Cue Play(Cue cue, bool apply3d, AudioListener listener, AudioEmitter emitter)
         {
-            cue.Play();
+            if (cue.IsStopped)
+                cue = soundBank.GetCue(cue.Name);
+
+            if (cue.IsPrepared)
+            {
+                if (apply3d)
+                    cue.Apply3D(listener, emitter);
+                cue.Play();
+            }
+            return cue;
         }
-        public void PauseSound(Cue cue)
+        public void Pause(Cue cue)
         {
             if (cue.IsPaused)
             {
@@ -71,27 +75,48 @@ namespace EGGEngine.Audio
                 cue.Play();
             }
         }
-        public void StopSound(Cue cue)
+        public Cue Stop(Cue cue)
         {
             cue.Stop(AudioStopOptions.AsAuthored);
+            return cue;
         }
-        public void ChangeVolume(AudioCategory category, float volume, bool increase, float maxVolume)
+        public float ChangeVolume(AudioCategory category, float volume, bool increase, float maxVolume)
         {
             if (increase)
             {
-                volume = MathHelper.Clamp(+0.01f, 0.0f, maxVolume);
+                volume = MathHelper.Clamp(volume + 0.01f, 0.0f, maxVolume);
             }
             else
-                volume = MathHelper.Clamp(-0.01f, 0.0f, maxVolume);
+                volume = MathHelper.Clamp(volume - 0.01f, 0.0f, maxVolume);
 
             category.SetVolume(volume);
+            return volume;
         }
 
-        public void Play3DSound(AudioListener listener, AudioEmitter emitter, 
-            Cue cue, Vector3 listenerPosition, Vector3 emitterPosition)
+        public void Apply3D(Cue cue, AudioListener listener, AudioEmitter emitter)
         {
-            listener.Position = listenerPosition;
-            emitter.Position = emitterPosition;
+            cue.Apply3D(listener, emitter);
+        }
+        public void Apply3DPosition(Cue cue, AudioListener listener, AudioEmitter emitter,
+             Vector3 listenerPosition, Vector3 emitterPosition)
+        {
+            listenerPosition = listener.Position;
+            emitterPosition = emitter.Position;
+            cue.Apply3D(listener, emitter);
+        }
+        public void Apply3DVelocity(Cue cue, AudioListener listener, AudioEmitter emitter, Vector3 emitterVelocity, Vector3 listenerVelocity)
+        {
+            listenerVelocity = listener.Velocity;
+            emitterVelocity = emitter.Velocity;
+            cue.Apply3D(listener, emitter);
+        }
+        public void Apply3DAll(Cue cue, AudioListener listener, AudioEmitter emitter, Vector3 listenerPosition,
+            Vector3 emitterPosition, Vector3 listenerVelocity, Vector3 emitterVelocity)
+        {
+            listenerPosition = listener.Position;
+            emitterPosition = emitter.Position;
+            listener.Velocity = listener.Velocity;
+            emitter.Velocity = emitter.Velocity;
             cue.Apply3D(listener, emitter);
         }
         public void ChangeEmitterVelocity(AudioEmitter emitter, float maxVelocity, bool increase, float amount)
@@ -115,3 +140,4 @@ namespace EGGEngine.Audio
 
     }
 }
+
