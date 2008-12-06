@@ -47,5 +47,16 @@
             </summary>
             <param name="gameTime">Provides a snapshot of timing values.</param>
         </member>
+        <member name="M:TRA_Game.MainMenu.#ctor(Microsoft.Xna.Framework.Game)">
+            <summary>
+            Create user interface renderer
+            </summary>
+            
+        </member>
+        <member name="M:TRA_Game.MainMenu.LoadContent">
+            <summary>
+            Loads the SpriteBatch and font.
+            </summary>
+        </member>
     </members>
 </doc>
