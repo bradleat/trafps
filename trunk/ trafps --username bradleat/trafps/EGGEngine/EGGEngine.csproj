@@ -89,6 +89,7 @@
     <Compile Include="Rendering\Sky.cs" />
     <Compile Include="Rendering\UIRenderer.cs" />
     <Compile Include="Utils\Collision.cs" />
+    <Compile Include="Utils\SerializeUtils.cs" />
     <Compile Include="Utils\XNAUtils.cs" />
   </ItemGroup>
   <ItemGroup>

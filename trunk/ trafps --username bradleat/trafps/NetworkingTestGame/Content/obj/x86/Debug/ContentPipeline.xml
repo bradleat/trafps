@@ -7,38 +7,43 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bradley\Desktop\EGGEditor\trafps\NetworkingTestGame\bin\x86\Debug\Content\Arial.xnb</Output>
-      <Time>2008-11-16T11:22:14.2646-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\Content\Arial.xnb</Output>
+      <Time>2008-12-06T16:54:59.34375-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
-      <RootDirectory>C:\Users\Bradley\Desktop\EGGEditor\trafps\NetworkingTestGame\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Bradley\Desktop\EGGEditor\trafps\NetworkingTestGame\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Bradley\Desktop\EGGEditor\trafps\NetworkingTestGame\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Bradley\Desktop\EGGEditor\trafps\NetworkingTestGame\bin\x86\Debug\Content\</OutputDirectory>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>c:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2007-11-28T12:08:00-05:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2008-10-10T18:42:32-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>c:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2007-11-28T12:08:42-05:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2008-10-10T18:43:28-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>c:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2007-11-28T12:08:30-05:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2008-10-10T18:43:18-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>c:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2007-11-28T12:07:44-05:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2008-10-10T18:48:18-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\2.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2008-06-30T11:55:13.9361178-04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2008-10-10T18:48:50-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2008-11-30T12:13:37.578125-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
