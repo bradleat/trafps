@@ -84,12 +84,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\GeneratedGeometryPipeline\GeneratedGeometryPipeline.csproj">
-      <Project>{96B02956-4EB9-4AA1-972D-A211507EFC85}</Project>
-      <Name>GeneratedGeometryPipeline</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Models\LevelPreVis1.x">
       <Name>LevelPreVis1</Name>
       <Importer>XImporter</Importer>

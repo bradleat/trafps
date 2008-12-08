@@ -17,7 +17,7 @@ using Microsoft.Xna.Framework.Content.Pipeline.Graphics;
 using Microsoft.Xna.Framework.Content.Pipeline.Processors;
 #endregion
 
-namespace GeneratedGeometryPipeline
+namespace EGGPipelineExtension
 {
     /// <summary>
     /// Custom content processor for creating skydome meshes. Given an

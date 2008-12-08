@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Content.Pipeline.Processors;
 using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Compiler;
 #endregion
 
-namespace GeneratedGeometryPipeline
+namespace EGGPipelineExtension
 {
     /// <summary>
     /// Design time class for holding a skydome. This is created by

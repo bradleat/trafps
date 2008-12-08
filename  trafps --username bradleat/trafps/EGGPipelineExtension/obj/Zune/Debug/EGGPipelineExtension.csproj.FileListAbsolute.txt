@@ -1,0 +1,5 @@
+C:\Documents and Settings\Dustin\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\EGGPipelineExtension.dll
+C:\Documents and Settings\Dustin\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\EGGPipelineExtension.pdb
+C:\Documents and Settings\Dustin\Desktop\New Folder\trafps\EGGPipelineExtension\obj\Zune\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Dustin\Desktop\New Folder\trafps\EGGPipelineExtension\obj\Zune\Debug\EGGPipelineExtension.dll
+C:\Documents and Settings\Dustin\Desktop\New Folder\trafps\EGGPipelineExtension\obj\Zune\Debug\EGGPipelineExtension.pdb
