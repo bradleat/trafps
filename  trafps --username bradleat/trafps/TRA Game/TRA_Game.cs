@@ -47,6 +47,16 @@ namespace TRA_Game
     /// </summary>
     public class TRA_Game : Microsoft.Xna.Framework.Game
     {
+        enum GameMode
+        {
+            _SPLASH,
+            _MENU,
+            _PLAY
+
+        };
+
+        GameMode gameMode;
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -67,6 +77,8 @@ namespace TRA_Game
         InputHelper input;
         Sky sky;
 
+        SplashTitle splashTitle;
+        MainMenu mainMenu;
 
         //Stuff for networking
         DrawableModel person2;
@@ -95,6 +107,8 @@ namespace TRA_Game
         {
 
 
+
+
             camera = new FPSCamera(GraphicsDevice.Viewport);
             FPS_Counter_On = config.SettingGroups["DebugFeatures"].Settings["FPSCounterOn"].GetValueAsBool();
 
@@ -109,7 +123,10 @@ namespace TRA_Game
 
             sky = Content.Load<Sky>("Models\\sky1");
 
-            Components.Add(new MainMenu(this));
+            splashTitle = new SplashTitle(this);
+            Components.Add(splashTitle);
+            gameMode = GameMode._SPLASH;
+
             // Comment this to remove the framerate counter
             if (FPS_Counter_On == true)
             {
@@ -148,6 +165,62 @@ namespace TRA_Game
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            if (gameMode == GameMode._SPLASH && Components.Contains(splashTitle) == false)
+            {
+                gameMode = GameMode._MENU;
+                mainMenu = new MainMenu(this);
+                Components.Add(mainMenu);
+            }
+
+            if (gameMode == GameMode._MENU && Components.Contains(mainMenu) == false)
+            {
+                gameMode = GameMode._PLAY;
+
+            }
+
+            if (gameMode == GameMode._PLAY)
+            {
+                MouseState mouseState = Mouse.GetState();
+
+                float elapsedSeconds = (float)gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
+                float forwardReq = 0;
+
+                Vector3 moveDirection = new Vector3(0, 0, 0);
+
+                if (input.KeyDown(Keys.S))
+                {
+                    forwardReq += 5.0f;
+                    moveDirection = new Vector3(0, 0, 1);  //Backward
+                }
+                if (input.KeyDown(Keys.W))
+                {
+                    forwardReq += 5.0f;
+                    moveDirection = new Vector3(0, 0, -1);  //Forward
+                }
+                if (input.KeyDown(Keys.A))
+                {
+                    forwardReq += 5.0f;
+                    moveDirection = new Vector3(-1, 0, 0);  //Left
+                }
+                if (input.KeyDown(Keys.D))
+                {
+                    forwardReq += 5.0f;
+                    moveDirection = new Vector3(1, 0, 0);   //Right
+                }
+
+                camera.AddToCameraPosition(moveDirection, forwardReq, ref initalPos1, gameTime);
+                person1.Position = initalPos1;
+
+                person2.Position = initialPos2;
+                person2.WorldMatrix = Matrix.CreateScale(2.0f);
+
+
+                camera.Update(mouseState, person1.Position);
+
+                person1.WorldMatrix = Matrix.CreateScale(2.0f) * Matrix.CreateRotationY(4.05f);
+
+            }
+
             // Allows the game to exit
             if (input.ButtonDown(Buttons.B))
                 this.Exit();
@@ -156,44 +229,7 @@ namespace TRA_Game
             {
                 this.Exit();
             }
-            MouseState mouseState = Mouse.GetState();
 
-            float elapsedSeconds = (float)gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
-            float forwardReq = 0;
-
-            Vector3 moveDirection = new Vector3(0, 0, 0);
-
-            if (input.KeyDown(Keys.S))
-            {
-                forwardReq += 5.0f;
-                moveDirection = new Vector3(0, 0, 1);  //Backward
-            }
-            if (input.KeyDown(Keys.W))
-            {
-                forwardReq += 5.0f;
-                moveDirection = new Vector3(0, 0, -1);  //Forward
-            }
-            if (input.KeyDown(Keys.A))
-            {
-                forwardReq += 5.0f;
-                moveDirection = new Vector3(-1, 0, 0);  //Left
-            }
-            if (input.KeyDown(Keys.D))
-            {
-                forwardReq += 5.0f;
-                moveDirection = new Vector3(1, 0, 0);   //Right
-            }
-
-            camera.AddToCameraPosition(moveDirection, forwardReq, ref initalPos1, gameTime);
-            person1.Position = initalPos1;
-
-            person2.Position = initialPos2;
-            person2.WorldMatrix = Matrix.CreateScale(2.0f);
-
-
-            camera.Update(mouseState, person1.Position);
-
-            person1.WorldMatrix = Matrix.CreateScale(2.0f) * Matrix.CreateRotationY(4.05f);
 
             base.Update(gameTime);
         }
@@ -206,42 +242,45 @@ namespace TRA_Game
         {
 
             graphics.GraphicsDevice.Clear(ClearOptions.Target | ClearOptions.DepthBuffer,
-                Color.Black, 1, 0);
-
-
+                Color.White, 1, 0);
 
             GraphicsDevice.RenderState.CullMode = CullMode.None;
             GraphicsDevice.RenderState.DepthBufferEnable = true;
             GraphicsDevice.RenderState.AlphaBlendEnable = false;
             GraphicsDevice.RenderState.AlphaTestEnable = false;
 
-            person1.Model.Bones[0].Transform = person1.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
-                * Matrix.CreateRotationY(camera.LeftRightRot);
-            person1.Draw(camera);
-            person2.Draw(camera);
-
-            foreach (ModelMesh mesh in terrain.Meshes)
+            if (gameMode == GameMode._PLAY)
             {
-                foreach (BasicEffect effect in mesh.Effects)
+                person1.Model.Bones[0].Transform = person1.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
+                * Matrix.CreateRotationY(camera.LeftRightRot);
+                person1.Draw(camera);
+                person2.Draw(camera);
+
+                foreach (ModelMesh mesh in terrain.Meshes)
                 {
-                    effect.EnableDefaultLighting();
-                    effect.World = Matrix.Identity;
-                    effect.SpecularColor = new Vector3(1, 0, 0);
-                    effect.View = camera.ViewMatrix;
-                    effect.Projection = camera.ProjectionMatrix;
+                    foreach (BasicEffect effect in mesh.Effects)
+                    {
+                        effect.EnableDefaultLighting();
+                        effect.World = Matrix.Identity;
+                        effect.SpecularColor = new Vector3(1, 0, 0);
+                        effect.View = camera.ViewMatrix;
+                        effect.Projection = camera.ProjectionMatrix;
+                    }
+
+                    mesh.Draw();
                 }
 
-                mesh.Draw();
+                sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
+
+                //Demo Stuff
+                if (input.KeyDown(Keys.I))
+                    postProc.PostProcess("Invert");
+                if (input.KeyDown(Keys.T))
+                    postProc.PostProcess("TimeChange",
+                        (float)gameTime.TotalGameTime.TotalMilliseconds / 1000.0f);
+
             }
 
-            sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
-
-            //Demo Stuff
-            if (input.KeyDown(Keys.I))
-                postProc.PostProcess("Invert");
-            if (input.KeyDown(Keys.T))
-                postProc.PostProcess("TimeChange",
-                    (float)gameTime.TotalGameTime.TotalMilliseconds / 1000.0f);
 
             base.Draw(gameTime);
         }

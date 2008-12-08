@@ -1,7 +1,7 @@
 ﻿#region License
 //=============================================================================
-// System  : MainMenu
-// File    : MainMenu.cs
+// System  : SplashTitle
+// File    : SplashTitle.cs
 // Author  : Wenguang LIU
 // Note    : Copyright 2008, Portal Games, All Rights Reserved
 // Compiler: Microsoft C#
@@ -28,23 +28,23 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using EGGEngine.Rendering;
-using EGGEngine.Helpers;
 #endregion
+
+
+
 
 namespace TRA_Game
 {
-    class MainMenu : DrawableGameComponent
+    class SplashTitle : DrawableGameComponent
     {
         //all for test
 
         #region Variables
-        Texture2D menu;
-        Texture2D chart;
-        UIRenderer title;
-        UIRenderer chara;
+        Texture2D spTex;
+        UIRenderer spRend;
         ContentManager content;
         SpriteBatch SpriteRenderer;
-        InputHelper input;
+        TimeSpan waitCounter;
         #endregion
 
         #region Constructor and LoadContent
@@ -52,10 +52,9 @@ namespace TRA_Game
         /// Create user interface renderer
         /// </summary>
         /// 
-        public MainMenu(Game game)
+        public SplashTitle(Game game)
             : base(game)
         {
-            input = new InputHelper();
             content = new ContentManager(game.Services);
             SpriteRenderer = new SpriteBatch(game.GraphicsDevice);
         }
@@ -66,16 +65,14 @@ namespace TRA_Game
         {
 
 
-            menu = content.Load<Texture2D>("Content\\menu");
-            chart = content.Load<Texture2D>("Content\\chars");
-            title = new UIRenderer(menu, SpriteRenderer);
-            chara = new UIRenderer(chart, SpriteRenderer);
-            chara.AddFadeEffect(0.0f, 1500);
-            chara.SetPosition(new Vector2(430, 460));
+            spTex = content.Load<Texture2D>("Content\\pgi");
+            spRend = new UIRenderer(spTex, SpriteRenderer);
+            spRend.SetAlpha(0.0f);
+            spRend.AddFadeEffect(1.0f, 800);
+
+
         }
         #endregion
-
-
 
         #region Update and Draw
 
@@ -84,26 +81,28 @@ namespace TRA_Game
 
 
 
-            if (chara.isFading() != true)
+            if (spRend.isFading() == false)
             {
-                if (chara.GetAlpha() == 0.0f)
+                if (spRend.GetAlpha() == 1.0f)
                 {
-                    chara.AddFadeEffect(1.0f, 1500);
+                    if (waitCounter.TotalMilliseconds > 1500)
+                    {
+                        spRend.AddFadeEffect(0.0f, 800);
+                    }
+                    else
+                    {
+                        waitCounter += gameTime.ElapsedGameTime;
+                    }
                 }
                 else
                 {
-                    chara.AddFadeEffect(0.0f, 1500);
+                    spRend.Dispose();
+                    this.Dispose();
                 }
             }
 
-            if (input.KeyDown(Keys.Enter))
-            {
-                title.Dispose();
-                this.Dispose();
-            }
+            spRend.Update(gameTime);
 
-            title.Update(gameTime);
-            chara.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -111,8 +110,7 @@ namespace TRA_Game
         {
             SpriteRenderer.Begin();
 
-            title.Draw();
-            chara.Draw();
+            spRend.Draw();
             SpriteRenderer.End();
             base.Draw(gameTime);
         }

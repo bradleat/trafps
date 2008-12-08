@@ -38,10 +38,57 @@ namespace EGGEngine.Rendering
         #endregion
 
         #region Variable
-        Texture2D UITexture;
-        Rectangle UIRectangle;
-        Vector2 UIPosition;
-        float UIAlpha = 1.0f, UITargetAlpha, UIFadeAlpha;
+        private Texture2D UITexture;
+        private Rectangle UIRectangle;
+        private Vector2 UIPosition;
+        private float UIAlpha = 1.0f, UITargetAlpha, UIFadeAlpha, UIRotation;
+        #endregion
+
+        #region Get / Set
+        public void SetPosition(Vector2 vec)
+        {
+            UIPosition = vec;
+        }
+
+        public void SetRectangle(Rectangle rec)
+        {
+            UIRectangle = rec;
+        }
+
+        public void SetAlpha(float Alpha)
+        {
+            this.UIAlpha = Alpha;
+        }
+
+        public void SetRotation(float Rotation)
+        {
+            this.UIRotation = Rotation;
+        }
+
+        public Vector2 GetPosition()
+        {
+            return UIPosition;
+        }
+
+        public Rectangle GetRectangle()
+        {
+            return UIRectangle;
+        }
+
+        public float GetAlpha()
+        {
+            return this.UIAlpha;
+        }
+
+        public float GetRotation()
+        {
+            return this.UIRotation;
+        }
+
+        public Texture2D GetTexture()
+        {
+            return UITexture;
+        }
         #endregion
 
         #region Constructor
@@ -50,38 +97,32 @@ namespace EGGEngine.Rendering
         /// </summary>
         /// 
 
-        public UIRenderer(Texture2D tex, SpriteBatch spriteBatch)
+        public UIRenderer(Texture2D Texture, SpriteBatch spriteBatch)
         {
-            UITexture = tex;
+            UITexture = Texture;
             UISpriteBatch = spriteBatch;
-            UIRectangle = new Rectangle(0, 0, tex.Width, tex.Height);
+            UIRectangle = new Rectangle(0, 0, Texture.Width, Texture.Height);
 
         }
 
-        public UIRenderer(Texture2D tex, Vector2 pos, SpriteBatch spriteBatch)
-        {
-            UITexture = tex;
-            UIPosition = pos;
-            UIRectangle = new Rectangle(0, 0, tex.Width, tex.Height);
-            UISpriteBatch = spriteBatch;
 
-        }
-
-        public UIRenderer(Texture2D tex, Rectangle rec, Vector2 pos, SpriteBatch spriteBatch)
+        public UIRenderer(Texture2D Texture, Rectangle Rect, SpriteBatch spriteBatch)
         {
-            UITexture = tex;
-            UIRectangle = rec;
-            UIPosition = pos;
+            UITexture = Texture;
+            UIRectangle = Rect;
             UISpriteBatch = spriteBatch;
         }
 
-        public UIRenderer(Texture2D tex, Rectangle rec, SpriteBatch spriteBatch)
-        {
-            UITexture = tex;
-            UIRectangle = rec;
-            UISpriteBatch = spriteBatch;
-        }
 
+        public UIRenderer(Texture2D Texture, Rectangle Rect, Vector2 Position, float Rotation, float Alpha, SpriteBatch spriteBatch)
+        {
+            UITexture = Texture;
+            UIRectangle = Rect;
+            UIPosition = Position;
+            UISpriteBatch = spriteBatch;
+            UIRotation = Rotation;
+            UIAlpha = Alpha;
+        }
 
         #endregion
 
@@ -112,7 +153,6 @@ namespace EGGEngine.Rendering
             }
         }
         #endregion
-
 
 
         #region Update
@@ -152,7 +192,8 @@ namespace EGGEngine.Rendering
             if (UITexture != null && !UITexture.IsDisposed && !UIRectangle.IsEmpty)
             {
 
-                UISpriteBatch.Draw(UITexture, UIPosition, UIRectangle, new Color(Color.White, UIAlpha));
+                UISpriteBatch.Draw(UITexture, UIPosition, UIRectangle, new Color(Color.White, UIAlpha), UIRotation,
+                    new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
 
             }
         }
@@ -161,7 +202,8 @@ namespace EGGEngine.Rendering
         {
             if (UITexture != null && !UITexture.IsDisposed && !UIRectangle.IsEmpty)
             {
-                UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, UIAlpha));
+                UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, UIAlpha), UIRotation,
+                    new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
             }
         }
 
@@ -169,30 +211,21 @@ namespace EGGEngine.Rendering
         {
             if (UITexture != null && !UITexture.IsDisposed && !UIRectangle.IsEmpty)
             {
-                UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, UIAlpha), Rotation
-                    , new Vector2(0, 0), 0.0f, SpriteEffects.None, 0.0f);
+                UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, UIAlpha), Rotation,
+                     new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+            }
+        }
+
+        public void Draw(Vector2 Position, float Rotation, float Alpha)
+        {
+            if (UITexture != null && !UITexture.IsDisposed && !UIRectangle.IsEmpty)
+            {
+                UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, Alpha), Rotation,
+                     new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
             }
         }
         #endregion
 
-
-        #region Position, Rectangle, etc.
-        public void SetPosition(Vector2 vec)
-        {
-            UIPosition = vec;
-        }
-
-        public void SetRectangle(Rectangle rec)
-        {
-            UIRectangle = rec;
-        }
-
-        public void SetAlpha(float Alpha)
-        {
-            this.UIAlpha = Alpha;
-        }
-
-        #endregion
 
         #region Fade Effect
 

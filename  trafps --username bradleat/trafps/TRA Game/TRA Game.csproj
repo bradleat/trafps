@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameScreens\MainMenu.cs" />
+    <Compile Include="GameScreens\SplashTitle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="TRA_Game.cs" />
