@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace EGGEngine.Utils
 {
-    class SerializeUtils<T>
+    public class SerializeUtils<T>
     {
         private T data;
         public T Data

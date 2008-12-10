@@ -24,6 +24,13 @@ namespace EGGEditor01
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        public struct LevelData
+        {
+            public Vector2 position;
+            int tilenumber;
+            public Vector3 position2;
+        }
+        public LevelData levelData;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -55,9 +62,14 @@ namespace EGGEditor01
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             input = new InputHelper();
+            Components.Add(new GamerServicesComponent(this));
             this.drawSurface = drawSurface;
             graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings);
             System.Windows.Forms.Control.FromHandle((this.Window.Handle)).VisibleChanged += new EventHandler(Game1_VisibleChanged);
+        }
+        public Game1()
+        {
+          
         }
 
         /// <summary>
@@ -189,6 +201,7 @@ namespace EGGEditor01
 
             person1.WorldMatrix = Matrix.CreateScale(2.0f) * Matrix.CreateRotationY(4.05f);
 
+            levelData.position2 = person1.Position;
             base.Update(gameTime);
         }
 

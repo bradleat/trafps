@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EGGEditor));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Building1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Buildings", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Lights1");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Lights", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Enemy1");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Enemies", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Player1");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Players", new System.Windows.Forms.TreeNode[] {
-            treeNode7});
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Characters", new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Gun1");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Weapons", new System.Windows.Forms.TreeNode[] {
-            treeNode10});
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Chair1");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Miscellaneous", new System.Windows.Forms.TreeNode[] {
-            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Building1");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Buildings", new System.Windows.Forms.TreeNode[] {
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Lights1");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Lights", new System.Windows.Forms.TreeNode[] {
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Enemy1");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Enemies", new System.Windows.Forms.TreeNode[] {
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Player1");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Players", new System.Windows.Forms.TreeNode[] {
+            treeNode20});
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Characters", new System.Windows.Forms.TreeNode[] {
+            treeNode19,
+            treeNode21});
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Gun1");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Weapons", new System.Windows.Forms.TreeNode[] {
+            treeNode23});
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Chair1");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Miscellaneous", new System.Windows.Forms.TreeNode[] {
+            treeNode25});
             this.pctSurface = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -79,6 +79,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.newLevelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pctSurface)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -96,14 +98,14 @@
             this.pctSurface.TabIndex = 0;
             this.pctSurface.TabStop = false;
             this.pctSurface.Click += new System.EventHandler(this.pctSurface_Click);
-            this.pctSurface.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(pctSurface_MouseDoubleClick);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButton2,
-            this.toolStripButton3});
+            this.toolStripButton3,
+            this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(982, 25);
@@ -156,6 +158,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newLevelToolStripMenuItem,
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.toolStripSeparator1,
@@ -167,24 +170,26 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open Level";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save Level";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(130, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -224,38 +229,38 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView1.Location = new System.Drawing.Point(0, 49);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "Building1";
-            treeNode2.Name = "Node0";
-            treeNode2.Text = "Buildings";
-            treeNode3.Name = "Node3";
-            treeNode3.Text = "Lights1";
-            treeNode4.Name = "Node2";
-            treeNode4.Text = "Lights";
-            treeNode5.Name = "Node6";
-            treeNode5.Text = "Enemy1";
-            treeNode6.Name = "Node5";
-            treeNode6.Text = "Enemies";
-            treeNode7.Name = "Node9";
-            treeNode7.Text = "Player1";
-            treeNode8.Name = "Node8";
-            treeNode8.Text = "Players";
-            treeNode9.Name = "Node4";
-            treeNode9.Text = "Characters";
-            treeNode10.Name = "Node11";
-            treeNode10.Text = "Gun1";
-            treeNode11.Name = "Node7";
-            treeNode11.Text = "Weapons";
-            treeNode12.Name = "Node12";
-            treeNode12.Text = "Chair1";
-            treeNode13.Name = "Node10";
-            treeNode13.Text = "Miscellaneous";
+            treeNode14.Name = "Node1";
+            treeNode14.Text = "Building1";
+            treeNode15.Name = "Node0";
+            treeNode15.Text = "Buildings";
+            treeNode16.Name = "Node3";
+            treeNode16.Text = "Lights1";
+            treeNode17.Name = "Node2";
+            treeNode17.Text = "Lights";
+            treeNode18.Name = "Node6";
+            treeNode18.Text = "Enemy1";
+            treeNode19.Name = "Node5";
+            treeNode19.Text = "Enemies";
+            treeNode20.Name = "Node9";
+            treeNode20.Text = "Player1";
+            treeNode21.Name = "Node8";
+            treeNode21.Text = "Players";
+            treeNode22.Name = "Node4";
+            treeNode22.Text = "Characters";
+            treeNode23.Name = "Node11";
+            treeNode23.Text = "Gun1";
+            treeNode24.Name = "Node7";
+            treeNode24.Text = "Weapons";
+            treeNode25.Name = "Node12";
+            treeNode25.Text = "Chair1";
+            treeNode26.Name = "Node10";
+            treeNode26.Text = "Miscellaneous";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode4,
-            treeNode9,
-            treeNode11,
-            treeNode13});
+            treeNode15,
+            treeNode17,
+            treeNode22,
+            treeNode24,
+            treeNode26});
             this.treeView1.Size = new System.Drawing.Size(164, 574);
             this.treeView1.TabIndex = 4;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -265,10 +270,10 @@
             this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Right;
             this.propertyGrid1.Location = new System.Drawing.Point(835, 49);
             this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.SelectedObject = this.pctSurface;
             this.propertyGrid1.Size = new System.Drawing.Size(147, 574);
             this.propertyGrid1.TabIndex = 5;
             this.propertyGrid1.Click += new System.EventHandler(this.propertyGrid1_Click);
-            this.propertyGrid1.SelectedObject = this.pctSurface;
             // 
             // checkBox1
             // 
@@ -388,9 +393,23 @@
             this.tabPage2.Text = "Functions";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(107, 22);
+            this.toolStripButton4.Text = "Sound Tool Buton";
+            // 
+            // newLevelToolStripMenuItem
+            // 
+            this.newLevelToolStripMenuItem.Name = "newLevelToolStripMenuItem";
+            this.newLevelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newLevelToolStripMenuItem.Text = "New Level";
+            // 
             // EGGEditor
             // 
-            this.FormClosed +=new System.Windows.Forms.FormClosedEventHandler(EGGEditor_FormClosed); 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 623);
@@ -449,5 +468,7 @@
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripMenuItem newLevelToolStripMenuItem;
     }
 }
