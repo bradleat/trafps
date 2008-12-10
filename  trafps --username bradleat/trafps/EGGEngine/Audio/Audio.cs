@@ -14,7 +14,10 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace EGGEngine.Audio
 {
-    class Audio
+    /// <summary>
+    /// Audio class used for creating sounds/ background music in a game
+    /// </summary>
+    public class Audio
     {
         // Audio objects
         AudioEngine engine;
@@ -23,6 +26,10 @@ namespace EGGEngine.Audio
         Cue cue;
         AudioCategory musicCategory;
 
+        /// <summary>
+        /// Initialises the Audio engine
+        /// </summary>
+        /// <param name="audioFilePath">A string containing the file path to your Xact file ( make sure to put ".xgs" at the end of the string i.e - "Content\\example.xgs"</param>
         public Audio(string audioFilePath)
         {
             // Initialize audio objects.
@@ -35,16 +42,34 @@ namespace EGGEngine.Audio
             engine.Update();
 
         }
+        /// <summary>
+        /// Used to get the category from the Xact file
+        /// </summary>
+        /// <param name="categoryname">A string of the name of the category i.e "Music"</param>
+        /// <returns>Returns an AudioCategory</returns>
         public AudioCategory GetCategory(string categoryname)
         {
             musicCategory = engine.GetCategory(categoryname);
             return musicCategory;
         }
+        /// <summary>
+        /// Get the cue from the Xact file using a string. This should be the first line in your game, in Initialise() 
+        /// </summary>
+        /// <param name="sound"> A string of the name of the cue in your Xact file</param>
+        /// <returns>Returns the cue of a given string from your Xact file</returns>
         public Cue GetCue(string sound)
         {
             cue = soundBank.GetCue(sound);
             return cue;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cue"></param>
+        /// <param name="apply3d"></param>
+        /// <param name="listener"></param>
+        /// <param name="emitter"></param>
+        /// <returns></returns>
         public Cue Play(Cue cue, bool apply3d, AudioListener listener, AudioEmitter emitter)
         {
             if (cue.IsStopped)

@@ -37,6 +37,7 @@ using EGGEngine.Debug;
 using EGGEngine.Rendering;
 using EGGEngine.Helpers;
 using EGGEngine.Utils;
+using EGGEngine.Audio;
 
 #endregion
 
@@ -80,6 +81,10 @@ namespace TRA_Game
         SplashTitle splashTitle;
         MainMenu mainMenu;
 
+        //Audio
+        Audio audioHelper;
+        Cue mystery;
+
         //Stuff for networking
         DrawableModel person2;
         Vector3 initialPos2 = new Vector3(0, 15, -15);
@@ -91,8 +96,9 @@ namespace TRA_Game
             input = new InputHelper();
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
-
-
+            audioHelper = new Audio("Content\\TRA_Game.xgs");
+            mystery = audioHelper.GetCue("mystery");
+            Components.Add(new GamerServicesComponent(this));
 
 
         }
@@ -170,6 +176,8 @@ namespace TRA_Game
                 gameMode = GameMode._MENU;
                 mainMenu = new MainMenu(this);
                 Components.Add(mainMenu);
+                audioHelper.Play(mystery, false, new AudioListener(), new AudioEmitter());
+
             }
 
             if (gameMode == GameMode._MENU && Components.Contains(mainMenu) == false)

@@ -37,6 +37,12 @@ namespace EGGEngine.Cameras
 {
     public class FPSCamera
     {
+        enum GameType
+        {
+            EGGEditor,
+            Game
+        };
+        GameType gameType = GameType.Game;
         Matrix viewMatrix;
         Matrix projectionMatrix;
         Viewport viewPort;
@@ -122,17 +128,30 @@ namespace EGGEngine.Cameras
         /// <param name="currentMouseState">The current state of the mouse</param>
         /// <param name="modelPosition">The position of the model in 3D space</param>
         public void Update(MouseState currentMouseState, Vector3 modelPosition)
-        {
-            this.modelPosition = modelPosition;
-            /*if (currentMouseState != originalMouseState)
+        { 
+            
+            if (input.KeyDown(Keys.F1))
             {
-                float xDifference = currentMouseState.X - originalMouseState.X;
-                float yDifference = currentMouseState.Y - originalMouseState.Y;
-                leftRightRot -= maxRotationSpeed * xDifference;
-                upDownRot -= maxRotationSpeed * yDifference;
-                Mouse.SetPosition(viewPort.Width / 2, viewPort.Height / 2);
+                if (gameType == GameType.Game)
+                    gameType = GameType.EGGEditor;
+                else if(gameType == GameType.EGGEditor)
+                    gameType = GameType.Game;
+            }
 
-            }*/
+            if (gameType == GameType.Game)
+            {
+                if (currentMouseState != originalMouseState)
+                {
+                    float xDifference = currentMouseState.X - originalMouseState.X;
+                    float yDifference = currentMouseState.Y - originalMouseState.Y;
+                    leftRightRot -= maxRotationSpeed * xDifference;
+                    upDownRot -= maxRotationSpeed * yDifference;
+                    Mouse.SetPosition(viewPort.Width / 2, viewPort.Height / 2);
+
+                } 
+            }
+            this.modelPosition = modelPosition;
+
             UpdateViewMatrix();
         }
 
