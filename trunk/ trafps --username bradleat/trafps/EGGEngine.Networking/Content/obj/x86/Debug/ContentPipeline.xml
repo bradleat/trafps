@@ -6,10 +6,10 @@
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EGGEngine.Networking\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EGGEngine.Networking\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EGGEngine.Networking\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EGGEngine.Networking\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine.Networking\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine.Networking\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine.Networking\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine.Networking\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

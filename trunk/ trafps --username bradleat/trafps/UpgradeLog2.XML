@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="TRA Game">
+</Property><Property Name="Solution File" Value="C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game.sln">
+</Property><Property Name="Date" Value="Monday, December 08, 2008">
+</Property><Property Name="Time" Value="19:53:19 PM">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="TrianglePickingPipeline" Source="E:\TrianglePickingSample\TrianglePickingPipeline\TrianglePickingPipeline.csproj" Description="Project file successfully backed up as C:\Documents and Settings\Dustin\Desktop\Temp\trafps\Backup1\TrianglePickingPipeline.csproj">
+</Event><Event ErrorLevel="0" Project="TrianglePickingPipeline" Source="E:\TrianglePickingSample\TrianglePickingPipeline\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\Documents and Settings\Dustin\Desktop\Temp\trafps\Backup1\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="TrianglePickingPipeline" Source="E:\TrianglePickingSample\TrianglePickingPipeline\TrianglePickingProcessor.cs" Description="File successfully backed up as C:\Documents and Settings\Dustin\Desktop\Temp\trafps\Backup1\TrianglePickingProcessor.cs">
+</Event><Event ErrorLevel="0" Project="TrianglePickingPipeline" Source="E:\TrianglePickingSample\TrianglePickingPipeline\TrianglePickingPipeline.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="TrianglePickingPipeline" Source="E:\TrianglePickingSample\TrianglePickingPipeline\TrianglePickingPipeline.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="TrianglePickingPipeline" Source="E:\TrianglePickingSample\TrianglePickingPipeline\TrianglePickingPipeline.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="TrianglePickingPipeline" Source="E:\TrianglePickingSample\TrianglePickingPipeline\TrianglePickingPipeline.csproj" Description="Upgraded XNA Framework Content Pipeline References.">
+</Event><Event ErrorLevel="0" Project="TrianglePickingPipeline" Source="E:\TrianglePickingSample\TrianglePickingPipeline\TrianglePickingPipeline.csproj" Description="Upgraded XNA Framework References.">
+</Event></UpgradeLog>

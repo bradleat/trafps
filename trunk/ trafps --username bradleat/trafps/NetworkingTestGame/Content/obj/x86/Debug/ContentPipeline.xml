@@ -7,18 +7,18 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\Content\Arial.xnb</Output>
-      <Time>2008-12-06T16:54:59.34375-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\NetworkingTestGame\bin\x86\Debug\Content\Arial.xnb</Output>
+      <Time>2008-12-08T18:30:51.0625-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\NetworkingTestGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\NetworkingTestGame\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\NetworkingTestGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\NetworkingTestGame\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\NetworkingTestGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

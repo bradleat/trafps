@@ -1,7 +1,10 @@
 Content\Debug\Font.xnb
+Content\chars.xnb
+Content\pgi.xnb
 Content\menu.xnb
 Content\Models\sky1.xnb
 Content\Models\yhsjw2.xnb
+Content\mystery.xnb
 Content\Models\Ship.xnb
 Content\Models\model.xnb
 Content\Models\LevelPreVis1.xnb
@@ -13,4 +16,7 @@ Content\Models\sunset_0.xnb
 Content\Models\256x256x1_17240c0b-48e9c968-b872_0.xnb
 Content\Models\256x256x1_17240c0b-48e9c968-b872_1.xnb
 Content\Models\256x256x1_17240c0b-48e9c968-b872_2.xnb
+Content\TRA_Game.xgs
+Content\Wave Bank.xwb
+Content\Sound Bank.xsb
 Content\config.ini

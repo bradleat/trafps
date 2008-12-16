@@ -105,11 +105,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContentProcessor1.cs" />
+    <Compile Include="ModelTriangleProcessor.cs" />
     <Compile Include="SkyContent.cs" />
     <Compile Include="SkyProcessor.cs" />
     <Compile Include="TerrainProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EGGEngine\EGGEngine.csproj">
+      <Project>{64581985-40BE-44EF-8F40-6DA37AD71E2B}</Project>
+      <Name>EGGEngine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.ContentPipelineExtensions.targets" />

@@ -4,41 +4,6 @@
         <name>EGGEngine.Networking</name>
     </assembly>
     <members>
-        <member name="M:EGGEngine.Networking.NetworkHelper.SendSvData">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:EGGEngine.Networking.NetworkHelper.SendClData">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:EGGEngine.Networking.NetworkHelper.ReadSvData">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:EGGEngine.Networking.NetworkHelper.ReadClData">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:EGGEngine.Networking.PacketReader.ReadPacket(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="packet"></param>
-        </member>
-        <member name="M:EGGEngine.Networking.NetworkSession.CreateSession">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="M:EGGEngine.Networking.NetworkInterface.InitNetwork">
             <summary>
             
@@ -76,6 +41,30 @@
             <param name="networkCommand"></param>
             <returns></returns>
         </member>
+        <member name="M:EGGEngine.Networking.NetworkHelper.SendSvData">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkHelper.SendClData">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkHelper.ReadSvData">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkHelper.ReadClData">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:EGGEngine.Networking.NetworkStatus.GetHostList">
             <summary>
             
@@ -88,6 +77,17 @@
             </summary>
             <param name="hostList"></param>
             <returns></returns>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkSession.CreateSession">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Networking.PacketReader.ReadPacket(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="packet"></param>
         </member>
     </members>
 </doc>

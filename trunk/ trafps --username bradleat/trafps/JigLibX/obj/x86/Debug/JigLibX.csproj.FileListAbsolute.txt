@@ -4,3 +4,9 @@ C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\JigLibX\obj\x86\Deb
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\JigLibX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\JigLibX\obj\x86\Debug\JigLibX.dll
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\JigLibX\obj\x86\Debug\JigLibX.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\JigLibX\bin\x86\Debug\JigLibX.dll
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\JigLibX\bin\x86\Debug\JigLibX.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\JigLibX\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\JigLibX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\JigLibX\obj\x86\Debug\JigLibX.dll
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\JigLibX\obj\x86\Debug\JigLibX.pdb

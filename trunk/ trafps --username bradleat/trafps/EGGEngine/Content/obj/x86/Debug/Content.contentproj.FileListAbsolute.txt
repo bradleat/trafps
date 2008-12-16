@@ -1,1 +1,2 @@
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EGGEngine\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine\Content\obj\x86\Debug\ResolveAssemblyReference.cache

@@ -51,6 +51,11 @@
       <Name>config</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Compile Include="pgi.png">
+      <Name>pgi</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="mystery.wav">
       <Name>mystery</Name>
       <Importer>WavImporter</Importer>
@@ -78,7 +83,7 @@
     <Compile Include="Models\model.x">
       <Name>model</Name>
       <Importer>XImporter</Importer>
-      <Processor>ModelProcessor</Processor>
+      <Processor>ModelTriangleProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +109,16 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\EGGPipelineExtension\EGGPipelineExtension.csproj">
+      <Project>{3BAC6D97-C0BB-4D2F-A3ED-7EB21D0B240D}</Project>
+      <Name>EGGPipelineExtension</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\TrianglePickingSample\TrianglePickingPipeline\TrianglePickingPipeline.csproj">
+      <Project>{35D4955B-8D3A-492A-B76B-2306A50C44F8}</Project>
+      <Name>TrianglePickingPipeline</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TRA_Game.xap">
