@@ -1,1 +1,3 @@
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\Content\obj\x86\Debug\TRA_Game.xml

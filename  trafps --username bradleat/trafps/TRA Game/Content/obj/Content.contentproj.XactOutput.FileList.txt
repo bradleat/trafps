@@ -1,0 +1,3 @@
+Content\TRA_Game.xgs
+Content\Wave Bank.xwb
+Content\Sound Bank.xsb

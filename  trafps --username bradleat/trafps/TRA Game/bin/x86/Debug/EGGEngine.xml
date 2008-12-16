@@ -4,77 +4,6 @@
         <name>EGGEngine</name>
     </assembly>
     <members>
-        <member name="T:EGGEngine.Rendering.Sky">
-            <summary>
-            Runtime class for loading and rendering a textured skydome
-            that was created during the build process by the SkyProcessor.
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Rendering.Sky.#ctor(Microsoft.Xna.Framework.Content.ContentReader)">
-            <summary>
-            Constructor is internal: this should only ever
-            be called by the SkyReader class.
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Rendering.Sky.Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
-            <summary>
-            Helper for drawing the skydome mesh.
-            </summary>
-        </member>
-        <member name="T:EGGEngine.Rendering.SkyReader">
-            <summary>
-            Helper for reading a Sky object from the compiled XNB format.
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Rendering.UIRenderer.#ctor(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Graphics.SpriteBatch)">
-            <summary>
-            Create user interface renderer
-            </summary>
-            
-        </member>
-        <member name="M:EGGEngine.Rendering.UIRenderer.Dispose">
-            <summary>
-            Dispose
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Rendering.UIRenderer.Dispose(System.Boolean)">
-            <summary>
-            Dispose
-            </summary>
-            <param name="disposing">Disposing</param>
-        </member>
-        <member name="M:EGGEngine.Rendering.UIRenderer.Update(Microsoft.Xna.Framework.GameTime)">
-            <summary>
-            Updates
-            </summary>
-            <param name="gameTime">The current game time</param>
-        </member>
-        <member name="M:EGGEngine.Rendering.UIRenderer.Draw">
-            <summary>
-            Draws the frame counter to the screen
-            </summary>
-        </member>
-        <member name="T:EGGEngine.Debug.FrameRateCounter">
-            <summary>
-            This is a game component that implements IUpdateable.
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Debug.FrameRateCounter.LoadContent">
-            <summary>
-            Loads the SpriteBatch and font.
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Debug.FrameRateCounter.Update(Microsoft.Xna.Framework.GameTime)">
-            <summary>
-            Updates the frame counter
-            </summary>
-            <param name="gameTime">The current game time</param>
-        </member>
-        <member name="M:EGGEngine.Debug.FrameRateCounter.Draw(Microsoft.Xna.Framework.GameTime)">
-            <summary>
-            Draws the frame counter to the screen
-            </summary>
-        </member>
         <member name="M:EGGEngine.Rendering.DrawableModel.Draw(EGGEngine.Cameras.FPSCamera)">
             <summary>
             Draws the model in 3D space using the current camera's view matrix 
@@ -111,6 +40,97 @@
             <param name="mesh">The current mesh</param>
             <param name="writer">The stream writer used to write the information
             to a text file</param>
+        </member>
+        <member name="M:EGGEngine.Cameras.FPSCamera.Update(Microsoft.Xna.Framework.Input.MouseState,Microsoft.Xna.Framework.Vector3)">
+            <summary>
+            Updates the camera based on the current mouse state.
+            </summary>
+            <param name="currentMouseState">The current state of the mouse</param>
+            <param name="modelPosition">The position of the model in 3D space</param>
+        </member>
+        <member name="M:EGGEngine.Cameras.FPSCamera.AddToCameraPosition(Microsoft.Xna.Framework.Vector3,System.Single,Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Helper method that enables moving based on the camera's current
+            heading.
+            </summary>
+            <param name="vectorToAdd">The direction being applied</param>
+            <param name="position">The position of the model</param>
+        </member>
+        <member name="M:EGGEngine.Cameras.FPSCamera.UpdateViewMatrix">
+            <summary>
+            Updates the view matrix accordingly.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Cameras.FPSCamera.UpdateModelView(Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Updates the camera position based on the position and offset
+            of the model.  Makes it seem like we are viewing from the model's
+            point of view.
+            </summary>
+            <param name="rotation">The current rotation of the camera</param>
+        </member>
+        <member name="T:EGGEngine.Debug.FrameRateCounter">
+            <summary>
+            This is a game component that implements IUpdateable.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Debug.FrameRateCounter.LoadContent">
+            <summary>
+            Loads the SpriteBatch and font.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Debug.FrameRateCounter.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates the frame counter
+            </summary>
+            <param name="gameTime">The current game time</param>
+        </member>
+        <member name="M:EGGEngine.Debug.FrameRateCounter.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the frame counter to the screen
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Utils.SerializeUtils`1.LoadData(Microsoft.Xna.Framework.Storage.StorageDevice,System.String)">
+            <summary>
+            Loads the data of the specified file.
+            </summary>
+            <param name="storageDevice">Storage device that contains the data</param>
+            <param name="fileName">Name of the file being loaded</param>
+        </member>
+        <member name="M:EGGEngine.Utils.SerializeUtils`1.SaveData(Microsoft.Xna.Framework.Storage.StorageDevice,System.String)">
+            <summary>
+            Saves data to the specified file.
+            </summary>
+            <param name="storageDevice">The storage device containing the data</param>
+            <param name="fileName">Name of the file being saved</param>
+        </member>
+        <member name="M:EGGEngine.Rendering.UIRenderer.#ctor(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Create user interface renderer
+            </summary>
+            
+        </member>
+        <member name="M:EGGEngine.Rendering.UIRenderer.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Rendering.UIRenderer.Dispose(System.Boolean)">
+            <summary>
+            Dispose
+            </summary>
+            <param name="disposing">Disposing</param>
+        </member>
+        <member name="M:EGGEngine.Rendering.UIRenderer.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates
+            </summary>
+            <param name="gameTime">The current game time</param>
+        </member>
+        <member name="M:EGGEngine.Rendering.UIRenderer.Draw">
+            <summary>
+            Draws the frame counter to the screen
+            </summary>
         </member>
         <member name="M:EGGEngine.Helpers.InputHelper.KeyDown(Microsoft.Xna.Framework.Input.Keys)">
             <summary>
@@ -163,33 +183,62 @@
             <param name="thumbstick">The thumbstick being manipulated</param>
             <returns>Float value representing the direction the thumbstick is being pushed in the y direction</returns>
         </member>
-        <member name="M:EGGEngine.Cameras.FPSCamera.Update(Microsoft.Xna.Framework.Input.MouseState,Microsoft.Xna.Framework.Vector3)">
+        <member name="T:EGGEngine.Audio.Audio">
             <summary>
-            Updates the camera based on the current mouse state.
-            </summary>
-            <param name="currentMouseState">The current state of the mouse</param>
-            <param name="modelPosition">The position of the model in 3D space</param>
-        </member>
-        <member name="M:EGGEngine.Cameras.FPSCamera.AddToCameraPosition(Microsoft.Xna.Framework.Vector3,System.Single,Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.GameTime)">
-            <summary>
-            Helper method that enables moving based on the camera's current
-            heading.
-            </summary>
-            <param name="vectorToAdd">The direction being applied</param>
-            <param name="position">The position of the model</param>
-        </member>
-        <member name="M:EGGEngine.Cameras.FPSCamera.UpdateViewMatrix">
-            <summary>
-            Updates the view matrix accordingly.
+            Audio class used for creating sounds/ background music in a game
             </summary>
         </member>
-        <member name="M:EGGEngine.Cameras.FPSCamera.UpdateModelView(Microsoft.Xna.Framework.Matrix)">
+        <member name="M:EGGEngine.Audio.Audio.#ctor(System.String)">
             <summary>
-            Updates the camera position based on the position and offset
-            of the model.  Makes it seem like we are viewing from the model's
-            point of view.
+            Initialises the Audio engine
             </summary>
-            <param name="rotation">The current rotation of the camera</param>
+            <param name="audioFilePath">A string containing the file path to your Xact file ( make sure to put ".xgs" at the end of the string i.e - "Content\\example.xgs"</param>
+        </member>
+        <member name="M:EGGEngine.Audio.Audio.GetCategory(System.String)">
+            <summary>
+            Used to get the category from the Xact file
+            </summary>
+            <param name="categoryname">A string of the name of the category i.e "Music"</param>
+            <returns>Returns an AudioCategory</returns>
+        </member>
+        <member name="M:EGGEngine.Audio.Audio.GetCue(System.String)">
+            <summary>
+            Get the cue from the Xact file using a string. This should be the first line in your game, in Initialise() 
+            </summary>
+            <param name="sound"> A string of the name of the cue in your Xact file</param>
+            <returns>Returns the cue of a given string from your Xact file</returns>
+        </member>
+        <member name="M:EGGEngine.Audio.Audio.Play(Microsoft.Xna.Framework.Audio.Cue,System.Boolean,Microsoft.Xna.Framework.Audio.AudioListener,Microsoft.Xna.Framework.Audio.AudioEmitter)">
+            <summary>
+            
+            </summary>
+            <param name="cue"></param>
+            <param name="apply3d"></param>
+            <param name="listener"></param>
+            <param name="emitter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EGGEngine.Rendering.Sky">
+            <summary>
+            Runtime class for loading and rendering a textured skydome
+            that was created during the build process by the SkyProcessor.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Rendering.Sky.#ctor(Microsoft.Xna.Framework.Content.ContentReader)">
+            <summary>
+            Constructor is internal: this should only ever
+            be called by the SkyReader class.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Rendering.Sky.Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Helper for drawing the skydome mesh.
+            </summary>
+        </member>
+        <member name="T:EGGEngine.Rendering.SkyReader">
+            <summary>
+            Helper for reading a Sky object from the compiled XNB format.
+            </summary>
         </member>
         <member name="M:EGGEngine.Rendering.PostProcessing.InitPostProcessingVertices">
             <summary>
@@ -215,20 +264,6 @@
             </summary>
             <param name="technique">The technique that is to be run</param>
             <param name="time">The time parameter used for the change over time effect</param>
-        </member>
-        <member name="M:EGGEngine.Utils.SerializeUtils`1.LoadData(Microsoft.Xna.Framework.Storage.StorageDevice,System.String)">
-            <summary>
-            Loads the data of the specified file.
-            </summary>
-            <param name="storageDevice">Storage device that contains the data</param>
-            <param name="fileName">Name of the file being loaded</param>
-        </member>
-        <member name="M:EGGEngine.Utils.SerializeUtils`1.SaveData(Microsoft.Xna.Framework.Storage.StorageDevice,System.String)">
-            <summary>
-            Saves data to the specified file.
-            </summary>
-            <param name="storageDevice">The storage device containing the data</param>
-            <param name="fileName">Name of the file being saved</param>
         </member>
     </members>
 </doc>

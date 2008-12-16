@@ -4,3 +4,9 @@ C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EasyConfig\obj\x86\
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EasyConfig\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EasyConfig\obj\x86\Debug\EasyConfig.dll
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EasyConfig\obj\x86\Debug\EasyConfig.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EasyConfig\bin\x86\Debug\EasyConfig.dll
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EasyConfig\bin\x86\Debug\EasyConfig.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EasyConfig\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EasyConfig\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EasyConfig\obj\x86\Debug\EasyConfig.dll
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EasyConfig\obj\x86\Debug\EasyConfig.pdb

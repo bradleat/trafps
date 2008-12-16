@@ -1,0 +1,47 @@
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Arial.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\config.ini
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\EGGEditor01.exe
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\EGGEditor01.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\EasyConfig.dll
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\EGGEngine.dll
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\EGGEngine.Networking.dll
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\JigLibX.dll
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\NetworkingTestGame.exe
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\TRA Game.exe
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\JigLibX.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\EasyConfig.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\NetworkingTestGame.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\NetworkingTestGame.xml
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\EGGEngine.Networking.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\EGGEngine.Networking.xml
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\TRA Game.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\TRA Game.xml
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\EGGEngine.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\EGGEngine.xml
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\obj\x86\Debug\EGGEditor01.EGGEditor.resources
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\obj\x86\Debug\EGGEditor01.csproj.GenerateResource.Cache
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\obj\x86\Debug\EGGEditor01.exe
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\obj\x86\Debug\EGGEditor01.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Debug\Font.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\menu.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Models\sky1.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Models\yhsjw2.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Models\Ship.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Models\model.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Models\LevelPreVis1.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Effects\PostProcessing.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Models\sky_0.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Models\rocks_0.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Models\terrain_0.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Models\sunset_0.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_0.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_1.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_2.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\pgi.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\chars.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\mystery.xnb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\TRA_Game.xgs
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Wave Bank.xwb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\bin\x86\Debug\Content\Sound Bank.xsb

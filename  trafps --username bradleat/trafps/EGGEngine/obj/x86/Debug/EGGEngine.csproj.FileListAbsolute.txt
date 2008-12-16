@@ -7,3 +7,11 @@ C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EGGEngine\obj\x86\D
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EGGEngine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EGGEngine\obj\x86\Debug\EGGEngine.dll
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EGGEngine\obj\x86\Debug\EGGEngine.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine\bin\x86\Debug\EGGEngine.dll
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine\bin\x86\Debug\EGGEngine.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine\bin\x86\Debug\EasyConfig.dll
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine\bin\x86\Debug\EasyConfig.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine\obj\x86\Debug\EGGEngine.dll
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine\obj\x86\Debug\EGGEngine.pdb

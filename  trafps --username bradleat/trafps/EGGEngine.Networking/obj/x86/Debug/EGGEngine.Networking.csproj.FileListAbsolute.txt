@@ -5,3 +5,9 @@ C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EGGEngine.Networkin
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EGGEngine.Networking\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EGGEngine.Networking\obj\x86\Debug\EGGEngine.Networking.dll
 C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\EGGEngine.Networking\obj\x86\Debug\EGGEngine.Networking.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine.Networking\bin\x86\Debug\EGGEngine.Networking.dll
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine.Networking\bin\x86\Debug\EGGEngine.Networking.pdb
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine.Networking\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine.Networking\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine.Networking\obj\x86\Debug\EGGEngine.Networking.dll
+C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine.Networking\obj\x86\Debug\EGGEngine.Networking.pdb

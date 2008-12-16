@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="Audio\Audio.cs" />
     <Compile Include="Cameras\FPSCamera.cs" />
+    <Compile Include="ContentReaders\TriangleTypeReader.cs" />
     <Compile Include="Debug\FrameRateCounter.cs" />
     <Compile Include="Helpers\InputHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -7,8 +7,26 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Debug\Font.xnb</Output>
-      <Time>2008-12-06T16:54:31.640625-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Debug\Font.xnb</Output>
+      <Time>2008-12-08T18:30:18.234375-05:00</Time>
+    </Item>
+    <Item>
+      <Source>chars.png</Source>
+      <Name>chars</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\chars.xnb</Output>
+      <Time>2008-12-08T18:30:46.5625-05:00</Time>
+    </Item>
+    <Item>
+      <Source>pgi.png</Source>
+      <Name>pgi</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\pgi.xnb</Output>
+      <Time>2008-12-08T18:30:46.546875-05:00</Time>
     </Item>
     <Item>
       <Source>menu.png</Source>
@@ -16,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\menu.xnb</Output>
-      <Time>2008-12-06T16:54:49.984375-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\menu.xnb</Output>
+      <Time>2008-12-08T18:30:46.5625-05:00</Time>
     </Item>
     <Item>
       <Source>Models\sky1.bmp</Source>
@@ -25,9 +43,9 @@
       <Importer>TextureImporter</Importer>
       <Processor>SkyProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\sky1.xnb</Output>
-      <Time>2008-12-06T16:54:31.484375-05:00</Time>
-      <Request>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\sky_0.xnb</Request>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\sky1.xnb</Output>
+      <Time>2008-12-08T18:30:18.109375-05:00</Time>
+      <Request>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\sky_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\yhsjw2.bmp</Source>
@@ -35,9 +53,18 @@
       <Importer>TextureImporter</Importer>
       <Processor>TerrainProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\yhsjw2.xnb</Output>
-      <Time>2008-12-06T16:54:31.453125-05:00</Time>
-      <Request>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\rocks_0.xnb</Request>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\yhsjw2.xnb</Output>
+      <Time>2008-12-08T18:30:18.0625-05:00</Time>
+      <Request>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\rocks_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>mystery.wav</Source>
+      <Name>mystery</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\mystery.xnb</Output>
+      <Time>2008-12-15T19:21:27.78125-05:00</Time>
     </Item>
     <Item>
       <Source>Models\Ship.fbx</Source>
@@ -45,30 +72,30 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\Ship.xnb</Output>
-      <Time>2008-12-06T16:54:31.4375-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\Ship.xnb</Output>
+      <Time>2008-12-08T18:30:18.046875-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ship_0.xml</Key>
-        <Value>2008-12-06T17:32:18.65625-05:00</Value>
+        <Value>2008-12-15T21:14:04.015625-05:00</Value>
       </Dependency>
-      <Request>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\terrain_0.xnb</Request>
-      <Request>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\sunset_0.xnb</Request>
+      <Request>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\terrain_0.xnb</Request>
+      <Request>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\sunset_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\model.x</Source>
       <Name>Models\model</Name>
       <Importer>XImporter</Importer>
-      <Processor>ModelProcessor</Processor>
+      <Processor>ModelTriangleProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\model.xnb</Output>
-      <Time>2008-12-06T16:54:31.5-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\model.xnb</Output>
+      <Time>2008-12-08T18:30:18.109375-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\model_0.xml</Key>
-        <Value>2008-12-06T17:32:20.203125-05:00</Value>
+        <Value>2008-12-15T21:14:06.015625-05:00</Value>
       </Dependency>
-      <Request>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_0.xnb</Request>
-      <Request>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_1.xnb</Request>
-      <Request>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_2.xnb</Request>
+      <Request>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_0.xnb</Request>
+      <Request>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_1.xnb</Request>
+      <Request>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_2.xnb</Request>
     </Item>
     <Item>
       <Source>Models\LevelPreVis1.x</Source>
@@ -76,11 +103,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\LevelPreVis1.xnb</Output>
-      <Time>2008-12-06T16:54:31.5-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\LevelPreVis1.xnb</Output>
+      <Time>2008-12-08T18:30:18.125-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\LevelPreVis1_0.xml</Key>
-        <Value>2008-12-06T17:32:20.625-05:00</Value>
+        <Value>2008-12-15T21:14:06.46875-05:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -89,16 +116,16 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Effects\PostProcessing.xnb</Output>
-      <Time>2008-12-06T16:54:07.046875-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Effects\PostProcessing.xnb</Output>
+      <Time>2008-12-08T18:29:29.140625-05:00</Time>
     </Item>
     <Item>
       <Source>Models\sky.fx</Source>
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\sky_0.xnb</Output>
-      <Time>2008-12-06T16:54:31.4375-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\sky_0.xnb</Output>
+      <Time>2008-12-08T18:30:18.046875-05:00</Time>
     </Item>
     <Item>
       <Source>Models\rocks.bmp</Source>
@@ -112,15 +139,15 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\rocks_0.xnb</Output>
-      <Time>2008-12-06T16:54:31.53125-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\rocks_0.xnb</Output>
+      <Time>2008-12-08T18:30:18.15625-05:00</Time>
     </Item>
     <Item>
       <Source>Models\Ship.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Ship_0.xml</Output>
-      <Time>2008-12-06T16:54:31.4375-05:00</Time>
+      <Time>2008-12-08T18:30:18.046875-05:00</Time>
     </Item>
     <Item>
       <Source>Models\terrain.tga</Source>
@@ -134,8 +161,8 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\terrain_0.xnb</Output>
-      <Time>2008-12-06T16:54:31.53125-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\terrain_0.xnb</Output>
+      <Time>2008-12-08T18:30:18.15625-05:00</Time>
     </Item>
     <Item>
       <Source>Models\sunset.tga</Source>
@@ -149,15 +176,15 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\sunset_0.xnb</Output>
-      <Time>2008-12-06T16:54:31.515625-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\sunset_0.xnb</Output>
+      <Time>2008-12-08T18:30:18.140625-05:00</Time>
     </Item>
     <Item>
       <Source>Models\model.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\model_0.xml</Output>
-      <Time>2008-12-06T16:54:31.5-05:00</Time>
+      <Time>2008-12-08T18:30:18.109375-05:00</Time>
     </Item>
     <Item>
       <Source>Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-359.RdBitmap.jpg</Source>
@@ -171,8 +198,8 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_0.xnb</Output>
-      <Time>2008-12-06T16:54:31.4375-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_0.xnb</Output>
+      <Time>2008-12-08T18:30:18.046875-05:00</Time>
     </Item>
     <Item>
       <Source>Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35b.RdBitmap.jpg</Source>
@@ -186,8 +213,8 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_1.xnb</Output>
-      <Time>2008-12-06T16:54:31.5-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_1.xnb</Output>
+      <Time>2008-12-08T18:30:18.125-05:00</Time>
     </Item>
     <Item>
       <Source>Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35d.RdBitmap.jpg</Source>
@@ -201,27 +228,31 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_2.xnb</Output>
-      <Time>2008-12-06T16:54:31.5-05:00</Time>
+      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_2.xnb</Output>
+      <Time>2008-12-08T18:30:18.125-05:00</Time>
     </Item>
     <Item>
       <Source>Models\LevelPreVis1.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\LevelPreVis1_0.xml</Output>
-      <Time>2008-12-06T16:54:31.5-05:00</Time>
+      <Time>2008-12-08T18:30:18.125-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\TRA Game\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
+      <Assembly>
+        <Key>E:\TrianglePickingSample\TrianglePickingPipeline\bin\Xbox 360\Debug\TrianglePickingPipeline.dll</Key>
+        <Value>2008-12-08T19:53:35.90625-05:00</Value>
+      </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
         <Value>2008-10-10T18:42:32-04:00</Value>
@@ -243,8 +274,8 @@
         <Value>2008-10-10T18:48:50-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Documents and Settings\Dustin\Desktop\Portal Games\trafps\GeneratedGeometryPipeline\bin\Xbox 360\Debug\GeneratedGeometryPipeline.dll</Key>
-        <Value>2008-12-06T17:32:02.546875-05:00</Value>
+        <Key>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGPipelineExtension\bin\Zune\Debug\EGGPipelineExtension.dll</Key>
+        <Value>2008-12-15T21:13:49.28125-05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
