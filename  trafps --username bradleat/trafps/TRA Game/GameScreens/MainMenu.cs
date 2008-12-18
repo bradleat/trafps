@@ -38,12 +38,14 @@ namespace TRA_Game
         //all for test
 
         #region Variables
+        Game game;
+        int mode = 0;
         Texture2D menu;
         Texture2D chart;
         UIRenderer title;
         UIRenderer chara;
         ContentManager content;
-        SpriteBatch SpriteRenderer;
+        //SpriteBatch SpriteRenderer;
         InputHelper input;
         #endregion
 
@@ -55,9 +57,10 @@ namespace TRA_Game
         public MainMenu(Game game)
             : base(game)
         {
+            this.game = game;
             input = new InputHelper();
             content = new ContentManager(game.Services);
-            SpriteRenderer = new SpriteBatch(game.GraphicsDevice);
+            //SpriteRenderer = new SpriteBatch(game.GraphicsDevice);
         }
         /// <summary>
         /// Loads the SpriteBatch and font.
@@ -68,10 +71,14 @@ namespace TRA_Game
 
             menu = content.Load<Texture2D>("Content\\menu");
             chart = content.Load<Texture2D>("Content\\chars");
-            title = new UIRenderer(menu, SpriteRenderer);
-            chara = new UIRenderer(chart, SpriteRenderer);
+            title = new UIRenderer(menu, game);
+            chara = new UIRenderer(chart, game);
             chara.AddFadeEffect(0.0f, 1500);
+            
             chara.SetPosition(new Vector2(430, 460));
+            title.SetAlpha(0.0f);
+            title.AddBloomEffect(0.0f,800);
+            title.AddFadeEffect(1.0f,800);
         }
         #endregion
 
@@ -81,25 +88,31 @@ namespace TRA_Game
 
         public override void Update(GameTime gameTime)
         {
-
-
-
-            if (chara.isFading() != true)
+            if (mode == 0)
             {
-                if (chara.GetAlpha() == 0.0f)
-                {
-                    chara.AddFadeEffect(1.0f, 1500);
-                }
-                else
-                {
-                    chara.AddFadeEffect(0.0f, 1500);
-                }
+                if (title.isBlooming() == false)
+                    mode = 1;
             }
-
-            if (input.KeyDown(Keys.Enter))
+            else
             {
-                title.Dispose();
-                this.Dispose();
+
+                if (chara.isFading() != true)
+                {
+                    if (chara.GetAlpha() == 0.0f)
+                    {
+                        chara.AddFadeEffect(1.0f, 1500);
+                    }
+                    else
+                    {
+                        chara.AddFadeEffect(0.0f, 1500);
+                    }
+                }
+
+                if (input.KeyDown(Keys.Enter))
+                {
+                    title.Dispose();
+                    this.Dispose();
+                }
             }
 
             title.Update(gameTime);
@@ -109,11 +122,9 @@ namespace TRA_Game
 
         public override void Draw(GameTime gameTime)
         {
-            SpriteRenderer.Begin();
-
-            title.Draw();
+            title.Draw(new Vector2(0,0));
             chara.Draw();
-            SpriteRenderer.End();
+            UIRenderer.Render();
             base.Draw(gameTime);
         }
         #endregion

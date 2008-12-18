@@ -43,8 +43,9 @@ namespace TRA_Game
         Texture2D spTex;
         UIRenderer spRend;
         ContentManager content;
-        SpriteBatch SpriteRenderer;
+        //SpriteBatch SpriteRenderer;
         TimeSpan waitCounter;
+        Game game;
         #endregion
 
         #region Constructor and LoadContent
@@ -55,8 +56,9 @@ namespace TRA_Game
         public SplashTitle(Game game)
             : base(game)
         {
+            this.game = game;
             content = new ContentManager(game.Services);
-            SpriteRenderer = new SpriteBatch(game.GraphicsDevice);
+            //SpriteRenderer = new SpriteBatch(game.GraphicsDevice);
         }
         /// <summary>
         /// Loads the SpriteBatch and font.
@@ -66,9 +68,10 @@ namespace TRA_Game
 
 
             spTex = content.Load<Texture2D>("Content\\pgi");
-            spRend = new UIRenderer(spTex, SpriteRenderer);
+            spRend = new UIRenderer(spTex, game);
             spRend.SetAlpha(0.0f);
             spRend.AddFadeEffect(1.0f, 800);
+            spRend.AddBloomEffect(0.0f, 800);
 
 
         }
@@ -88,6 +91,7 @@ namespace TRA_Game
                     if (waitCounter.TotalMilliseconds > 1500)
                     {
                         spRend.AddFadeEffect(0.0f, 800);
+                        spRend.AddBloomEffect(0.005f, 800);
                     }
                     else
                     {
@@ -108,10 +112,11 @@ namespace TRA_Game
 
         public override void Draw(GameTime gameTime)
         {
-            SpriteRenderer.Begin();
+            //SpriteRenderer.Begin();
 
             spRend.Draw();
-            SpriteRenderer.End();
+            //SpriteRenderer.End();
+            UIRenderer.Render();
             base.Draw(gameTime);
         }
         #endregion

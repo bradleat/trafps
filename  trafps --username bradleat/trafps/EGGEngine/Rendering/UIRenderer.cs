@@ -25,23 +25,34 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Storage;
 #endregion
 
 namespace EGGEngine.Rendering
 {
-    public class UIRenderer
+    public class UIRenderer 
     {
-        #region Constants
-        static public SpriteBatch UISpriteBatch;
-
-        #endregion
-
         #region Variable
+        static public SpriteBatch UISpriteBatch = null;
+        static public ContentManager UIContent = null;
+        static public Game UIGame;
+
+
         private Texture2D UITexture;
         private Rectangle UIRectangle;
         private Vector2 UIPosition;
         private float UIAlpha = 1.0f, UITargetAlpha, UIFadeAlpha, UIRotation;
+        static private bool UIReady = false;
+
+
+        private bool isBloom = false;
+        private float UIBPara = 0.005f, UITargetBloom, UIFadeBloom;
+        static private Effect UIBloom = null;
+
+        private bool UIHiRange = false;
+
         #endregion
 
         #region Get / Set
@@ -96,32 +107,57 @@ namespace EGGEngine.Rendering
         /// Create user interface renderer
         /// </summary>
         /// 
+      
 
-        public UIRenderer(Texture2D Texture, SpriteBatch spriteBatch)
+        public UIRenderer(Texture2D Texture, Game game)
         {
+            UIGame = game;
+            if (UISpriteBatch == null) UISpriteBatch = new SpriteBatch(game.GraphicsDevice);
+            if(UIContent == null) UIContent = new ContentManager(game.Services);
+
             UITexture = Texture;
-            UISpriteBatch = spriteBatch;
+          
             UIRectangle = new Rectangle(0, 0, Texture.Width, Texture.Height);
 
+           
+
+            if (UIBloom == null) UIBloom = UIContent.Load<Effect>("Content\\fx\\bloom");
+
         }
 
 
-        public UIRenderer(Texture2D Texture, Rectangle Rect, SpriteBatch spriteBatch)
+        public UIRenderer(Texture2D Texture, Rectangle Rect, Game game)
         {
+            UIGame = game;
+            if (UISpriteBatch == null) UISpriteBatch = new SpriteBatch(game.GraphicsDevice);
+            if (UIContent == null) UIContent = new ContentManager(game.Services);
+
             UITexture = Texture;
             UIRectangle = Rect;
-            UISpriteBatch = spriteBatch;
+           
+
+          
+            if (UIBloom == null) UIBloom = UIContent.Load<Effect>("Content\\fx\\bloom");
+
         }
 
 
-        public UIRenderer(Texture2D Texture, Rectangle Rect, Vector2 Position, float Rotation, float Alpha, SpriteBatch spriteBatch)
+        public UIRenderer(Texture2D Texture, Rectangle Rect, Vector2 Position, float Rotation, float Alpha, Game game)
         {
+            UIGame = game;
+            if (UISpriteBatch == null) UISpriteBatch = new SpriteBatch(game.GraphicsDevice);
+            if (UIContent == null) UIContent = new ContentManager(game.Services);
+
             UITexture = Texture;
             UIRectangle = Rect;
             UIPosition = Position;
-            UISpriteBatch = spriteBatch;
+           
             UIRotation = Rotation;
             UIAlpha = Alpha;
+
+            
+            if (UIBloom == null) UIBloom = UIContent.Load<Effect>("Content\\fx\\bloom");
+
         }
 
         #endregion
@@ -180,56 +216,204 @@ namespace EGGEngine.Rendering
                     UIAlpha = UITargetAlpha;
                 }
             }
+
+            if (UIFadeBloom > 0)
+            {
+                UIBPara += UIFadeBloom * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                if (UIBPara >= UITargetBloom)
+                {
+                    UIFadeBloom = 0;
+                    UIBPara = UITargetBloom;
+                   
+                }
+            }
+            else if (UIFadeBloom < 0)
+            {
+                UIBPara += UIFadeBloom * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                if (UIBPara <= UITargetBloom)
+                {
+                    UIFadeBloom = 0;
+                    UIBPara = UITargetBloom;
+                    if (UIBPara == 0.0f)
+                        StopBloom();
+                }
+            }
         }
         #endregion
 
-        #region Draw
+        #region Draw & Render
         /// <summary>
         /// Draws the frame counter to the screen
         /// </summary>
+        static public void PrepareRenderer()
+        {
+            UIGame.GraphicsDevice.SetRenderTarget(0, null);
+            UIGame.GraphicsDevice.Clear(Color.White);
+            UISpriteBatch.Begin();
+            UIReady = true;
+        }
+
+        static public void Render()
+        {
+
+            UISpriteBatch.End();
+           
+
+            UIReady = false;
+        }
+
         public void Draw()
         {
-            if (UITexture != null && !UITexture.IsDisposed && !UIRectangle.IsEmpty)
-            {
+            if (UIReady == false)
+                PrepareRenderer();
 
-                UISpriteBatch.Draw(UITexture, UIPosition, UIRectangle, new Color(Color.White, UIAlpha), UIRotation,
-                    new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+
+            if (UITexture != null && !UITexture.IsDisposed && !UIRectangle.IsEmpty )
+            {
+                if (this.isBloom == false)
+                    UISpriteBatch.Draw(UITexture, UIPosition, UIRectangle, new Color(Color.White, UIAlpha), UIRotation,
+                        new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                else
+                {
+                    UISpriteBatch.End();
+                    UIBloom.Parameters["mag"].SetValue(this.UIBPara);
+                    UIBloom.Parameters["alpha"].SetValue(UIAlpha);
+                    UIBloom.Parameters["hirange"].SetValue(this.UIHiRange);
+
+                    UIBloom.Begin();
+                    UISpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate,
+                        SaveStateMode.SaveState);
+
+                    EffectPass pass = UIBloom.CurrentTechnique.Passes[0];
+                    pass.Begin();
+
+                    UISpriteBatch.Draw(UITexture, UIPosition, UIRectangle, new Color(Color.White, UIAlpha), UIRotation,
+                        new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+
+                    pass.End();
+                    UISpriteBatch.End();
+                    UIBloom.End();
+                    UISpriteBatch.Begin();
+
+                }
 
             }
         }
 
         public void Draw(Vector2 Position)
         {
+            if (UIReady == false)
+                PrepareRenderer();
+
             if (UITexture != null && !UITexture.IsDisposed && !UIRectangle.IsEmpty)
             {
-                UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, UIAlpha), UIRotation,
-                    new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                if (this.isBloom == false)
+                    UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, UIAlpha), UIRotation,
+                        new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                else
+                {
+                    UISpriteBatch.End();
+                    UIBloom.Parameters["mag"].SetValue(this.UIBPara);
+                    UIBloom.Parameters["alpha"].SetValue(UIAlpha);
+                    UIBloom.Parameters["hirange"].SetValue(this.UIHiRange);
+
+                    UIBloom.Begin();
+                    UISpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate,
+                        SaveStateMode.SaveState);
+
+                    EffectPass pass = UIBloom.CurrentTechnique.Passes[0];
+                    pass.Begin();
+
+                    UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, UIAlpha), UIRotation,
+                        new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+
+                    pass.End();
+                    UISpriteBatch.End();
+                    UIBloom.End();
+                    UISpriteBatch.Begin();
+
+                }
             }
         }
 
         public void Draw(Vector2 Position, float Rotation)
         {
+            if (UIReady == false)
+                PrepareRenderer();
+
             if (UITexture != null && !UITexture.IsDisposed && !UIRectangle.IsEmpty)
             {
-                UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, UIAlpha), Rotation,
-                     new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                if (this.isBloom == false)
+                    UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, UIAlpha), Rotation,
+                        new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                else
+                {
+                    UISpriteBatch.End();
+                    UIBloom.Parameters["mag"].SetValue(this.UIBPara);
+                    UIBloom.Parameters["alpha"].SetValue(UIAlpha);
+                    UIBloom.Parameters["hirange"].SetValue(this.UIHiRange);
+
+                    UIBloom.Begin();
+                    UISpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate,
+                        SaveStateMode.SaveState);
+
+                    EffectPass pass = UIBloom.CurrentTechnique.Passes[0];
+                    pass.Begin();
+
+                    UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, UIAlpha), Rotation,
+                        new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+
+                    pass.End();
+                    UISpriteBatch.End();
+                    UIBloom.End();
+                    UISpriteBatch.Begin();
+
+                }
             }
         }
 
         public void Draw(Vector2 Position, float Rotation, float Alpha)
         {
+            if (UIReady == false)
+                PrepareRenderer();
+
             if (UITexture != null && !UITexture.IsDisposed && !UIRectangle.IsEmpty)
             {
-                UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, Alpha), Rotation,
-                     new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                if (this.isBloom == false)
+                    UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, Alpha), Rotation,
+                        new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+                else
+                {
+                    UISpriteBatch.End();
+                    UIBloom.Parameters["mag"].SetValue(this.UIBPara);
+                    UIBloom.Parameters["alpha"].SetValue(UIAlpha);
+                    UIBloom.Parameters["hirange"].SetValue(this.UIHiRange);
+
+                    UIBloom.Begin();
+                    UISpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate,
+                        SaveStateMode.SaveState);
+
+                    EffectPass pass = UIBloom.CurrentTechnique.Passes[0];
+                    pass.Begin();
+
+                    UISpriteBatch.Draw(UITexture, Position, UIRectangle, new Color(Color.White, Alpha), Rotation,
+                        new Vector2(0, 0), 1.0f, SpriteEffects.None, 0.0f);
+
+                    pass.End();
+                    UISpriteBatch.End();
+                    UIBloom.End();
+                    UISpriteBatch.Begin();
+
+                }
+            
             }
         }
+
+       
         #endregion
 
 
-        #region Fade Effect
-
-
+        #region Effects
         public void AddFadeEffect(float TargetAlpha, int timeMilliseconds)
         {
             if (TargetAlpha == UIAlpha)
@@ -240,6 +424,38 @@ namespace EGGEngine.Rendering
         public bool isFading()
         {
             return (UIFadeAlpha != 0);
+        }
+
+        public void AddBloomEffect(float TargetBloom, int timeMilliseconds)
+        {
+            if (TargetBloom == UIBPara)
+                return;
+            this.UITargetBloom = TargetBloom;
+            UIFadeBloom = (TargetBloom - UIBPara) / timeMilliseconds;
+            StartBloom();
+        }
+
+        public void StartBloom()
+        {
+            this.isBloom = true;
+        }
+
+        public void SetBloomParameter(float BloomParameter)
+        {
+            this.UIBPara = BloomParameter;
+            if (BloomParameter == 0.0f)
+                StopBloom();
+            else
+            StartBloom();
+        }
+
+        public void StopBloom()
+        {
+            this.isBloom = false;
+        }
+        public bool isBlooming()
+        {
+            return (UIFadeBloom != 0);
         }
 
         #endregion
