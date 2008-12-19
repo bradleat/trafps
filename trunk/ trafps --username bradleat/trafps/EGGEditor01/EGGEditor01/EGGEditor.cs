@@ -112,27 +112,41 @@ namespace EGGEditor01
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IAsyncResult result = null;
-            //Object stateobj;
-            levelData.position2 = _game.levelData.position2;
-            SerializeUtils<LevelData> levelData2 = new SerializeUtils<LevelData>();
-            
-            //SerializeUtils<int> intData = new SerializeUtils<int>();
-            levelData2.Data = levelData; 
-            if (!Guide.IsVisible)
+            string filename;
+            saveFileDialog1.Title = "Specify Destination Filename";
+            saveFileDialog1.Filter = "Level Files|*.lvl";
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.OverwritePrompt = true;
+
+
+            if (openFileDialog1.ShowDialog() != DialogResult.Cancel)
             {
-                result = Guide.BeginShowStorageDeviceSelector(PlayerIndex.One, null, null);
+                filename = saveFileDialog1.FileName;
+                SaveLevel(filename);
             }
-            if (result.IsCompleted)
-            {
-                StorageDevice device = Guide.EndShowStorageDeviceSelector(result);
-                if (device.IsConnected)
-                    levelData2.SaveData(device, "map01");
-            }
-            
+            else
+                return;
+
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string filename;
+            openFileDialog1.InitialDirectory = @"C:\";
+            openFileDialog1.Title = "Select a File";
+            openFileDialog1.Filter = "level File|*.lvl";
+            filename = openFileDialog1.FileName;
+
+            if (openFileDialog1.ShowDialog() != DialogResult.Cancel)
+            {
+                filename = openFileDialog1.FileName;
+                OpenLevel(filename);
+            }
+            else
+                return;
+        }
+
+        private void OpenLevel(string filename)
         {
             IAsyncResult result = null;
             SerializeUtils<LevelData> levelData2 = new SerializeUtils<LevelData>();
@@ -144,6 +158,30 @@ namespace EGGEditor01
             {
                 StorageDevice device = Guide.EndShowStorageDeviceSelector(result);
                 levelData2.LoadData(device, "map01");
+                LoadLevel();
+            }
+        }
+        private void LoadLevel()
+        {
+            // Code for taking the level data from the file and decode it to load the level
+        }
+        private void SaveLevel(string filename)
+        {
+            IAsyncResult result = null;
+
+            SerializeUtils<LevelData> levelData2 = new SerializeUtils<LevelData>();
+
+            //SerializeUtils<int> intData = new SerializeUtils<int>();
+            levelData2.Data = levelData;
+            if (!Guide.IsVisible)
+            {
+                result = Guide.BeginShowStorageDeviceSelector(PlayerIndex.One, null, null);
+            }
+            if (result.IsCompleted)
+            {
+                StorageDevice device = Guide.EndShowStorageDeviceSelector(result);
+                if (device.IsConnected)
+                    levelData2.SaveData(device, filename);
             }
         }
     }

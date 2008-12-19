@@ -4,6 +4,7 @@ namespace EGGEditor01
 {
     static class Program
     {
+        [STAThread]
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
