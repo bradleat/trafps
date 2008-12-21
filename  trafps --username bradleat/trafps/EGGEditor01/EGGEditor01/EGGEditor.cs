@@ -11,13 +11,14 @@ using EGGEngine.Utils;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace EGGEditor01
 {
 
     public partial class EGGEditor : Form
     {
-        Game1 _game;
+        Game1 game;
         public struct LevelData 
         {
             Vector2 position;
@@ -28,12 +29,11 @@ namespace EGGEditor01
         public EGGEditor()
         {
             InitializeComponent();
+            game = new Game1(this);
+            this.Show();
+            game.Run();
         }
-        public EGGEditor(Game game)
-        {
-            InitializeComponent();
-            _game = (EGGEditor01.Game1)game;
-        }
+        
 
         private void pctSurface_MouseHover(object sender, EventArgs e)
         {
@@ -41,7 +41,10 @@ namespace EGGEditor01
         }
         private void EGGEditor_Load(object sender, EventArgs e)
         {
-
+            for (int i = 0; i < game.models.Count; i++)
+            {
+                listBox1.Items.Add(game.models[i]);
+            }
         }
         public IntPtr getDrawSurface()  
         {  
@@ -55,9 +58,12 @@ namespace EGGEditor01
 
         private void propertyGrid1_Click(object sender, EventArgs e)
         {
-
+            propertyGrid1.Update();
         }
-
+        private void propertyGrid1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -89,7 +95,17 @@ namespace EGGEditor01
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
+            if (treeView1.SelectedNode.Text == "Player1")
+            {
+                string name = game.GetName();
+                DrawableModel newModel = new DrawableModel(game.Content.Load<Model>(name), Matrix.Identity);
+                game.models.Add(newModel);
+                MoveModel1 moveModel = new MoveModel1(newModel);
+                moveModel.Show();
+                listBox1.Items.Add(newModel);
+                propertyGrid1.SelectedObject = newModel;
+            }
+            
         }
 
         private void aDDToolStripMenuItem_Click(object sender, EventArgs e)
@@ -184,5 +200,26 @@ namespace EGGEditor01
                     levelData2.SaveData(device, filename);
             }
         }
+
+        private void playerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            string name = game.GetName();
+            DrawableModel newModel = new DrawableModel(game.Content.Load<Model>(name), Matrix.Identity);
+            game.models.Add(newModel);
+            MoveModel1 moveModel = new MoveModel1(newModel);
+            moveModel.Show();
+            listBox1.Items.Add(newModel);
+            propertyGrid1.SelectedObject = newModel;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DrawableModel item = (DrawableModel)listBox1.SelectedItem;
+            MoveModel1 moveModel = new MoveModel1(item);
+            moveModel.Show();
+        }
+
+       
     }
 }

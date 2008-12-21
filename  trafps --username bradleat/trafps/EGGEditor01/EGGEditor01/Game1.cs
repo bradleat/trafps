@@ -30,10 +30,13 @@ namespace EGGEditor01
             int tilenumber;
             public Vector3 position2;
         }
+
+        public List<DrawableModel> models = new List<DrawableModel>();
+        
         public LevelData levelData;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        
         private IntPtr drawSurface;
 
         //Debugging Stuff
@@ -53,24 +56,23 @@ namespace EGGEditor01
         InputHelper input;
         Sky sky;
 
-        //Stuff for networking
-        DrawableModel person2;
-        Vector3 initialPos2 = new Vector3(0, 15, -15);
-
-        public Game1(IntPtr drawSurface)
+        public Game1(EGGEditor form)
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             input = new InputHelper();
             Components.Add(new GamerServicesComponent(this));
-            this.drawSurface = drawSurface;
+            this.drawSurface = form.getDrawSurface();
             graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings);
             System.Windows.Forms.Control.FromHandle((this.Window.Handle)).VisibleChanged += new EventHandler(Game1_VisibleChanged);
         }
-        public Game1()
+
+        public string GetName()
         {
-          
+            string name = config.SettingGroups["Filenames"].Settings["person"].GetValueAsString();
+            return name;        
         }
+
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -85,8 +87,6 @@ namespace EGGEditor01
 
             string name = config.SettingGroups["Filenames"].Settings["person"].GetValueAsString();
             person1 = new DrawableModel(Content.Load<Model>(name), Matrix.Identity);
-
-            person2 = new DrawableModel(Content.Load<Model>(name), Matrix.Identity);
 
             name = config.SettingGroups["Filenames"].Settings["terrain"].GetValueAsString();
             terrain = new Model();
@@ -193,9 +193,10 @@ namespace EGGEditor01
             camera.AddToCameraPosition(moveDirection, forwardReq, ref initalPos1, gameTime);
             person1.Position = initalPos1;
 
-            person2.Position = initialPos2;
-            person2.WorldMatrix = Matrix.CreateScale(2.0f);
-
+            for (int i = 0; i < models.Count; i++)
+            {
+                models[i].WorldMatrix = Matrix.CreateScale(2.0f);
+            }
 
             camera.Update(mouseState, person1.Position);
 
@@ -222,7 +223,11 @@ namespace EGGEditor01
             person1.Model.Bones[0].Transform = person1.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
                 * Matrix.CreateRotationY(camera.LeftRightRot);
             person1.Draw(camera);
-            person2.Draw(camera);
+           
+            for (int i = 0; i < models.Count; i++)
+            {
+                models[i].Draw(camera);
+            }
 
             foreach (ModelMesh mesh in terrain.Meshes)
             {
