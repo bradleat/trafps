@@ -19,15 +19,23 @@ namespace EGGEditor01
     public partial class MoveModel1 : Form
     {
         DrawableModel model;
-        public MoveModel1(DrawableModel model)
+        GameModel gameModel;
+        Game1 game;
+        EGGEditor eggEditor;
+        
+        public MoveModel1(DrawableModel model, GameModel gameModel, Game1 game, EGGEditor eggEditor)
         {
             InitializeComponent();
             this.model = model;
+            this.gameModel = gameModel;
+            this.game = game;
+            this.eggEditor = eggEditor;
         }
 
         private void MoveModel1_Load(object sender, EventArgs e)
         {
-            label5.Text = model.Position.ToString();
+            if (model != null)
+                label5.Text = model.Position.ToString();
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -37,13 +45,30 @@ namespace EGGEditor01
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            float floatvalueX = float.Parse(textBox1.Text);
-            float floatvalueY = float.Parse(textBox2.Text);
-            float floatvalueZ = float.Parse(textBox3.Text);
 
-            model.Position = new Vector3(floatvalueX, floatvalueY, floatvalueZ);
+            if (checkBox1.Checked)
+            {
+                eggEditor.deletion = true;
+                game.models.Remove(model);
+                eggEditor.DeleteFromListBox(model);
+                game.Delete(gameModel);
+            }
+            else
+            {
+                float floatvalueX = float.Parse(textBox1.Text);
+                float floatvalueY = float.Parse(textBox2.Text);
+                float floatvalueZ = float.Parse(textBox3.Text);
+
+                model.Position = new Vector3(floatvalueX, floatvalueY, floatvalueZ);
+                gameModel.position = model.Position;
+            }
             this.Close();
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
