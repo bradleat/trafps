@@ -279,13 +279,13 @@ namespace EGGEditor01
         }
         private void LoadLevel(SerializeUtils<LevelData> levelData)
         {
+            models.Clear();
             foreach (GameModel model in levelData.Data.models)
             {
                 string name = GetName();
                 Model modelType = Content.Load<Model>(name);
                 DrawableModel newModel = new DrawableModel(modelType, Matrix.Identity);
                 newModel.Position = model.position;
-                models.Clear();
                 models.Add(newModel);
                 form.AddToListBox(newModel);
                 form.Prop_ChangeSelected(newModel);
