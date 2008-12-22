@@ -15,6 +15,8 @@ using EGGEngine.Debug;
 using EGGEngine.Rendering;
 using EGGEngine.Helpers;
 using EGGEngine.Utils;
+using System.Xml.Serialization;
+using System.IO;
 #endregion
 
 namespace EGGEditor01
@@ -23,17 +25,10 @@ namespace EGGEditor01
     /// This is the main type for your game
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
-    {
-        public struct LevelData
-        {
-            public Vector2 position;
-            int tilenumber;
-            public Vector3 position2;
-        }
-
+    {   
+        public LevelData levelData = new LevelData();
+        public Data data = new Data();
         public List<DrawableModel> models = new List<DrawableModel>();
-        
-        public LevelData levelData;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         
@@ -55,6 +50,7 @@ namespace EGGEditor01
         Vector3 translate = Vector3.Zero;
         InputHelper input;
         Sky sky;
+        EGGEditor form;
 
         public Game1(EGGEditor form)
         {
@@ -63,6 +59,7 @@ namespace EGGEditor01
             input = new InputHelper();
             Components.Add(new GamerServicesComponent(this));
             this.drawSurface = form.getDrawSurface();
+            this.form = form;
             graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings);
             System.Windows.Forms.Control.FromHandle((this.Window.Handle)).VisibleChanged += new EventHandler(Game1_VisibleChanged);
         }
@@ -82,6 +79,8 @@ namespace EGGEditor01
         /// </summary>
         protected override void Initialize()
         {
+            levelData.models = new List<GameModel>();
+            //levelData.positions = new List<Vector3>();
             camera = new FPSCamera(GraphicsDevice.Viewport);
             FPS_Counter_On = config.SettingGroups["DebugFeatures"].Settings["FPSCounterOn"].GetValueAsBool();
 
@@ -202,7 +201,6 @@ namespace EGGEditor01
 
             person1.WorldMatrix = Matrix.CreateScale(2.0f) * Matrix.CreateRotationY(4.05f);
 
-            levelData.position2 = person1.Position;
             base.Update(gameTime);
         }
 
@@ -252,6 +250,73 @@ namespace EGGEditor01
                     (float)gameTime.TotalGameTime.TotalMilliseconds / 1000.0f);
 
             base.Draw(gameTime);
+        }
+
+        public void OpenLevel(string filename)
+        {
+            form.IncrementProgressBar(25);
+            IAsyncResult result = null;
+            SerializeUtils<LevelData> levelData = new SerializeUtils<LevelData>();
+            if (!Guide.IsVisible)
+            {
+                result = Guide.BeginShowStorageDeviceSelector(PlayerIndex.One, null, null);
+            }
+            if (result.IsCompleted)
+            {
+                StorageDevice device = Guide.EndShowStorageDeviceSelector(result);
+                levelData.LoadData(device, filename);
+                form.IncrementProgressBar(25);
+                LoadLevel(levelData);
+            }
+        }
+        public void Add(GameModel model)
+        {
+            levelData.models.Add(model);
+        }
+        public void Delete(GameModel model)
+        {
+            levelData.models.Remove(model);
+        }
+        private void LoadLevel(SerializeUtils<LevelData> levelData)
+        {
+            foreach (GameModel model in levelData.Data.models)
+            {
+                string name = GetName();
+                Model modelType = Content.Load<Model>(name);
+                DrawableModel newModel = new DrawableModel(modelType, Matrix.Identity);
+                newModel.Position = model.position;
+                models.Clear();
+                models.Add(newModel);
+                form.AddToListBox(newModel);
+                form.Prop_ChangeSelected(newModel);
+            }
+            form.IncrementProgressBar(50);
+        }
+
+        public void SaveLevel(string filename)
+        {
+            form.IncrementProgressBar(25);
+            IAsyncResult result = null;
+            
+            SerializeUtils<LevelData> levelData2 = new SerializeUtils<LevelData>();
+            levelData2.Data =  levelData;
+            form.IncrementProgressBar(25);
+            if (!Guide.IsVisible)
+            {
+                result = Guide.BeginShowStorageDeviceSelector(PlayerIndex.One, null, null);
+            }
+            if (result.IsCompleted)
+            {
+                form.IncrementProgressBar(25);
+                StorageDevice device = Guide.EndShowStorageDeviceSelector(result);
+                if (device.IsConnected)
+                {
+                    levelData2.SaveData(device, filename);
+                    form.IncrementProgressBar(25);
+                }
+            }
+             
+            
         }
     }
 }

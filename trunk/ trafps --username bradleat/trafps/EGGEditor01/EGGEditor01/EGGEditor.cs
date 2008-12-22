@@ -19,13 +19,9 @@ namespace EGGEditor01
     public partial class EGGEditor : Form
     {
         Game1 game;
-        public struct LevelData 
-        {
-            Vector2 position;
-            int Tilenumber;
-            public Vector3 position2;
-        }
-        LevelData levelData;
+        public bool deletion = false;
+        
+        
         public EGGEditor()
         {
             InitializeComponent();
@@ -41,10 +37,7 @@ namespace EGGEditor01
         }
         private void EGGEditor_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < game.models.Count; i++)
-            {
-                listBox1.Items.Add(game.models[i]);
-            }
+            
         }
         public IntPtr getDrawSurface()  
         {  
@@ -99,8 +92,9 @@ namespace EGGEditor01
             {
                 string name = game.GetName();
                 DrawableModel newModel = new DrawableModel(game.Content.Load<Model>(name), Matrix.Identity);
+                GameModel gameModel = new GameModel();
                 game.models.Add(newModel);
-                MoveModel1 moveModel = new MoveModel1(newModel);
+                MoveModel1 moveModel = new MoveModel1(newModel, gameModel,game, this);
                 moveModel.Show();
                 listBox1.Items.Add(newModel);
                 propertyGrid1.SelectedObject = newModel;
@@ -135,10 +129,10 @@ namespace EGGEditor01
             saveFileDialog1.OverwritePrompt = true;
 
 
-            if (openFileDialog1.ShowDialog() != DialogResult.Cancel)
+            if (saveFileDialog1.ShowDialog() != DialogResult.Cancel)
             {
                 filename = saveFileDialog1.FileName;
-                SaveLevel(filename);
+                game.SaveLevel(filename);
             }
             else
                 return;
@@ -156,68 +150,80 @@ namespace EGGEditor01
             if (openFileDialog1.ShowDialog() != DialogResult.Cancel)
             {
                 filename = openFileDialog1.FileName;
-                OpenLevel(filename);
+                game.OpenLevel(filename);
             }
             else
                 return;
         }
 
-        private void OpenLevel(string filename)
+        public void UpdateListbox()
         {
-            IAsyncResult result = null;
-            SerializeUtils<LevelData> levelData2 = new SerializeUtils<LevelData>();
-            if (!Guide.IsVisible)
-            {
-                result = Guide.BeginShowStorageDeviceSelector(PlayerIndex.One, null, null);
-            }
-            if (result.IsCompleted)
-            {
-                StorageDevice device = Guide.EndShowStorageDeviceSelector(result);
-                levelData2.LoadData(device, "map01");
-                LoadLevel();
-            }
+            listBox1.Update();
         }
-        private void LoadLevel()
+        public void AddToListBox(DrawableModel model)
         {
-            // Code for taking the level data from the file and decode it to load the level
+            listBox1.Items.Add(model);
         }
-        private void SaveLevel(string filename)
+        public void DeleteFromListBox(DrawableModel model)
         {
-            IAsyncResult result = null;
+            listBox1.Items.Remove(model);
+        }
+        public void UpdatePropertyGrid(DrawableModel model)
+        {
+            propertyGrid1.Update();
+        }
+        public void Prop_ChangeSelected(DrawableModel model)
+        {
+            propertyGrid1.SelectedObject = model;
+        }
+        public void IncrementProgressBar(int incrementValue)
+        {
+            if(progressBar1.Visible == false)
+                progressBar1.Show();
+            progressBar1.Increment(incrementValue);
 
-            SerializeUtils<LevelData> levelData2 = new SerializeUtils<LevelData>();
-
-            //SerializeUtils<int> intData = new SerializeUtils<int>();
-            levelData2.Data = levelData;
-            if (!Guide.IsVisible)
-            {
-                result = Guide.BeginShowStorageDeviceSelector(PlayerIndex.One, null, null);
-            }
-            if (result.IsCompleted)
-            {
-                StorageDevice device = Guide.EndShowStorageDeviceSelector(result);
-                if (device.IsConnected)
-                    levelData2.SaveData(device, filename);
-            }
+            if (progressBar1.Value == 100)
+                progressBar1.Value = 0;
         }
 
+        
         private void playerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            progressBar1.Show();
+            progressBar1.Select();
+            progressBar1.Step = 50;     
             string name = game.GetName();
-            DrawableModel newModel = new DrawableModel(game.Content.Load<Model>(name), Matrix.Identity);
+            Model model = game.Content.Load<Model>(name);
+            GameModel gameModel = new GameModel();
+            DrawableModel newModel = new DrawableModel(model, Matrix.Identity);
+            progressBar1.PerformStep();
             game.models.Add(newModel);
-            MoveModel1 moveModel = new MoveModel1(newModel);
+            game.Add(gameModel);
+            MoveModel1 moveModel = new MoveModel1(newModel,gameModel, game , this);
             moveModel.Show();
             listBox1.Items.Add(newModel);
             propertyGrid1.SelectedObject = newModel;
+            progressBar1.PerformStep();
+            progressBar1.Value = 0;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DrawableModel item = (DrawableModel)listBox1.SelectedItem;
-            MoveModel1 moveModel = new MoveModel1(item);
-            moveModel.Show();
+            if (deletion == false)
+            {
+                DrawableModel item = (DrawableModel)listBox1.SelectedItem;
+                MoveModel1 moveModel = new MoveModel1(item, new GameModel(), game, this);
+                moveModel.Show(); 
+            }
+            else
+                deletion = true;
+        }
+
+        private void newLevelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewLevel newLevel = new NewLevel(game, this);
+            newLevel.Show();
+            
         }
 
        
