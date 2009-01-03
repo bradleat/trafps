@@ -14,6 +14,7 @@ namespace EGGEngine.Rendering
 {
     public class DrawableModel
     {
+        private Game game;
         private Model model;
         private Matrix worldMatrix;
         private Matrix[] originalTransforms;
@@ -21,6 +22,9 @@ namespace EGGEngine.Rendering
         private Vector3 position;
         private bool debug = false;
         public float temp = 0f;
+        public BoundingSphere completeBoundingSphere;
+        public Matrix Rotation;
+        public int Life;
 
         #region Properties
         public Model Model
@@ -57,11 +61,31 @@ namespace EGGEngine.Rendering
             LoadModelBoundingSphere();
 
             position = new Vector3();
-
+            Life = 100;
             if (debug)
                 WriteModelStructure(model);
         }
 
+        public void EnemyRecieveDamage(int damageValue)
+        {
+            this.Life -= damageValue;
+            if (Life < 1)
+            {
+                //respawn
+                Random random = new Random();
+                this.position.X = (float)random.NextDouble() * 100;
+            }
+        }
+        public void PlayerRecieveDamage(int damageValue)
+        {
+            this.Life -= damageValue;
+            if (Life < 1)
+            {
+                //respawn
+                this.position = new Vector3(0, 15, 0);
+                Life = 100;
+            }
+        }
         /// <summary>
         /// Draws the model in 3D space using the current camera's view matrix 
         /// and projection matrix.
@@ -93,7 +117,7 @@ namespace EGGEngine.Rendering
         /// </summary>
         private void LoadModelBoundingSphere()
         {
-            BoundingSphere completeBoundingSphere = new BoundingSphere();
+             completeBoundingSphere = new BoundingSphere();
 
             foreach (ModelMesh mesh in model.Meshes)
             {
@@ -103,6 +127,7 @@ namespace EGGEngine.Rendering
                 completeBoundingSphere =
                     BoundingSphere.CreateMerged(completeBoundingSphere, transMeshSphere);
             }
+            
             model.Tag = completeBoundingSphere.Transform(Matrix.CreateScale(0.5f));
         }
 
