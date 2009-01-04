@@ -14,17 +14,16 @@ namespace EGGEngine.Rendering
 {
     public class DrawableModel
     {
-        private Game game;
         private Model model;
         private Matrix worldMatrix;
         private Matrix[] originalTransforms;
         private Matrix[] modelTransforms;
-        private Vector3 position;
+        public Vector3 position;
         private bool debug = false;
         public float temp = 0f;
-        public BoundingSphere completeBoundingSphere;
+        private BoundingSphere completeBoundingSphere;
         public Matrix Rotation;
-        public int Life;
+        private int Life;
 
         #region Properties
         public Model Model

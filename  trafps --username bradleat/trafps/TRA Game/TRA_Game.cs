@@ -297,7 +297,7 @@ namespace TRA_Game
                 camera.Update(mouseState, person1.Position);
 
                 person1.WorldMatrix = Matrix.CreateScale(2.0f) * Matrix.CreateRotationY(4.05f);
-
+                audioHelper.Update();
             }
 
             // Allows the game to exit
@@ -368,12 +368,23 @@ namespace TRA_Game
         private void UpdateBulletPositions(float moveSpeed)
         {
             
+            float maxDistance = 200f;
+            float bulletDistance;
             for (int i = 0; i < bulletList.Count; i++)
             {
                 DrawableModel currentBullet = bulletList[i];
                 currentBullet.Position = MoveForward(currentBullet.Position, currentBullet.Rotation, moveSpeed * 2.0f);
-                bulletList[i] = currentBullet;
+                Vector3.Distance(ref camera.cameraPosition, ref currentBullet.position, out bulletDistance);
+                if (bulletDistance > maxDistance) 
+                {
+                    bulletspheres.RemoveAt(i);
+                    bulletList.RemoveAt(i);
+                    i--;
+                }
+                else
+                    bulletList[i] = currentBullet;
             }
+            
         }
         private Vector3 MoveForward(Vector3 position, Matrix rotation, float speed)
         {
@@ -391,8 +402,9 @@ namespace TRA_Game
         /// 0 if no collision</returns>
         int CheckPlayerCollision(BoundingSphere sphere)
         {
+            
             //Create the bounding sphere for the player
-            playerSphere = new BoundingSphere(person1.Position,5.0f);
+            playerSphere = new BoundingSphere(person1.Position, 5.0f); ;
 
             if (playerSphere.Contains(sphere) != ContainmentType.Disjoint)
                 return 1;
@@ -402,7 +414,10 @@ namespace TRA_Game
         }
          int CheckEnemyCollision(BoundingSphere sphere)
         {
-            enemySphere = new BoundingSphere(person2.Position, 2.0f);
+            enemySphere = new BoundingSphere();
+            // put the center of the sphere in the centre of the model
+            enemySphere.Center = new Vector3(person2.Position.X, person2.Position.Y + 5f, person2.Position.Z);
+            enemySphere.Radius = 5.0f;
             
                 if (enemySphere.Contains(sphere) != ContainmentType.Disjoint)
                     return 1;
