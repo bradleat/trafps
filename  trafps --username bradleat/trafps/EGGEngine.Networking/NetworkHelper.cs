@@ -32,49 +32,108 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace EGGEngine.Networking
 {
-    class NetworkHelper
+    public class NetworkHelper
     {
-        PacketWriter serverPacketWriter;
-        PacketWriter clientPacketWriter;
-        PacketReader serverPacketReader;
-        PacketReader clientPacketReader;
 
-        NetworkSession networkSession;
+        private readonly Microsoft.Xna.Framework.Net.PacketWriter serverPacketWriter = new Microsoft.Xna.Framework.Net.PacketWriter();
+        private readonly Microsoft.Xna.Framework.Net.PacketReader serverPacketReader = new Microsoft.Xna.Framework.Net.PacketReader();
+        private readonly Microsoft.Xna.Framework.Net.PacketWriter clientPacketWriter = new Microsoft.Xna.Framework.Net.PacketWriter();
+        private readonly Microsoft.Xna.Framework.Net.PacketReader clientPacketReader = new Microsoft.Xna.Framework.Net.PacketReader();
 
+        private Microsoft.Xna.Framework.Net.NetworkSession networkSession;
         /// <summary>
-        /// 
+        /// The active network session
         /// </summary>
-        /// <returns></returns>
-        int SendSvData()
+        public Microsoft.Xna.Framework.Net.NetworkSession NetworkGameSession
         {
-            return 5;
+            get { return networkSession; }
+            set { networkSession = value; }
         }
 
         /// <summary>
-        /// 
+        /// Writer for the server data
         /// </summary>
-        /// <returns></returns>
-        int SendClData()
+        public Microsoft.Xna.Framework.Net.PacketWriter ServerPacketWriter
         {
-            return 5;
+            get { return serverPacketWriter; }
         }
 
         /// <summary>
-        /// 
+        /// Writer for the client data
         /// </summary>
-        /// <returns></returns>
-        int ReadSvData()
+        public Microsoft.Xna.Framework.Net.PacketWriter ClientPacketWriter
         {
-            return 5;
+            get { return clientPacketWriter; }
         }
 
         /// <summary>
-        /// 
+        /// Reader for the client data
         /// </summary>
-        /// <returns></returns>
-        int ReadClData()
+        public Microsoft.Xna.Framework.Net.PacketReader ClientPacketReader
         {
-            return 5;
+            get { return clientPacketReader; }
+        }
+
+        /// <summary>
+        /// Reader for the server data
+        /// </summary>
+        public Microsoft.Xna.Framework.Net.PacketReader ServerPacketReader
+        {
+            get { return serverPacketReader; }
+        }
+
+
+
+        /// <summary>
+        /// Send all server data
+        /// </summary>
+        public void SendServerData()
+        {
+            if (ServerPacketWriter.Length > 0)
+            {
+                // Send the combined data to everyone in the session.
+                LocalNetworkGamer server = (LocalNetworkGamer)networkSession.Host;
+
+                server.SendData(ServerPacketWriter, SendDataOptions.InOrder);
+            }
+        }
+
+        /// <summary>
+        /// Read server data
+        /// </summary>
+        public NetworkGamer ReadServerData(LocalNetworkGamer gamer)
+        {
+            NetworkGamer sender;
+
+            // Read a single packet from the network.
+            gamer.ReceiveData(ServerPacketReader, out sender);
+            return sender;
+        }
+
+        /// <summary>
+        /// Send all client data
+        /// </summary>
+        public void SendClientData()
+        {
+            if (ClientPacketWriter.Length > 0)
+            {
+                // The first player is always running in the server...
+                networkSession.LocalGamers[0].SendData(clientPacketWriter,
+                                                       SendDataOptions.InOrder,
+                                                       networkSession.Host);
+            }
+        }
+
+        /// <summary>
+        /// Read the Client Data
+        /// </summary>
+        public NetworkGamer ReadClientData(LocalNetworkGamer gamer)
+        {
+            NetworkGamer sender;
+
+            // Read a single packet from the network.
+            gamer.ReceiveData(ClientPacketReader, out sender);
+            return sender;
         }
     }
 }

@@ -25,24 +25,46 @@
 
 #region Using Statements
 using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.GamerServices;
 #endregion
 
 namespace EGGEngine.Networking
 {
-    class NetworkSession
+    public class NetworkSession
     {
+        NetworkHelper networkHelper;
+        public NetworkSession(Game game)
+        {
+            networkHelper = (NetworkHelper)
+            game.Services.GetService(typeof(NetworkHelper));
+        }
+
         /// <summary>
         /// 
         /// </summary>
-        void CreateSession()
+        public void CreateSession(NetworkSessionType sessionType, int maxLocalGamers,
+            int maxGamers, int PrivateGamerSlots, NetworkSessionProperties sessionProperties)
         {
-
+            networkHelper.NetworkGameSession = Microsoft.Xna.Framework.Net.NetworkSession.Create(
+                sessionType, maxLocalGamers, maxGamers, PrivateGamerSlots, sessionProperties);
         }
 
-        void JoinSession()
+        public void JoinSession(NetworkSessionType sessionType, int maxLocalGamers, NetworkSessionProperties sessionProperties)
         {
+            // Search for sessions.
+            using (AvailableNetworkSessionCollection availableSessions =
+                        Microsoft.Xna.Framework.Net.NetworkSession.Find(sessionType, maxLocalGamers, sessionProperties))
+            {
+                if (availableSessions.Count == 0)
+                {
+                    return;
+                }
+
+                // Join the first session we found.
+                networkHelper.NetworkGameSession = Microsoft.Xna.Framework.Net.NetworkSession.Join(availableSessions[0]);
+            }
 
         }
     }

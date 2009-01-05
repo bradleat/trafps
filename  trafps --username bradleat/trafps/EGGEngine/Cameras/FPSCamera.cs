@@ -51,7 +51,7 @@ namespace EGGEngine.Cameras
         float upDownRot;
         const float maxRotationSpeed = 0.005f;
         const float maxAcceleration = 30.0f;
-        Vector3 cameraPosition;
+        public Vector3 cameraPosition;
         Vector3 modelPosition;
         Vector3 velocity = new Vector3(0, 0, 0);
 
