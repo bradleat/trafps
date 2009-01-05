@@ -51,7 +51,7 @@ namespace EGGEngine.Networking
         /// <returns></returns>
         int SetHostList(string hostList)
         {
-            return 5;
+            return 0;
         }
     }
 }

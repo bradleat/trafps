@@ -25,59 +25,199 @@
 
 #region Using Statements
 using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.GamerServices;
+using EGGEngine.Networking;
 #endregion
 
 namespace EGGEngine.Networking
 {
-    class NetworkInterface
+    public class NetworkInterface
     {
         NetworkHelper networkHelper;
 
+
+
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        int InitNetwork()
+        public int InitNetwork(Game game)
         {
-            return 5;
+            networkHelper = (NetworkHelper)
+            game.Services.GetService(typeof(NetworkHelper));
+
+            return 0;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public int CreateNetwork(Game game, NetworkSessionType sessionType, int maxLocalGamers, int maxGamers, int privateGamerSlots, NetworkSessionProperties sessionProperties, bool AllowHostMigration, bool AllowJoinInProgress)
+        {
+            NetworkSession networkSessionClass = new NetworkSession(game);
+
+            networkSessionClass.CreateSession(sessionType, maxLocalGamers, maxGamers, privateGamerSlots, sessionProperties);
+
+            if (networkHelper.NetworkGameSession != null)
+            {
+                if (AllowHostMigration == true)
+                    networkHelper.NetworkGameSession.AllowHostMigration = true;
+
+                if (AllowJoinInProgress == true)
+                    networkHelper.NetworkGameSession.AllowJoinInProgress = true;
+                return 0;
+            }
+            else
+            {
+                //throw new Exception("Session was not Created");
+                return 1;
+
+            }
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        int CreateNetwork()
+        public int FrameNetwork(int temp, int etat)
         {
-            return 5;
+
+            if (!networkHelper.NetworkGameSession.IsHost)
+            {
+                networkHelper.SendClientData();
+            }
+            else
+            {
+                // If we are the server, transmit the game state
+                networkHelper.SendServerData();
+            }
+
+            // Pump the data
+            networkHelper.NetworkGameSession.Update();
+
+
+            //the following part need one more class
+            // Read any incoming network packets.
+            foreach (LocalNetworkGamer gamer in
+                    networkHelper.NetworkGameSession.LocalGamers)
+            {
+                // Keep reading as long as incoming packets are available.
+                while (gamer.IsDataAvailable)
+                {
+                    NetworkGamer sender;
+                    if (gamer.IsHost)
+                    {
+                        sender = networkHelper.ReadClientData(gamer);
+                        if (!sender.IsLocal)
+                        {
+                            while (networkHelper.ClientPacketReader.PeekChar() != -1)
+                            {
+                                char header = networkHelper.ClientPacketReader.ReadChar();
+                                if (header == 'P')
+                                {
+                                    etat = networkHelper.ClientPacketReader.ReadInt32();
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        sender = networkHelper.ReadServerData(gamer);
+                        if (!sender.IsLocal)
+                        {
+                            while (networkHelper.ServerPacketReader.PeekChar() != -1)
+                            {
+                                char header = networkHelper.ServerPacketReader.ReadChar();
+
+                                if (header == 'S') etat = -1;
+
+                                else if (header == 'P')
+                                {
+                                    etat = networkHelper.ServerPacketReader.ReadInt32();
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            //time to send something
+            if (networkHelper.NetworkGameSession.IsHost)
+            {
+                networkHelper.ServerPacketWriter.Write('P');
+                networkHelper.ServerPacketWriter.Write(temp);
+            }
+            else
+            {
+                networkHelper.ClientPacketWriter.Write('P');
+                networkHelper.ClientPacketWriter.Write(temp);
+            }
+
+            return etat;
+            //return 0;
+        }
+
+        int HandleClientData()
+        {
+            return networkHelper.ClientPacketReader.ReadInt32();
+        }
+
+        int HandleServerData()
+        {
+            while (networkHelper.ServerPacketReader.PeekChar() != -1)
+            {
+                char header = networkHelper.ServerPacketReader.ReadChar();
+                switch (header)
+                {
+                    case 'S':
+                        return -1;
+                    case 'P':
+                        return networkHelper.ServerPacketReader.ReadInt32();
+                }
+            }
+            //if (networkHelper.ServerPacketReader.PeekChar() == 'S') return -1;
+
+            //if (networkHelper.ServerPacketReader.PeekChar() == 'P')
+            //return networkHelper.ServerPacketReader.ReadInt32();
+            return 0;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        int FrameNetwork()
+        public int JoinNetwork(Game game,
+            NetworkSessionType sessionType, int maxLocalGamers, NetworkSessionProperties sessionProperties)
         {
-            return 5;
+            NetworkSession networkSessionClass = new NetworkSession(game);
+            networkSessionClass.JoinSession(sessionType, maxLocalGamers, sessionProperties);
+
+            if (networkHelper.NetworkGameSession == null)
+            {
+                return 1;
+            }
+            return 0;
+
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        int JoinNetwork()
+        public int KillNetwork()
         {
-            return 5;
-        }
+            if (networkHelper.NetworkGameSession != null)
+            {
+                networkHelper.NetworkGameSession.Dispose();
+                networkHelper.NetworkGameSession = null;
+            }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        int KillNetwork()
-        {
-            return 5;
+            return 0;
         }
 
         /// <summary>
@@ -85,9 +225,26 @@ namespace EGGEngine.Networking
         /// </summary>
         /// <param name="networkCommand"></param>
         /// <returns></returns>
-        int UpdateStatus(string networkCommand)
+        // will do this in the future
+        public int UpdateNetwork(string networkCommand)
         {
-            return 5;
+            return 0;
         }
+
+        // send a command to another computer , the command is a string
+        public int SyncCommand(string Command)
+        {
+            if (networkHelper.NetworkGameSession.IsHost)
+            {
+                networkHelper.ServerPacketWriter.Write('S');
+                networkHelper.ServerPacketWriter.Write(Command);
+            }
+            else
+            {
+                networkHelper.ClientPacketWriter.Write(Command);
+            }
+            return 0;
+        }
+
     }
 }
