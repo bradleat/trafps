@@ -56,12 +56,12 @@ namespace EGGEngine.Networking
         /// 
         /// </summary>
         /// <returns></returns>
-        public int CreateNetwork(Game game, NetworkSessionType sessionType, int maxLocalGamers, int maxGamers, int privateGamerSlots, NetworkSessionProperties sessionProperties, bool AllowHostMigration, bool AllowJoinInProgress)
+        public IAsyncResult CreateNetwork(Game game, NetworkSessionType sessionType, int maxLocalGamers, int maxGamers, int privateGamerSlots, NetworkSessionProperties sessionProperties, bool AllowHostMigration, bool AllowJoinInProgress)
         {
             NetworkSession networkSessionClass = new NetworkSession(game);
 
-            networkSessionClass.CreateSession(sessionType, maxLocalGamers, maxGamers, privateGamerSlots, sessionProperties);
-
+            IAsyncResult asyncResult = networkSessionClass.CreateSession(sessionType, maxLocalGamers, maxGamers, privateGamerSlots, sessionProperties);
+            /*
             if (networkHelper.NetworkGameSession != null)
             {
                 if (AllowHostMigration == true)
@@ -69,14 +69,15 @@ namespace EGGEngine.Networking
 
                 if (AllowJoinInProgress == true)
                     networkHelper.NetworkGameSession.AllowJoinInProgress = true;
-                return 0;
+                return asyncResult;
             }
             else
             {
                 //throw new Exception("Session was not Created");
-                return 1;
+                return asyncResult;
 
-            }
+            }*/
+            return asyncResult;
         }
 
         /// <summary>
@@ -191,17 +192,18 @@ namespace EGGEngine.Networking
         /// 
         /// </summary>
         /// <returns></returns>
-        public int JoinNetwork(Game game,
+        public IAsyncResult JoinNetwork(Game game,
             NetworkSessionType sessionType, int maxLocalGamers, NetworkSessionProperties sessionProperties)
         {
             NetworkSession networkSessionClass = new NetworkSession(game);
-            networkSessionClass.JoinSession(sessionType, maxLocalGamers, sessionProperties);
+            IAsyncResult asyncResult = networkSessionClass.JoinSession(sessionType, maxLocalGamers, sessionProperties);
 
-            if (networkHelper.NetworkGameSession == null)
+            /*if (networkHelper.NetworkGameSession == null)
             {
                 return 1;
             }
-            return 0;
+            return 0;*/
+            return asyncResult;
 
         }
 

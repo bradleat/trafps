@@ -238,6 +238,42 @@ namespace TRA_Game {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GameMode :.
+        /// </summary>
+        internal static string GameMode {
+            get {
+                return ResourceManager.GetString("GameMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Capture The Flag.
+        /// </summary>
+        internal static string GameModeTypeCTF {
+            get {
+                return ResourceManager.GetString("GameModeTypeCTF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deathmatch.
+        /// </summary>
+        internal static string GameModeTypeDM {
+            get {
+                return ResourceManager.GetString("GameModeTypeDM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Team Deathmatch.
+        /// </summary>
+        internal static string GameModeTypeTDM {
+            get {
+                return ResourceManager.GetString("GameModeTypeTDM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  (host).
         /// </summary>
         internal static string HostSuffix {
@@ -317,6 +353,24 @@ namespace TRA_Game {
         internal static string MessageGamerLeft {
             get {
                 return ResourceManager.GetString("MessageGamerLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is now the Host.
+        /// </summary>
+        internal static string MessageNewHost {
+            get {
+                return ResourceManager.GetString("MessageNewHost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are now the Host.
+        /// </summary>
+        internal static string MessageYouAreHost {
+            get {
+                return ResourceManager.GetString("MessageYouAreHost", resourceCulture);
             }
         }
         
@@ -411,6 +465,78 @@ namespace TRA_Game {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ScoreToWin :.
+        /// </summary>
+        internal static string ScoreToWin {
+            get {
+                return ResourceManager.GetString("ScoreToWin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.
+        /// </summary>
+        internal static string ScoreToWinType1 {
+            get {
+                return ResourceManager.GetString("ScoreToWinType1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3.
+        /// </summary>
+        internal static string ScoreToWinType3 {
+            get {
+                return ResourceManager.GetString("ScoreToWinType3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5.
+        /// </summary>
+        internal static string ScoreToWinType5 {
+            get {
+                return ResourceManager.GetString("ScoreToWinType5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 50.
+        /// </summary>
+        internal static string ScoreToWinTypeFifty {
+            get {
+                return ResourceManager.GetString("ScoreToWinTypeFifty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 25.
+        /// </summary>
+        internal static string ScoreToWinTypeTwentyFive {
+            get {
+                return ResourceManager.GetString("ScoreToWinTypeTwentyFive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Sessions.
+        /// </summary>
+        internal static string SearchSessions {
+            get {
+                return ResourceManager.GetString("SearchSessions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SessionProperties - .
+        /// </summary>
+        internal static string SessionProperties {
+            get {
+                return ResourceManager.GetString("SessionProperties", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Single Player.
         /// </summary>
         internal static string SinglePlayer {
@@ -429,7 +555,7 @@ namespace TRA_Game {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Theather.
+        ///   Looks up a localized string similar to Theatre.
         /// </summary>
         internal static string Theather {
             get {
@@ -443,6 +569,42 @@ namespace TRA_Game {
         internal static string Training {
             get {
                 return ResourceManager.GetString("Training", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weapons :.
+        /// </summary>
+        internal static string Weapons {
+            get {
+                return ResourceManager.GetString("Weapons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Heavy.
+        /// </summary>
+        internal static string WeaponsTypeHeavy {
+            get {
+                return ResourceManager.GetString("WeaponsTypeHeavy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light.
+        /// </summary>
+        internal static string WeaponsTypeLight {
+            get {
+                return ResourceManager.GetString("WeaponsTypeLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Normal.
+        /// </summary>
+        internal static string WeaponsTypeNormal {
+            get {
+                return ResourceManager.GetString("WeaponsTypeNormal", resourceCulture);
             }
         }
     }

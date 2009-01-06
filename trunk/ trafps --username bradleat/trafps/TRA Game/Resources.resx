@@ -180,6 +180,18 @@ the lobby before you can join this session</value>
   <data name="FindSessions" xml:space="preserve">
     <value>Find Sessions</value>
   </data>
+  <data name="GameMode" xml:space="preserve">
+    <value>GameMode :</value>
+  </data>
+  <data name="GameModeTypeCTF" xml:space="preserve">
+    <value>Capture The Flag</value>
+  </data>
+  <data name="GameModeTypeDM" xml:space="preserve">
+    <value>Deathmatch</value>
+  </data>
+  <data name="GameModeTypeTDM" xml:space="preserve">
+    <value>Team Deathmatch</value>
+  </data>
   <data name="HostSuffix" xml:space="preserve">
     <value> (host)</value>
   </data>
@@ -208,6 +220,12 @@ B button, Esc = cancel</value>
   </data>
   <data name="MessageGamerLeft" xml:space="preserve">
     <value>{0} left</value>
+  </data>
+  <data name="MessageNewHost" xml:space="preserve">
+    <value>{0} is now the Host</value>
+  </data>
+  <data name="MessageYouAreHost" xml:space="preserve">
+    <value>You are now the Host</value>
   </data>
   <data name="Multiplayer" xml:space="preserve">
     <value>MultiPlayer</value>
@@ -239,6 +257,30 @@ B button, Esc = cancel</value>
   <data name="ReturnToLobby" xml:space="preserve">
     <value>Return to Lobby</value>
   </data>
+  <data name="ScoreToWin" xml:space="preserve">
+    <value>ScoreToWin :</value>
+  </data>
+  <data name="ScoreToWinType1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ScoreToWinType3" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ScoreToWinType5" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ScoreToWinTypeFifty" xml:space="preserve">
+    <value>50</value>
+  </data>
+  <data name="ScoreToWinTypeTwentyFive" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="SearchSessions" xml:space="preserve">
+    <value>Search Sessions</value>
+  </data>
+  <data name="SessionProperties" xml:space="preserve">
+    <value>SessionProperties - </value>
+  </data>
   <data name="SinglePlayer" xml:space="preserve">
     <value>Single Player</value>
   </data>
@@ -246,9 +288,21 @@ B button, Esc = cancel</value>
     <value>System Link</value>
   </data>
   <data name="Theather" xml:space="preserve">
-    <value>Theather</value>
+    <value>Theatre</value>
   </data>
   <data name="Training" xml:space="preserve">
     <value>Training</value>
+  </data>
+  <data name="Weapons" xml:space="preserve">
+    <value>Weapons :</value>
+  </data>
+  <data name="WeaponsTypeHeavy" xml:space="preserve">
+    <value>Heavy</value>
+  </data>
+  <data name="WeaponsTypeLight" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="WeaponsTypeNormal" xml:space="preserve">
+    <value>Normal</value>
   </data>
 </root>

@@ -285,7 +285,7 @@ namespace TRA_Game
             }
             else
             {
-                NetworkSessionComponent.LeaveSession(ScreenManager);
+                NetworkSessionComponent.LeaveSessionFromGame(ScreenManager, audioHelper);
             }
         }
 

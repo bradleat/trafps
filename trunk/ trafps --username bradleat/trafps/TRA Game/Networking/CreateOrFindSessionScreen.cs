@@ -15,6 +15,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Audio;
 
 using EGGEngine.Audio;
+using EGGEngine.Networking;
 #endregion
 
 namespace TRA_Game
@@ -31,6 +32,9 @@ namespace TRA_Game
         Audio audioHelper;
         Cue mystery;
 
+        NetworkHelper networkHelper;
+        NetworkInterface networkInterface;
+
         #endregion
 
         #region Initialization
@@ -39,9 +43,13 @@ namespace TRA_Game
         /// <summary>
         /// Constructor fills in the menu contents.
         /// </summary>
-        public CreateOrFindSessionScreen(NetworkSessionType sessionType, Audio audioHelper, Cue mystery)
+        public CreateOrFindSessionScreen(ScreenManager screenManager,NetworkSessionType sessionType, Audio audioHelper, Cue mystery)
             : base(GetMenuTitle(sessionType))
         {
+            
+            networkHelper = new NetworkHelper();
+            networkInterface = new NetworkInterface();
+            networkInterface.InitNetwork(screenManager.Game);
             this.audioHelper = audioHelper;
             this.mystery = mystery;
             this.sessionType = sessionType;
@@ -92,13 +100,16 @@ namespace TRA_Game
         /// </summary>
         void CreateSessionMenuEntrySelected(object sender, EventArgs e)
         {
+            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager,sessionType,audioHelper, mystery, true, networkHelper));
+            /*
             try
             {
+                IAsyncResult asyncResult = networkInterface.CreateNetwork(ScreenManager.Game, sessionType, NetworkSessionComponent.MaxLocalGamers, NetworkSessionComponent.MaxGamers, 0, null, true, true);
                 // Begin an asynchronous create network session operation.
-                IAsyncResult asyncResult = NetworkSession.BeginCreate(sessionType,
-                                                NetworkSessionComponent.MaxLocalGamers,
-                                                NetworkSessionComponent.MaxGamers,
-                                                null, null);
+                //IAsyncResult asyncResult = Microsoft.Xna.Framework.Net.NetworkSession.BeginCreate(sessionType,
+                                                //NetworkSessionComponent.MaxLocalGamers,
+                                                //NetworkSessionComponent.MaxGamers,
+                                                //null, null);
 
                 // Activate the network busy screen, which will display
                 // an animation until this operation has completed.
@@ -115,7 +126,7 @@ namespace TRA_Game
             catch (GamerPrivilegeException exception)
             {
                 ScreenManager.AddScreen(new NetworkErrorScreen(exception));
-            }
+            }*/
         }
 
 
@@ -129,13 +140,13 @@ namespace TRA_Game
             try
             {
                 // End the asynchronous create network session operation.
-                NetworkSession networkSession = NetworkSession.EndCreate(e.AsyncResult);
+                networkHelper.NetworkGameSession = Microsoft.Xna.Framework.Net.NetworkSession.EndCreate(e.AsyncResult);
 
                 // Create a component that will manage the session we just created.
-                NetworkSessionComponent.Create(ScreenManager, networkSession);
+                NetworkSessionComponent.Create(ScreenManager, networkHelper.NetworkGameSession);
 
                 // Go to the lobby screen.
-                ScreenManager.AddScreen(new LobbyScreen(networkSession, audioHelper,true));
+                ScreenManager.AddScreen(new LobbyScreen(networkHelper.NetworkGameSession, audioHelper,true));
             }
             catch (NetworkException exception)
             {
@@ -153,12 +164,16 @@ namespace TRA_Game
         /// </summary>
         void FindSessionsMenuEntrySelected(object sender, EventArgs e)
         {
+            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager,sessionType,audioHelper, mystery, false, networkHelper));
+            /*
             try
             {
+
+                IAsyncResult asyncResult = networkInterface.JoinNetwork(ScreenManager.Game, sessionType, NetworkSessionComponent.MaxLocalGamers, null);
                 // Begin an asynchronous find network sessions operation.
-                IAsyncResult asyncResult = NetworkSession.BeginFind(sessionType,
-                                                NetworkSessionComponent.MaxLocalGamers,
-                                                null, null, null);
+                //IAsyncResult asyncResult = Microsoft.Xna.Framework.Net.NetworkSession.BeginFind(sessionType,
+                                               // NetworkSessionComponent.MaxLocalGamers,
+                                                //null, null, null);
 
                 // Activate the network busy screen, which will display
                 // an animation until this operation has completed.
@@ -175,7 +190,7 @@ namespace TRA_Game
             catch (GamerPrivilegeException exception)
             {
                 ScreenManager.AddScreen(new NetworkErrorScreen(exception));
-            }
+            }*/
         }
 
 
@@ -190,7 +205,7 @@ namespace TRA_Game
             {
                 // End the asynchronous find network sessions operation.
                 AvailableNetworkSessionCollection availableSessions =
-                                                NetworkSession.EndFind(e.AsyncResult);
+                                                Microsoft.Xna.Framework.Net.NetworkSession.EndFind(e.AsyncResult);
 
                 if (availableSessions.Count == 0)
                 {
