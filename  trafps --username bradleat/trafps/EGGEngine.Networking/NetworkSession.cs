@@ -44,15 +44,24 @@ namespace EGGEngine.Networking
         /// <summary>
         /// 
         /// </summary>
-        public void CreateSession(NetworkSessionType sessionType, int maxLocalGamers,
+        public IAsyncResult CreateSession(NetworkSessionType sessionType, int maxLocalGamers,
             int maxGamers, int PrivateGamerSlots, NetworkSessionProperties sessionProperties)
         {
-            networkHelper.NetworkGameSession = Microsoft.Xna.Framework.Net.NetworkSession.Create(
-                sessionType, maxLocalGamers, maxGamers, PrivateGamerSlots, sessionProperties);
+
+            IAsyncResult asyncResult = Microsoft.Xna.Framework.Net.NetworkSession.BeginCreate(sessionType, maxLocalGamers, maxGamers, PrivateGamerSlots, sessionProperties, null, null);
+            
+            //networkHelper.NetworkGameSession = Microsoft.Xna.Framework.Net.NetworkSession.Create(
+                //sessionType, maxLocalGamers, maxGamers, PrivateGamerSlots, sessionProperties);
+
+            return asyncResult;
         }
 
-        public void JoinSession(NetworkSessionType sessionType, int maxLocalGamers, NetworkSessionProperties sessionProperties)
+        public IAsyncResult JoinSession(NetworkSessionType sessionType, int maxLocalGamers, NetworkSessionProperties sessionProperties)
         {
+            IAsyncResult asyncResult = Microsoft.Xna.Framework.Net.NetworkSession.BeginFind(sessionType, maxLocalGamers, sessionProperties, null, null);
+
+            return asyncResult;
+            /*
             // Search for sessions.
             using (AvailableNetworkSessionCollection availableSessions =
                         Microsoft.Xna.Framework.Net.NetworkSession.Find(sessionType, maxLocalGamers, sessionProperties))
@@ -64,7 +73,7 @@ namespace EGGEngine.Networking
 
                 // Join the first session we found.
                 networkHelper.NetworkGameSession = Microsoft.Xna.Framework.Net.NetworkSession.Join(availableSessions[0]);
-            }
+            }*/
 
         }
     }

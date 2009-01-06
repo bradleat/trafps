@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Audio;
 
 using EGGEngine.Audio;
+using EGGEngine.Debug;
 #endregion
 
 namespace TRA_Game
@@ -26,8 +27,9 @@ namespace TRA_Game
         Cue mystery;
         Cue famas_1;
         bool audio_on = false;
-        
+        bool gamePlayed;
 
+        
 
         /// <summary>
         /// Constructor fills in the menu contents.
@@ -35,6 +37,7 @@ namespace TRA_Game
         public MainMenuScreen(bool audio_on, Audio audioHelper)
             : base(Resources.MainMenu)
         {
+            
             // Create our menu entries.
             MenuEntry trainingMenuEntry = new MenuEntry(Resources.Training);
             MenuEntry multiplayerMenuEntry = new MenuEntry(Resources.Multiplayer);

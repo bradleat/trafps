@@ -81,7 +81,7 @@ namespace TRA_Game
             // it will activate the CreateOrFindSessionScreen.
             profileSignIn.ProfileSignedIn += delegate
             {
-                ScreenManager.AddScreen(new CreateOrFindSessionScreen(sessionType, audioHelper, mystery));
+                ScreenManager.AddScreen(new CreateOrFindSessionScreen(ScreenManager, sessionType, this.audioHelper, this.mystery));
             };
 
             // Activate the ProfileSignInScreen.

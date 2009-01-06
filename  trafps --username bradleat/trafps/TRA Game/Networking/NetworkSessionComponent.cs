@@ -7,6 +7,8 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework;
 
+using EGGEngine.Audio;
+
 namespace TRA_Game
 {
     /// <summary>
@@ -22,11 +24,29 @@ namespace TRA_Game
         public const int MaxGamers = 16;
         public const int MaxLocalGamers = 4;
 
+        public enum SessionProperties
+        {
+            GameMode, Weapons, ScoreToWin
+        }
+        public enum GameMode
+        {
+            DeathMatch, TeamDeathmatch, CaptureTheFlag
+        }
+        public enum Weapons
+        {
+            Light,Normal,Heavy
+        }
+        public enum ScoreToWin
+        {
+            One, Three, Five, TwentyFive, Fifty
+        }
+
         ScreenManager screenManager;
         NetworkSession networkSession;
         IMessageDisplay messageDisplay;
 
         bool notifyWhenPlayersJoinOrLeave;
+        bool hostChanged;
 
         string sessionEndMessage;
 
@@ -44,11 +64,13 @@ namespace TRA_Game
         {
             this.screenManager = screenManager;
             this.networkSession = networkSession;
+            
 
             // Hook up our session event handlers.
             networkSession.GamerJoined += GamerJoined;
             networkSession.GamerLeft += GamerLeft;
             networkSession.SessionEnded += NetworkSessionEnded;
+            networkSession.HostChanged += HostChanged;
         }
 
 
@@ -102,7 +124,6 @@ namespace TRA_Game
             try
             {
                 networkSession.Update();
-
                 // Has the session ended?
                 if (networkSession.SessionState == NetworkSessionState.Ended)
                 {
@@ -151,6 +172,18 @@ namespace TRA_Game
             {
                 messageDisplay.ShowMessage(Resources.MessageGamerLeft,
                                            e.Gamer.Gamertag);
+            }
+        }
+
+        void HostChanged(object sender, HostChangedEventArgs e)
+        {
+            if (notifyWhenPlayersJoinOrLeave)
+            {
+                if (networkSession.IsHost)
+                    messageDisplay.ShowMessage(Resources.MessageYouAreHost, null);
+                else
+                    messageDisplay.ShowMessage(Resources.MessageNewHost, e.NewHost.Gamertag);
+                
             }
         }
 
@@ -226,7 +259,109 @@ namespace TRA_Game
                 }
             }
         }
+        public static void LeaveSessionFromGame(ScreenManager screenManager, Audio audioHelper)
+        {
+            // Search through Game.Components to find the NetworkSessionComponent.
+            foreach (IGameComponent component in screenManager.Game.Components)
+            {
+                NetworkSessionComponent self = component as NetworkSessionComponent;
 
+                if (self != null)
+                {
+                    // Display a message box to confirm the user really wants to leave.
+                    string message;
+
+                    if (self.networkSession.IsHost)
+                        message = Resources.ConfirmEndSession;
+                    else
+                        message = Resources.ConfirmLeaveSession;
+
+                    MessageBoxScreen confirmMessageBox = new MessageBoxScreen(message);
+
+                    // Hook the messge box ok event to actually leave the session.
+                    confirmMessageBox.Accepted += delegate
+                    {
+                        self.LeaveSessionFromGame(audioHelper);
+                    };
+
+                    screenManager.AddScreen(confirmMessageBox);
+
+                    break;
+                }
+            }
+        }
+
+        void LeaveSessionFromGame(Audio audioHelper)
+        {
+            // Remove the NetworkSessionComponent.
+            Game.Components.Remove(this);
+
+            // Remove the NetworkSession service.
+            Game.Services.RemoveService(typeof(NetworkSession));
+
+            // Dispose the NetworkSession.
+            networkSession.Dispose();
+            networkSession = null;
+
+            // If we have a sessionEndMessage string explaining why the session has
+            // ended (maybe this was a network disconnect, or perhaps the host kicked
+            // us out?) create a message box to display this reason to the user.
+            MessageBoxScreen messageBox;
+
+            if (!string.IsNullOrEmpty(sessionEndMessage))
+                messageBox = new MessageBoxScreen(sessionEndMessage, false);
+            else
+                messageBox = null;
+
+            // At this point we normally want to return the user all the way to the
+            // main menu screen. But what if they just joined a session? In that case
+            // they went through this flow of screens:
+            //
+            //  - MainMenuScreen
+            //  - CreateOrFindSessionsScreen
+            //  - JoinSessionScreen (if joining, skipped if creating a new session)
+            //  - LobbyScreeen
+            //
+            // If we have these previous screens on the history stack, and the user
+            // backs out of the LobbyScreen, the right thing is just to pop off the
+            // LobbyScreen and JoinSessionScreen, returning them to the
+            // CreateOrFindSessionsScreen (we cannot just back up to the
+            // JoinSessionScreen, because it contains search results that will no
+            // longer be valid). But if the user is in gameplay, or has been in
+            // gameplay and then returned to the lobby, the screen stack will have
+            // been emptied.
+            //
+            // To do the right thing in both cases, we scan through the screen history
+            // stack looking for a CreateOrFindSessionScreen. If we find one, we pop
+            // any subsequent screens so as to return back to it, while if we don't
+            // find it, we just reset everything and go back to the main menu.
+
+            GameScreen[] screens = screenManager.GetScreens();
+
+            // Look for the CreateOrFindSessionsScreen.
+            for (int i = 0; i < screens.Length; i++)
+            {
+                if (screens[i] is CreateOrFindSessionScreen)
+                {
+                    // If we found one, pop everything since then to return back to it.
+                    for (int j = i + 1; j < screens.Length; j++)
+                        screens[j].ExitScreen();
+
+                    // Display the why-did-the-session-end message box.
+                    if (messageBox != null)
+                        screenManager.AddScreen(messageBox);
+
+                    return;
+                }
+            }
+
+            // If we didn't find a CreateOrFindSessionsScreen, reset everything and
+            // go back to the main menu. The why-did-the-session-end message box
+            // will be displayed after the loading screen has completed.
+            LoadingScreen.Load(screenManager, false, new BackgroundScreen(false),
+                                                     new MainMenuScreen(true, audioHelper),
+                                                     messageBox);
+        }
 
         /// <summary>
         /// Internal method for leaving the network session. This disposes the 

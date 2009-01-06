@@ -63,6 +63,10 @@ namespace TRA_Game
             int totalSlots = session.CurrentGamerCount +
                              session.OpenPublicGamerSlots;
 
+            string HostGamerTag = session.HostGamertag;
+            
+
+
             return string.Format("{0} ({1}/{2})", session.HostGamertag,
                                                   session.CurrentGamerCount,
                                                   totalSlots);
@@ -101,6 +105,12 @@ namespace TRA_Game
                     gotQualityOfService = true;
                 }
             }
+        }
+
+        public override void Draw(MenuScreen screen, Vector2 position, bool isSelected, GameTime gameTime)
+        {
+
+           base.Draw(screen, position, isSelected, gameTime);
         }
 
 

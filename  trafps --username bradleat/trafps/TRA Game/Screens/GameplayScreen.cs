@@ -304,15 +304,14 @@ namespace TRA_Game
 
                 person1.WorldMatrix = Matrix.CreateScale(2.0f) * Matrix.CreateRotationY(4.05f);
                 audioHelper.Update();
+               
+                    }
             
-        
-                // TODO: this game isn't very fun! You could probably improve
-                // it by inserting something more interesting in this space :-)
-            }
 
             // If we are in a network game, check if we should return to the lobby.
             if ((networkSession != null) && !IsExiting)
             {
+                
                 if (networkSession.SessionState == NetworkSessionState.Lobby)
                 {
                     LoadingScreen.Load(ScreenManager, true,
