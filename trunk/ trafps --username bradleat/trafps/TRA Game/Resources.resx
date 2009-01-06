@@ -240,7 +240,7 @@ B button, Esc = cancel</value>
     <value>No sessions found</value>
   </data>
   <data name="NumberOfBots" xml:space="preserve">
-    <value>No. of Bots</value>
+    <value>No. of Bots :</value>
   </data>
   <data name="NumberOfBots10" xml:space="preserve">
     <value>10</value>

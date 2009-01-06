@@ -411,7 +411,7 @@ namespace TRA_Game {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No. of Bots.
+        ///   Looks up a localized string similar to No. of Bots :.
         /// </summary>
         internal static string NumberOfBots {
             get {
