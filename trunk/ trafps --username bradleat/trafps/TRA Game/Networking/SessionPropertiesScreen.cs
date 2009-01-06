@@ -23,6 +23,7 @@ namespace TRA_Game
         NetworkSessionType sessionType;
         Audio audioHelper;
         Cue mystery;
+        Cue famas_1;
 
         NetworkHelper networkHelper;
         NetworkInterface networkInterface;
@@ -30,6 +31,16 @@ namespace TRA_Game
         NetworkSessionComponent.GameMode gameModeType;
         NetworkSessionComponent.Weapons weaponsType;
         NetworkSessionComponent.ScoreToWin scoreToWinType;
+
+        enum NoofBots
+        {
+            Ten,
+            Twenty
+        }
+
+        NoofBots noofBots;
+
+        bool isSinglePlayer = false;
 
         #endregion
 
@@ -49,6 +60,7 @@ namespace TRA_Game
             this.audioHelper = audioHelper;
             this.mystery = mystery;
             this.sessionType = sessionType;
+            famas_1 = audioHelper.GetCue("famas-1");
 
             // Create our menu entries.
             MenuEntry gameModeMenuEntry = new MenuEntry(Resources.GameMode);
@@ -59,6 +71,9 @@ namespace TRA_Game
             scoreToWinType = NetworkSessionComponent.ScoreToWin.One;
             MenuEntry createSessionMenuEntry = new MenuEntry(Resources.CreateSession);
             MenuEntry searchSessionMenuEntry = new MenuEntry(Resources.SearchSessions);
+            MenuEntry StartGameMenuEntry = new MenuEntry(Resources.StartGame);
+            MenuEntry noofbotsMenuEntry = new MenuEntry(Resources.NumberOfBots);
+            noofBots = NoofBots.Ten;
 
             /*
             MenuEntry createSessionMenuEntry = new MenuEntry(Resources.CreateSession);
@@ -73,6 +88,8 @@ namespace TRA_Game
             scoreToWinMenuEntry.Selected += ScoreToWinMenuEntrySelected;
             createSessionMenuEntry.Selected += CreateSessionMenuEntrySelected;
             searchSessionMenuEntry.Selected += SearchSessionsMenuEntrySelected;
+            StartGameMenuEntry.Selected += StartGameMenuEntrySelected;
+            noofbotsMenuEntry.Selected += NoOfBotsMenuEntry;
             backMenuEntry.Selected += OnCancel;
 
             // Add entries to the menu.
@@ -81,10 +98,17 @@ namespace TRA_Game
             MenuEntries.Add(gameModeMenuEntry);
             MenuEntries.Add(weaponsMenuEntry);
             MenuEntries.Add(scoreToWinMenuEntry);
-            if (createSession)
-                MenuEntries.Add(createSessionMenuEntry);
+            if (sessionType != NetworkSessionType.Local)
+                if(createSession)
+                    MenuEntries.Add(createSessionMenuEntry);
+                else
+                    MenuEntries.Add(searchSessionMenuEntry);
             else
-                MenuEntries.Add(searchSessionMenuEntry);
+            {
+                MenuEntries.Add(noofbotsMenuEntry);
+                MenuEntries.Add(StartGameMenuEntry);
+                isSinglePlayer = true;
+            }
             MenuEntries.Add(backMenuEntry);
         }
 
@@ -102,6 +126,9 @@ namespace TRA_Game
                 case NetworkSessionType.SystemLink:
                     return Resources.SystemLink;
 
+                case NetworkSessionType.Local:
+                    return Resources.Training;
+
                 default:
                     throw new NotSupportedException();
             }
@@ -111,6 +138,36 @@ namespace TRA_Game
         #endregion
 
         #region Event Handlers
+
+        void StartGameMenuEntrySelected(object sender, EventArgs e)
+        {
+            audioHelper.Stop(mystery);
+            audioHelper.Play(famas_1, false, new AudioListener(), new AudioEmitter());
+            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(null));
+        }
+        void NoOfBotsMenuEntry(object sender, EventArgs e)
+        {
+            ChangeNoOfBots();
+        }
+        void ChangeNoOfBots()
+        {
+            if (noofBots == NoofBots.Ten)
+                noofBots = NoofBots.Twenty;
+            else if (noofBots == NoofBots.Twenty)
+                noofBots = NoofBots.Ten;
+        }
+        string GetNoOfBots()
+        {
+            switch (noofBots)
+            {
+                case NoofBots.Ten:
+                    return Resources.NumberOfBots10;
+                case NoofBots.Twenty:
+                    return Resources.NumerOfBots20;
+                default:
+                    throw new NotSupportedException();
+            }
+        }
 
         void GameModeMenuEntrySelected(object sender, EventArgs e)
         {
@@ -368,6 +425,8 @@ namespace TRA_Game
             spriteBatch.DrawString(font, GetWeaponType(), position, Color.Yellow);
             position.Y += 27;
             spriteBatch.DrawString(font, GetScoreToWinType(), position, Color.Yellow);
+            position.Y += 27;
+            spriteBatch.DrawString(font, GetNoOfBots(), position, Color.Yellow);
             spriteBatch.End();
             base.Draw(gameTime);
         }

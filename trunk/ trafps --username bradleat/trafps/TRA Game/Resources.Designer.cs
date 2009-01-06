@@ -411,6 +411,33 @@ namespace TRA_Game {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No. of Bots.
+        /// </summary>
+        internal static string NumberOfBots {
+            get {
+                return ResourceManager.GetString("NumberOfBots", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 10.
+        /// </summary>
+        internal static string NumberOfBots10 {
+            get {
+                return ResourceManager.GetString("NumberOfBots10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 20.
+        /// </summary>
+        internal static string NumerOfBots20 {
+            get {
+                return ResourceManager.GetString("NumerOfBots20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Options.
         /// </summary>
         internal static string Options {
@@ -542,6 +569,15 @@ namespace TRA_Game {
         internal static string SinglePlayer {
             get {
                 return ResourceManager.GetString("SinglePlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Game.
+        /// </summary>
+        internal static string StartGame {
+            get {
+                return ResourceManager.GetString("StartGame", resourceCulture);
             }
         }
         
