@@ -426,7 +426,8 @@ namespace TRA_Game
             position.Y += 27;
             spriteBatch.DrawString(font, GetScoreToWinType(), position, Color.Yellow);
             position.Y += 27;
-            spriteBatch.DrawString(font, GetNoOfBots(), position, Color.Yellow);
+            if(isSinglePlayer)
+                spriteBatch.DrawString(font, GetNoOfBots(), position, Color.Yellow);
             spriteBatch.End();
             base.Draw(gameTime);
         }
