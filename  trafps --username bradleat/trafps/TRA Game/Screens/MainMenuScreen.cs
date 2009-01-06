@@ -121,9 +121,10 @@ namespace TRA_Game
         /// </summary>
         void TrainingMenuEntrySelected(object sender, EventArgs e)
         {
-            audioHelper.Stop(mystery);
+            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager, NetworkSessionType.Local,audioHelper, mystery,false,null));
+            /*audioHelper.Stop(mystery);
             audioHelper.Play(famas_1, false, new AudioListener(), new AudioEmitter());
-            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(null));
+            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(null));*/
         }
 
        
