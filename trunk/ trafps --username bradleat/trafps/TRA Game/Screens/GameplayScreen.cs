@@ -260,7 +260,6 @@ namespace TRA_Game
             if (IsActive)
             {
                 this.gameTime = gameTime;
-                UpdateEnemy(gameTime);
                 MouseState mouseState = Mouse.GetState();
 
                 float elapsedSeconds = (float)gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
@@ -305,6 +304,7 @@ namespace TRA_Game
                         {
                             DrawableModel newBullet = new DrawableModel(Content.Load<Model>("cube"), Matrix.Identity);
                             newBullet.Position = person1.Position;
+                            newBullet.startingPosition = person1.Position;
                             newBullet.Rotation = camera.CameraRotation;
                             bulletList.Add(newBullet);
                             bulletSphere = new BoundingSphere(newBullet.Position, 1.0f);
@@ -337,7 +337,7 @@ namespace TRA_Game
                         int result = CheckEnemyCollision(bulletSphere);
                         if (result == 1)
                         {
-                            person2.EnemyRecieveDamage(50);
+                            person2.EnemyRecieveDamage(bulletDamage);
                             bulletspheres.RemoveAt(i);
                             bulletList.RemoveAt(i);
                             i--;
@@ -379,20 +379,22 @@ namespace TRA_Game
 
 
             double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
-            if (currentTime - lastEnemyBulletTime > 500)
+            if (currentTime - lastEnemyBulletTime > 1000)
             {
                 DrawableModel newBullet = new DrawableModel(Content.Load<Model>("cube"), Matrix.Identity);
                 newBullet.Position = person2.Position;
                 newBullet.Rotation = person2.Rotation;
+                newBullet.startingPosition = person2.Position;
                 enemyBulletList.Add(newBullet);
                 enemybulletSphere = new BoundingSphere(newBullet.Position, 1.0f);
                 enemyBulletSpheres.Add(enemybulletSphere);
+                audioHelper.Play(famas_1, false, new AudioListener(), new AudioEmitter());
 
                 lastEnemyBulletTime = currentTime;
             }
-
+            
             float moveSpeed = gameTime.ElapsedGameTime.Milliseconds / 500.0f * gameSpeed;
-            UpdateEnemyBulletPositions(moveSpeed);
+            UpdateEnemyBulletPositions(bulletSpeed);
 
             if (enemyBulletList.Count > 0)
             {
@@ -404,7 +406,7 @@ namespace TRA_Game
                     int result = CheckPlayerCollision(bulletSphere);
                     if (result == 1)
                     {
-                        person1.PlayerRecieveDamage(50);
+                        person1.PlayerRecieveDamage(bulletDamage);
                         enemyBulletSpheres.RemoveAt(i);
                         enemyBulletList.RemoveAt(i);
                         i--;
@@ -415,13 +417,31 @@ namespace TRA_Game
         }
         private void UpdateEnemyBulletPositions(float moveSpeed)
         {
+            float maxDistance = 200f;
+            float bulletDistance;
+
+            
             for (int i = 0; i < enemyBulletList.Count; i++)
             {
                 DrawableModel currentBullet = enemyBulletList[i];
                 //currentBullet.Position = MoveForward(currentBullet.Position,
                 //Problem here, bullets not moving?? AddVector returns zero? rotation problem
-                currentBullet.Position = MoveForward(currentBullet.Position, currentBullet.Rotation, moveSpeed * 2.0f);
-                enemyBulletList[i] = currentBullet;
+                currentBullet.Position = MoveEnemyBullets(currentBullet.startingPosition, currentBullet.targetPosition, bulletSpeed);
+                Vector3.Distance(ref currentBullet.startingPosition, ref currentBullet.position, out bulletDistance);
+                if (bulletDistance > maxDistance)
+                {
+                    enemyBulletSpheres.RemoveAt(i);
+                    enemyBulletList.RemoveAt(i);
+                    i--;
+                }
+                else if (currentBullet.position == currentBullet.targetPosition)
+                {
+                    enemyBulletSpheres.RemoveAt(i);
+                    enemyBulletList.RemoveAt(i);
+                    i--;
+                }
+                else
+                    enemyBulletList[i] = currentBullet;
             }
         }
         /// <summary>
@@ -449,11 +469,12 @@ namespace TRA_Game
             }
 
         }
-        /*private Vector3 MoveEnemyBullets(Vector3 position, Vector3 direction, float bulletSpeed)
+        private Vector3 MoveEnemyBullets(Vector3 startPosition, Vector3 targetPos, float bulletSpeed)
         {
-            Vector3 addVector
-            Vector3 newPosition = 
-        }*/
+            Vector3 addVector = Vector3.Normalize(startPosition - targetPos);
+            Vector3 newPosition = addVector * bulletSpeed;
+            return newPosition;
+        }
         private Vector3 MoveForward(Vector3 position, Matrix rotation, float speed)
         {
             Vector3 addVector = Vector3.Transform(new Vector3(0, 0, -1), rotation);
@@ -621,7 +642,7 @@ namespace TRA_Game
 
                 //enemy bullets draw fine, just commented out code until bug is fixed
 
-                /*
+                
                 if (enemyBulletList.Count > 0)
                 {
                     for (int i = 0; i < enemyBulletList.Count; i++)
@@ -632,7 +653,7 @@ namespace TRA_Game
                         currentBullet.Draw(camera);
                         enemyBulletList[i] = currentBullet;
                     }
-                }*/
+                }
                 person1.Model.Bones[0].Transform = person1.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
                 * Matrix.CreateRotationY(camera.LeftRightRot);
                 person1.Draw(camera);
