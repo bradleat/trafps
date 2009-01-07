@@ -17,6 +17,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.GamerServices;
 using EasyConfig;
 using EGGEngine.Cameras;
 using EGGEngine.Debug;
@@ -28,6 +30,14 @@ using EGGEngine.Audio;
 
 namespace TRA_Game
 {
+    public struct GameVariables
+    {
+        public float bulletSpeed;
+        public float bulletDamage;
+        public float playerHealth;
+        public float playerSpeed;
+        public float gravity;
+    }
     /// <summary>
     /// This screen implements the actual game logic. It is just a
     /// placeholder to get the idea across: you'll probably want to
@@ -35,8 +45,6 @@ namespace TRA_Game
     /// </summary>
     class GameplayScreen : GameScreen
     {
-        
-
         NetworkSession networkSession;
         GameTime gameTime;
         ContentManager Content;
@@ -46,17 +54,8 @@ namespace TRA_Game
         Vector2 enemyPosition = new Vector2(100, 100);
 
         Random random = new Random();
-        /*
-        enum GameMode
-        {
-            _SPLASH,
-            _MENU,
-            _PLAY
-
-        };*/
-
-        //GameMode gameMode;
-
+        UnitTypes unitTypes = new UnitTypes();
+        
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -77,6 +76,8 @@ namespace TRA_Game
         Vector3 translate = Vector3.Zero;
         InputHelper input;
         Sky sky;
+
+        GameVariables gameVariables;
 
         SplashTitle splashTitle;
         MainMenu mainMenu;
@@ -103,8 +104,9 @@ namespace TRA_Game
         double lastEnemyBulletTime = 0;
         float gameSpeed = 1.0f;
         int bulletAmount = 10;
-
-        float moveSpeed = 0.80f;
+        float bulletDamage;
+        float bulletSpeed = 0.80f;
+        float gravity;
 
         
 
@@ -133,11 +135,51 @@ namespace TRA_Game
                 }
             }
         }
+        void OpenFile(string filename)
+        {
+        IAsyncResult result = null;
+            SerializeUtils<GameVariables> gameVariables = new SerializeUtils<GameVariables>();
+            if (!Guide.IsVisible)
+            {
+                result = Guide.BeginShowStorageDeviceSelector(PlayerIndex.One, null, null);
+            }
+            if (result.IsCompleted)
+            {
+                StorageDevice device = Guide.EndShowStorageDeviceSelector(result);
+                gameVariables.LoadData(device, filename);
+                LoadVariables(gameVariables);
+            }
+        }
+        void LoadVariables(SerializeUtils<GameVariables> gameVariables)
+        {
+            bulletDamage = gameVariables.Data.bulletDamage;
+            bulletSpeed = gameVariables.Data.bulletSpeed;
+            gravity = gameVariables.Data.gravity;
+            person1.Life = gameVariables.Data.playerHealth;
+        }
 
 
-        
+        void SaveVariables(string filename)
+        {
+            {
+                IAsyncResult result = null;
+                SerializeUtils<GameVariables> gameVariables2 = new SerializeUtils<GameVariables>();
 
-        
+                gameVariables2.Data = gameVariables;
+                if (!Guide.IsVisible)
+                {
+                    result = Guide.BeginShowStorageDeviceSelector(PlayerIndex.One, null, null);
+                }
+                if (result.IsCompleted)
+                {
+                    StorageDevice device = Guide.EndShowStorageDeviceSelector(result);
+                    if (device.IsConnected)
+                    {
+                        gameVariables2.SaveData(device, filename);
+                    }
+                }
+            }
+        }
 
 
         /// <summary>
@@ -176,6 +218,9 @@ namespace TRA_Game
             terrain = new Model();
             terrain = Content.Load<Model>(name);
 
+            string filename = Environment.CurrentDirectory + "GameVariables";
+            OpenFile(filename);
+
             sky = Content.Load<Sky>("Models\\sky1");
             gameFont = Content.Load<SpriteFont>("gamefont");
             // Comment this to remove the framerate counter
@@ -199,8 +244,8 @@ namespace TRA_Game
         }
 
 
-        
 
+       
         
 
 
@@ -243,6 +288,13 @@ namespace TRA_Game
                     forwardReq += 5.0f;
                     moveDirection = new Vector3(1, 0, 0);   //Right
                 }
+
+                if (input.KeyDown(Keys.CapsLock))
+                {
+                    string filename = Environment.CurrentDirectory.ToString() + "GameVariables";
+                    SaveVariables(filename);
+                }
+
                 if (input.KeyDown(Keys.Space))
                 {
                     //Check if we have bullets remaining
@@ -271,9 +323,10 @@ namespace TRA_Game
                         audioHelper.Play(famas_forearm, false, listener, emitter);
                     }
                 }
-
+                UpdateEnemy(gameTime);
+                UpdateEnemyBulletPositions(bulletSpeed);
                 // Move the bullets at a speed
-                UpdateBulletPositions(moveSpeed);
+                UpdateBulletPositions(bulletSpeed);
                 if (bulletList.Count > 0)
                 {
                     //Check collision between each bullet and the enemy
@@ -365,6 +418,7 @@ namespace TRA_Game
             for (int i = 0; i < enemyBulletList.Count; i++)
             {
                 DrawableModel currentBullet = enemyBulletList[i];
+                //currentBullet.Position = MoveForward(currentBullet.Position,
                 //Problem here, bullets not moving?? AddVector returns zero? rotation problem
                 currentBullet.Position = MoveForward(currentBullet.Position, currentBullet.Rotation, moveSpeed * 2.0f);
                 enemyBulletList[i] = currentBullet;
@@ -395,6 +449,11 @@ namespace TRA_Game
             }
 
         }
+        /*private Vector3 MoveEnemyBullets(Vector3 position, Vector3 direction, float bulletSpeed)
+        {
+            Vector3 addVector
+            Vector3 newPosition = 
+        }*/
         private Vector3 MoveForward(Vector3 position, Matrix rotation, float speed)
         {
             Vector3 addVector = Vector3.Transform(new Vector3(0, 0, -1), rotation);

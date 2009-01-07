@@ -23,7 +23,7 @@ namespace EGGEngine.Rendering
         public float temp = 0f;
         private BoundingSphere completeBoundingSphere;
         public Matrix Rotation;
-        private int Life;
+        public float Life;
 
         #region Properties
         public Model Model
@@ -60,7 +60,7 @@ namespace EGGEngine.Rendering
             LoadModelBoundingSphere();
 
             position = new Vector3();
-            Life = 100;
+            
             if (debug)
                 WriteModelStructure(model);
         }
