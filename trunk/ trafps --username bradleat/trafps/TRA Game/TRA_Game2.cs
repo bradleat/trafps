@@ -342,7 +342,7 @@ namespace TRA_Game
                     int result = CheckPlayerCollision(bulletSphere);
                     if (result == 1)
                     {
-                        person1.PlayerRecieveDamage(50);
+                        person1.PlayerRecieveDamage(50, initalPos1);
                         enemyBulletSpheres.RemoveAt(i);
                         enemyBulletList.RemoveAt(i);
                         i--;
