@@ -97,7 +97,8 @@ namespace TRA_Game
             // Accept or cancel the menu?
             if (input.MenuSelect)
             {
-                OnSelectEntry(selectedEntry);
+                if(isRespawnScreen == false)
+                    OnSelectEntry(selectedEntry);
             }
             else if (input.MenuCancel)
             {
