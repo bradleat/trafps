@@ -57,7 +57,6 @@ namespace TRA_Game
         
         
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
 
         //Debugging Stuff
         bool FPS_Counter_On;
@@ -105,8 +104,10 @@ namespace TRA_Game
         float gameSpeed = 1.0f;
         int bulletAmount = 10;
         float bulletDamage;
-        float bulletSpeed = 0.80f;
+        float bulletSpeed;
         float gravity;
+        int PlayerScore;
+        int enemyScore;
 
         
 
@@ -220,7 +221,6 @@ namespace TRA_Game
 
             string filename = Environment.CurrentDirectory + "GameVariables";
             OpenFile(filename);
-
             sky = Content.Load<Sky>("Models\\sky1");
             gameFont = Content.Load<SpriteFont>("gamefont");
             // Comment this to remove the framerate counter
@@ -260,6 +260,7 @@ namespace TRA_Game
 
             if (IsActive)
             {
+                
                 this.gameTime = gameTime;
                 MouseState mouseState = Mouse.GetState();
 
@@ -339,29 +340,17 @@ namespace TRA_Game
                         if (result == 1)
                         {
                             person2.EnemyRecieveDamage(bulletDamage);
+                            PlayerScore += 1;
                             bulletspheres.RemoveAt(i);
                             bulletList.RemoveAt(i);
                             i--;
                         }
+                        else
+                            bulletList[i] = bullet;
 
                     }
                 }
-                if (enemyBulletList.Count > 0)
-                {
-                    for (int i = 0; i < enemyBulletList.Count; i++)
-                    {
-                        DrawableModel enemyBullet = enemyBulletList[i];
-                        enemybulletSphere = new BoundingSphere(enemyBullet.Position, 1.5f);
-                        int result = CheckPlayerCollision(enemybulletSphere);
-                        if (result == 1)
-                        {
-                            person1.PlayerRecieveDamage(bulletDamage, initalPos1);
-                            enemyBulletSpheres.RemoveAt(i);
-                            enemyBulletList.RemoveAt(i);
-                            i--;
-                        }
-                    }
-                }
+                
 
                 camera.AddToCameraPosition(moveDirection, forwardReq, ref initalPos1, gameTime);
                 person1.Position = initalPos1;
@@ -430,10 +419,13 @@ namespace TRA_Game
                     if (result == 1)
                     {
                         initalPos1 = person1.PlayerRecieveDamage(bulletDamage, initalPos1);
+                        enemyScore += 1;
                         enemyBulletSpheres.RemoveAt(i);
                         enemyBulletList.RemoveAt(i);
                         i--;
                     }
+                    else
+                        enemyBulletList[i] = bullet;
 
                 }
             }
@@ -711,11 +703,21 @@ namespace TRA_Game
                 if (input.KeyDown(Keys.T))
                     postProc.PostProcess("TimeChange",
                         (float)gameTime.TotalGameTime.TotalMilliseconds / 1000.0f);
-            
+
+            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+            SpriteFont font = ScreenManager.Font;
+            spriteBatch.Begin();
+            string message1 = "Player Score :" + PlayerScore.ToString();
+            string message2 = "Enemy Score : " + enemyScore.ToString();
+            Vector2 position = new Vector2(100, 480);
+            spriteBatch.DrawString(font, message1, position, Color.Red);
+            position.Y += 27;
+            spriteBatch.DrawString(font, message2, position, Color.Blue);
+            spriteBatch.End();
 
             if (networkSession != null)
             {
-                SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+                spriteBatch = ScreenManager.SpriteBatch;
                 spriteBatch.Begin();
                 string message = "Players: " + networkSession.AllGamers.Count;
                 Vector2 messagePosition = new Vector2(100, 480);
@@ -723,6 +725,7 @@ namespace TRA_Game
                 spriteBatch.End();
             }
 
+           
             
 
             // If the game is transitioning on or off, fade it out to black.
