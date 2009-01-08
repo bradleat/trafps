@@ -26,6 +26,7 @@ namespace EGGEngine.Rendering
         private BoundingSphere completeBoundingSphere;
         public Matrix Rotation;
         public float Life;
+        public bool isRespawning = false;
 
         #region Properties
         public Model Model
@@ -89,6 +90,7 @@ namespace EGGEngine.Rendering
                 initialPos.Z = (float)random.NextDouble() * 100;
 
                 Life = 100;
+                isRespawning = true;
                 return initialPos;
             }
             else

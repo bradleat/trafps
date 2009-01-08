@@ -31,6 +31,7 @@ namespace TRA_Game
         int selectedEntry = 0;
         string menuTitle;
         Audio audioHelper;
+        public bool isRespawnScreen = false;
         
 
         
@@ -53,9 +54,10 @@ namespace TRA_Game
         /// <summary>
         /// Constructor.
         /// </summary>
-        public MenuScreen(string menuTitle)
+        public MenuScreen(string menuTitle, bool isRespawnScreen)
         {
             this.menuTitle = menuTitle;
+            this.isRespawnScreen = isRespawnScreen;
 
             TransitionOnTime = TimeSpan.FromSeconds(0.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
@@ -99,7 +101,8 @@ namespace TRA_Game
             }
             else if (input.MenuCancel)
             {
-                OnCancel();
+                if (isRespawnScreen == false)
+                    OnCancel();
             }
         }
 
@@ -152,6 +155,7 @@ namespace TRA_Game
         public override void Update(GameTime gameTime, bool otherScreenHasFocus,
                                                        bool coveredByOtherScreen)
         {
+            
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
 
             // Update each nested MenuEntry object.

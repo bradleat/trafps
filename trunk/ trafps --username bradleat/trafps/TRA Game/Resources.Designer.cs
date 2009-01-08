@@ -474,6 +474,15 @@ namespace TRA_Game {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Respawning.
+        /// </summary>
+        internal static string Respawn {
+            get {
+                return ResourceManager.GetString("Respawn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resume Game.
         /// </summary>
         internal static string ResumeGame {

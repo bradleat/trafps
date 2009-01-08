@@ -44,7 +44,7 @@ namespace TRA_Game
         /// Constructor fills in the menu contents.
         /// </summary>
         public CreateOrFindSessionScreen(ScreenManager screenManager,NetworkSessionType sessionType, Audio audioHelper, Cue mystery)
-            : base(GetMenuTitle(sessionType))
+            : base(GetMenuTitle(sessionType), false)
         {
             
             networkHelper = new NetworkHelper();

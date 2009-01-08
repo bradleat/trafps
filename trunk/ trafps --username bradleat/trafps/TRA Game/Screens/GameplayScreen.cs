@@ -374,6 +374,11 @@ namespace TRA_Game
 
                 person1.WorldMatrix = Matrix.CreateScale(2.0f) * Matrix.CreateRotationY(4.05f);
                 audioHelper.Update();
+                if (person1.isRespawning == true)
+                {
+                    ScreenManager.AddScreen(new RespawnScreen(networkSession));
+                    person1.isRespawning = false;
+                }
                
                     }
             
@@ -424,7 +429,7 @@ namespace TRA_Game
                     int result = CheckPlayerCollision(bulletSphere);
                     if (result == 1)
                     {
-                        person1.PlayerRecieveDamage(bulletDamage, initalPos1);
+                        initalPos1 = person1.PlayerRecieveDamage(bulletDamage, initalPos1);
                         enemyBulletSpheres.RemoveAt(i);
                         enemyBulletList.RemoveAt(i);
                         i--;

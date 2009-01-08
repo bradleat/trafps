@@ -35,7 +35,7 @@ namespace TRA_Game
         /// Constructor fills in the menu contents.
         /// </summary>
         public MainMenuScreen(bool audio_on, Audio audioHelper)
-            : base(Resources.MainMenu)
+            : base(Resources.MainMenu, false)
         {
             
             // Create our menu entries.
