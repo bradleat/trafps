@@ -78,7 +78,7 @@ namespace EGGEngine.Rendering
                 Position = this.Position;
             }
         }
-        public Vector3 PlayerRecieveDamage(float damageValue)
+        public Vector3 PlayerRecieveDamage(float damageValue, Vector3 initialPos)
         {
             this.Life -= damageValue;
             if (Life < 1)

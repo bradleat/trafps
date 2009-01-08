@@ -54,7 +54,7 @@ namespace TRA_Game
         Vector2 enemyPosition = new Vector2(100, 100);
 
         Random random = new Random();
-        UnitTypes unitTypes = new UnitTypes();
+        
         
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -228,6 +228,7 @@ namespace TRA_Game
             {
                 ScreenManager.Game.Components.Add(new FrameRateCounter(ScreenManager.Game));
             }
+            person2.Position = new Vector3(0, 15, -30);
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
             // while, giving you a chance to admire the beautiful loading screen.
@@ -345,6 +346,22 @@ namespace TRA_Game
 
                     }
                 }
+                if (enemyBulletList.Count > 0)
+                {
+                    for (int i = 0; i < enemyBulletList.Count; i++)
+                    {
+                        DrawableModel enemyBullet = enemyBulletList[i];
+                        enemybulletSphere = new BoundingSphere(enemyBullet.Position, 1.5f);
+                        int result = CheckPlayerCollision(enemybulletSphere);
+                        if (result == 1)
+                        {
+                            person1.PlayerRecieveDamage(bulletDamage, initalPos1);
+                            enemyBulletSpheres.RemoveAt(i);
+                            enemyBulletList.RemoveAt(i);
+                            i--;
+                        }
+                    }
+                }
 
                 camera.AddToCameraPosition(moveDirection, forwardReq, ref initalPos1, gameTime);
                 person1.Position = initalPos1;
@@ -385,6 +402,7 @@ namespace TRA_Game
                 newBullet.Position = person2.Position;
                 newBullet.Rotation = person2.Rotation;
                 newBullet.startingPosition = person2.Position;
+                newBullet.targetPosition = person1.Position;
                 enemyBulletList.Add(newBullet);
                 enemybulletSphere = new BoundingSphere(newBullet.Position, 1.0f);
                 enemyBulletSpheres.Add(enemybulletSphere);
@@ -406,7 +424,7 @@ namespace TRA_Game
                     int result = CheckPlayerCollision(bulletSphere);
                     if (result == 1)
                     {
-                        person1.PlayerRecieveDamage(bulletDamage);
+                        person1.PlayerRecieveDamage(bulletDamage, initalPos1);
                         enemyBulletSpheres.RemoveAt(i);
                         enemyBulletList.RemoveAt(i);
                         i--;
@@ -426,7 +444,7 @@ namespace TRA_Game
                 DrawableModel currentBullet = enemyBulletList[i];
                 //currentBullet.Position = MoveForward(currentBullet.Position,
                 //Problem here, bullets not moving?? AddVector returns zero? rotation problem
-                currentBullet.Position = MoveEnemyBullets(currentBullet.startingPosition, currentBullet.targetPosition, bulletSpeed);
+                currentBullet.Position = MoveEnemyBullets(currentBullet.Position,currentBullet.startingPosition, currentBullet.targetPosition, bulletSpeed);
                 Vector3.Distance(ref currentBullet.startingPosition, ref currentBullet.position, out bulletDistance);
                 if (bulletDistance > maxDistance)
                 {
@@ -469,11 +487,12 @@ namespace TRA_Game
             }
 
         }
-        private Vector3 MoveEnemyBullets(Vector3 startPosition, Vector3 targetPos, float bulletSpeed)
+        private Vector3 MoveEnemyBullets(Vector3 currentPosition, Vector3 startPosition, Vector3 targetPos, float bulletSpeed)
         {
-            Vector3 addVector = Vector3.Normalize(startPosition - targetPos);
-            Vector3 newPosition = addVector * bulletSpeed;
-            return newPosition;
+            Vector3 addVector = Vector3.Normalize(targetPos - startPosition);
+            
+            currentPosition += addVector * bulletSpeed;
+            return currentPosition;
         }
         private Vector3 MoveForward(Vector3 position, Matrix rotation, float speed)
         {
@@ -493,7 +512,9 @@ namespace TRA_Game
         {
 
             //Create the bounding sphere for the player
-            playerSphere = new BoundingSphere(person1.Position, 5.0f); ;
+            playerSphere = new BoundingSphere();
+            playerSphere.Center = new Vector3(person1.Position.X, person1.Position.Y + 5f, person1.Position.Z);
+            playerSphere.Radius = 5.0f;
 
             if (playerSphere.Contains(sphere) != ContainmentType.Disjoint)
                 return 1;
@@ -639,21 +660,24 @@ namespace TRA_Game
                         bulletList[i] = currentBullet;
                     }
                 }
-
-                //enemy bullets draw fine, just commented out code until bug is fixed
-
-                
                 if (enemyBulletList.Count > 0)
                 {
                     for (int i = 0; i < enemyBulletList.Count; i++)
                     {
+
                         DrawableModel currentBullet = enemyBulletList[i];
-                        currentBullet.Model.Bones[0].Transform = person2.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
+                        
+                        currentBullet.Model.Bones[0].Transform = person1.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
                         * Matrix.CreateRotationY(camera.LeftRightRot);
                         currentBullet.Draw(camera);
                         enemyBulletList[i] = currentBullet;
                     }
                 }
+
+                //enemy bullets draw fine, just commented out code until bug is fixed
+
+                
+                
                 person1.Model.Bones[0].Transform = person1.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
                 * Matrix.CreateRotationY(camera.LeftRightRot);
                 person1.Draw(camera);
@@ -673,6 +697,7 @@ namespace TRA_Game
                     mesh.Draw();
                 }
 
+                
                 sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
 
                 //Demo Stuff
