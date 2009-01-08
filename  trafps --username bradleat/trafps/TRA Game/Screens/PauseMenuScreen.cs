@@ -30,7 +30,7 @@ namespace TRA_Game
         /// Constructor.
         /// </summary>
         public PauseMenuScreen(NetworkSession networkSession)
-            : base(Resources.Paused)
+            : base(Resources.Paused, false)
         {
             this.networkSession = networkSession;
 

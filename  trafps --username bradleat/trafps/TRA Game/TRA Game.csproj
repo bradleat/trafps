@@ -114,6 +114,7 @@
     <Compile Include="Screens\MessageBoxScreen.cs" />
     <Compile Include="Screens\MultiplayerMenuScreen.cs" />
     <Compile Include="Screens\PauseMenuScreen.cs" />
+    <Compile Include="Screens\RespawnScreen.cs" />
     <Compile Include="TRA_Game.cs" />
     <Compile Include="TRA_Game2.cs" />
   </ItemGroup>

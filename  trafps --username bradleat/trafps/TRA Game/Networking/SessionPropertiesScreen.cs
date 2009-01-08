@@ -51,7 +51,7 @@ namespace TRA_Game
         /// Constructor fills in the menu contents.
         /// </summary>
         public SessionPropertiesScreen(ScreenManager screenManager,NetworkSessionType sessionType, Audio audioHelper, Cue mystery, bool createSession, NetworkHelper networkHelper)
-            : base(Resources.SessionProperties + GetMenuTitle(sessionType))
+            : base(Resources.SessionProperties + GetMenuTitle(sessionType), false)
         {
 
             this.networkHelper = networkHelper;

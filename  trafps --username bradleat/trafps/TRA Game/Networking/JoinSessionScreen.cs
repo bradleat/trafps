@@ -43,7 +43,7 @@ namespace TRA_Game
         /// Constructs a menu screen listing the available network sessions.
         /// </summary>
         public JoinSessionScreen(AvailableNetworkSessionCollection availableSessions, Audio audioHelper, Cue mystery)
-            : base(Resources.JoinSession)
+            : base(Resources.JoinSession, false)
         {
             this.availableSessions = availableSessions;
             this.audioHelper = audioHelper;

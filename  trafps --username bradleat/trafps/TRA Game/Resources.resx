@@ -260,6 +260,9 @@ B button, Esc = cancel</value>
   <data name="QuitGame" xml:space="preserve">
     <value>Quit Game</value>
   </data>
+  <data name="Respawn" xml:space="preserve">
+    <value>Respawning</value>
+  </data>
   <data name="ResumeGame" xml:space="preserve">
     <value>Resume Game</value>
   </data>

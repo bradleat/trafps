@@ -20,7 +20,7 @@ namespace TRA_Game
         /// Constructor fills in the menu contents.
         /// </summary>
         public MultiplayerMenuScreen(Audio audioHelper, Cue mystery)
-            : base(Resources.MultiplayerMenu)
+            : base(Resources.MultiplayerMenu, false)
         {
             this.audioHelper = audioHelper;
             this.mystery = mystery;
