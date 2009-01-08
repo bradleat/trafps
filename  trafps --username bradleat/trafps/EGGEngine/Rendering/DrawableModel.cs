@@ -19,6 +19,8 @@ namespace EGGEngine.Rendering
         private Matrix[] originalTransforms;
         private Matrix[] modelTransforms;
         public Vector3 position;
+        public Vector3 startingPosition;
+        public Vector3 targetPosition;
         private bool debug = false;
         public float temp = 0f;
         private BoundingSphere completeBoundingSphere;
@@ -65,7 +67,7 @@ namespace EGGEngine.Rendering
                 WriteModelStructure(model);
         }
 
-        public void EnemyRecieveDamage(int damageValue)
+        public void EnemyRecieveDamage(float damageValue)
         {
             this.Life -= damageValue;
             if (Life < 1)
@@ -73,17 +75,24 @@ namespace EGGEngine.Rendering
                 //respawn
                 Random random = new Random();
                 this.position.X = (float)random.NextDouble() * 100;
+                Position = this.Position;
             }
         }
-        public void PlayerRecieveDamage(int damageValue)
+        public Vector3 PlayerRecieveDamage(float damageValue)
         {
             this.Life -= damageValue;
             if (Life < 1)
             {
+                Random random = new Random();
                 //respawn
-                this.position = new Vector3(0, 15, 0);
+                initialPos.X = (float)random.NextDouble() * 100;
+                initialPos.Z = (float)random.NextDouble() * 100;
+
                 Life = 100;
+                return initialPos;
             }
+            else
+                return initialPos;
         }
         /// <summary>
         /// Draws the model in 3D space using the current camera's view matrix 
