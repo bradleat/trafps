@@ -101,63 +101,8 @@ namespace TRA_Game
         void CreateSessionMenuEntrySelected(object sender, EventArgs e)
         {
             ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager,sessionType,audioHelper, mystery, true, networkHelper));
-            /*
-            try
-            {
-                IAsyncResult asyncResult = networkInterface.CreateNetwork(ScreenManager.Game, sessionType, NetworkSessionComponent.MaxLocalGamers, NetworkSessionComponent.MaxGamers, 0, null, true, true);
-                // Begin an asynchronous create network session operation.
-                //IAsyncResult asyncResult = Microsoft.Xna.Framework.Net.NetworkSession.BeginCreate(sessionType,
-                                                //NetworkSessionComponent.MaxLocalGamers,
-                                                //NetworkSessionComponent.MaxGamers,
-                                                //null, null);
-
-                // Activate the network busy screen, which will display
-                // an animation until this operation has completed.
-                NetworkBusyScreen busyScreen = new NetworkBusyScreen(asyncResult);
-
-                busyScreen.OperationCompleted += CreateSessionOperationCompleted;
-
-                ScreenManager.AddScreen(busyScreen);
-            }
-            catch (NetworkException exception)
-            {
-                ScreenManager.AddScreen(new NetworkErrorScreen(exception));
-            }
-            catch (GamerPrivilegeException exception)
-            {
-                ScreenManager.AddScreen(new NetworkErrorScreen(exception));
-            }*/
+            
         }
-
-
-        /// <summary>
-        /// Event handler for when the asynchronous create network session
-        /// operation has completed.
-        /// </summary>
-        void CreateSessionOperationCompleted(object sender,
-                                             OperationCompletedEventArgs e)
-        {
-            try
-            {
-                // End the asynchronous create network session operation.
-                networkHelper.NetworkGameSession = Microsoft.Xna.Framework.Net.NetworkSession.EndCreate(e.AsyncResult);
-
-                // Create a component that will manage the session we just created.
-                NetworkSessionComponent.Create(ScreenManager, networkHelper.NetworkGameSession);
-
-                // Go to the lobby screen.
-                ScreenManager.AddScreen(new LobbyScreen(networkHelper.NetworkGameSession, audioHelper,true));
-            }
-            catch (NetworkException exception)
-            {
-                ScreenManager.AddScreen(new NetworkErrorScreen(exception));
-            }
-            catch (GamerPrivilegeException exception)
-            {
-                ScreenManager.AddScreen(new NetworkErrorScreen(exception));
-            }
-        }
-
 
         /// <summary>
         /// Event handler for when the Find Sessions menu entry is selected.
@@ -165,73 +110,8 @@ namespace TRA_Game
         void FindSessionsMenuEntrySelected(object sender, EventArgs e)
         {
             ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager,sessionType,audioHelper, mystery, false, networkHelper));
-            /*
-            try
-            {
-
-                IAsyncResult asyncResult = networkInterface.JoinNetwork(ScreenManager.Game, sessionType, NetworkSessionComponent.MaxLocalGamers, null);
-                // Begin an asynchronous find network sessions operation.
-                //IAsyncResult asyncResult = Microsoft.Xna.Framework.Net.NetworkSession.BeginFind(sessionType,
-                                               // NetworkSessionComponent.MaxLocalGamers,
-                                                //null, null, null);
-
-                // Activate the network busy screen, which will display
-                // an animation until this operation has completed.
-                NetworkBusyScreen busyScreen = new NetworkBusyScreen(asyncResult);
-
-                busyScreen.OperationCompleted += FindSessionsOperationCompleted;
-
-                ScreenManager.AddScreen(busyScreen);
-            }
-            catch (NetworkException exception)
-            {
-                ScreenManager.AddScreen(new NetworkErrorScreen(exception));
-            }
-            catch (GamerPrivilegeException exception)
-            {
-                ScreenManager.AddScreen(new NetworkErrorScreen(exception));
-            }*/
+            
         }
-
-
-        /// <summary>
-        /// Event handler for when the asynchronous find network sessions
-        /// operation has completed.
-        /// </summary>
-        void FindSessionsOperationCompleted(object sender,
-                                            OperationCompletedEventArgs e)
-        {
-            try
-            {
-                // End the asynchronous find network sessions operation.
-                AvailableNetworkSessionCollection availableSessions =
-                                                Microsoft.Xna.Framework.Net.NetworkSession.EndFind(e.AsyncResult);
-
-                if (availableSessions.Count == 0)
-                {
-                    // If we didn't find any sessions, display an error.
-                    availableSessions.Dispose();
-
-                    ScreenManager.AddScreen(
-                            new MessageBoxScreen(Resources.NoSessionsFound, false));
-                }
-                else
-                {
-                    // If we did find some sessions, proceed to the JoinSessionScreen.
-                    ScreenManager.AddScreen(new JoinSessionScreen(availableSessions, audioHelper, mystery));
-                }
-            }
-            catch (NetworkException exception)
-            {
-                ScreenManager.AddScreen(new NetworkErrorScreen(exception));
-            }
-            catch (GamerPrivilegeException exception)
-            {
-                ScreenManager.AddScreen(new NetworkErrorScreen(exception));
-            }
-        }
-
-
         #endregion
     }
 }

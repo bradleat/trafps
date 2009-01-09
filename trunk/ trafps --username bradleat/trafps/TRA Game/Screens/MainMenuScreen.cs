@@ -23,14 +23,16 @@ namespace TRA_Game
     /// </summary>
     class MainMenuScreen : MenuScreen
     {
+        #region Fields
         Audio audioHelper;
         Cue mystery;
         Cue famas_1;
         bool audio_on = false;
         bool gamePlayed;
 
-        
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Constructor fills in the menu contents.
         /// </summary>
@@ -80,10 +82,9 @@ namespace TRA_Game
 
             this.audioHelper.Update();
         }
+        #endregion
 
-        
-
-
+        #region EventHandlers
         /// <summary>
         /// Event handler for when the Single Player menu entry is selected.
         /// </summary>
@@ -152,8 +153,7 @@ namespace TRA_Game
         {
             ScreenManager.Game.Exit();
         }
+        #endregion
 
-
-        
     }
 }
