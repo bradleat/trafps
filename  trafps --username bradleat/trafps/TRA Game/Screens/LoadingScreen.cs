@@ -34,7 +34,7 @@ namespace TRA_Game
     /// </summary>
     class LoadingScreen : GameScreen
     {
-        
+        #region Fields
 
         bool loadingIsSlow;
         bool otherScreensAreGone;
@@ -51,10 +51,9 @@ namespace TRA_Game
         GameTime loadStartTime;
         TimeSpan loadAnimationTimer;
 
-        
+        #endregion
 
-        
-
+        #region Constructor, Load
 
         /// <summary>
         /// The constructor is private: loading screens should
@@ -158,8 +157,9 @@ namespace TRA_Game
                 ScreenManager.Game.ResetElapsedTime();
             }
         }
+        #endregion
 
-
+        #region Draw
         /// <summary>
         /// Draws the loading screen.
         /// </summary>
@@ -210,11 +210,9 @@ namespace TRA_Game
                 spriteBatch.End();
             }
         }
+        #endregion
 
-
-        
-
-
+        #region BackgroundWorkerThread
         /// <summary>
         /// Worker thread draws the loading animation and updates the network
         /// session while the load is taking place.
@@ -316,8 +314,8 @@ namespace TRA_Game
                 networkSession = null;
             }
         }
+        #endregion
 
 
-        
     }
 }

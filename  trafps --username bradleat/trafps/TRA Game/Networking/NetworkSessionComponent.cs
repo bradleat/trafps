@@ -42,6 +42,7 @@ namespace TRA_Game
         }
 
         ScreenManager screenManager;
+
         NetworkSession networkSession;
         IMessageDisplay messageDisplay;
 

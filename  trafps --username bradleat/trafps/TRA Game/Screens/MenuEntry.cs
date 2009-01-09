@@ -88,11 +88,11 @@ namespace TRA_Game
         }
 
 
-        
-
-        
 
 
+
+
+        #region Update
         /// <summary>
         /// Updates the menu entry.
         /// </summary>
@@ -109,8 +109,9 @@ namespace TRA_Game
             else
                 selectionFade = Math.Max(selectionFade - fadeSpeed, 0);
         }
+        #endregion
 
-
+        #region Draw
         /// <summary>
         /// Draws the menu entry. This can be overridden to customize the appearance.
         /// </summary>
@@ -150,7 +151,7 @@ namespace TRA_Game
             return screen.ScreenManager.Font.LineSpacing;
         }
 
+        #endregion
 
-        
     }
 }

@@ -30,6 +30,7 @@ using EGGEngine.Audio;
 
 namespace TRA_Game
 {
+    #region GameVariables
     public struct GameVariables
     {
         public float bulletSpeed;
@@ -38,6 +39,8 @@ namespace TRA_Game
         public float playerSpeed;
         public float gravity;
     }
+    #endregion
+
     /// <summary>
     /// This screen implements the actual game logic. It is just a
     /// placeholder to get the idea across: you'll probably want to
@@ -45,6 +48,7 @@ namespace TRA_Game
     /// </summary>
     class GameplayScreen : GameScreen
     {
+        #region Fields
         NetworkSession networkSession;
         GameTime gameTime;
         ContentManager Content;
@@ -109,6 +113,8 @@ namespace TRA_Game
         int PlayerScore;
         int enemyScore;
 
+        float forwardReq = 0;
+        Vector3 moveDirection = new Vector3(0, 0, 0);
         
 
 
@@ -136,6 +142,10 @@ namespace TRA_Game
                 }
             }
         }
+        #endregion
+
+        #region Variables Handling
+
         void OpenFile(string filename)
         {
         IAsyncResult result = null;
@@ -181,7 +191,9 @@ namespace TRA_Game
                 }
             }
         }
+        #endregion
 
+        #region Constructor, LoadContent, UnloadContent
 
         /// <summary>
         /// Constructor.
@@ -243,13 +255,9 @@ namespace TRA_Game
         {
             Content.Unload();
         }
+        #endregion
 
-
-
-       
-        
-
-
+        #region Update
         /// <summary>
         /// Updates the state of the game.
         /// </summary>
@@ -260,130 +268,73 @@ namespace TRA_Game
 
             if (IsActive)
             {
-                
                 this.gameTime = gameTime;
                 MouseState mouseState = Mouse.GetState();
 
-                float elapsedSeconds = (float)gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
-                float forwardReq = 0;
-
-                Vector3 moveDirection = new Vector3(0, 0, 0);
-
-                if (input.KeyDown(Keys.S))
-                {
-                    forwardReq += 5.0f;
-                    moveDirection = new Vector3(0, 0, 1);  //Backward
-                }
-                if (input.KeyDown(Keys.W))
-                {
-                    forwardReq += 5.0f;
-                    moveDirection = new Vector3(0, 0, -1);  //Forward
-                }
-                if (input.KeyDown(Keys.A))
-                {
-                    forwardReq += 5.0f;
-                    moveDirection = new Vector3(-1, 0, 0);  //Left
-                }
-                if (input.KeyDown(Keys.D))
-                {
-                    forwardReq += 5.0f;
-                    moveDirection = new Vector3(1, 0, 0);   //Right
-                }
-
-                if (input.KeyDown(Keys.CapsLock))
-                {
-                    string filename = Environment.CurrentDirectory.ToString() + "GameVariables";
-                    SaveVariables(filename);
-                }
-
-                if (input.KeyDown(Keys.Space))
-                {
-                    //Check if we have bullets remaining
-                    if (bulletAmount != 0)
-                    {
-                        double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
-                        if (currentTime - lastBulletTime > 1000)
-                        {
-                            DrawableModel newBullet = new DrawableModel(Content.Load<Model>("cube"), Matrix.Identity);
-                            newBullet.Position = person1.Position;
-                            newBullet.startingPosition = person1.Position;
-                            newBullet.Rotation = camera.CameraRotation;
-                            bulletList.Add(newBullet);
-                            bulletSphere = new BoundingSphere(newBullet.Position, 1.0f);
-                            bulletspheres.Add(bulletSphere);
-
-                            bulletAmount -= 1;
-                            lastBulletTime = currentTime;
-                            audioHelper.Play(famas_1, false, listener, emitter);
-                        }
-
-                    }
-                    else
-                    {
-                        //Reload
-                        bulletAmount = 10;
-                        audioHelper.Play(famas_forearm, false, listener, emitter);
-                    }
-                }
-                UpdateEnemy(gameTime);
-                UpdateEnemyBulletPositions(bulletSpeed);
-                // Move the bullets at a speed
-                UpdateBulletPositions(bulletSpeed);
-                if (bulletList.Count > 0)
-                {
-                    //Check collision between each bullet and the enemy
-                    for (int i = 0; i < bulletList.Count; i++)
-                    {
-                        DrawableModel bullet = bulletList[i];
-                        bulletSphere = new BoundingSphere(bullet.Position, 1.5f);
-                        int result = CheckEnemyCollision(bulletSphere);
-                        if (result == 1)
-                        {
-                            person2.EnemyRecieveDamage(bulletDamage);
-                            PlayerScore += 1;
-                            bulletspheres.RemoveAt(i);
-                            bulletList.RemoveAt(i);
-                            i--;
-                        }
-                        else
-                            bulletList[i] = bullet;
-
-                    }
-                }
+                //float elapsedSeconds = (float)gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
                 
+                UpdateEnemy(gameTime);
+                UpdatePlayer(gameTime);
 
                 camera.AddToCameraPosition(moveDirection, forwardReq, ref initalPos1, gameTime);
                 person1.Position = initalPos1;
 
-                //person2.Position = initialPos2;
+                
                 person2.WorldMatrix = Matrix.CreateScale(2.0f);
-
-
                 camera.Update(mouseState, person1.Position);
 
                 person1.WorldMatrix = Matrix.CreateScale(2.0f) * Matrix.CreateRotationY(4.05f);
                 audioHelper.Update();
+
                 if (person1.isRespawning == true)
                 {
                     ScreenManager.AddScreen(new RespawnScreen(networkSession));
                     person1.isRespawning = false;
                 }
                
-                    }
+            }
             
 
             // If we are in a network game, check if we should return to the lobby.
-            if ((networkSession != null) && !IsExiting)
-            {
-                
+            if ((networkSession != null) && !IsExiting) 
                 if (networkSession.SessionState == NetworkSessionState.Lobby)
-                {
                     LoadingScreen.Load(ScreenManager, true,
                                        new BackgroundScreen(true),
                                        new LobbyScreen(networkSession, null, false));
+
+        }
+        #endregion
+
+        #region UpdatePlayer / UpdateEnemy
+
+        private void UpdatePlayer(GameTime gameTime)
+        {
+            if (bulletList.Count > 0)
+            {
+                //Check collision between each bullet and the enemy
+                for (int i = 0; i < bulletList.Count; i++)
+                {
+                    DrawableModel bullet = bulletList[i];
+                    bulletSphere = new BoundingSphere(bullet.Position, 1.5f);
+                    int result = CheckEnemyCollision(bulletSphere);
+                    if (result == 1)
+                    {
+                        person2.EnemyRecieveDamage(bulletDamage);
+                        PlayerScore += 1;
+                        bulletspheres.RemoveAt(i);
+                        bulletList.RemoveAt(i);
+                        i--;
+                    }
+                    else
+                        bulletList[i] = bullet;
+
                 }
             }
+            // Move the bullets at a speed
+            UpdateBulletPositions(bulletSpeed);
         }
+
+        
         private void UpdateEnemy(GameTime gameTime)
         {
             //TODO: Fix bullet to come at player. Rotation problem.
@@ -429,7 +380,12 @@ namespace TRA_Game
 
                 }
             }
+
+            UpdateEnemyBulletPositions(bulletSpeed);
         }
+        #endregion
+
+        #region UpdateBullets
         private void UpdateEnemyBulletPositions(float moveSpeed)
         {
             float maxDistance = 200f;
@@ -439,8 +395,6 @@ namespace TRA_Game
             for (int i = 0; i < enemyBulletList.Count; i++)
             {
                 DrawableModel currentBullet = enemyBulletList[i];
-                //currentBullet.Position = MoveForward(currentBullet.Position,
-                //Problem here, bullets not moving?? AddVector returns zero? rotation problem
                 currentBullet.Position = MoveEnemyBullets(currentBullet.Position,currentBullet.startingPosition, currentBullet.targetPosition, bulletSpeed);
                 Vector3.Distance(ref currentBullet.startingPosition, ref currentBullet.position, out bulletDistance);
                 if (bulletDistance > maxDistance)
@@ -498,7 +452,9 @@ namespace TRA_Game
             position += addVector * speed;
             return position;
         }
+        #endregion
 
+        #region Check Collision
         /// <summary>
         /// Checks if bullet sphere is in player sphere
         /// </summary>
@@ -532,7 +488,9 @@ namespace TRA_Game
                 return 0;
 
         }
+        #endregion
 
+        #region HandleInput
         /// <summary>
         /// Lets the game respond to player input. Unlike the Update method,
         /// this will only be called when the gameplay screen is active.
@@ -543,95 +501,72 @@ namespace TRA_Game
                 throw new ArgumentNullException("input");
 
             if (input.PauseGame)
-            {
                 // If they pressed pause, bring up the pause menu screen.
                 ScreenManager.AddScreen(new PauseMenuScreen(networkSession));
+
+            if (input.IsNewKeyPress(Keys.S))
+            {
+                forwardReq += 5.0f;
+                moveDirection = new Vector3(0, 0, 1);  //Backward
             }
+            if (input.IsNewKeyPress(Keys.W))
+            {
+                forwardReq += 5.0f;
+                moveDirection = new Vector3(0, 0, -1);  //Forward
+            }
+            if (input.IsNewKeyPress(Keys.A))
+            {
+                forwardReq += 5.0f;
+                moveDirection = new Vector3(-1, 0, 0);  //Left
+            }
+            if (input.IsNewKeyPress(Keys.D))
+            {
+                forwardReq += 5.0f;
+                moveDirection = new Vector3(1, 0, 0);   //Right
+            }
+
+            if (input.IsNewKeyPress(Keys.CapsLock))
+            {
+                string filename = Environment.CurrentDirectory.ToString() + "GameVariables";
+                SaveVariables(filename);
+            }
+
+            if (input.IsNewKeyPress(Keys.Space))
+                //Check if we have bullets remaining
+                if (bulletAmount != 0)
+                    AddPlayerBullet();
+        }
+
+        private void AddPlayerBullet()
+        {
+            double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
+            if (currentTime - lastBulletTime > 1000)
+            {
+                DrawableModel newBullet = new DrawableModel(Content.Load<Model>("cube"), Matrix.Identity);
+                newBullet.Position = person1.Position;
+                newBullet.startingPosition = person1.Position;
+                newBullet.Rotation = camera.CameraRotation;
+                bulletList.Add(newBullet);
+                bulletSphere = new BoundingSphere(newBullet.Position, 1.0f);
+                bulletspheres.Add(bulletSphere);
+
+                bulletAmount -= 1;
+                lastBulletTime = currentTime;
+                audioHelper.Play(famas_1, false, listener, emitter);
+            }
+
+
             else
             {
-                float forwardReq = 0;
-
-                Vector3 moveDirection = new Vector3(0, 0, 0);
-
-                if (input.IsNewKeyPress(Keys.S))
-                {
-                    forwardReq += 5.0f;
-                    moveDirection = new Vector3(0, 0, 1);  //Backward
-                }
-                if (input.IsNewKeyPress(Keys.W))
-                {
-                    forwardReq += 5.0f;
-                    moveDirection = new Vector3(0, 0, -1);  //Forward
-                }
-                if (input.IsNewKeyPress(Keys.A))
-                {
-                    forwardReq += 5.0f;
-                    moveDirection = new Vector3(-1, 0, 0);  //Left
-                }
-                if (input.IsNewKeyPress(Keys.D))
-                {
-                    forwardReq += 5.0f;
-                    moveDirection = new Vector3(1, 0, 0);   //Right
-                }
-                if (input.IsNewKeyPress(Keys.Space))
-                {
-                    //Check if we have bullets remaining
-                    if (bulletAmount != 0)
-                    {
-                        double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
-                        if (currentTime - lastBulletTime > 1000)
-                        {
-                            DrawableModel newBullet = new DrawableModel(Content.Load<Model>("cube"), Matrix.Identity);
-                            newBullet.Position = person1.Position;
-                            newBullet.Rotation = camera.CameraRotation;
-                            bulletList.Add(newBullet);
-                            bulletSphere = new BoundingSphere(newBullet.Position, 1.0f);
-                            bulletspheres.Add(bulletSphere);
-
-                            bulletAmount -= 1;
-                            lastBulletTime = currentTime;
-                            audioHelper.Play(famas_1, false, listener, emitter);
-                        }
-
-                    }
-                    else
-                    {
-                        //Reload
-                        bulletAmount = 10;
-                        audioHelper.Play(famas_forearm, false, listener, emitter);
-                    }
-                }/*
-                // Otherwise move the player position.
-                Vector2 movement = Vector2.Zero;
-
-                for (int i = 0; i < InputState.MaxInputs; i++)
-                {
-                    if (input.CurrentKeyboardStates[i].IsKeyDown(Keys.Left))
-                        movement.X--;
-
-                    if (input.CurrentKeyboardStates[i].IsKeyDown(Keys.Right))
-                        movement.X++;
-
-                    if (input.CurrentKeyboardStates[i].IsKeyDown(Keys.Up))
-                        movement.Y--;
-
-                    if (input.CurrentKeyboardStates[i].IsKeyDown(Keys.Down))
-                        movement.Y++;
-
-                    Vector2 thumbstick = input.CurrentGamePadStates[i].ThumbSticks.Left;
-
-                    movement.X += thumbstick.X;
-                    movement.Y -= thumbstick.Y;
-                }
-
-                if (movement.Length() > 1)
-                    movement.Normalize();
-
-                playerPosition += movement * 2;*/
+                //Reload
+                bulletAmount = 10;
+                audioHelper.Play(famas_forearm, false, listener, emitter);
             }
         }
 
+#endregion 
 
+        #region Draw code
         /// <summary>
         /// Draws the gameplay screen.
         /// </summary>
@@ -670,8 +605,6 @@ namespace TRA_Game
                         enemyBulletList[i] = currentBullet;
                     }
                 }
-
-                //enemy bullets draw fine, just commented out code until bug is fixed
 
                 
                 
@@ -732,8 +665,6 @@ namespace TRA_Game
             if (TransitionPosition > 0)
                 ScreenManager.FadeBackBufferToBlack(255 - TransitionAlpha);
         }
-
-
-        
+        #endregion
     }
 }

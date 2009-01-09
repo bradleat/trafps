@@ -412,6 +412,7 @@ namespace TRA_Game
         
         #endregion
 
+        #region Draw
         public override void Draw(GameTime gameTime)
         {
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
@@ -431,5 +432,6 @@ namespace TRA_Game
             spriteBatch.End();
             base.Draw(gameTime);
         }
+        #endregion
     }
 }
