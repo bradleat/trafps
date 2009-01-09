@@ -271,7 +271,42 @@ namespace TRA_Game
                 this.gameTime = gameTime;
                 MouseState mouseState = Mouse.GetState();
 
+                forwardReq = 0.0f;
+                moveDirection = new Vector3(0, 0, 0);
+
                 //float elapsedSeconds = (float)gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
+
+                if (input.KeyDown(Keys.S))
+                {
+                    forwardReq += 5.0f;
+                    moveDirection = new Vector3(0, 0, 1);  //Backward
+                }
+                if (input.KeyDown(Keys.W))
+                {
+                    forwardReq += 5.0f;
+                    moveDirection = new Vector3(0, 0, -1);  //Forward
+                }
+                if (input.KeyDown(Keys.A))
+                {
+                    forwardReq += 5.0f;
+                    moveDirection = new Vector3(-1, 0, 0);  //Left
+                }
+                if (input.KeyDown(Keys.D))
+                {
+                    forwardReq += 5.0f;
+                    moveDirection = new Vector3(1, 0, 0);   //Right
+                }
+
+                if (input.KeyDown(Keys.CapsLock))
+                {
+                    string filename = Environment.CurrentDirectory.ToString() + "GameVariables";
+                    SaveVariables(filename);
+                }
+
+                if (input.KeyDown(Keys.Space))
+                    AddPlayerBullet();
+            
+        
                 
                 UpdateEnemy(gameTime);
                 UpdatePlayer(gameTime);
@@ -497,72 +532,49 @@ namespace TRA_Game
         /// </summary>
         public override void HandleInput(InputState input)
         {
+            
+
             if (input == null)
                 throw new ArgumentNullException("input");
 
             if (input.PauseGame)
                 // If they pressed pause, bring up the pause menu screen.
                 ScreenManager.AddScreen(new PauseMenuScreen(networkSession));
-
-            if (input.IsNewKeyPress(Keys.S))
-            {
-                forwardReq += 5.0f;
-                moveDirection = new Vector3(0, 0, 1);  //Backward
-            }
-            if (input.IsNewKeyPress(Keys.W))
-            {
-                forwardReq += 5.0f;
-                moveDirection = new Vector3(0, 0, -1);  //Forward
-            }
-            if (input.IsNewKeyPress(Keys.A))
-            {
-                forwardReq += 5.0f;
-                moveDirection = new Vector3(-1, 0, 0);  //Left
-            }
-            if (input.IsNewKeyPress(Keys.D))
-            {
-                forwardReq += 5.0f;
-                moveDirection = new Vector3(1, 0, 0);   //Right
-            }
-
-            if (input.IsNewKeyPress(Keys.CapsLock))
-            {
-                string filename = Environment.CurrentDirectory.ToString() + "GameVariables";
-                SaveVariables(filename);
-            }
-
-            if (input.IsNewKeyPress(Keys.Space))
-                //Check if we have bullets remaining
-                if (bulletAmount != 0)
-                    AddPlayerBullet();
         }
+
+
 
         private void AddPlayerBullet()
         {
-            double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
-            if (currentTime - lastBulletTime > 1000)
-            {
-                DrawableModel newBullet = new DrawableModel(Content.Load<Model>("cube"), Matrix.Identity);
-                newBullet.Position = person1.Position;
-                newBullet.startingPosition = person1.Position;
-                newBullet.Rotation = camera.CameraRotation;
-                bulletList.Add(newBullet);
-                bulletSphere = new BoundingSphere(newBullet.Position, 1.0f);
-                bulletspheres.Add(bulletSphere);
 
-                bulletAmount -= 1;
-                lastBulletTime = currentTime;
-                audioHelper.Play(famas_1, false, listener, emitter);
+                if (bulletAmount > 0)
+                { 
+                    double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
+                    if (currentTime - lastBulletTime > 1000)
+                    {
+                        DrawableModel newBullet = new DrawableModel(Content.Load<Model>("cube"), Matrix.Identity);
+                        newBullet.Position = person1.Position;
+                        newBullet.startingPosition = person1.Position;
+                        newBullet.Rotation = camera.CameraRotation;
+                        bulletList.Add(newBullet);
+                        bulletSphere = new BoundingSphere(newBullet.Position, 1.0f);
+                        bulletspheres.Add(bulletSphere);
+
+                        bulletAmount -= 1;
+                        lastBulletTime = currentTime;
+                        audioHelper.Play(famas_1, false, listener, emitter);
+                    }
+                }
+                else
+                {
+                    //Reload
+                    bulletAmount = 10;
+                    audioHelper.Play(famas_forearm, false, listener, emitter);
+                }
+                   
+                
             }
-
-
-            else
-            {
-                //Reload
-                bulletAmount = 10;
-                audioHelper.Play(famas_forearm, false, listener, emitter);
-            }
-        }
+        
 
 #endregion 
 
