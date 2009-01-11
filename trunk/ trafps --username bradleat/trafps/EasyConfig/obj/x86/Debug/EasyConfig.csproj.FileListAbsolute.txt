@@ -10,3 +10,9 @@ C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EasyConfig\obj\x86\Debug\Re
 C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EasyConfig\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EasyConfig\obj\x86\Debug\EasyConfig.dll
 C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EasyConfig\obj\x86\Debug\EasyConfig.pdb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EasyConfig\bin\x86\Debug\EasyConfig.dll
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EasyConfig\bin\x86\Debug\EasyConfig.pdb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\EasyConfig.dll
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\EasyConfig.pdb

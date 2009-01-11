@@ -10,3 +10,9 @@ C:\Documents and Settings\Dustin\Desktop\Temp\trafps\JigLibX\obj\x86\Debug\Resol
 C:\Documents and Settings\Dustin\Desktop\Temp\trafps\JigLibX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Documents and Settings\Dustin\Desktop\Temp\trafps\JigLibX\obj\x86\Debug\JigLibX.dll
 C:\Documents and Settings\Dustin\Desktop\Temp\trafps\JigLibX\obj\x86\Debug\JigLibX.pdb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\JigLibX\bin\x86\Debug\JigLibX.dll
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\JigLibX\bin\x86\Debug\JigLibX.pdb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\JigLibX\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\JigLibX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\JigLibX\obj\x86\Debug\JigLibX.dll
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\JigLibX\obj\x86\Debug\JigLibX.pdb

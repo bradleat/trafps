@@ -80,6 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Audio\Audio.cs" />
+    <Compile Include="Awards\Award.cs" />
+    <Compile Include="Awards\AwardsComponent.cs" />
+    <Compile Include="Awards\AwardsProgress.cs" />
+    <Compile Include="Awards\AwardUnlockedEventArgs.cs" />
     <Compile Include="Cameras\FPSCamera.cs" />
     <Compile Include="ContentReaders\TriangleTypeReader.cs" />
     <Compile Include="Debug\FrameRateCounter.cs" />
