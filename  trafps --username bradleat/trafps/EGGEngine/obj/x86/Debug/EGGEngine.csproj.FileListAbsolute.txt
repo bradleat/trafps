@@ -15,3 +15,22 @@ C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine\obj\x86\Debug\Res
 C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine\obj\x86\Debug\EGGEngine.dll
 C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEngine\obj\x86\Debug\EGGEngine.pdb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\fx\bloom.xnb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-1.xnb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-2.xnb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-3.xnb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-4.xnb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-5.xnb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-background.xnb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-sound.xnb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-font.xnb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\main.xnb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\EGGEngine.XML
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\EGGEngine.dll
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\EGGEngine.pdb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\EasyConfig.dll
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\EasyConfig.pdb
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\obj\x86\Debug\EGGEngine.dll
+C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\obj\x86\Debug\EGGEngine.pdb
