@@ -58,8 +58,9 @@ namespace TRA_Game
         Vector2 enemyPosition = new Vector2(100, 100);
 
         Random random = new Random();
-        
-        
+
+        Matrix[] boneTransforms;
+
         GraphicsDeviceManager graphics;
 
         //Debugging Stuff
@@ -233,6 +234,10 @@ namespace TRA_Game
             //terrain = Content.Load<Model>(name);
             ship_Map = new Model();
             ship_Map = Content.Load<Model>("ship_map");
+            // Store the bones
+            boneTransforms = new Matrix[ship_Map.Bones.Count];
+            ship_Map.CopyAbsoluteBoneTransformsTo(boneTransforms);
+
 
             string filename = Environment.CurrentDirectory + "GameVariables";
             OpenFile(filename);
@@ -628,12 +633,14 @@ namespace TRA_Game
                 person1.Draw(camera);
                 person2.Draw(camera);
 
+               
+
                 foreach (ModelMesh mesh in ship_Map.Meshes)
                 {
                     foreach (BasicEffect effect in mesh.Effects)
                     {
                         effect.EnableDefaultLighting();
-                        effect.World = Matrix.Identity;
+                        effect.World = boneTransforms[mesh.ParentBone.Index] * Matrix.CreateScale(4.0f);
                         effect.SpecularColor = new Vector3(1, 0, 0);
                         effect.View = camera.ViewMatrix;
                         effect.Projection = camera.ProjectionMatrix;
