@@ -73,7 +73,8 @@ namespace TRA_Game
 
         DrawableModel person1;
         DrawableModel bullet;
-        Model terrain;
+        //Model terrain;
+        Model ship_Map;
         FPSCamera camera;
         PostProcessing postProc;
         Vector3 translate = Vector3.Zero;
@@ -228,8 +229,10 @@ namespace TRA_Game
             person2 = new DrawableModel(Content.Load<Model>(name), Matrix.Identity);
 
             name = config.SettingGroups["Filenames"].Settings["terrain"].GetValueAsString();
-            terrain = new Model();
-            terrain = Content.Load<Model>(name);
+            //terrain = new Model();
+            //terrain = Content.Load<Model>(name);
+            ship_Map = new Model();
+            ship_Map = Content.Load<Model>("ship_map");
 
             string filename = Environment.CurrentDirectory + "GameVariables";
             OpenFile(filename);
@@ -625,7 +628,7 @@ namespace TRA_Game
                 person1.Draw(camera);
                 person2.Draw(camera);
 
-                foreach (ModelMesh mesh in terrain.Meshes)
+                foreach (ModelMesh mesh in ship_Map.Meshes)
                 {
                     foreach (BasicEffect effect in mesh.Effects)
                     {

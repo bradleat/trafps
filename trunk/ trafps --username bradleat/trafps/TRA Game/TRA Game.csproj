@@ -116,7 +116,6 @@
     <Compile Include="Screens\PauseMenuScreen.cs" />
     <Compile Include="Screens\RespawnScreen.cs" />
     <Compile Include="TRA_Game.cs" />
-    <Compile Include="TRA_Game2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
