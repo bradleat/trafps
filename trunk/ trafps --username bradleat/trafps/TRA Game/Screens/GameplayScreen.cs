@@ -26,6 +26,7 @@ using EGGEngine.Rendering;
 using EGGEngine.Helpers;
 using EGGEngine.Utils;
 using EGGEngine.Audio;
+using EGGEngine.Awards;
 #endregion
 
 namespace TRA_Game
@@ -108,7 +109,8 @@ namespace TRA_Game
         double lastBulletTime = 0;
         double lastEnemyBulletTime = 0;
         float gameSpeed = 1.0f;
-        int bulletAmount = 10;
+        int bulletAmount;
+        const int maxBullets = 20;
         float bulletDamage;
         float bulletSpeed;
         float gravity;
@@ -117,8 +119,12 @@ namespace TRA_Game
 
         float forwardReq = 0;
         Vector3 moveDirection = new Vector3(0, 0, 0);
-        
 
+        HUD hud;
+
+        AwardsComponent awards;
+        Award shootAward;
+        
 
         /// <summary>
         /// The logic for deciding whether the game is paused depends on whether
@@ -249,6 +255,14 @@ namespace TRA_Game
                 ScreenManager.Game.Components.Add(new FrameRateCounter(ScreenManager.Game));
             }
             person2.Position = new Vector3(0, 15, -30);
+
+            ScreenManager.Game.Components.Add(awards = new AwardsComponent(ScreenManager.Game));
+
+            shootAward = new Award {Name = "Shoot!", TextureAssetName = "award-1", ProgressNeeded = 10} ;
+            shootAward.LoadTexture(Content);
+            awards.Awards.Add(shootAward);
+
+            hud = new HUD(ScreenManager.Game, person1, bulletAmount, maxBullets, ScreenManager.Game.Content); 
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
             // while, giving you a chance to admire the beautiful loading screen.
@@ -312,8 +326,10 @@ namespace TRA_Game
                 }
 
                 if (input.KeyDown(Keys.Space))
+                {
                     AddPlayerBullet();
-            
+                    awards.AddAwardProgress(shootAward, "Player 1", 10);
+                }
         
                 
                 UpdateEnemy(gameTime);
@@ -334,7 +350,7 @@ namespace TRA_Game
                     ScreenManager.AddScreen(new RespawnScreen(networkSession));
                     person1.isRespawning = false;
                 }
-               
+                hud.UpdateBulletAmount(bulletAmount);
             }
             
 
@@ -576,7 +592,7 @@ namespace TRA_Game
                 else
                 {
                     //Reload
-                    bulletAmount = 10;
+                    bulletAmount = maxBullets;
                     audioHelper.Play(famas_forearm, false, listener, emitter);
                 }
                    
@@ -680,7 +696,7 @@ namespace TRA_Game
                 spriteBatch.End();
             }
 
-           
+            hud.Draw(spriteBatch, font);
             
 
             // If the game is transitioning on or off, fade it out to black.

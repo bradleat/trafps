@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<GameVariables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <bulletSpeed>1</bulletSpeed>
+  <bulletDamage>10</bulletDamage>
+  <playerHealth>100</playerHealth>
+  <playerSpeed>0</playerSpeed>
+  <gravity>0</gravity>
+</GameVariables>

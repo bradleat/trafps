@@ -212,7 +212,8 @@ namespace EGGEngine.Cameras
         {
 
             //Change the Z value of the offset to 0 for complete first-person mode
-            Vector3 avatarHeadOffset = new Vector3(-8, 10, 40);
+            Vector3 avatarHeadOffset = new Vector3(-8, 10, //4
+            0);
 
             Vector3 headOffset = Vector3.Transform(avatarHeadOffset, rotation);
 
