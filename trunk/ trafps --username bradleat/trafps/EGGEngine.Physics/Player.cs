@@ -15,11 +15,13 @@ namespace EGGEngine.Physics
         float rotation;
         float speed;
         Vector3 boundingBoxSize;
-        
+        Intersection intersection;
+        Primatives.TriangleMesh world;
+
         const float walkSpeed = 0.3f;
         const float runSpeed = 0.7f;
         const float sprintSpeed = 1.2f;
-        const float Gravity = 5f;
+        const float Gravity = -0.1f;
 
 
         #region Properties
@@ -49,8 +51,9 @@ namespace EGGEngine.Physics
         /// <param name="BoundingBoxSize">The Height, Width and Depth of the player</param>
 
 
-        public Player(Vector3 InitialPosition, float InitialRotation, Vector3 BoundingBoxSize)
+        public Player(Vector3 InitialPosition, float InitialRotation, Vector3 BoundingBoxSize, Primatives.TriangleMesh World)
         {
+            this.world = World;
             this.position = InitialPosition;
             this.rotation = InitialRotation;
             this.boundingBoxSize = BoundingBoxSize;
@@ -84,12 +87,19 @@ namespace EGGEngine.Physics
 
             position += Vector3.Transform(Velocity, Matrix.CreateRotationY(rotation));
 
-            if (position.Y < boundingBoxSize.Y/2)
-            {
-                position.Y = 0;
-            }
-            
-        }
+            intersection = new Intersection();
 
+            float intersectionpoint = 0f;
+            for (int i = 0; i < world.Triangles.Length; i++)
+            {
+                intersectionpoint = intersection.LineTriangle(world.Triangles[i], new Primatives.Line(position - boundingBoxSize * Vector3.UnitY / 2, position + boundingBoxSize * Vector3.UnitY / 2));
+                if (intersectionpoint != -1)
+                {
+                    position.Y += intersectionpoint * boundingBoxSize.Y;
+                    velocity = Vector3.Zero;
+                }
+            }
+        }
     }
+
 }
