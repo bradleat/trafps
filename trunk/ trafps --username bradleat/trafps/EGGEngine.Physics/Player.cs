@@ -20,8 +20,8 @@ namespace EGGEngine.Physics
 
         const float walkSpeed = 0.3f;
         const float runSpeed = 0.7f;
-        const float sprintSpeed = 1.2f;
-        const float Gravity = -0.1f;
+        const float sprintSpeed = 1.5f;
+        float Gravity = -0.1f;
 
 
         #region Properties
