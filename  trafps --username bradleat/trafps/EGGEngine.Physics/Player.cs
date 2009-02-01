@@ -18,8 +18,8 @@ namespace EGGEngine.Physics
         Intersection intersection;
         Primatives.TriangleMesh world;
 
-        const float walkSpeed = 0.3f;
-        const float runSpeed = 0.7f;
+        const float walkSpeed = .3f;
+        const float runSpeed = .7f;
         const float sprintSpeed = 1.5f;
         float Gravity = -0.1f;
 
@@ -89,15 +89,17 @@ namespace EGGEngine.Physics
 
             intersection = new Intersection();
 
-            float intersectionpoint = 0f;
+
+            Primatives.Line Line = new Primatives.Line(position - boundingBoxSize * Vector3.UnitY / 2, position + boundingBoxSize * Vector3.UnitY / 2);
+
             for (int i = 0; i < world.Triangles.Length; i++)
             {
-                intersectionpoint = intersection.LineTriangle(world.Triangles[i], new Primatives.Line(position - boundingBoxSize * Vector3.UnitY / 2, position + boundingBoxSize * Vector3.UnitY / 2));
-                if (intersectionpoint != -1)
-                {
-                    position.Y += intersectionpoint * boundingBoxSize.Y;
-                    velocity = Vector3.Zero;
-                }
+                    float intersectionpoint = intersection.LineTriangle(world.Triangles[i], new Primatives.Line(position - boundingBoxSize * Vector3.UnitY / 2, position + boundingBoxSize * Vector3.UnitY / 2));
+                    if (intersectionpoint != -1)
+                    {
+                        position.Y += intersectionpoint * boundingBoxSize.Y;
+                        velocity = Vector3.Zero;
+                    }
             }
         }
     }
