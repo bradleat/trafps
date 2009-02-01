@@ -12,7 +12,6 @@ namespace EGGEngine.Physics
     {
         public float LineTriangle(Primatives.Triangle Triangle, Primatives.Line Line)
         {
-            {
             float x = -Vector3.Dot((Line.Vertices[0] - Triangle.Vertices[0]), Triangle.Normal) / Vector3.Dot(Line.Vertices[1] - Line.Vertices[0], Triangle.Normal);
             if (x < 0 || x > 1)
                 return -1;
@@ -24,26 +23,26 @@ namespace EGGEngine.Physics
                 else
                     return -1;
             }
-            }
         }
 
-        bool SameSide(Vector3 p1, Vector3 p2, Vector3 a, Vector3 b)
-        {
-            Vector3 cp1 = Vector3.Cross(b - a, p1 - a);
-            Vector3 cp2 = Vector3.Cross(b - a, p2 - a);
-            if (Vector3.Dot(cp1, cp2) >= 0)
-                return true;
-            else
-                return false;
-        }
+
         bool PointInTriangle(Vector3 p, Vector3 a, Vector3 b, Vector3 c)
-        {
-            if (SameSide(p, a, b, c) &&
-                SameSide(p, b, a, c) &&
-                SameSide(p, c, a, b))
-                return true;
-            else
-                return false;
+        {      
+            Vector3 v0 = c - a;
+            Vector3 v1 = b - a;
+            Vector3 v2 = p - a;
+
+            float dot00 = Vector3.Dot(v0, v0);
+            float dot01 = Vector3.Dot(v0, v1);
+            float dot02 = Vector3.Dot(v0, v2);
+            float dot11 = Vector3.Dot(v1, v1);
+            float dot12 = Vector3.Dot(v1, v2);
+
+            float invDenom = 1 / (dot00 * dot11 - dot01 * dot01);
+            float u = (dot11 * dot02 - dot01 * dot12) * invDenom;
+            float v = (dot00 * dot12 - dot01 * dot02) * invDenom;
+
+            return (u > 0) && (v > 0) && (u + v < 1);
         }
     }
 
