@@ -7,43 +7,43 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\NetworkingTestGame\bin\x86\Debug\Content\Arial.xnb</Output>
-      <Time>2008-12-08T18:30:51.0625-05:00</Time>
+      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\NetworkingTestGame\bin\x86\Debug\Content\Arial.xnb</Output>
+      <Time>2009-02-01T18:51:58+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\NetworkingTestGame\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\NetworkingTestGame\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\NetworkingTestGame\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\NetworkingTestGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\NetworkingTestGame\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\NetworkingTestGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\NetworkingTestGame\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\NetworkingTestGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2008-10-10T18:42:32-04:00</Value>
+        <Value>2008-10-10T18:42:32+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2008-10-10T18:43:28-04:00</Value>
+        <Value>2008-10-10T18:43:28+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2008-10-10T18:43:18-04:00</Value>
+        <Value>2008-10-10T18:43:18+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2008-10-10T18:48:18-04:00</Value>
+        <Value>2008-10-10T18:48:18+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2008-10-10T18:48:50-04:00</Value>
+        <Value>2008-10-10T18:48:50+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2008-11-30T12:13:37.578125-05:00</Value>
+        <Value>2008-12-15T18:05:54+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

@@ -16,3 +16,9 @@ C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\JigLibX\obj\x86\Debug\Resolve
 C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\JigLibX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\JigLibX\obj\x86\Debug\JigLibX.dll
 C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\JigLibX\obj\x86\Debug\JigLibX.pdb
+C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\JigLibX\bin\x86\Debug\JigLibX.dll
+C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\JigLibX\bin\x86\Debug\JigLibX.pdb
+C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\JigLibX\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\JigLibX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\JigLibX\obj\x86\Debug\JigLibX.dll
+C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\JigLibX\obj\x86\Debug\JigLibX.pdb

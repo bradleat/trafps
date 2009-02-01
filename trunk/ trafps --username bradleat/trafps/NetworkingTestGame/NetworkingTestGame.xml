@@ -4,86 +4,6 @@
         <name>NetworkingTestGame</name>
     </assembly>
     <members>
-        <member name="T:NetworkingTestGame.NetworkPlayer">
-            <summary>
-            This is a game component that implements IUpdateable.
-            </summary>
-        </member>
-        <member name="F:NetworkingTestGame.NetworkPlayer.Position">
-            <summary>
-            The current position of the ship.
-            </summary>
-        </member>
-        <member name="F:NetworkingTestGame.NetworkPlayer.TankInput">
-            <summary>
-            Input controls can be read from keyboard, gamepad, or the network.
-            </summary>
-        </member>
-        <member name="F:NetworkingTestGame.NetworkPlayer.TurretInput">
-            <summary>
-            Input controls can be read from keyboard, gamepad, or the network.
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.NetworkPlayer.#ctor(System.Int32,Microsoft.Xna.Framework.Content.ContentManager,System.Int32,System.Int32)">
-            <summary>
-            The player in a multiplayer game
-            </summary>
-            <param name="gamerIndex"></param>
-            <param name="content"></param>
-            <param name="screenWidth"></param>
-            <param name="screenHeight"></param>
-        </member>
-        <member name="M:NetworkingTestGame.NetworkPlayer.Update">
-            <summary>
-            Moves the ship in response to the current input settings.
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.NetworkPlayer.TurnToFace(System.Single,Microsoft.Xna.Framework.Vector2,System.Single)">
-            <summary>
-            Gradually rotates the tank to face the specified direction.
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.NetworkPlayer.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
-            <summary>
-            Draws the ship.
-            </summary>
-        </member>
-        <member name="T:NetworkingTestGame.Player">
-            <summary>
-            This is a game component that implements IUpdateable.
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.Player.#ctor(Microsoft.Xna.Framework.Game,Microsoft.Xna.Framework.Graphics.Texture2D@,System.Int32)">
-            <summary>
-            Creates the Player (singleplayer)
-            </summary>
-            <param name="game"></param>
-            <param name="theTexture"></param>
-            <param name="gamerIndex"></param>
-        </member>
-        <member name="M:NetworkingTestGame.Player.PutinStartPosition">
-            <summary>
-            Starts the Player in the centre along the bottom of the screen
-            </summary>
-        </member>
-        <member name="M:NetworkingTestGame.Player.Update(Microsoft.Xna.Framework.Input.KeyboardState)">
-            <summary>
-            Changes position using input and keeps within the screen.
-            </summary>
-            <param name="keyboard"></param>
-        </member>
-        <member name="M:NetworkingTestGame.Player.Draw(Microsoft.Xna.Framework.GameTime)">
-            <summary>
-            Draws the Ship
-            </summary>
-            <param name="gameTime"></param>
-        </member>
-        <member name="M:NetworkingTestGame.Player.GetBounds">
-            <summary>
-            Gets the screen bounds
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:NetworkingTestGame.Game1">
             <summary>
             This is the main type for your game
@@ -252,10 +172,90 @@
             <param name="rect"></param>
             <returns></returns>
         </member>
+        <member name="T:NetworkingTestGame.NetworkPlayer">
+            <summary>
+            This is a game component that implements IUpdateable.
+            </summary>
+        </member>
+        <member name="F:NetworkingTestGame.NetworkPlayer.Position">
+            <summary>
+            The current position of the ship.
+            </summary>
+        </member>
+        <member name="F:NetworkingTestGame.NetworkPlayer.TankInput">
+            <summary>
+            Input controls can be read from keyboard, gamepad, or the network.
+            </summary>
+        </member>
+        <member name="F:NetworkingTestGame.NetworkPlayer.TurretInput">
+            <summary>
+            Input controls can be read from keyboard, gamepad, or the network.
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.NetworkPlayer.#ctor(System.Int32,Microsoft.Xna.Framework.Content.ContentManager,System.Int32,System.Int32)">
+            <summary>
+            The player in a multiplayer game
+            </summary>
+            <param name="gamerIndex"></param>
+            <param name="content"></param>
+            <param name="screenWidth"></param>
+            <param name="screenHeight"></param>
+        </member>
+        <member name="M:NetworkingTestGame.NetworkPlayer.Update">
+            <summary>
+            Moves the ship in response to the current input settings.
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.NetworkPlayer.TurnToFace(System.Single,Microsoft.Xna.Framework.Vector2,System.Single)">
+            <summary>
+            Gradually rotates the tank to face the specified direction.
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.NetworkPlayer.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Draws the ship.
+            </summary>
+        </member>
         <member name="M:NetworkingTestGame.Program.Main(System.String[])">
             <summary>
             The main entry point for the application.
             </summary>
+        </member>
+        <member name="T:NetworkingTestGame.Player">
+            <summary>
+            This is a game component that implements IUpdateable.
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.Player.#ctor(Microsoft.Xna.Framework.Game,Microsoft.Xna.Framework.Graphics.Texture2D@,System.Int32)">
+            <summary>
+            Creates the Player (singleplayer)
+            </summary>
+            <param name="game"></param>
+            <param name="theTexture"></param>
+            <param name="gamerIndex"></param>
+        </member>
+        <member name="M:NetworkingTestGame.Player.PutinStartPosition">
+            <summary>
+            Starts the Player in the centre along the bottom of the screen
+            </summary>
+        </member>
+        <member name="M:NetworkingTestGame.Player.Update(Microsoft.Xna.Framework.Input.KeyboardState)">
+            <summary>
+            Changes position using input and keeps within the screen.
+            </summary>
+            <param name="keyboard"></param>
+        </member>
+        <member name="M:NetworkingTestGame.Player.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the Ship
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:NetworkingTestGame.Player.GetBounds">
+            <summary>
+            Gets the screen bounds
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>
