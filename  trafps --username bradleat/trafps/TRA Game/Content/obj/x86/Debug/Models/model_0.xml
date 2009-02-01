@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>TankGirl-0</Name>
     <Identity>
-      <SourceFilename>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\Content\Models\model.x</SourceFilename>
+      <SourceFilename>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\Content\Models\model.x</SourceFilename>
       <SourceTool>XImporter</SourceTool>
     </Identity>
     <Transform>0.6644432 0 0.7473388 0 0 1 0 0 -0.7473388 0 0.6644432 0 -7.95632172 0 3.89379764 1</Transform>
@@ -85,7 +85,7 @@
   <Resources>
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Identity>
-        <SourceFilename>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\Content\Models\model.x</SourceFilename>
+        <SourceFilename>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\Content\Models\model.x</SourceFilename>
         <SourceTool>XImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -103,7 +103,7 @@
     </Resource>
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Identity>
-        <SourceFilename>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\Content\Models\model.x</SourceFilename>
+        <SourceFilename>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\Content\Models\model.x</SourceFilename>
         <SourceTool>XImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -121,7 +121,7 @@
     </Resource>
     <Resource ID="#Resource3" Type="Graphics:BasicMaterialContent">
       <Identity>
-        <SourceFilename>C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\Content\Models\model.x</SourceFilename>
+        <SourceFilename>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\Content\Models\model.x</SourceFilename>
         <SourceTool>XImporter</SourceTool>
       </Identity>
       <OpaqueData>

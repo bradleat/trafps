@@ -9,8 +9,8 @@
     Windows Bank Path Edited = 0;
     Seek Tables = 1;
     Compression Preset Name = &lt;none&gt;;
-    Bank Last Revised Low = 2244971752;
-    Bank Last Revised High = 29973038;
+    Bank Last Revised Low = 996719648;
+    Bank Last Revised High = 29978062;
 
     Wave
     {
@@ -32,6 +32,52 @@
             File Type = 1;
             Last Modified Low = 977844800;
             Last Modified High = 29971825;
+        }
+    }
+
+    Wave
+    {
+        Name = famas-1;
+        File = famas-1.wav;
+        Build Settings Last Modified Low = 700829648;
+        Build Settings Last Modified High = 29978062;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 128700;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 314059648;
+            Last Modified High = 29978062;
+        }
+    }
+
+    Wave
+    {
+        Name = famas_forearm;
+        File = famas_forearm.wav;
+        Build Settings Last Modified Low = 700849648;
+        Build Settings Last Modified High = 29978062;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 1;
+            Sampling Rate = 22050;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 20228;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 314379648;
+            Last Modified High = 29978062;
         }
     }
 }

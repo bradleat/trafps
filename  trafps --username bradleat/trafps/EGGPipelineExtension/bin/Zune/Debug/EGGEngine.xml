@@ -41,6 +41,95 @@
             <param name="writer">The stream writer used to write the information
             to a text file</param>
         </member>
+        <member name="T:EGGEngine.Awards.AwardProgress">
+            <summary>
+            Records a gamer's progress toward unlocking an award.
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Awards.AwardProgress.Award">
+            <summary>
+            Gets or sets the award that is being unlocked.
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Awards.AwardProgress.Gamertag">
+            <summary>
+            Gets or sets the gamertag of the gamer unlocking the award.
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Awards.AwardProgress.Progress">
+            <summary>
+            Gets or sets the progress points acquired for the award.
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Awards.AwardProgress.IsUnlocked">
+            <summary>
+            Returns true if the award is unlocked by the gamer, false otherwise.
+            </summary>
+        </member>
+        <member name="T:EGGEngine.Rendering.Sky">
+            <summary>
+            Runtime class for loading and rendering a textured skydome
+            that was created during the build process by the SkyProcessor.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Rendering.Sky.#ctor(Microsoft.Xna.Framework.Content.ContentReader)">
+            <summary>
+            Constructor is internal: this should only ever
+            be called by the SkyReader class.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Rendering.Sky.Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Helper for drawing the skydome mesh.
+            </summary>
+        </member>
+        <member name="T:EGGEngine.Rendering.SkyReader">
+            <summary>
+            Helper for reading a Sky object from the compiled XNB format.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Rendering.UIRenderer.#ctor(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Game)">
+            <summary>
+            Create user interface renderer
+            </summary>
+            
+        </member>
+        <member name="M:EGGEngine.Rendering.UIRenderer.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Rendering.UIRenderer.Dispose(System.Boolean)">
+            <summary>
+            Dispose
+            </summary>
+            <param name="disposing">Disposing</param>
+        </member>
+        <member name="M:EGGEngine.Rendering.UIRenderer.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates
+            </summary>
+            <param name="gameTime">The current game time</param>
+        </member>
+        <member name="M:EGGEngine.Rendering.UIRenderer.PrepareRenderer">
+            <summary>
+            Draws the frame counter to the screen
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Utils.SerializeUtils`1.LoadData(Microsoft.Xna.Framework.Storage.StorageDevice,System.String)">
+            <summary>
+            Loads the data of the specified file.
+            </summary>
+            <param name="storageDevice">Storage device that contains the data</param>
+            <param name="fileName">Name of the file being loaded</param>
+        </member>
+        <member name="M:EGGEngine.Utils.SerializeUtils`1.SaveData(Microsoft.Xna.Framework.Storage.StorageDevice,System.String)">
+            <summary>
+            Saves data to the specified file.
+            </summary>
+            <param name="storageDevice">The storage device containing the data</param>
+            <param name="fileName">Name of the file being saved</param>
+        </member>
         <member name="M:EGGEngine.Cameras.FPSCamera.Update(Microsoft.Xna.Framework.Input.MouseState,Microsoft.Xna.Framework.Vector3)">
             <summary>
             Updates the camera based on the current mouse state.
@@ -90,47 +179,240 @@
             Draws the frame counter to the screen
             </summary>
         </member>
-        <member name="M:EGGEngine.Utils.SerializeUtils`1.LoadData(Microsoft.Xna.Framework.Storage.StorageDevice,System.String)">
+        <member name="M:EGGEngine.Rendering.PostProcessing.InitPostProcessingVertices">
             <summary>
-            Loads the data of the specified file.
+            Sets up the vertices that cover the viewport
             </summary>
-            <param name="storageDevice">Storage device that contains the data</param>
-            <param name="fileName">Name of the file being loaded</param>
         </member>
-        <member name="M:EGGEngine.Utils.SerializeUtils`1.SaveData(Microsoft.Xna.Framework.Storage.StorageDevice,System.String)">
+        <member name="M:EGGEngine.Rendering.PostProcessing.LoadEffect(Microsoft.Xna.Framework.Content.ContentManager,System.String)">
             <summary>
-            Saves data to the specified file.
+            Loads the appropriate effect
             </summary>
-            <param name="storageDevice">The storage device containing the data</param>
-            <param name="fileName">Name of the file being saved</param>
+            <param name="content">Content manager needed to load the appropriate effect</param>
+            <param name="filename">The name of the file containing the effect</param>
         </member>
-        <member name="M:EGGEngine.Rendering.UIRenderer.#ctor(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+        <member name="M:EGGEngine.Rendering.PostProcessing.PostProcess(System.String)">
             <summary>
-            Create user interface renderer
+            Runs the appropriate postprocess technique
             </summary>
+            <param name="technique">The technique that is to be run</param>
+        </member>
+        <member name="M:EGGEngine.Rendering.PostProcessing.PostProcess(System.String,System.Single)">
+            <summary>
+            Runs the given technique for postprocessing and sets the time if needed
+            </summary>
+            <param name="technique">The technique that is to be run</param>
+            <param name="time">The time parameter used for the change over time effect</param>
+        </member>
+        <member name="T:EGGEngine.Audio.Audio">
+            <summary>
+            Audio class used for creating sounds/ background music in a game
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Audio.Audio.#ctor(System.String)">
+            <summary>
+            Initialises the Audio engine
+            </summary>
+            <param name="audioFilePath">A string containing the file path to your Xact file ( make sure to put ".xgs" at the end of the string i.e - "Content\\example.xgs"</param>
+        </member>
+        <member name="M:EGGEngine.Audio.Audio.GetCategory(System.String)">
+            <summary>
+            Used to get the category from the Xact file
+            </summary>
+            <param name="categoryname">A string of the name of the category i.e "Music"</param>
+            <returns>Returns an AudioCategory</returns>
+        </member>
+        <member name="M:EGGEngine.Audio.Audio.GetCue(System.String)">
+            <summary>
+            Get the cue from the Xact file using a string. This should be the first line in your game, in Initialise() 
+            </summary>
+            <param name="sound"> A string of the name of the cue in your Xact file</param>
+            <returns>Returns the cue of a given string from your Xact file</returns>
+        </member>
+        <member name="M:EGGEngine.Audio.Audio.Play(Microsoft.Xna.Framework.Audio.Cue,System.Boolean,Microsoft.Xna.Framework.Audio.AudioListener,Microsoft.Xna.Framework.Audio.AudioEmitter)">
+            <summary>
             
+            </summary>
+            <param name="cue"></param>
+            <param name="apply3d"></param>
+            <param name="listener"></param>
+            <param name="emitter"></param>
+            <returns></returns>
         </member>
-        <member name="M:EGGEngine.Rendering.UIRenderer.Dispose">
+        <member name="T:EGGEngine.Rendering.HUD">
             <summary>
-            Dispose
+            This is a game component that implements IUpdateable.
             </summary>
         </member>
-        <member name="M:EGGEngine.Rendering.UIRenderer.Dispose(System.Boolean)">
+        <member name="T:EGGEngine.Awards.Award">
             <summary>
-            Dispose
+            Represents a single Award the user can unlock.
             </summary>
-            <param name="disposing">Disposing</param>
         </member>
-        <member name="M:EGGEngine.Rendering.UIRenderer.Update(Microsoft.Xna.Framework.GameTime)">
+        <member name="M:EGGEngine.Awards.Award.#ctor">
             <summary>
-            Updates
+            Default constructor. Give default values to prevent division by zero.
             </summary>
-            <param name="gameTime">The current game time</param>
         </member>
-        <member name="M:EGGEngine.Rendering.UIRenderer.Draw">
+        <member name="M:EGGEngine.Awards.Award.LoadTexture(Microsoft.Xna.Framework.Content.ContentManager)">
             <summary>
-            Draws the frame counter to the screen
+            Loads the texture to represent the award.
             </summary>
+            <param name="content">The ContentManager to use for loading.</param>
+        </member>
+        <member name="P:EGGEngine.Awards.Award.Name">
+            <summary>
+            Gets or sets the name of the Award.
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Awards.Award.TextureAssetName">
+            <summary>
+            Gets or sets the asset name for the texture. Each texture will be fit into
+            a 64x64 area so being square is ideal.
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Awards.Award.Texture">
+            <summary>
+            Gets the texture for the Award.
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Awards.Award.ProgressNeeded">
+            <summary>
+            Gets or sets the progress points needed to unlock the award.
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Awards.Award.ProgressIncrement">
+            <summary>
+            Gets or sets the progress point increment between each award notification.
+            </summary>
+        </member>
+        <member name="T:EGGEngine.Awards.AwardsComponent">
+            <summary>
+            Contains all the awards for the game and manages everything about them. 
+            Uses the Guide.NotificationPosition when drawing the announcements.
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.#ctor(Microsoft.Xna.Framework.Game)">
+            <summary>
+            Creates a new AwardsComponent for the given game.
+            </summary>
+            <param name="game">The Game in which the component will run.</param>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.GetGamertagPosition(Microsoft.Xna.Framework.Rectangle,System.String)">
+            <summary>
+            Gets the location where to draw the gamertag.
+            </summary>
+            <param name="announcementBounds">The announcement bounds.</param>
+            <param name="gamertag">The gamertag.</param>
+            <returns>The new Vector2 position for the gamertag.</returns>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.GetNamePosition(Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            Gets the location where to draw the award name.
+            </summary>
+            <param name="announcementBounds">The announcement bounds.</param>
+            <returns>The new Vector2 position for the award name.</returns>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.GetMessagePosition(Microsoft.Xna.Framework.Rectangle,System.String)">
+            <summary>
+            Gets the location where to draw the award message.
+            </summary>
+            <param name="announcementBounds">The announcement bounds.</param>
+            <param name="message">The award message.</param>
+            <returns>The new Vector2 position for the award message.</returns>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.GetTextPosition(Microsoft.Xna.Framework.Rectangle,System.String,System.Int32,System.Int32)">
+            <summary>
+            Gets the location where to draw text in an award notification.
+            </summary>
+            <param name="announcementBounds">The announcement bounds.</param>
+            <param name="text">The text to display.</param>
+            <param name="centerX">Horizontal center of where to render.</param>
+            <param name="centerY">Vertical center of where to render.</param>
+            <returns>The new Vector2 position for the text.</returns>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.GetIconBounds(Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            Gets the bounds for the award icon.
+            </summary>
+            <param name="announcementBounds">The announcement bounds.</param>
+            <returns>The new Rectangle bounds for the award icon.</returns>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.CalculateAnnouncementBounds">
+            <summary>
+            Calculates the bounds for the announcement based on the Guide.NotificationPosition property
+            </summary>
+            <returns>The new Rectangle bounds for the announcement.</returns>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.GetAwardProgress(EGGEngine.Awards.Award,System.String,System.Boolean)">
+            <summary>
+            Helper function. Acquires the AwardProgress for the given award and gamer.
+            </summary>
+            <param name="award">The award to search for.</param>
+            <param name="gamertag">The gamer unlocking the award.</param>
+            <param name="makeIfNotFound">
+            True if a new AwardProgress should be created if it does not exist.
+            </param>
+            <returns>The appropriate AwardProgress object, or null if not found or created.</returns>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.GetAwardByName(System.String)">
+            <summary>
+            Retrieves an award by name.
+            </summary>
+            <param name="name">The name of the award to retrieve.</param>
+            <returns>The Award instance if a match was found, null otherwise.</returns>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.IsAwardUnlocked(EGGEngine.Awards.Award,System.String)">
+            <summary>
+            Determines if a given award has been unlocked.
+            </summary>
+            <param name="award"></param>
+            <param name="gamertag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.UnlockAward(EGGEngine.Awards.Award,System.String)">
+            <summary>
+            Unlocks an award.
+            </summary>
+            <param name="award">The award to unlock.</param>
+            <param name="gamertag">The gamer who unlocked the award.</param>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.AddAwardProgress(EGGEngine.Awards.Award,System.String,System.Int32)">
+            <summary>
+            Adds progress points to an award for a gamer, unlocking it if needed.
+            </summary>
+            <param name="award">The award to add progress.</param>
+            <param name="gamertag">The gamer progressing the award.</param>
+            <param name="progress">The number of progress points obtained.</param>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.SaveAwardProgress(System.String)">
+            <summary>
+            Saves a list of the unlocked award names to a file. This is not the best
+            route on Windows where a user could easily edit the file, but on Xbox
+            it is sufficient given that the hard drive is not easily accessible.
+            </summary>
+            <param name="file">The file path to which the data is saved.</param>
+        </member>
+        <member name="M:EGGEngine.Awards.AwardsComponent.LoadAwardProgress(System.String)">
+            <summary>
+            Loads a list of unlocked award names from a file.
+            </summary>
+            <param name="file">The file path from which the data is read.</param>
+        </member>
+        <member name="P:EGGEngine.Awards.AwardsComponent.Awards">
+            <summary>
+            Gets the list of all awards in the game.
+            </summary>
+        </member>
+        <member name="E:EGGEngine.Awards.AwardsComponent.AwardUnlocked">
+            <summary>
+            Raised when an award is unlocked.
+            </summary>
+            <remarks>
+            The event is useful for games that unlock special content when awards
+            are unlocked. This allows games to unlock awards from anywhere and have
+            a single location listen for the events to respond accordingly.
+            </remarks>
         </member>
         <member name="M:EGGEngine.Helpers.InputHelper.KeyDown(Microsoft.Xna.Framework.Input.Keys)">
             <summary>
@@ -183,87 +465,27 @@
             <param name="thumbstick">The thumbstick being manipulated</param>
             <returns>Float value representing the direction the thumbstick is being pushed in the y direction</returns>
         </member>
-        <member name="T:EGGEngine.Audio.Audio">
+        <member name="T:EGGEngine.Awards.AwardUnlockedEventArgs">
             <summary>
-            Audio class used for creating sounds/ background music in a game
+            A simple event argument class fired when an achievement is unlocked.
             </summary>
         </member>
-        <member name="M:EGGEngine.Audio.Audio.#ctor(System.String)">
+        <member name="M:EGGEngine.Awards.AwardUnlockedEventArgs.#ctor(EGGEngine.Awards.Award,System.String)">
             <summary>
-            Initialises the Audio engine
+            Creates a new AwardUnlockedEventArgs with the given award.
             </summary>
-            <param name="audioFilePath">A string containing the file path to your Xact file ( make sure to put ".xgs" at the end of the string i.e - "Content\\example.xgs"</param>
+            <param name="award">The award that was unlocked.</param>
+            <param name="gamertag">The gamer who unlocked it.</param>
         </member>
-        <member name="M:EGGEngine.Audio.Audio.GetCategory(System.String)">
+        <member name="P:EGGEngine.Awards.AwardUnlockedEventArgs.Award">
             <summary>
-            Used to get the category from the Xact file
-            </summary>
-            <param name="categoryname">A string of the name of the category i.e "Music"</param>
-            <returns>Returns an AudioCategory</returns>
-        </member>
-        <member name="M:EGGEngine.Audio.Audio.GetCue(System.String)">
-            <summary>
-            Get the cue from the Xact file using a string. This should be the first line in your game, in Initialise() 
-            </summary>
-            <param name="sound"> A string of the name of the cue in your Xact file</param>
-            <returns>Returns the cue of a given string from your Xact file</returns>
-        </member>
-        <member name="M:EGGEngine.Audio.Audio.Play(Microsoft.Xna.Framework.Audio.Cue,System.Boolean,Microsoft.Xna.Framework.Audio.AudioListener,Microsoft.Xna.Framework.Audio.AudioEmitter)">
-            <summary>
-            
-            </summary>
-            <param name="cue"></param>
-            <param name="apply3d"></param>
-            <param name="listener"></param>
-            <param name="emitter"></param>
-            <returns></returns>
-        </member>
-        <member name="T:EGGEngine.Rendering.Sky">
-            <summary>
-            Runtime class for loading and rendering a textured skydome
-            that was created during the build process by the SkyProcessor.
+            Gets the Award that was unlocked.
             </summary>
         </member>
-        <member name="M:EGGEngine.Rendering.Sky.#ctor(Microsoft.Xna.Framework.Content.ContentReader)">
+        <member name="P:EGGEngine.Awards.AwardUnlockedEventArgs.Gamertag">
             <summary>
-            Constructor is internal: this should only ever
-            be called by the SkyReader class.
+            Gets the gamer who unlocked the award.
             </summary>
-        </member>
-        <member name="M:EGGEngine.Rendering.Sky.Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
-            <summary>
-            Helper for drawing the skydome mesh.
-            </summary>
-        </member>
-        <member name="T:EGGEngine.Rendering.SkyReader">
-            <summary>
-            Helper for reading a Sky object from the compiled XNB format.
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Rendering.PostProcessing.InitPostProcessingVertices">
-            <summary>
-            Sets up the vertices that cover the viewport
-            </summary>
-        </member>
-        <member name="M:EGGEngine.Rendering.PostProcessing.LoadEffect(Microsoft.Xna.Framework.Content.ContentManager,System.String)">
-            <summary>
-            Loads the appropriate effect
-            </summary>
-            <param name="content">Content manager needed to load the appropriate effect</param>
-            <param name="filename">The name of the file containing the effect</param>
-        </member>
-        <member name="M:EGGEngine.Rendering.PostProcessing.PostProcess(System.String)">
-            <summary>
-            Runs the appropriate postprocess technique
-            </summary>
-            <param name="technique">The technique that is to be run</param>
-        </member>
-        <member name="M:EGGEngine.Rendering.PostProcessing.PostProcess(System.String,System.Single)">
-            <summary>
-            Runs the given technique for postprocessing and sets the time if needed
-            </summary>
-            <param name="technique">The technique that is to be run</param>
-            <param name="time">The time parameter used for the change over time effect</param>
         </member>
     </members>
 </doc>

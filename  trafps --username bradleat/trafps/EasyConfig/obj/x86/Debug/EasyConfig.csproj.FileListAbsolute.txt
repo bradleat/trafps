@@ -16,3 +16,9 @@ C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\Reso
 C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\EasyConfig.dll
 C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EasyConfig\obj\x86\Debug\EasyConfig.pdb
+C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EasyConfig\bin\x86\Debug\EasyConfig.dll
+C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EasyConfig\bin\x86\Debug\EasyConfig.pdb
+C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EasyConfig\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EasyConfig\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EasyConfig\obj\x86\Debug\EasyConfig.dll
+C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EasyConfig\obj\x86\Debug\EasyConfig.pdb

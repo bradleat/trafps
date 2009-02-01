@@ -7,8 +7,8 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\fx\bloom.xnb</Output>
-      <Time>2009-01-11T13:44:21.2698986-05:00</Time>
+      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\fx\bloom.xnb</Output>
+      <Time>2009-02-01T18:52:42+01:00</Time>
     </Item>
     <Item>
       <Source>award-1.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-1.xnb</Output>
-      <Time>2009-01-11T14:00:09.3618986-05:00</Time>
+      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\award-1.xnb</Output>
+      <Time>2009-02-01T18:52:42+01:00</Time>
     </Item>
     <Item>
       <Source>award-2.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-2.xnb</Output>
-      <Time>2009-01-11T14:00:09.3778986-05:00</Time>
+      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\award-2.xnb</Output>
+      <Time>2009-02-01T18:52:42+01:00</Time>
     </Item>
     <Item>
       <Source>award-3.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-3.xnb</Output>
-      <Time>2009-01-11T14:00:05.6818986-05:00</Time>
+      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\award-3.xnb</Output>
+      <Time>2009-02-01T18:52:42+01:00</Time>
     </Item>
     <Item>
       <Source>award-4.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-4.xnb</Output>
-      <Time>2009-01-11T14:00:05.6908986-05:00</Time>
+      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\award-4.xnb</Output>
+      <Time>2009-02-01T18:52:42+01:00</Time>
     </Item>
     <Item>
       <Source>award-5.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-5.xnb</Output>
-      <Time>2009-01-11T14:00:05.6978986-05:00</Time>
+      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\award-5.xnb</Output>
+      <Time>2009-02-01T18:52:42+01:00</Time>
     </Item>
     <Item>
       <Source>award-background.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-background.xnb</Output>
-      <Time>2009-01-11T14:00:05.7048986-05:00</Time>
+      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\award-background.xnb</Output>
+      <Time>2009-02-01T18:52:42+01:00</Time>
     </Item>
     <Item>
       <Source>award-sound.wav</Source>
@@ -70,8 +70,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-sound.xnb</Output>
-      <Time>2009-01-11T14:00:05.7208986-05:00</Time>
+      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\award-sound.xnb</Output>
+      <Time>2009-02-01T18:52:42+01:00</Time>
     </Item>
     <Item>
       <Source>award-font.spritefont</Source>
@@ -79,8 +79,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\award-font.xnb</Output>
-      <Time>2009-01-11T14:00:05.7138986-05:00</Time>
+      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\award-font.xnb</Output>
+      <Time>2009-02-01T18:52:42+01:00</Time>
     </Item>
     <Item>
       <Source>main.spritefont</Source>
@@ -88,43 +88,43 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\main.xnb</Output>
-      <Time>2009-01-11T14:00:09.3468986-05:00</Time>
+      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\main.xnb</Output>
+      <Time>2009-02-01T18:52:42+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Bradley Leatherwood\Desktop\trafps\trafps\EGGEngine\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2008-10-10T18:42:32-04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2008-10-10T18:42:32+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2008-10-10T18:43:28-04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2008-10-10T18:43:28+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2008-10-10T18:43:18-04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2008-10-10T18:43:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2008-10-10T18:48:18-04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2008-10-10T18:48:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2008-10-10T18:48:50-04:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2008-10-10T18:48:50+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2009-01-10T19:20:48.3507516-05:00</Value>
+        <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2008-12-15T18:05:54+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
