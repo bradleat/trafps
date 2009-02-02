@@ -48,7 +48,6 @@ C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\b
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\award-sound.xnb
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\award-font.xnb
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\Content\main.xnb
-C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\EGGEngine.XML
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\EGGEngine.dll
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\EGGEngine.pdb
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEngine\bin\x86\Debug\EasyConfig.dll

@@ -10,12 +10,11 @@ namespace EGGEngine.Physics
 {
     public class World
     {
-        Primatives.TriangleMesh[] mesh;
-        int divisions = 2;
+        Primatives.TriangleMesh mesh;
 
         #region Properties
 
-        public Primatives.TriangleMesh[] Mesh
+        public Primatives.TriangleMesh Mesh
         {
             get { return mesh; }
         }
@@ -24,9 +23,21 @@ namespace EGGEngine.Physics
 
         #endregion
 
-        public World(Primatives.TriangleMesh[] Mesh)
+        public World(Model model)
         {
-            this.mesh = Mesh;
+            Dictionary<string, object> tagData = (Dictionary<string, object>)model.Tag;
+
+            Vector3[] vertices = (Vector3[])tagData["Vertices"];
+            Primatives.Triangle[] triangles = new Primatives.Triangle[vertices.Length/3];
+            int n = 0;
+            for (int i = 0; i < vertices.Length; )
+            {
+                Vector3 v1 = vertices[i++];
+                Vector3 v2 = vertices[i++];
+                Vector3 v3 = vertices[i++];
+                triangles[n++] = new Primatives.Triangle(v1, v2, v3);
+            }
+            this.mesh = new Primatives.TriangleMesh(triangles);
         }
 
         //Vector2 BoxSize(Primatives.TriangleMesh Mesh)

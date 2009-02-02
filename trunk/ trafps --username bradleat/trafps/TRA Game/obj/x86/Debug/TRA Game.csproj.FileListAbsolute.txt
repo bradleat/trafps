@@ -119,7 +119,6 @@ C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bi
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Wave Bank.xwb
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Sound Bank.xsb
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\config.ini
-C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\TRA Game.XML
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\TRA Game.exe
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\TRA Game.pdb
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\EasyConfig.dll
