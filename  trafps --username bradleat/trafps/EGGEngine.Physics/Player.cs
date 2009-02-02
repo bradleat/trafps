@@ -18,9 +18,9 @@ namespace EGGEngine.Physics
         Intersection intersection;
         Primatives.TriangleMesh world;
 
-        const float walkSpeed = .3f;
-        const float runSpeed = .7f;
-        const float sprintSpeed = 1.5f;
+        const float walkSpeed = .2f;
+        const float runSpeed = .5f;
+        const float sprintSpeed = 1.0f;
         float Gravity = -0.1f;
 
 
@@ -51,9 +51,9 @@ namespace EGGEngine.Physics
         /// <param name="BoundingBoxSize">The Height, Width and Depth of the player</param>
 
 
-        public Player(Vector3 InitialPosition, float InitialRotation, Vector3 BoundingBoxSize, Primatives.TriangleMesh World)
+        public Player(Vector3 InitialPosition, float InitialRotation, Vector3 BoundingBoxSize, World world)
         {
-            this.world = World;
+            this.world = world.Mesh;
             this.position = InitialPosition;
             this.rotation = InitialRotation;
             this.boundingBoxSize = BoundingBoxSize;
@@ -77,7 +77,7 @@ namespace EGGEngine.Physics
                     speed += (runSpeed - speed) * 0.8f;
                     break;
                 case 3:
-                    speed += (sprintSpeed - speed) * 0.8f;
+                    speed = 0;
                     break;
             }
 
@@ -89,18 +89,27 @@ namespace EGGEngine.Physics
 
             intersection = new Intersection();
 
+            //float[] intersectionPoints = new float[4];
 
-            Primatives.Line Line = new Primatives.Line(position - boundingBoxSize * Vector3.UnitY / 2, position + boundingBoxSize * Vector3.UnitY / 2);
-
-            for (int i = 0; i < world.Triangles.Length; i++)
+            if (State != 3)
             {
-                    float intersectionpoint = intersection.LineTriangle(world.Triangles[i], new Primatives.Line(position - boundingBoxSize * Vector3.UnitY / 2, position + boundingBoxSize * Vector3.UnitY / 2));
-                    if (intersectionpoint != -1)
+                Primatives.Line Line = new Primatives.Line(position - boundingBoxSize.Y * Vector3.UnitY / 2, position + boundingBoxSize.Y * Vector3.UnitY / 2);
+
+                for (int i = 0; i < world.Triangles.Length; i++)
+                {
+                    float intersectionPoint = intersection.LineTriangle(world.Triangles[i], Line);
+                    if (intersectionPoint != -1)
                     {
-                        position.Y += intersectionpoint * boundingBoxSize.Y;
-                        velocity = Vector3.Zero;
+                        velocity.Y = 0f;
+                        if(intersectionPoint < 0.3f)
+                        {
+                            position.Y += intersectionPoint * boundingBoxSize.Y;
+                        }
                     }
+                }
             }
+
+
         }
     }
 

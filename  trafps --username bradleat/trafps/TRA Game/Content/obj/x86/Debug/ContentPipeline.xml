@@ -238,28 +238,10 @@
       <Time>2009-02-01T18:49:36+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ship_0.xml</Key>
-        <Value>2009-02-01T19:08:56+01:00</Value>
+        <Value>2009-02-01T23:28:44+01:00</Value>
       </Dependency>
       <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\terrain_0.xnb</Request>
       <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\sunset_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>ship_map.fbx</Source>
-      <Name>ship_map</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\ship_map.xnb</Output>
-      <Time>2009-02-01T18:51:54+01:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\ship_map_0.xml</Key>
-        <Value>2009-02-01T19:08:58+01:00</Value>
-      </Dependency>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Ship_Wall_0.xnb</Request>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Wire_floor_0.xnb</Request>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\steel_floor_final_0.xnb</Request>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\ship_ceiling_0.xnb</Request>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\copper_pipe_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\model.x</Source>
@@ -271,7 +253,7 @@
       <Time>2009-02-01T18:49:36+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\model_0.xml</Key>
-        <Value>2009-02-01T19:09:00+01:00</Value>
+        <Value>2009-02-01T23:28:50+01:00</Value>
       </Dependency>
       <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_0.xnb</Request>
       <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_1.xnb</Request>
@@ -287,7 +269,7 @@
       <Time>2009-02-01T18:49:36+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\LevelPreVis1_0.xml</Key>
-        <Value>2009-02-01T19:09:02+01:00</Value>
+        <Value>2009-02-01T23:28:50+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -300,7 +282,7 @@
       <Time>2009-02-01T18:51:52+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\cube_0.xml</Key>
-        <Value>2009-02-01T19:09:02+01:00</Value>
+        <Value>2009-02-01T23:28:50+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -547,6 +529,24 @@
       <Output>obj\x86\Debug\cube_0.xml</Output>
       <Time>2009-02-01T18:51:52+01:00</Time>
     </Item>
+    <Item>
+      <Source>ship_map.fbx</Source>
+      <Name>ship_map</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>TrianglePickingProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\ship_map.xnb</Output>
+      <Time>2009-02-01T18:51:54+01:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\ship_map_0.xml</Key>
+        <Value>2009-02-01T23:28:46+01:00</Value>
+      </Dependency>
+      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Ship_Wall_0.xnb</Request>
+      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Wire_floor_0.xnb</Request>
+      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\steel_floor_final_0.xnb</Request>
+      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\ship_ceiling_0.xnb</Request>
+      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\copper_pipe_0.xnb</Request>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
@@ -580,7 +580,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGPipelineExtension\bin\Zune\Debug\EGGPipelineExtension.dll</Key>
-        <Value>2009-02-01T19:08:34+01:00</Value>
+        <Value>2009-02-01T23:28:22+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>

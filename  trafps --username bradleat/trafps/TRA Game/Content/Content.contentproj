@@ -226,7 +226,7 @@
     <Compile Include="ship_map.fbx">
       <Name>ship_map</Name>
       <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
+      <Processor>TrianglePickingProcessor</Processor>
     </Compile>
     <Compile Include="Ship_Wall.tga">
       <Name>Ship_Wall</Name>
