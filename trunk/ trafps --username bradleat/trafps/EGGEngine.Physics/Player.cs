@@ -15,12 +15,13 @@ namespace EGGEngine.Physics
         float rotation;
         float speed;
         Vector3 boundingBoxSize;
+        Vector3 oldPosition;
         Intersection intersection;
         Primatives.TriangleMesh world;
 
-        const float walkSpeed = .2f;
-        const float runSpeed = .5f;
-        const float sprintSpeed = 1.0f;
+        const float walkSpeed = .1f;
+        const float runSpeed = .3f;
+        const float sprintSpeed = .5f;
         float Gravity = -0.1f;
 
 
@@ -77,9 +78,11 @@ namespace EGGEngine.Physics
                     speed += (runSpeed - speed) * 0.8f;
                     break;
                 case 3:
-                    speed = 0;
+                    speed += (sprintSpeed - speed) * 0.8f;
                     break;
             }
+
+            oldPosition = position;
 
             velocity.X = MoveDirection.X * speed;
             velocity.Z = MoveDirection.Y * speed;
@@ -91,8 +94,6 @@ namespace EGGEngine.Physics
 
             //float[] intersectionPoints = new float[4];
 
-            if (State != 3)
-            {
                 Primatives.Line Line = new Primatives.Line(position - boundingBoxSize.Y * Vector3.UnitY / 2, position + boundingBoxSize.Y * Vector3.UnitY / 2);
 
                 for (int i = 0; i < world.Triangles.Length; i++)
@@ -101,13 +102,16 @@ namespace EGGEngine.Physics
                     if (intersectionPoint != -1)
                     {
                         velocity.Y = 0f;
-                        if(intersectionPoint < 0.3f)
+                        if (intersectionPoint < 0.3f)
                         {
                             position.Y += intersectionPoint * boundingBoxSize.Y;
                         }
+                        else
+                        {
+                            position = oldPosition;
+                        }
                     }
                 }
-            }
 
 
         }
