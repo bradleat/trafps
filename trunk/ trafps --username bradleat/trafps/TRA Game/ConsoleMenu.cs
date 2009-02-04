@@ -218,22 +218,15 @@ namespace TRA_Game
             }
             else if (command.StartsWith("Components", true, null) && command.EndsWith("Components", true, null))
             {
-                log.Add(logPrefix + "Background - Displays the sunset background");
                 log.Add(logPrefix + "FPS - Displays the current frames per second");
             }
             else if (command.StartsWith("Title ", true, null))
             {
                 Game.Window.Title = command.Remove(0, 6);
                 log.Add(logPrefix + "Title updated");
-            }/*
-            else if (command.StartsWith("Toggle background", true, null) && command.EndsWith("Toggle background", true, null))
-            {
-                Main.BGActive = !Main.BGActive;
-                log.Add(logPrefix + "Background: " + (Main.BGActive ? "ON" : "OFF"));
-            }*/
+            }
             else if (command.StartsWith("Toggle FPS", true, null) && command.EndsWith("Toggle FPS", true, null))
             {
-
                 GameplayScreen.fpsCounter.Enabled = !GameplayScreen.fpsCounter.Enabled;
                 GameplayScreen.fpsCounter.Visible = !GameplayScreen.fpsCounter.Visible;
                 log.Add(logPrefix + "FPS: " + (GameplayScreen.fpsCounter.Visible ? "ON" : "OFF"));

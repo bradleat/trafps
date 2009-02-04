@@ -235,7 +235,7 @@ namespace TRA_Game
             camera = new FPSCamera(ScreenManager.Game.GraphicsDevice.Viewport);
             person1 = new DrawableModel(Content.Load<Model>("Models//model"), Matrix.Identity);
             person2 = new DrawableModel(Content.Load<Model>("Models//model"), Matrix.Identity);
-            pistol = new DrawableModel(Content.Load<Model>("Models//pistol"), Matrix.Identity);
+            pistol = new DrawableModel(Content.Load<Model>("Models//pistol(1)"), Matrix.Identity);
             awards = new AwardsComponent(ScreenManager.Game);
             shootAward = new Award { Name = "Shoot!", TextureAssetName = "award-1", ProgressNeeded = 10 };
             shootAward.LoadTexture(Content);
@@ -414,7 +414,10 @@ namespace TRA_Game
                 Ray ray = new Ray(person2.Position, direction);
                 CheckPlayerCollision(ray, out result);
                 if (result != null)
+                {
                     person1.PlayerRecieveDamage(bulletDamage, initalPos1);
+                    enemyScore += 1;
+                }
                 lastEnemyBulletTime = currentTime;
                 audioHelper.Play(famas_1, false, listener, emitter);
             }
@@ -485,7 +488,11 @@ namespace TRA_Game
                         Ray ray = new Ray(pistol.position, direction);
                         CheckEnemyCollision(ray,out result);
                         if (result != null)
+                        {
                             person2.EnemyRecieveDamage(bulletDamage);
+                            PlayerScore += 1;
+                        } 
+
                         
                         bulletAmount -= 1;
                         
