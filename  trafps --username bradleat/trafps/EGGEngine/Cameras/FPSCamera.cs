@@ -87,7 +87,7 @@ namespace EGGEngine.Cameras
             set
             {
                 cameraPosition = value;
-                UpdateViewMatrix();
+                UpdateViewMatrix(false);
             }
         }
         public Matrix CameraRotation
@@ -115,7 +115,7 @@ namespace EGGEngine.Cameras
             projectionMatrix = Matrix.CreatePerspectiveFieldOfView
                 (viewAngle, viewPort.AspectRatio, nearPlane, farPlane);
 
-            UpdateViewMatrix();
+            UpdateViewMatrix(false);
 
             Mouse.SetPosition(viewPort.Width / 2, viewPort.Height / 2);
             originalMouseState = Mouse.GetState();
@@ -152,7 +152,7 @@ namespace EGGEngine.Cameras
             }
             this.modelPosition = modelPosition;
 
-            UpdateViewMatrix();
+            UpdateViewMatrix(false);
         }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace EGGEngine.Cameras
         /// </summary>
         /// <param name="vectorToAdd">The direction being applied</param>
         /// <param name="position">The position of the model</param>
-        public void AddToCameraPosition(Vector3 vectorToAdd, float forwardReq, ref Vector3 modelPosition, GameTime gameTime)
+        public void AddToCameraPosition(Vector3 vectorToAdd, float forwardReq, ref Vector3 modelPosition, GameTime gameTime, bool isWeapon)
         {
             float elapsedTime = (float)gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
 
@@ -174,13 +174,13 @@ namespace EGGEngine.Cameras
             velocity = forwardSpeed * rotatedVector;
                         
             modelPosition += velocity * elapsedTime;
-            UpdateViewMatrix();
+            UpdateViewMatrix(isWeapon);
         }
 
         /// <summary>
         /// Updates the view matrix accordingly.
         /// </summary>
-        private void UpdateViewMatrix()
+        private void UpdateViewMatrix(bool isWeapon)
         {
             cameraRotation = Matrix.CreateRotationX(upDownRot) *
                 Matrix.CreateRotationY(leftRightRot);
@@ -188,7 +188,8 @@ namespace EGGEngine.Cameras
             Vector3 cameraOriginalTarget = new Vector3(0, 0, -1);
             Vector3 cameraOriginalUpVector = new Vector3(0, 1, 0);
 
-            UpdateModelView(cameraRotation);
+            if (isWeapon == false)
+                UpdateModelView(cameraRotation);
             
             Vector3 cameraRotatedTarget = Vector3.Transform
                 (cameraOriginalTarget, cameraRotation);
@@ -210,9 +211,8 @@ namespace EGGEngine.Cameras
         /// <param name="rotation">The current rotation of the camera</param>
         private void UpdateModelView(Matrix rotation)
         {
-
-            //Change the Z value of the offset to 0 for complete first-person mode
-            Vector3 avatarHeadOffset = new Vector3(-8, 10, //4
+	            //Change the Z value of the offset to 0 for complete first-person mode
+                Vector3 avatarHeadOffset = new Vector3(-8, 10, //4
             0);
 
             Vector3 headOffset = Vector3.Transform(avatarHeadOffset, rotation);

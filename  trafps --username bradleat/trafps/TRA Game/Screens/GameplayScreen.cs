@@ -54,9 +54,10 @@ namespace TRA_Game
         GameTime gameTime;
         ContentManager Content;
         SpriteFont gameFont;
-
-        Vector2 playerPosition = new Vector2(100, 100);
-        Vector2 enemyPosition = new Vector2(100, 100);
+        public static FrameRateCounter fpsCounter;
+        ConsoleMenu console;
+        
+        Vector3 pistolOffset = new Vector3(1, 1, -10);
 
         Random random = new Random();
 
@@ -67,15 +68,14 @@ namespace TRA_Game
         //Debugging Stuff
         bool FPS_Counter_On;
 
-        Vector3 initalPos1 = new Vector3(0, 15, 0);
+        Vector3 initalPos1 = new Vector3(0, 15, -2);
 
         //Config File Stuff
         ConfigFile config = new ConfigFile("content\\config.ini");
 
 
         DrawableModel person1;
-        DrawableModel bullet;
-        //Model terrain;
+        DrawableModel pistol;
         Model ship_Map;
         FPSCamera camera;
         PostProcessing postProc;
@@ -100,30 +100,29 @@ namespace TRA_Game
         DrawableModel person2;
         Vector3 initialPos2 = new Vector3(0, 15, -15);
 
-        List<DrawableModel> enemyBulletList = new List<DrawableModel>();
-        List<BoundingSphere> enemyBulletSpheres = new List<BoundingSphere>();
-
-        List<DrawableModel> bulletList = new List<DrawableModel>();
-        List<BoundingSphere> bulletspheres = new List<BoundingSphere>();
-        BoundingSphere bulletSphere, enemySphere, enemybulletSphere, playerSphere;
+        float bulletSpeed;
         double lastBulletTime = 0;
         double lastEnemyBulletTime = 0;
         float gameSpeed = 1.0f;
         int bulletAmount;
         const int maxBullets = 20;
         float bulletDamage;
-        float bulletSpeed;
         float gravity;
         int PlayerScore;
         int enemyScore;
 
         float forwardReq = 0;
         Vector3 moveDirection = new Vector3(0, 0, 0);
-
         HUD hud;
-
+        HUD.message playerMessage = new HUD.message();
+        HUD.message enemyMessage = new HUD.message();
+        HUD.message bulletAmountMessage = new HUD.message();
+        
+        List<HUD.message> messageList;
         AwardsComponent awards;
         Award shootAward;
+
+        
         
 
         /// <summary>
@@ -223,46 +222,65 @@ namespace TRA_Game
         {
             if (Content == null)
                 Content = new ContentManager(ScreenManager.Game.Services, "Content");
+            
+            ship_Map = new Model();
             input = new InputHelper();
+            sky = Content.Load<Sky>("Models\\sky1");
+            ship_Map = Content.Load<Model>("ship_map");
             audioHelper = new Audio("Content\\TRA_Game.xgs");
             famas_1 = audioHelper.GetCue("famas-1");
-            famas_forearm = audioHelper.GetCue("famas_forearm");
-            camera = new FPSCamera(ScreenManager.Game.GraphicsDevice.Viewport);
-            FPS_Counter_On = config.SettingGroups["DebugFeatures"].Settings["FPSCounterOn"].GetValueAsBool();
-
-            string name = config.SettingGroups["Filenames"].Settings["person"].GetValueAsString();
-            person1 = new DrawableModel(Content.Load<Model>(name), Matrix.Identity);
-
-            person2 = new DrawableModel(Content.Load<Model>(name), Matrix.Identity);
-
-            name = config.SettingGroups["Filenames"].Settings["terrain"].GetValueAsString();
-            //terrain = new Model();
-            //terrain = Content.Load<Model>(name);
-            ship_Map = new Model();
-            ship_Map = Content.Load<Model>("ship_map");
-            // Store the bones
             boneTransforms = new Matrix[ship_Map.Bones.Count];
+            famas_forearm = audioHelper.GetCue("famas_forearm");
             ship_Map.CopyAbsoluteBoneTransformsTo(boneTransforms);
+            camera = new FPSCamera(ScreenManager.Game.GraphicsDevice.Viewport);
+            person1 = new DrawableModel(Content.Load<Model>("Models//model"), Matrix.Identity);
+            person2 = new DrawableModel(Content.Load<Model>("Models//model"), Matrix.Identity);
+            pistol = new DrawableModel(Content.Load<Model>("Models//pistol"), Matrix.Identity);
+            awards = new AwardsComponent(ScreenManager.Game);
+            shootAward = new Award { Name = "Shoot!", TextureAssetName = "award-1", ProgressNeeded = 10 };
+            shootAward.LoadTexture(Content);
+            awards.Awards.Add(shootAward);
+            console = new ConsoleMenu(ScreenManager.Game);
+            ScreenManager.Game.Components.Add(console);
+            FPS_Counter_On = config.SettingGroups["DebugFeatures"].Settings["FPSCounterOn"].GetValueAsBool();
+            if (FPS_Counter_On == true)
+            {
+                fpsCounter = new FrameRateCounter(ScreenManager.Game);
+                ScreenManager.Game.Components.Add(fpsCounter);
+            }
+            ScreenManager.Game.Components.Add(awards = new AwardsComponent(ScreenManager.Game));
+            hud = new HUD(ScreenManager.Game, person1, bulletAmount, maxBullets, ScreenManager.Game.Content, ScreenManager.SpriteBatch);
+            ScreenManager.Game.Components.Add(hud);
+            messageList = hud.messageList;
+
+            playerMessage.title = "p";
+            playerMessage.font = ScreenManager.Font;
+            playerMessage.position = new Vector2(100, 527);
+            playerMessage.text = "Player Score :" + PlayerScore.ToString();
+            playerMessage.color = Color.Red;
+            messageList.Add(playerMessage);
+
+            enemyMessage.title = "e";
+            enemyMessage.font = ScreenManager.Font;
+            enemyMessage.position = new Vector2(100, 554);
+            enemyMessage.color = Color.Blue;
+            enemyMessage.text = "Enemy Score :" + enemyScore.ToString();
+            messageList.Add(enemyMessage);
+
+            bulletAmountMessage.title = "b";
+            bulletAmountMessage.font = ScreenManager.Font;
+            bulletAmountMessage.position = new Vector2(800, 554);
+            bulletAmountMessage.color = Color.White;
+            bulletAmountMessage.text = "Pistol :" + bulletAmount + "/" + maxBullets;
+            messageList.Add(bulletAmountMessage);
 
 
             string filename = Environment.CurrentDirectory + "GameVariables";
             OpenFile(filename);
-            sky = Content.Load<Sky>("Models\\sky1");
-            gameFont = Content.Load<SpriteFont>("gamefont");
-            // Comment this to remove the framerate counter
-            if (FPS_Counter_On == true)
-            {
-                ScreenManager.Game.Components.Add(new FrameRateCounter(ScreenManager.Game));
-            }
+
             person2.Position = new Vector3(0, 15, -30);
-
-            ScreenManager.Game.Components.Add(awards = new AwardsComponent(ScreenManager.Game));
-
-            shootAward = new Award {Name = "Shoot!", TextureAssetName = "award-1", ProgressNeeded = 10} ;
-            shootAward.LoadTexture(Content);
-            awards.Awards.Add(shootAward);
-
-            hud = new HUD(ScreenManager.Game, person1, bulletAmount, maxBullets, ScreenManager.Game.Content); 
+            bulletAmount = maxBullets;
+            person1.Life = 100;
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
             // while, giving you a chance to admire the beautiful loading screen.
@@ -275,6 +293,9 @@ namespace TRA_Game
         /// </summary>
         public override void UnloadContent()
         {
+            ScreenManager.Game.Components.Remove(hud);
+            ScreenManager.Game.Components.Remove(fpsCounter);
+            ScreenManager.Game.Components.Remove(console);
             Content.Unload();
         }
         #endregion
@@ -295,8 +316,6 @@ namespace TRA_Game
 
                 forwardReq = 0.0f;
                 moveDirection = new Vector3(0, 0, 0);
-
-                //float elapsedSeconds = (float)gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
 
                 if (input.KeyDown(Keys.S))
                 {
@@ -330,18 +349,22 @@ namespace TRA_Game
                     AddPlayerBullet();
                     awards.AddAwardProgress(shootAward, "Player 1", 10);
                 }
-        
+
                 
-                UpdateEnemy(gameTime);
-                UpdatePlayer(gameTime);
 
-                camera.AddToCameraPosition(moveDirection, forwardReq, ref initalPos1, gameTime);
+                //UpdateEnemy(gameTime);
+                UpdateWeapon(gameTime);
+
+                camera.AddToCameraPosition(moveDirection, forwardReq, ref initalPos1, gameTime, false);
+                
+
                 person1.Position = initalPos1;
-
+               
                 
                 person2.WorldMatrix = Matrix.CreateScale(2.0f);
                 camera.Update(mouseState, person1.Position);
 
+                pistol.WorldMatrix = Matrix.CreateScale(0.5f) * Matrix.CreateRotationY(3.2f);
                 person1.WorldMatrix = Matrix.CreateScale(2.0f) * Matrix.CreateRotationY(4.05f);
                 audioHelper.Update();
 
@@ -351,9 +374,24 @@ namespace TRA_Game
                     person1.isRespawning = false;
                 }
                 hud.UpdateBulletAmount(bulletAmount);
+                if (person1.Life != 100)
+                    person1.Life += 0.1f;
+            }
+
+            for (int i = 0; i < hud.messageList.Count; i++)
+            {
+                HUD.message currentMessage = hud.messageList[i];
+                if (currentMessage.title == "b")
+                     currentMessage.text = "Pistol :" + bulletAmount + "/" + maxBullets;
+                else if (currentMessage.title == "p")
+                    currentMessage.text = "Player Score :" + PlayerScore.ToString();
+                else if (currentMessage.title == "e")
+                    currentMessage.text = "Enemy Score :" + enemyScore.ToString();
+                hud.messageList[i] = currentMessage;
             }
             
-
+           
+            
             // If we are in a network game, check if we should return to the lobby.
             if ((networkSession != null) && !IsExiting) 
                 if (networkSession.SessionState == NetworkSessionState.Lobby)
@@ -364,152 +402,29 @@ namespace TRA_Game
         }
         #endregion
 
-        #region UpdatePlayer / UpdateEnemy
-
-        private void UpdatePlayer(GameTime gameTime)
-        {
-            if (bulletList.Count > 0)
-            {
-                //Check collision between each bullet and the enemy
-                for (int i = 0; i < bulletList.Count; i++)
-                {
-                    DrawableModel bullet = bulletList[i];
-                    bulletSphere = new BoundingSphere(bullet.Position, 1.5f);
-                    int result = CheckEnemyCollision(bulletSphere);
-                    if (result == 1)
-                    {
-                        person2.EnemyRecieveDamage(bulletDamage);
-                        PlayerScore += 1;
-                        bulletspheres.RemoveAt(i);
-                        bulletList.RemoveAt(i);
-                        i--;
-                    }
-                    else
-                        bulletList[i] = bullet;
-
-                }
-            }
-            // Move the bullets at a speed
-            UpdateBulletPositions(bulletSpeed);
-        }
-
-        
+        #region  UpdateEnemy / UpdateWeapon
         private void UpdateEnemy(GameTime gameTime)
         {
-            //TODO: Fix bullet to come at player. Rotation problem.
-
-
             double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
             if (currentTime - lastEnemyBulletTime > 1000)
             {
-                DrawableModel newBullet = new DrawableModel(Content.Load<Model>("cube"), Matrix.Identity);
-                newBullet.Position = person2.Position;
-                newBullet.Rotation = person2.Rotation;
-                newBullet.startingPosition = person2.Position;
-                newBullet.targetPosition = person1.Position;
-                enemyBulletList.Add(newBullet);
-                enemybulletSphere = new BoundingSphere(newBullet.Position, 1.0f);
-                enemyBulletSpheres.Add(enemybulletSphere);
-                audioHelper.Play(famas_1, false, new AudioListener(), new AudioEmitter());
-
+                float? result;
+                Matrix enemyRotation = Matrix.Invert(camera.CameraRotation);
+                Vector3 direction = Vector3.Transform(person2.position, enemyRotation);
+                Ray ray = new Ray(person2.Position, direction);
+                CheckPlayerCollision(ray, out result);
+                if (result != null)
+                    person1.PlayerRecieveDamage(bulletDamage, initalPos1);
                 lastEnemyBulletTime = currentTime;
-            }
-            
-            float moveSpeed = gameTime.ElapsedGameTime.Milliseconds / 500.0f * gameSpeed;
-            UpdateEnemyBulletPositions(bulletSpeed);
-
-            if (enemyBulletList.Count > 0)
-            {
-                // Checking for collision between the bullets and the player
-                for (int i = 0; i < enemyBulletList.Count; i++)
-                {
-                    DrawableModel bullet = enemyBulletList[i];
-                    bulletSphere = new BoundingSphere(bullet.Position, 1.5f);
-                    int result = CheckPlayerCollision(bulletSphere);
-                    if (result == 1)
-                    {
-                        initalPos1 = person1.PlayerRecieveDamage(bulletDamage, initalPos1);
-                        enemyScore += 1;
-                        enemyBulletSpheres.RemoveAt(i);
-                        enemyBulletList.RemoveAt(i);
-                        i--;
-                    }
-                    else
-                        enemyBulletList[i] = bullet;
-
-                }
-            }
-
-            UpdateEnemyBulletPositions(bulletSpeed);
-        }
-        #endregion
-
-        #region UpdateBullets
-        private void UpdateEnemyBulletPositions(float moveSpeed)
-        {
-            float maxDistance = 200f;
-            float bulletDistance;
-
-            
-            for (int i = 0; i < enemyBulletList.Count; i++)
-            {
-                DrawableModel currentBullet = enemyBulletList[i];
-                currentBullet.Position = MoveEnemyBullets(currentBullet.Position,currentBullet.startingPosition, currentBullet.targetPosition, bulletSpeed);
-                Vector3.Distance(ref currentBullet.startingPosition, ref currentBullet.position, out bulletDistance);
-                if (bulletDistance > maxDistance)
-                {
-                    enemyBulletSpheres.RemoveAt(i);
-                    enemyBulletList.RemoveAt(i);
-                    i--;
-                }
-                else if (currentBullet.position == currentBullet.targetPosition)
-                {
-                    enemyBulletSpheres.RemoveAt(i);
-                    enemyBulletList.RemoveAt(i);
-                    i--;
-                }
-                else
-                    enemyBulletList[i] = currentBullet;
+                audioHelper.Play(famas_1, false, listener, emitter);
             }
         }
-        /// <summary>
-        /// move each bullet.
-        /// </summary>
-        /// <param name="moveSpeed">Speed at which each bullet moves</param>
-        private void UpdateBulletPositions(float moveSpeed)
-        {
 
-            float maxDistance = 200f;
-            float bulletDistance;
-            for (int i = 0; i < bulletList.Count; i++)
-            {
-                DrawableModel currentBullet = bulletList[i];
-                currentBullet.Position = MoveForward(currentBullet.Position, currentBullet.Rotation, moveSpeed * 2.0f);
-                Vector3.Distance(ref camera.cameraPosition, ref currentBullet.position, out bulletDistance);
-                if (bulletDistance > maxDistance)
-                {
-                    bulletspheres.RemoveAt(i);
-                    bulletList.RemoveAt(i);
-                    i--;
-                }
-                else
-                    bulletList[i] = currentBullet;
-            }
-
-        }
-        private Vector3 MoveEnemyBullets(Vector3 currentPosition, Vector3 startPosition, Vector3 targetPos, float bulletSpeed)
+        private void UpdateWeapon(GameTime gameTime)
         {
-            Vector3 addVector = Vector3.Normalize(targetPos - startPosition);
-            
-            currentPosition += addVector * bulletSpeed;
-            return currentPosition;
-        }
-        private Vector3 MoveForward(Vector3 position, Matrix rotation, float speed)
-        {
-            Vector3 addVector = Vector3.Transform(new Vector3(0, 0, -1), rotation);
-            //addVector returns zero for enemy ?/?
-            position += addVector * speed;
-            return position;
+            pistol.position.X = person1.position.X + pistolOffset.X;
+            pistol.position.Y = person1.position.Y + pistolOffset.Y;
+            pistol.position.Z = person1.position.Z + pistolOffset.Z;
         }
         #endregion
 
@@ -520,32 +435,23 @@ namespace TRA_Game
         /// <param name="sphere">the bullet's bounding sphere</param>
         /// <returns>1 if colission
         /// 0 if no collision</returns>
-        int CheckPlayerCollision(BoundingSphere sphere)
+        void CheckPlayerCollision(Ray ray, out float? result)
         {
-
             //Create the bounding sphere for the player
-            playerSphere = new BoundingSphere();
+            BoundingSphere playerSphere = new BoundingSphere();
             playerSphere.Center = new Vector3(person1.Position.X, person1.Position.Y + 5f, person1.Position.Z);
             playerSphere.Radius = 5.0f;
 
-            if (playerSphere.Contains(sphere) != ContainmentType.Disjoint)
-                return 1;
-            else
-                return 0;
-
+            playerSphere.Intersects(ref ray,out result);
         }
-        int CheckEnemyCollision(BoundingSphere sphere)
+        void CheckEnemyCollision(Ray ray, out float? result)
         {
-            enemySphere = new BoundingSphere();
+            BoundingSphere enemySphere = new BoundingSphere();
             // put the center of the sphere in the centre of the model
             enemySphere.Center = new Vector3(person2.Position.X, person2.Position.Y + 5f, person2.Position.Z);
             enemySphere.Radius = 5.0f;
 
-            if (enemySphere.Contains(sphere) != ContainmentType.Disjoint)
-                return 1;
-            else
-                return 0;
-
+            enemySphere.Intersects(ref ray, out result);
         }
         #endregion
 
@@ -557,7 +463,6 @@ namespace TRA_Game
         public override void HandleInput(InputState input)
         {
             
-
             if (input == null)
                 throw new ArgumentNullException("input");
 
@@ -570,23 +475,23 @@ namespace TRA_Game
 
         private void AddPlayerBullet()
         {
-
                 if (bulletAmount > 0)
                 { 
                     double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
                     if (currentTime - lastBulletTime > 1000)
                     {
-                        DrawableModel newBullet = new DrawableModel(Content.Load<Model>("cube"), Matrix.Identity);
-                        newBullet.Position = person1.Position;
-                        newBullet.startingPosition = person1.Position;
-                        newBullet.Rotation = camera.CameraRotation;
-                        bulletList.Add(newBullet);
-                        bulletSphere = new BoundingSphere(newBullet.Position, 1.0f);
-                        bulletspheres.Add(bulletSphere);
-
+                        float? result;
+                        Vector3 direction = Vector3.Transform(new Vector3(0,0,-1), camera.CameraRotation);
+                        Ray ray = new Ray(pistol.position, direction);
+                        CheckEnemyCollision(ray,out result);
+                        if (result != null)
+                            person2.EnemyRecieveDamage(bulletDamage);
+                        
                         bulletAmount -= 1;
+                        
                         lastBulletTime = currentTime;
                         audioHelper.Play(famas_1, false, listener, emitter);
+                        
                     }
                 }
                 else
@@ -594,9 +499,7 @@ namespace TRA_Game
                     //Reload
                     bulletAmount = maxBullets;
                     audioHelper.Play(famas_forearm, false, listener, emitter);
-                }
-                   
-                
+                } 
             }
         
 
@@ -615,66 +518,35 @@ namespace TRA_Game
             ScreenManager.GraphicsDevice.RenderState.DepthBufferEnable = true;
             ScreenManager.GraphicsDevice.RenderState.AlphaBlendEnable = false;
             ScreenManager.GraphicsDevice.RenderState.AlphaTestEnable = false;
+   
+            person1.Model.Bones[0].Transform = person1.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
+            * Matrix.CreateRotationY(camera.LeftRightRot);
+            person1.Draw(camera);
+            person2.Draw(camera);
+            pistol.Model.Bones[0].Transform = pistol.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
+                * Matrix.CreateRotationY(camera.LeftRightRot);
+            pistol.Draw(camera);
+
+            #region Draw Ship / Draw Sky
+            foreach (ModelMesh mesh in ship_Map.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                   
+                    effect.EnableDefaultLighting();
+                    effect.World = boneTransforms[mesh.ParentBone.Index] * Matrix.CreateScale(4.0f);
+                    effect.SpecularColor = new Vector3(1, 0, 0);
+                    effect.View = camera.ViewMatrix;
+                    effect.Projection = camera.ProjectionMatrix;
+                }
+
+                mesh.Draw();
+            }
 
             
-                if (bulletList.Count > 0)
-                {
-                    for (int i = 0; i < bulletList.Count; i++)
-                    {
-                        DrawableModel currentBullet = bulletList[i];
-                        currentBullet.Model.Bones[0].Transform = person1.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
-                        * Matrix.CreateRotationY(camera.LeftRightRot);
-                        currentBullet.Draw(camera);
-                        bulletList[i] = currentBullet;
-                    }
-                }
-                if (enemyBulletList.Count > 0)
-                {
-                    for (int i = 0; i < enemyBulletList.Count; i++)
-                    {
-
-                        DrawableModel currentBullet = enemyBulletList[i];
-                        
-                        currentBullet.Model.Bones[0].Transform = person1.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
-                        * Matrix.CreateRotationY(camera.LeftRightRot);
-                        currentBullet.Draw(camera);
-                        enemyBulletList[i] = currentBullet;
-                    }
-                }
-
-                
-                
-                person1.Model.Bones[0].Transform = person1.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
-                * Matrix.CreateRotationY(camera.LeftRightRot);
-                person1.Draw(camera);
-                person2.Draw(camera);
-
-               
-
-                foreach (ModelMesh mesh in ship_Map.Meshes)
-                {
-                    foreach (BasicEffect effect in mesh.Effects)
-                    {
-                        effect.EnableDefaultLighting();
-                        effect.World = boneTransforms[mesh.ParentBone.Index] * Matrix.CreateScale(4.0f);
-                        effect.SpecularColor = new Vector3(1, 0, 0);
-                        effect.View = camera.ViewMatrix;
-                        effect.Projection = camera.ProjectionMatrix;
-                    }
-
-                    mesh.Draw();
-                }
-
-                
-                sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
-
-                //Demo Stuff
-                if (input.KeyDown(Keys.I))
-                    postProc.PostProcess("Invert");
-                if (input.KeyDown(Keys.T))
-                    postProc.PostProcess("TimeChange",
-                        (float)gameTime.TotalGameTime.TotalMilliseconds / 1000.0f);
-
+            sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
+            #endregion
+            /*
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
             SpriteFont font = ScreenManager.Font;
             spriteBatch.Begin();
@@ -685,19 +557,9 @@ namespace TRA_Game
             position.Y += 27;
             spriteBatch.DrawString(font, message2, position, Color.Blue);
             spriteBatch.End();
-
-            if (networkSession != null)
-            {
-                spriteBatch = ScreenManager.SpriteBatch;
-                spriteBatch.Begin();
-                string message = "Players: " + networkSession.AllGamers.Count;
-                Vector2 messagePosition = new Vector2(100, 480);
-                spriteBatch.DrawString(gameFont, message, messagePosition, Color.White);
-                spriteBatch.End();
-            }
-
-            hud.Draw(spriteBatch, font);
-            
+            */
+            //hud.Draw(spriteBatch, font);
+            base.Draw(gameTime);
 
             // If the game is transitioning on or off, fade it out to black.
             if (TransitionPosition > 0)
