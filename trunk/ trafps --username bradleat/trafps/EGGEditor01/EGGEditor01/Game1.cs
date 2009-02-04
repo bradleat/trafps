@@ -189,7 +189,7 @@ namespace EGGEditor01
                 moveDirection = new Vector3(1, 0, 0);   //Right
             }
 
-            camera.AddToCameraPosition(moveDirection, forwardReq, ref initalPos1, gameTime);
+            camera.AddToCameraPosition(moveDirection, forwardReq, ref initalPos1, gameTime, false);
             person1.Position = initalPos1;
 
             for (int i = 0; i < models.Count; i++)
