@@ -352,7 +352,7 @@ namespace TRA_Game
 
                 
 
-                //UpdateEnemy(gameTime);
+                UpdateEnemy(gameTime);
                 UpdateWeapon(gameTime);
 
                 camera.AddToCameraPosition(moveDirection, forwardReq, ref initalPos1, gameTime, false);
@@ -374,8 +374,11 @@ namespace TRA_Game
                     person1.isRespawning = false;
                 }
                 hud.UpdateBulletAmount(bulletAmount);
+
                 if (person1.Life != 100)
                     person1.Life += 0.1f;
+                //Force the health to remain between 0 and 100
+                person1.Life = (float)MathHelper.Clamp(person1.Life, 0, 100);
             }
 
             for (int i = 0; i < hud.messageList.Count; i++)
@@ -410,7 +413,8 @@ namespace TRA_Game
             {
                 float? result;
                 Matrix enemyRotation = Matrix.Invert(camera.CameraRotation);
-                Vector3 direction = Vector3.Transform(person2.position, enemyRotation);
+                Vector3 AI = new Vector3(2);
+                Vector3 direction = Vector3.Normalize(person1.position * AI - person2.position);
                 Ray ray = new Ray(person2.Position, direction);
                 CheckPlayerCollision(ray, out result);
                 if (result != null)
