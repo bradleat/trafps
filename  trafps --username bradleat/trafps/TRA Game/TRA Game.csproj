@@ -145,6 +145,10 @@
       <Project>{38DFDC14-0F98-41F7-BBD4-0FE4B782080C}</Project>
       <Name>EGGEngine.Networking</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EGGEngine.Physics\EGGEngine.Physics.csproj">
+      <Project>{FED15CD2-4373-495E-83BD-93AF04E0B927}</Project>
+      <Name>EGGEngine.Physics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EGGEngine\EGGEngine.csproj">
       <Project>{64581985-40BE-44EF-8F40-6DA37AD71E2B}</Project>
       <Name>EGGEngine</Name>
