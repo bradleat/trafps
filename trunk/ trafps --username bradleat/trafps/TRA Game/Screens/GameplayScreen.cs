@@ -27,6 +27,7 @@ using EGGEngine.Helpers;
 using EGGEngine.Utils;
 using EGGEngine.Audio;
 using EGGEngine.Awards;
+using EGGEngine.Physics;
 #endregion
 
 namespace TRA_Game
@@ -50,45 +51,21 @@ namespace TRA_Game
     class GameplayScreen : GameScreen
     {
         #region Fields
-        NetworkSession networkSession;
-        GameTime gameTime;
-        ContentManager Content;
-        SpriteFont gameFont;
+
         public static FrameRateCounter fpsCounter;
+
+        //Classes
+        NetworkSession networkSession;
+        ContentManager Content;
         ConsoleMenu console;
-        
-        Vector3 pistolOffset = new Vector3(1, 1, -10);
-
-        Random random = new Random();
-
-        Matrix[] boneTransforms;
-
-        GraphicsDeviceManager graphics;
-
-        //Debugging Stuff
-        bool FPS_Counter_On;
-
-        Vector3 initalPos1 = new Vector3(0, 15, -2);
-
-        //Config File Stuff
-        ConfigFile config = new ConfigFile("content\\config.ini");
-
-
         DrawableModel person1;
-        DrawableModel pistol;
-        Model ship_Map;
-        FPSCamera camera;
+        DrawableModel person2;
         PostProcessing postProc;
-        Vector3 translate = Vector3.Zero;
+        DrawableModel pistol;
         InputHelper input;
-        Sky sky;
+        FirstPersonCamera camera;
 
-        GameVariables gameVariables;
-
-        SplashTitle splashTitle;
-        MainMenu mainMenu;
-
-        //Audio
+        // Audio
         Audio audioHelper;
         Cue mystery;
         Cue famas_1;
@@ -96,35 +73,55 @@ namespace TRA_Game
         AudioEmitter emitter = new AudioEmitter();
         AudioListener listener = new AudioListener();
 
-        //Stuff for networking
-        DrawableModel person2;
-        Vector3 initialPos2 = new Vector3(0, 15, -15);
+        //Physics
+        Player player;
+        World world;
+        Model ship_Map;
+        Sky sky;
+        Matrix[] boneTransforms;
 
-        float bulletSpeed;
+        // Vector3
+        Vector3 initialPos2 = new Vector3(0, 15, -15); 
+        Vector3 pistolOffset = new Vector3(1, 1, -10);
+        Vector3 initalPos1 = new Vector3(0, 15, -2);
+        Vector3 translate = Vector3.Zero;
+        Vector3 modelPosition = new Vector3(0, -3, -5);
+        Vector3 levelPos = new Vector3(0, 0, 0);
+        Vector3 avatarOffset = new Vector3(0, 3, 0);
+
+        //Debugging Stuff
+        bool FPS_Counter_On;
+        GameVariables gameVariables;
+        Random random = new Random();
+        ConfigFile config = new ConfigFile("content\\config.ini");
+         
+        //double / floats / ints
         double lastBulletTime = 0;
         double lastEnemyBulletTime = 0;
-        float gameSpeed = 1.0f;
-        int bulletAmount;
         const int maxBullets = 20;
+        float modelRotation = 0f;
+        float gameSpeed = 1.0f;
+        float levelRot = 0.0f;
+        float forwardReq = 0;
+        float bulletSpeed;
         float bulletDamage;
         float gravity;
+        int bulletAmount;
         int PlayerScore;
         int enemyScore;
-
-        float forwardReq = 0;
-        Vector3 moveDirection = new Vector3(0, 0, 0);
+        
+        //Hud
         HUD hud;
         HUD.message playerMessage = new HUD.message();
         HUD.message enemyMessage = new HUD.message();
-        HUD.message bulletAmountMessage = new HUD.message();
-        
+        HUD.message bulletAmountMessage = new HUD.message();       
         List<HUD.message> messageList;
+
+        //Awards
         AwardsComponent awards;
         Award shootAward;
 
-        
-        
-
+        #region bool IsActive
         /// <summary>
         /// The logic for deciding whether the game is paused depends on whether
         /// this is a networked or single player game. If we are in a network session,
@@ -151,6 +148,8 @@ namespace TRA_Game
         }
         #endregion
 
+        #endregion
+
         #region Variables Handling
 
         void OpenFile(string filename)
@@ -173,7 +172,7 @@ namespace TRA_Game
             bulletDamage = gameVariables.Data.bulletDamage;
             bulletSpeed = gameVariables.Data.bulletSpeed;
             gravity = gameVariables.Data.gravity;
-            person1.Life = gameVariables.Data.playerHealth;
+            //person1.Life = gameVariables.Data.playerHealth;
         }
 
 
@@ -222,33 +221,21 @@ namespace TRA_Game
         {
             if (Content == null)
                 Content = new ContentManager(ScreenManager.Game.Services, "Content");
-            
-            ship_Map = new Model();
+
+            //Classes
             input = new InputHelper();
             sky = Content.Load<Sky>("Models\\sky1");
-            ship_Map = Content.Load<Model>("ship_map");
-            audioHelper = new Audio("Content\\TRA_Game.xgs");
-            famas_1 = audioHelper.GetCue("famas-1");
-            boneTransforms = new Matrix[ship_Map.Bones.Count];
-            famas_forearm = audioHelper.GetCue("famas_forearm");
-            ship_Map.CopyAbsoluteBoneTransformsTo(boneTransforms);
-            camera = new FPSCamera(ScreenManager.Game.GraphicsDevice.Viewport);
+            camera = new FirstPersonCamera(ScreenManager.GraphicsDevice.Viewport);
             person1 = new DrawableModel(Content.Load<Model>("Models//model"), Matrix.Identity);
-            person2 = new DrawableModel(Content.Load<Model>("Models//model"), Matrix.Identity);
-            pistol = new DrawableModel(Content.Load<Model>("Models//pistol(1)"), Matrix.Identity);
-            awards = new AwardsComponent(ScreenManager.Game);
-            shootAward = new Award { Name = "Shoot!", TextureAssetName = "award-1", ProgressNeeded = 10 };
-            shootAward.LoadTexture(Content);
-            awards.Awards.Add(shootAward);
+            person1.Life = 100;
             console = new ConsoleMenu(ScreenManager.Game);
             ScreenManager.Game.Components.Add(console);
-            FPS_Counter_On = config.SettingGroups["DebugFeatures"].Settings["FPSCounterOn"].GetValueAsBool();
-            if (FPS_Counter_On == true)
-            {
-                fpsCounter = new FrameRateCounter(ScreenManager.Game);
-                ScreenManager.Game.Components.Add(fpsCounter);
-            }
-            ScreenManager.Game.Components.Add(awards = new AwardsComponent(ScreenManager.Game));
+            //FPS            
+            fpsCounter = new FrameRateCounter(ScreenManager.Game);
+            ScreenManager.Game.Components.Add(fpsCounter);
+
+            #region HUD
+            //HUD
             hud = new HUD(ScreenManager.Game, person1, bulletAmount, maxBullets, ScreenManager.Game.Content, ScreenManager.SpriteBatch);
             ScreenManager.Game.Components.Add(hud);
             messageList = hud.messageList;
@@ -273,18 +260,34 @@ namespace TRA_Game
             bulletAmountMessage.color = Color.White;
             bulletAmountMessage.text = "Pistol :" + bulletAmount + "/" + maxBullets;
             messageList.Add(bulletAmountMessage);
-
+            #endregion
 
             string filename = Environment.CurrentDirectory + "GameVariables";
             OpenFile(filename);
+            
+            //Physics
+            ship_Map = Content.Load<Model>("ship_map");
+            boneTransforms = new Matrix[ship_Map.Bones.Count];
+            ship_Map.CopyAbsoluteBoneTransformsTo(boneTransforms);
+            world = new World(ship_Map);                                    
+            player = new Player(modelPosition, modelRotation, new Vector3(0, 5, 0), world);
+            
 
-            person2.Position = new Vector3(0, 15, -30);
-            bulletAmount = maxBullets;
-            person1.Life = 100;
-            // A real game would probably have more content than this sample, so
-            // it would take longer to load. We simulate that by delaying for a
-            // while, giving you a chance to admire the beautiful loading screen.
-            Thread.Sleep(1000);
+            #region unused - speed up loading time
+            //person2.Position = new Vector3(0, 15, -30);
+            //bulletAmount = maxBullets;
+            //ScreenManager.Game.Components.Add(awards = new AwardsComponent(ScreenManager.Game));
+            //audioHelper = new Audio("Content\\TRA_Game.xgs");
+            //famas_1 = audioHelper.GetCue("famas-1");
+            //famas_forearm = audioHelper.GetCue("famas_forearm");
+            //person2 = new DrawableModel(Content.Load<Model>("Models//model"), Matrix.Identity);
+            //pistol = new DrawableModel(Content.Load<Model>("Models//pistol(1)"), Matrix.Identity);
+            //awards = new AwardsComponent(ScreenManager.Game);
+            //shootAward = new Award { Name = "Shoot!", TextureAssetName = "award-1", ProgressNeeded = 10 };
+            //shootAward.LoadTexture(Content);
+            //awards.Awards.Add(shootAward);
+            #endregion
+
         }
 
 
@@ -311,6 +314,7 @@ namespace TRA_Game
 
             if (IsActive)
             {
+                /*
                 this.gameTime = gameTime;
                 MouseState mouseState = Mouse.GetState();
 
@@ -378,7 +382,73 @@ namespace TRA_Game
                 if (person1.Life != 100)
                     person1.Life += 0.1f;
                 //Force the health to remain between 0 and 100
-                person1.Life = (float)MathHelper.Clamp(person1.Life, 0, 100);
+                person1.Life = (float)MathHelper.Clamp(person1.Life, 0, 100);*/
+
+
+                MouseState current_Mouse = Mouse.GetState();
+
+                player.Rotation -= current_Mouse.X * 0.01f;
+                camera.UpdownRot += current_Mouse.Y * 0.01f;
+
+                camera.UpdownRot = MathHelper.Clamp(camera.UpdownRot, -1, 1);
+
+                Mouse.SetPosition(0, 0);
+
+                KeyboardState KeyState = Keyboard.GetState();
+
+                int state;
+
+                state = 0;
+
+                Vector2 moveDirection = Vector2.Zero;
+
+
+                if (KeyState.IsKeyDown(Keys.W))
+                {
+                    state = 2;
+                    moveDirection += new Vector2(0, 1);
+                }
+
+                if (KeyState.IsKeyDown(Keys.S))
+                {
+                    state = 2;
+                    moveDirection += new Vector2(0, -1);
+                }
+
+                if (KeyState.IsKeyDown(Keys.A))
+                {
+                    state = 2;
+                    moveDirection += new Vector2(1, 0);
+                }
+
+                if (KeyState.IsKeyDown(Keys.D))
+                {
+                    state = 2;
+                    moveDirection += new Vector2(-1, 0);
+                }
+
+                if (KeyState.IsKeyDown(Keys.LeftShift) && state != 0)
+                {
+                    state = 1;
+                }
+
+                if (KeyState.IsKeyDown(Keys.X) && state != 0)
+                {
+                    state = 3;
+                }
+
+                Console.WriteLine(state);
+
+                player.Update(moveDirection, state);
+
+                modelRotation = player.Rotation;
+                modelPosition = player.Position;
+                camera.Position = player.Position + avatarOffset;
+
+                camera.Update(player.Rotation);
+
+
+
             }
 
             for (int i = 0; i < hud.messageList.Count; i++)
@@ -407,7 +477,7 @@ namespace TRA_Game
 
         #region  UpdateEnemy / UpdateWeapon
         private void UpdateEnemy(GameTime gameTime)
-        {
+        { }/*
             double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
             if (currentTime - lastEnemyBulletTime > 1000)
             {
@@ -432,7 +502,7 @@ namespace TRA_Game
             pistol.position.X = person1.position.X + pistolOffset.X;
             pistol.position.Y = person1.position.Y + pistolOffset.Y;
             pistol.position.Z = person1.position.Z + pistolOffset.Z;
-        }
+        }*/
         #endregion
 
         #region Check Collision
@@ -481,7 +551,7 @@ namespace TRA_Game
 
 
         private void AddPlayerBullet()
-        {
+        {/*
                 if (bulletAmount > 0)
                 { 
                     double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
@@ -511,7 +581,7 @@ namespace TRA_Game
                     bulletAmount = maxBullets;
                     audioHelper.Play(famas_forearm, false, listener, emitter);
                 } 
-            }
+            */}
         
 
 #endregion 
@@ -530,22 +600,24 @@ namespace TRA_Game
             ScreenManager.GraphicsDevice.RenderState.AlphaBlendEnable = false;
             ScreenManager.GraphicsDevice.RenderState.AlphaTestEnable = false;
    
+            /*
             person1.Model.Bones[0].Transform = person1.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
             * Matrix.CreateRotationY(camera.LeftRightRot);
             person1.Draw(camera);
             person2.Draw(camera);
             pistol.Model.Bones[0].Transform = pistol.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
                 * Matrix.CreateRotationY(camera.LeftRightRot);
-            pistol.Draw(camera);
+            pistol.Draw(camera);*/
 
             #region Draw Ship / Draw Sky
             foreach (ModelMesh mesh in ship_Map.Meshes)
             {
                 foreach (BasicEffect effect in mesh.Effects)
                 {
-                   
                     effect.EnableDefaultLighting();
-                    effect.World = boneTransforms[mesh.ParentBone.Index] * Matrix.CreateScale(4.0f);
+
+                    effect.World = boneTransforms[mesh.ParentBone.Index] * Matrix.CreateRotationY(levelRot)
+                                                                        * Matrix.CreateTranslation(levelPos);
                     effect.SpecularColor = new Vector3(1, 0, 0);
                     effect.View = camera.ViewMatrix;
                     effect.Projection = camera.ProjectionMatrix;
@@ -554,28 +626,49 @@ namespace TRA_Game
                 mesh.Draw();
             }
 
-            
+
+
+            //Matrix weaponMatrix = camera.WeaponWorldMatrix(camera.Position, camera.UpdownRot, modelRotation, new Vector3(0, 0, 3), pistol.Model);
+
+            DrawModel(person1.Model, Matrix.CreateRotationY(modelRotation) * Matrix.CreateTranslation(modelPosition));
+
             sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
             #endregion
-            /*
-            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
-            SpriteFont font = ScreenManager.Font;
-            spriteBatch.Begin();
-            string message1 = "Player Score :" + PlayerScore.ToString();
-            string message2 = "Enemy Score : " + enemyScore.ToString();
-            Vector2 position = new Vector2(100, 480);
-            spriteBatch.DrawString(font, message1, position, Color.Red);
-            position.Y += 27;
-            spriteBatch.DrawString(font, message2, position, Color.Blue);
-            spriteBatch.End();
-            */
-            //hud.Draw(spriteBatch, font);
+
+            ScreenManager.GraphicsDevice.Clear(ClearOptions.DepthBuffer, Color.Black, 1.0f, 0);
+
+            //DrawModel(pistol.Model, weaponMatrix);
+            
             base.Draw(gameTime);
 
             // If the game is transitioning on or off, fade it out to black.
             if (TransitionPosition > 0)
                 ScreenManager.FadeBackBufferToBlack(255 - TransitionAlpha);
         }
+
+
+        void DrawModel(Model model, Matrix World)
+        {
+            // Draw the model. A model can have multiple meshes, so loop.
+            foreach (ModelMesh mesh in model.Meshes)
+            {
+
+                // This is where the mesh orientation is set, as well as our camera and projection.
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.EnableDefaultLighting();
+                    effect.World = World; 
+                    effect.View = camera.ViewMatrix;
+                    float aspectRatio = 1.0f;
+                    effect.Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f),
+                        aspectRatio, 1.0f, 10000.0f);
+                }
+                // Draw the mesh, using the effects set above.
+                mesh.Draw();
+            }
+
+        }
+        
         #endregion
     }
 }
