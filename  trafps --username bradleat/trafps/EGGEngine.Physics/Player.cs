@@ -19,10 +19,13 @@ namespace EGGEngine.Physics
         Intersection intersection;
         Primatives.TriangleMesh world;
 
+        bool wasJumping;
+
         const float walkSpeed = .1f;
         const float runSpeed = .3f;
         const float sprintSpeed = .5f;
-        float Gravity = -0.1f;
+        const float jumpVelocity = .6f;
+        const float Gravity = -0.05f;
 
 
         #region Properties
@@ -63,8 +66,10 @@ namespace EGGEngine.Physics
         /// <param name="State">0 - standing, 1 - walking, 2 running, 3 - sprinting</param>
         /// <param name="MoveDirection">The Direction the player is moving as a Vector2, eg. a for a player running forwards, use Vector2.Forward</param>
 
-        public void Update(Vector2 MoveDirection, int State)
+        public void Update(Vector2 MoveDirection, int State, bool Jump)
         {
+            if (Jump == false)
+                wasJumping = false;
 
             switch (State)
             {
@@ -105,6 +110,11 @@ namespace EGGEngine.Physics
                         if (intersectionPoint < 0.3f)
                         {
                             position.Y += intersectionPoint * boundingBoxSize.Y;
+                            if (Jump == true && wasJumping == false)
+                            {
+                                velocity.Y = jumpVelocity;
+                                wasJumping = true;
+                            }
                         }
                         else
                         {
