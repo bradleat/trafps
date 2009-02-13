@@ -396,9 +396,8 @@ namespace TRA_Game
 
                 KeyboardState KeyState = Keyboard.GetState();
 
-                int state;
-
-                state = 0;
+                int state = 0;
+                bool Jump = false;
 
                 Vector2 moveDirection = Vector2.Zero;
 
@@ -437,9 +436,12 @@ namespace TRA_Game
                     state = 3;
                 }
 
-                Console.WriteLine(state);
+                if (KeyState.IsKeyDown(Keys.Space))
+                {
+                    Jump = true;
+                }
 
-                player.Update(moveDirection, state);
+                player.Update(moveDirection, state, Jump);
 
                 modelRotation = player.Rotation;
                 modelPosition = player.Position;
