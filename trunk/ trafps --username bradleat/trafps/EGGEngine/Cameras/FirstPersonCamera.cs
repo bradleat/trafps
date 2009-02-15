@@ -18,12 +18,6 @@ namespace EGGEngine.Cameras
         private Matrix _projectionMatrix;
         private float _aspectRatio;
         private float _upDownRot;
-        //private float leftrightRot = MathHelper.PiOver2;
-        //private float updownRot = -MathHelper.Pi / 10.0f;
-        //private const float rotationSpeed = 0.3f;
-
-        private MouseState originalMouseState;
-        private Viewport viewport;
         private float _modelRotation;
 
 
@@ -35,9 +29,6 @@ namespace EGGEngine.Cameras
                                         1.0f,
                                         1.0f,
                                         10000.0f);
-            Mouse.SetPosition(viewport.Width / 2, viewport.Height / 2);
-            originalMouseState = Mouse.GetState();
-            this.viewport = viewport;
         }
 
         public Vector3 Position
@@ -63,18 +54,20 @@ namespace EGGEngine.Cameras
             get { return this._upDownRot; }
             set { this._upDownRot = value; }
         }
-        
-        public void Update(float modelRotation)
+
+        public void Update(float modelRotation, MouseState current_Mouse)
         {
             this._modelRotation = modelRotation;
+            this._upDownRot += current_Mouse.Y * 0.01f; 
+            this._upDownRot = MathHelper.Clamp(_upDownRot, -1, 1);
 
-            UpdateViewMatrix(modelRotation);
+            UpdateViewMatrix();
             
         }
 
-        private void UpdateViewMatrix(float modelRotation)
+        private void UpdateViewMatrix()
         {
-            Matrix cameraRotation = Matrix.CreateRotationX(UpdownRot) * Matrix.CreateRotationY(modelRotation);// *MathHelper.ToRadians(180);
+            Matrix cameraRotation = Matrix.CreateRotationX(UpdownRot) * Matrix.CreateRotationY(this._modelRotation);
             Vector3 cameraOriginalTarget = new Vector3(0, 0, 1);                  
             Vector3 cameraRotatedTarget = Vector3.Transform(cameraOriginalTarget, cameraRotation);
             

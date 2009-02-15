@@ -20,6 +20,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
 using EasyConfig;
+using EGGEngine;
 using EGGEngine.Cameras;
 using EGGEngine.Debug;
 using EGGEngine.Rendering;
@@ -50,6 +51,19 @@ namespace TRA_Game
     /// </summary>
     class GameplayScreen : GameScreen
     {
+        EGGEngine.ModelTypes.Levels currentLevel;
+        GameLevel level;
+        EGGEngine.Player player;
+        EGGEngine.Weapon weapon;
+
+
+
+
+
+
+
+
+
         #region Fields
 
         public static FrameRateCounter fpsCounter;
@@ -74,7 +88,6 @@ namespace TRA_Game
         AudioListener listener = new AudioListener();
 
         //Physics
-        Player player;
         World world;
         Model ship_Map;
         Sky sky;
@@ -204,10 +217,10 @@ namespace TRA_Game
         /// <summary>
         /// Constructor.
         /// </summary>
-        public GameplayScreen(NetworkSession networkSession)
+        public GameplayScreen(NetworkSession networkSession, ModelTypes.Levels  currentLevel)
         {
             this.networkSession = networkSession;
-            
+            this.currentLevel = currentLevel;
             
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
@@ -224,19 +237,20 @@ namespace TRA_Game
 
             //Classes
             input = new InputHelper();
-            sky = Content.Load<Sky>("Models\\sky1");
-            camera = new FirstPersonCamera(ScreenManager.GraphicsDevice.Viewport);
-            person1 = new DrawableModel(Content.Load<Model>("Models//model"), Matrix.Identity);
-            person1.Life = 100;
             console = new ConsoleMenu(ScreenManager.Game);
             ScreenManager.Game.Components.Add(console);
             //FPS            
             fpsCounter = new FrameRateCounter(ScreenManager.Game);
             ScreenManager.Game.Components.Add(fpsCounter);
 
+            camera = new FirstPersonCamera(ScreenManager.GraphicsDevice.Viewport);
+            level = LevelCreator.CreateLevel(ScreenManager.Game, currentLevel);
+            player = level.player;
+            weapon = level.weapon;
+
             #region HUD
             //HUD
-            hud = new HUD(ScreenManager.Game, person1, bulletAmount, maxBullets, ScreenManager.Game.Content, ScreenManager.SpriteBatch);
+            hud = new HUD(ScreenManager.Game, player, weapon.BulletsCount, weapon.MaxBullets, ScreenManager.Game.Content, ScreenManager.SpriteBatch);
             ScreenManager.Game.Components.Add(hud);
             messageList = hud.messageList;
 
@@ -258,20 +272,13 @@ namespace TRA_Game
             bulletAmountMessage.font = ScreenManager.Font;
             bulletAmountMessage.position = new Vector2(800, 554);
             bulletAmountMessage.color = Color.White;
-            bulletAmountMessage.text = "Pistol :" + bulletAmount + "/" + maxBullets;
+            bulletAmountMessage.text = "Pistol :" + weapon.BulletsCount + "/" + weapon.MaxBullets;
             messageList.Add(bulletAmountMessage);
             #endregion
 
             string filename = Environment.CurrentDirectory + "GameVariables";
             OpenFile(filename);
-            
-            //Physics
-            ship_Map = Content.Load<Model>("ship_map");
-            boneTransforms = new Matrix[ship_Map.Bones.Count];
-            ship_Map.CopyAbsoluteBoneTransformsTo(boneTransforms);
-            world = new World(ship_Map);                                    
-            player = new Player(modelPosition, modelRotation, new Vector3(0, 5, 0), world);
-            
+
 
             #region unused - speed up loading time
             //person2.Position = new Vector3(0, 15, -30);
@@ -314,143 +321,17 @@ namespace TRA_Game
 
             if (IsActive)
             {
-                /*
-                this.gameTime = gameTime;
-                MouseState mouseState = Mouse.GetState();
-
-                forwardReq = 0.0f;
-                moveDirection = new Vector3(0, 0, 0);
-
-                if (input.KeyDown(Keys.S))
-                {
-                    forwardReq += 5.0f;
-                    moveDirection = new Vector3(0, 0, 1);  //Backward
-                }
-                if (input.KeyDown(Keys.W))
-                {
-                    forwardReq += 5.0f;
-                    moveDirection = new Vector3(0, 0, -1);  //Forward
-                }
-                if (input.KeyDown(Keys.A))
-                {
-                    forwardReq += 5.0f;
-                    moveDirection = new Vector3(-1, 0, 0);  //Left
-                }
-                if (input.KeyDown(Keys.D))
-                {
-                    forwardReq += 5.0f;
-                    moveDirection = new Vector3(1, 0, 0);   //Right
-                }
-
-                if (input.KeyDown(Keys.CapsLock))
-                {
-                    string filename = Environment.CurrentDirectory.ToString() + "GameVariables";
-                    SaveVariables(filename);
-                }
-
-                if (input.KeyDown(Keys.Space))
-                {
-                    AddPlayerBullet();
-                    awards.AddAwardProgress(shootAward, "Player 1", 10);
-                }
-
-                
-
-                UpdateEnemy(gameTime);
-                UpdateWeapon(gameTime);
-
-                camera.AddToCameraPosition(moveDirection, forwardReq, ref initalPos1, gameTime, false);
-                
-
-                person1.Position = initalPos1;
-               
-                
-                person2.WorldMatrix = Matrix.CreateScale(2.0f);
-                camera.Update(mouseState, person1.Position);
-
-                pistol.WorldMatrix = Matrix.CreateScale(0.5f) * Matrix.CreateRotationY(3.2f);
-                person1.WorldMatrix = Matrix.CreateScale(2.0f) * Matrix.CreateRotationY(4.05f);
-                audioHelper.Update();
-
-                if (person1.isRespawning == true)
-                {
-                    ScreenManager.AddScreen(new RespawnScreen(networkSession));
-                    person1.isRespawning = false;
-                }
-                hud.UpdateBulletAmount(bulletAmount);
-
-                if (person1.Life != 100)
-                    person1.Life += 0.1f;
-                //Force the health to remain between 0 and 100
-                person1.Life = (float)MathHelper.Clamp(person1.Life, 0, 100);*/
-
-
                 MouseState current_Mouse = Mouse.GetState();
-
-                player.Rotation -= current_Mouse.X * 0.01f;
-                camera.UpdownRot += current_Mouse.Y * 0.01f;
-
-                camera.UpdownRot = MathHelper.Clamp(camera.UpdownRot, -1, 1);
-
-                Mouse.SetPosition(0, 0);
-
                 KeyboardState KeyState = Keyboard.GetState();
 
-                int state = 0;
-                bool Jump = false;
+                player.Update(gameTime,current_Mouse, KeyState);
 
-                Vector2 moveDirection = Vector2.Zero;
-
-
-                if (KeyState.IsKeyDown(Keys.W))
-                {
-                    state = 2;
-                    moveDirection += new Vector2(0, 1);
-                }
-
-                if (KeyState.IsKeyDown(Keys.S))
-                {
-                    state = 2;
-                    moveDirection += new Vector2(0, -1);
-                }
-
-                if (KeyState.IsKeyDown(Keys.A))
-                {
-                    state = 2;
-                    moveDirection += new Vector2(1, 0);
-                }
-
-                if (KeyState.IsKeyDown(Keys.D))
-                {
-                    state = 2;
-                    moveDirection += new Vector2(-1, 0);
-                }
-
-                if (KeyState.IsKeyDown(Keys.LeftShift) && state != 0)
-                {
-                    state = 1;
-                }
-
-                if (KeyState.IsKeyDown(Keys.X) && state != 0)
-                {
-                    state = 3;
-                }
-
-                if (KeyState.IsKeyDown(Keys.Space))
-                {
-                    Jump = true;
-                }
-
-                player.Update(moveDirection, state, Jump);
-
-                modelRotation = player.Rotation;
-                modelPosition = player.Position;
                 camera.Position = player.Position + avatarOffset;
 
-                camera.Update(player.Rotation);
+                camera.Update(player.Rotation, current_Mouse);
 
-
-
+                Mouse.SetPosition(0, 0);
+                
             }
 
             for (int i = 0; i < hud.messageList.Count; i++)
@@ -601,45 +482,12 @@ namespace TRA_Game
             ScreenManager.GraphicsDevice.RenderState.DepthBufferEnable = true;
             ScreenManager.GraphicsDevice.RenderState.AlphaBlendEnable = false;
             ScreenManager.GraphicsDevice.RenderState.AlphaTestEnable = false;
-   
-            /*
-            person1.Model.Bones[0].Transform = person1.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
-            * Matrix.CreateRotationY(camera.LeftRightRot);
-            person1.Draw(camera);
-            person2.Draw(camera);
-            pistol.Model.Bones[0].Transform = pistol.OriginalTransforms[0] * Matrix.CreateRotationX(camera.UpDownRot)
-                * Matrix.CreateRotationY(camera.LeftRightRot);
-            pistol.Draw(camera);*/
 
-            #region Draw Ship / Draw Sky
-            foreach (ModelMesh mesh in ship_Map.Meshes)
-            {
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.EnableDefaultLighting();
+            level.sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
+            level.level.Draw(camera);
 
-                    effect.World = boneTransforms[mesh.ParentBone.Index] * Matrix.CreateRotationY(levelRot)
-                                                                        * Matrix.CreateTranslation(levelPos);
-                    effect.SpecularColor = new Vector3(1, 0, 0);
-                    effect.View = camera.ViewMatrix;
-                    effect.Projection = camera.ProjectionMatrix;
-                }
+            player.Draw(gameTime, camera);
 
-                mesh.Draw();
-            }
-
-
-
-            //Matrix weaponMatrix = camera.WeaponWorldMatrix(camera.Position, camera.UpdownRot, modelRotation, new Vector3(0, 0, 3), pistol.Model);
-
-            DrawModel(person1.Model, Matrix.CreateRotationY(modelRotation) * Matrix.CreateTranslation(modelPosition));
-
-            sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
-            #endregion
-
-            ScreenManager.GraphicsDevice.Clear(ClearOptions.DepthBuffer, Color.Black, 1.0f, 0);
-
-            //DrawModel(pistol.Model, weaponMatrix);
             
             base.Draw(gameTime);
 
@@ -647,30 +495,6 @@ namespace TRA_Game
             if (TransitionPosition > 0)
                 ScreenManager.FadeBackBufferToBlack(255 - TransitionAlpha);
         }
-
-
-        void DrawModel(Model model, Matrix World)
-        {
-            // Draw the model. A model can have multiple meshes, so loop.
-            foreach (ModelMesh mesh in model.Meshes)
-            {
-
-                // This is where the mesh orientation is set, as well as our camera and projection.
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.EnableDefaultLighting();
-                    effect.World = World; 
-                    effect.View = camera.ViewMatrix;
-                    float aspectRatio = 1.0f;
-                    effect.Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f),
-                        aspectRatio, 1.0f, 10000.0f);
-                }
-                // Draw the mesh, using the effects set above.
-                mesh.Draw();
-            }
-
-        }
-        
         #endregion
     }
 }
