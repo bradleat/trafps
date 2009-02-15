@@ -20,7 +20,7 @@ namespace EGGEngine.Rendering
     public class HUD : DrawableGameComponent
     {
         SpriteBatch spriteBatch;
-        DrawableModel player;
+        Player player;
 
         Vector2 lifePos = new Vector2(800, 527);
         Vector2 pistolPos = new Vector2(800, 554);
@@ -45,7 +45,7 @@ namespace EGGEngine.Rendering
         }
         public List<message> messageList = new List<message>();
 
-        public HUD(Game game, DrawableModel player, int bulletAmount, int maxBullets, ContentManager content, SpriteBatch spriteBatch)
+        public HUD(Game game, Player player, int bulletAmount, int maxBullets, ContentManager content, SpriteBatch spriteBatch)
             :base(game)
         {
             this.game = game;
@@ -80,7 +80,7 @@ namespace EGGEngine.Rendering
             //Draw Negative health
             spriteBatch.Draw(healthBar, new Rectangle(800,527, healthBar.Width / 2, 24), new Rectangle(0, 45, healthBar.Width, 44), Color.Gray);
             //Draw the current health level based on the current Health
-            spriteBatch.Draw(healthBar, new Rectangle(800, 527, (int)(healthBar.Width * ((double)player.Life / 100)) / 2, 24), new Rectangle(0, 45, healthBar.Width, 44), Color.Red);
+            spriteBatch.Draw(healthBar, new Rectangle(800, 527, (int)(healthBar.Width * ((double)player.Health / 100)) / 2, 24), new Rectangle(0, 45, healthBar.Width, 44), Color.Red);
             //Draw box around healthbar
             spriteBatch.Draw(healthBar, new Rectangle(800, 527, healthBar.Width/ 2, 24), new Rectangle(0, 0, healthBar.Width, 44), Color.White);
 

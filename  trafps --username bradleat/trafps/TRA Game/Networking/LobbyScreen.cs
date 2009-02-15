@@ -124,7 +124,7 @@ namespace TRA_Game
                     audioHelper.Stop(mystery);
                     // Check if we should leave the lobby and begin gameplay.
                     LoadingScreen.Load(ScreenManager, true,
-                                       new GameplayScreen(networkSession));
+                                       new GameplayScreen(networkSession, EGGEngine.ModelTypes.Levels.shipMap));
                 }
                 else if (networkSession.IsHost && networkSession.IsEveryoneReady)
                 {
