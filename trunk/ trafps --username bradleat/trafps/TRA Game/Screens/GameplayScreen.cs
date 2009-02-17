@@ -51,10 +51,10 @@ namespace TRA_Game
     /// </summary>
     class GameplayScreen : GameScreen
     {
-        EGGEngine.ModelTypes.Levels currentLevel;
+        ModelTypes.Levels currentLevel;
         GameLevel level;
-        EGGEngine.Player player;
-        EGGEngine.Weapon weapon;
+        Player player;
+        Weapon weapon;
 
 
 

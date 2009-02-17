@@ -92,6 +92,12 @@
     <Compile Include="ConsoleMenu.cs" />
     <Compile Include="GameScreens\MainMenu.cs" />
     <Compile Include="GameScreens\SplashTitle.cs" />
+    <Compile Include="Game\HUD.cs" />
+    <Compile Include="Game\Level.cs" />
+    <Compile Include="Game\LevelCreator.cs" />
+    <Compile Include="Game\ModelTypes.cs" />
+    <Compile Include="Game\Player.cs" />
+    <Compile Include="Game\Weapon.cs" />
     <Compile Include="IMessageDisplay.cs" />
     <Compile Include="MessageDisplayComponent.cs" />
     <Compile Include="Networking\AvailableSessionMenuEntry.cs" />

@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Storage;
 using EGGEngine.Rendering;
 
 
-namespace EGGEngine
+namespace TRA_Game
 {
     /// <summary>
     /// This is a game component that implements IUpdateable.

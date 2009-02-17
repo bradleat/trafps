@@ -79,6 +79,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animation\AnimationController.cs" />
+    <Compile Include="Animation\AnimationInfo.cs" />
+    <Compile Include="Animation\BasicPaletteEffect.cs" />
+    <Compile Include="Animation\BonePose.cs" />
+    <Compile Include="Animation\Content\AnimationReader.cs" />
+    <Compile Include="Animation\Content\PaletteEffectReader.cs" />
+    <Compile Include="Animation\Content\SkinInfoCollectionReader.cs" />
+    <Compile Include="Animation\EffectInstancedAnimator.cs" />
+    <Compile Include="Animation\IAnimationController.cs" />
+    <Compile Include="Animation\IAttachable.cs" />
+    <Compile Include="Animation\InterpolationController.cs" />
+    <Compile Include="Animation\ModelAnimator.cs" />
+    <Compile Include="Animation\ModelViewer.cs" />
+    <Compile Include="Animation\MultiBlendController.cs" />
+    <Compile Include="Animation\SkinInfo.cs" />
+    <Compile Include="Animation\Util.cs" />
+    <Compile Include="Animation\Visualisation\CubeComponent.cs" />
     <Compile Include="Audio\Audio.cs" />
     <Compile Include="Awards\Award.cs" />
     <Compile Include="Awards\AwardsComponent.cs" />
@@ -89,14 +106,8 @@
     <Compile Include="ContentReaders\TriangleTypeReader.cs" />
     <Compile Include="Debug\FrameRateCounter.cs" />
     <Compile Include="Helpers\InputHelper.cs" />
-    <Compile Include="Level.cs" />
-    <Compile Include="LevelCreator.cs" />
-    <Compile Include="ModelTypes.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rendering\DrawableModel.cs" />
-    <Compile Include="Rendering\HUD.cs" />
     <Compile Include="Rendering\PostProcessing.cs" />
     <Compile Include="Rendering\Sky.cs" />
     <Compile Include="Rendering\UIRenderer.cs" />
