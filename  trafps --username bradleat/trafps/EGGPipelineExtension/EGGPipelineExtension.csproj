@@ -105,6 +105,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animation\AnimatedModelProcessor.cs" />
+    <Compile Include="Animation\AnimationProcessor.cs" />
+    <Compile Include="Animation\AnimationWriter.cs" />
+    <Compile Include="Animation\AsfAmc\AmcImporter.cs" />
+    <Compile Include="Animation\AsfAmc\AsfImporter.cs" />
+    <Compile Include="Animation\BoneIndexer.cs" />
+    <Compile Include="Animation\Bvh\BvhImporter.cs" />
+    <Compile Include="Animation\ContentUtil.cs" />
+    <Compile Include="Animation\MeshSplitter.cs" />
+    <Compile Include="Animation\PaletteEffectContent.cs" />
+    <Compile Include="Animation\PaletteSourceCode.cs" />
+    <Compile Include="Animation\SkinInfoContent.cs" />
+    <Compile Include="Animation\SkinTransformContent.cs" />
+    <Compile Include="Animation\X File\XFileTokenizer.cs" />
+    <Compile Include="Animation\X File\XMeshImporter.cs" />
+    <Compile Include="Animation\X File\XModelImporter.cs" />
     <Compile Include="ModelTriangleProcessor.cs" />
     <Compile Include="SkyContent.cs" />
     <Compile Include="SkyProcessor.cs" />

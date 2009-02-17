@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EGGEngine
+namespace TRA_Game
 {
     public static class ModelTypes
     {

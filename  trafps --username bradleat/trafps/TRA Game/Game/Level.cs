@@ -15,7 +15,7 @@ using EGGEngine.Physics;
 using EGGEngine.Cameras;
 
 
-namespace EGGEngine
+namespace TRA_Game
 {
     public struct GameLevel
     {

@@ -143,7 +143,7 @@ namespace TRA_Game
         {
             audioHelper.Stop(mystery);
             audioHelper.Play(famas_1, false, new AudioListener(), new AudioEmitter());
-            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(null, EGGEngine.ModelTypes.Levels.shipMap));
+            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(null, ModelTypes.Levels.shipMap));
         }
         void NoOfBotsMenuEntry(object sender, EventArgs e)
         {
