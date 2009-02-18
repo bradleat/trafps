@@ -57,9 +57,12 @@ namespace EGGPipelineExtension.Animation
             }
             else
             {
-                return "Xclna.Xna.Animation.Content.SkinInfoCollectionReader, "
-                    + "Xclna.Xna.Animationx86, "
+                return "EGGEngine.Animation.Content.SkinInfoCollectionReader, "
+                    + "EGGEngine, "
                     + "Version=" + ContentUtil.VERSION + ", Culture=neutral, PublicKeyToken=null";
+                /*return "Xclna.Xna.Animation.Content.SkinInfoCollectionReader, "
+                    + "Xclna.Xna.Animationx86, "
+                    + "Version=" + ContentUtil.VERSION + ", Culture=neutral, PublicKeyToken=null";*/
             }
 
         }
@@ -74,8 +77,10 @@ namespace EGGPipelineExtension.Animation
             }
             else
             {
-                return "Xclna.Xna.Animation.SkinInfoCollection, Xclna.Xna.Animationx86, "
+                return "EGGEngine.Animation.SkinInfoCollection, EGGEngine, "
                     + "Version=" + ContentUtil.VERSION + ", Culture=neutral, PublicKeyToken=null";
+                //return "Xclna.Xna.Animation.SkinInfoCollection, Xclna.Xna.Animationx86, "
+                  //  + "Version=" + ContentUtil.VERSION + ", Culture=neutral, PublicKeyToken=null";
             }
         }
 

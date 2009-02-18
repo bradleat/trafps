@@ -84,14 +84,15 @@ namespace EGGPipelineExtension.Animation
         {
             if (targetPlatform == TargetPlatform.Xbox360)
             {
-                return "Xclna.Xna.Animation.Content.AnimationReader, "
+                return "EGGEngine.Animation.Content.AnimationReader, "
                     + "Xclna.Xna.Animation360, "
                     + "Version=" + ContentUtil.VERSION + ", Culture=neutral, PublicKeyToken=null";
             }
             else
             {
-                return "Xclna.Xna.Animation.Content.AnimationReader, "
-                    + "Xclna.Xna.Animationx86, "
+                return "EGGEngine.Animation.Content.AnimationReader, "
+                    + // "Xclna.Xna.Animationx86, "
+                    "EGGEngine, "
                     + "Version=" + ContentUtil.VERSION + ", Culture=neutral, PublicKeyToken=null";
             }
 
@@ -115,9 +116,13 @@ namespace EGGPipelineExtension.Animation
             }
             else
             {
-                return "Xclna.Xna.Animation.AnimationInfoCollection, "
-                    + "Xclna.Xna.Animationx86, "
+                return "EGGEngine.Animation.AnimationInfoCollection, "
+                    + "EGGEngine, "
                     + "Version=" + ContentUtil.VERSION + ", Culture=neutral, PublicKeyToken=null";
+
+                /*return "Xclna.Xna.Animation.AnimationInfoCollection, "
+                    + "Xclna.Xna.Animationx86, "
+                    + "Version=" + ContentUtil.VERSION + ", Culture=neutral, PublicKeyToken=null";*/
             }
 
 
