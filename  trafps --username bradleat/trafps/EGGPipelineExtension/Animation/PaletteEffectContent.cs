@@ -78,8 +78,8 @@ namespace EGGPipelineExtension.Animation
             }
             else
             {
-                return "Xclna.Xna.Animation.Content.PaletteEffectReader, "
-                    + "Xclna.Xna.Animationx86, "
+                return "EGGEngine.Animation.Content.PaletteEffectReader, "
+                    + "EGGEngine, "
                     + "Version=" + ContentUtil.VERSION + ", Culture=neutral, PublicKeyToken=null";
             }
 
@@ -95,7 +95,7 @@ namespace EGGPipelineExtension.Animation
             }
             else
             {
-                return "Xclna.Xna.Animation.BasicPaletteEffect, Xclna.Xna.Animationx86, "
+                return "EGGEngine.Animation.BasicPaletteEffect, EGGEngine, "
                     + "Version=" + ContentUtil.VERSION + ", Culture=neutral, PublicKeyToken=null";
             }
         }
