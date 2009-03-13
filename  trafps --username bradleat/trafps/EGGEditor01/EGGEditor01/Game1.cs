@@ -13,6 +13,7 @@ using EasyConfig;
 using EGGEngine.Cameras;
 using EGGEngine.Debug;
 using EGGEngine.Rendering;
+using EGGEngine.Rendering.Shaders;
 using EGGEngine.Helpers;
 using EGGEngine.Utils;
 using System.Xml.Serialization;
@@ -46,7 +47,7 @@ namespace EGGEditor01
         DrawableModel person1;
         Model terrain;
         FPSCamera camera;
-        PostProcessing postProc;
+        EGGEngine.Rendering.Shaders.PostProcessing postProc;
         Vector3 translate = Vector3.Zero;
         InputHelper input;
         Sky sky;

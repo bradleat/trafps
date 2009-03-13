@@ -108,7 +108,11 @@
     <Compile Include="Helpers\InputHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rendering\DrawableModel.cs" />
-    <Compile Include="Rendering\PostProcessing.cs" />
+    <Compile Include="Rendering\Shaders\Explosion.cs" />
+    <Compile Include="Rendering\Shaders\Particle.cs" />
+    <Compile Include="Rendering\Shaders\PostProcessing.cs" />
+    <Compile Include="Rendering\Shaders\Shader.cs" />
+    <Compile Include="Rendering\Shaders\VertexShader.cs" />
     <Compile Include="Rendering\Sky.cs" />
     <Compile Include="Rendering\UIRenderer.cs" />
     <Compile Include="Utils\Collision.cs" />

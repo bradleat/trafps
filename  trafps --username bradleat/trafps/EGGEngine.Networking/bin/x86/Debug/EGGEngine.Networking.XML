@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EGGEngine.Networking</name>
+    </assembly>
+    <members>
+        <member name="M:EGGEngine.Networking.PacketReader.ReadPacket(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="packet"></param>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkSession.CreateSession(Microsoft.Xna.Framework.Net.NetworkSessionType,System.Int32,System.Int32,System.Int32,Microsoft.Xna.Framework.Net.NetworkSessionProperties)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkHelper.SendServerData">
+            <summary>
+            Send all server data
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkHelper.ReadServerData(Microsoft.Xna.Framework.Net.LocalNetworkGamer)">
+            <summary>
+            Read server data
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkHelper.SendClientData">
+            <summary>
+            Send all client data
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkHelper.ReadClientData(Microsoft.Xna.Framework.Net.LocalNetworkGamer)">
+            <summary>
+            Read the Client Data
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Networking.NetworkHelper.NetworkGameSession">
+            <summary>
+            The active network session
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Networking.NetworkHelper.ServerPacketWriter">
+            <summary>
+            Writer for the server data
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Networking.NetworkHelper.ClientPacketWriter">
+            <summary>
+            Writer for the client data
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Networking.NetworkHelper.ClientPacketReader">
+            <summary>
+            Reader for the client data
+            </summary>
+        </member>
+        <member name="P:EGGEngine.Networking.NetworkHelper.ServerPacketReader">
+            <summary>
+            Reader for the server data
+            </summary>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkStatus.GetHostList">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkStatus.SetHostList(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hostList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkInterface.InitNetwork(Microsoft.Xna.Framework.Game)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkInterface.CreateNetwork(Microsoft.Xna.Framework.Game,Microsoft.Xna.Framework.Net.NetworkSessionType,System.Int32,System.Int32,System.Int32,Microsoft.Xna.Framework.Net.NetworkSessionProperties,System.Boolean,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkInterface.FrameNetwork(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkInterface.JoinNetwork(Microsoft.Xna.Framework.Game,Microsoft.Xna.Framework.Net.NetworkSessionType,System.Int32,Microsoft.Xna.Framework.Net.NetworkSessionProperties)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkInterface.KillNetwork">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EGGEngine.Networking.NetworkInterface.UpdateNetwork(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="networkCommand"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

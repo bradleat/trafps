@@ -3,3 +3,5 @@ C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\Content\obj\x86\De
 C:\Documents and Settings\Dustin\Desktop\Temp\trafps\TRA Game\Content\obj\x86\Debug\TRA_Game.xml
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\Content\obj\x86\Debug\TRA_Game.xml
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\Content\obj\x86\Debug\TRA_Game.xml

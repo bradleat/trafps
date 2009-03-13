@@ -22,3 +22,9 @@ C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\JigLibX\obj
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\JigLibX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\JigLibX\obj\x86\Debug\JigLibX.dll
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\JigLibX\obj\x86\Debug\JigLibX.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\JigLibX\bin\x86\Debug\JigLibX.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\JigLibX\bin\x86\Debug\JigLibX.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\JigLibX\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\JigLibX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\JigLibX\obj\x86\Debug\JigLibX.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\JigLibX\obj\x86\Debug\JigLibX.pdb

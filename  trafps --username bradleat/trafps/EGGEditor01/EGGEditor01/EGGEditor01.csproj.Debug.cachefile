@@ -15,6 +15,7 @@ Content\chat_able.xnb
 Content\chat_mute.xnb
 Content\chat_ready.xnb
 Content\chat_talking.xnb
+Content\HealthBar.xnb
 Content\Untitled.xnb
 Content\gradient.xnb
 Content\MultiplayerMenuTexture01.xnb
@@ -35,13 +36,20 @@ Content\famas-1.xnb
 Content\famas_forearm.xnb
 Content\mystery.xnb
 Content\Models\Ship.xnb
+Content\ship_map.xnb
+Content\Models\pistol(1).xnb
+Content\Models\bullpup.xnb
+Content\Models\grenade.xnb
+Content\Models\sniper_rifle.xnb
 Content\Models\model.xnb
 Content\Models\LevelPreVis1.xnb
 Content\cube.xnb
 Content\Effects\PostProcessing.xnb
+Content\Effects\VertexShader.xnb
 Content\gamefont.xnb
 Content\menufont.xnb
 Content\Debug\Font.xnb
+Content\Debug\Console.xnb
 Content\Models\sky_0.xnb
 Content\Models\rocks_0.xnb
 Content\Models\terrain_0.xnb
@@ -54,7 +62,6 @@ Content\copper_pipe_0.xnb
 Content\Models\256x256x1_17240c0b-48e9c968-b872_0.xnb
 Content\Models\256x256x1_17240c0b-48e9c968-b872_1.xnb
 Content\Models\256x256x1_17240c0b-48e9c968-b872_2.xnb
-Content\ship_map.xnb
 Content\TRA_Game.xgs
 Content\Wave Bank.xwb
 Content\Sound Bank.xsb
