@@ -24,6 +24,7 @@ using EGGEngine;
 using EGGEngine.Cameras;
 using EGGEngine.Debug;
 using EGGEngine.Rendering;
+using EGGEngine.Rendering.Shaders;
 using EGGEngine.Helpers;
 using EGGEngine.Utils;
 using EGGEngine.Audio;
@@ -74,7 +75,7 @@ namespace TRA_Game
         ConsoleMenu console;
         DrawableModel person1;
         DrawableModel person2;
-        PostProcessing postProc;
+        EGGEngine.Rendering.Shaders.PostProcessing postProc;
         DrawableModel pistol;
         InputHelper input;
         FirstPersonCamera camera;

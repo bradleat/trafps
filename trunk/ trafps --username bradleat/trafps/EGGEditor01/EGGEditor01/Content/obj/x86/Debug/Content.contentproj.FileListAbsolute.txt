@@ -1,2 +1,3 @@
 C:\Documents and Settings\Dustin\Desktop\Temp\trafps\EGGEditor01\EGGEditor01\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGEditor01\EGGEditor01\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGEditor01\EGGEditor01\Content\obj\x86\Debug\ResolveAssemblyReference.cache

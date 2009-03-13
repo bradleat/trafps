@@ -29,3 +29,21 @@ C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGPipeline
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGPipelineExtension\obj\Zune\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGPipelineExtension\obj\Zune\Debug\EGGPipelineExtension.dll
 C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGPipelineExtension\obj\Zune\Debug\EGGPipelineExtension.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\Content\fx\bloom.xnb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\Content\award-1.xnb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\Content\award-2.xnb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\Content\award-3.xnb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\Content\award-4.xnb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\Content\award-5.xnb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\Content\award-background.xnb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\Content\award-sound.xnb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\Content\award-font.xnb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\Content\main.xnb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\EGGPipelineExtension.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\EGGPipelineExtension.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\EGGEngine.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\EGGEngine.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\EGGEngine.xml
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\obj\Zune\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\obj\Zune\Debug\EGGPipelineExtension.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\obj\Zune\Debug\EGGPipelineExtension.pdb

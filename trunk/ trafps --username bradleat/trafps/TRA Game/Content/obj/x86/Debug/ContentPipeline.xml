@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\chars.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\chars.xnb</Output>
+      <Time>2009-03-06T12:31:02.8972315-05:00</Time>
     </Item>
     <Item>
       <Source>blank.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\blank.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\blank.xnb</Output>
+      <Time>2009-03-06T12:31:03.2097475-05:00</Time>
     </Item>
     <Item>
       <Source>chat_able.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\chat_able.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\chat_able.xnb</Output>
+      <Time>2009-03-06T12:31:03.1316185-05:00</Time>
     </Item>
     <Item>
       <Source>chat_mute.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\chat_mute.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\chat_mute.xnb</Output>
+      <Time>2009-03-06T12:31:02.9441089-05:00</Time>
     </Item>
     <Item>
       <Source>chat_ready.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\chat_ready.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\chat_ready.xnb</Output>
+      <Time>2009-03-06T12:31:02.9128573-05:00</Time>
     </Item>
     <Item>
       <Source>chat_talking.png</Source>
@@ -52,8 +52,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\chat_talking.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\chat_talking.xnb</Output>
+      <Time>2009-03-06T12:31:03.2253733-05:00</Time>
+    </Item>
+    <Item>
+      <Source>HealthBar.png</Source>
+      <Name>HealthBar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\HealthBar.xnb</Output>
+      <Time>2009-03-06T12:31:03.0691153-05:00</Time>
     </Item>
     <Item>
       <Source>Untitled.png</Source>
@@ -61,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Untitled.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Untitled.xnb</Output>
+      <Time>2009-03-06T12:31:03.2253733-05:00</Time>
     </Item>
     <Item>
       <Source>gradient.png</Source>
@@ -70,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\gradient.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\gradient.xnb</Output>
+      <Time>2009-03-06T12:31:03.0847411-05:00</Time>
     </Item>
     <Item>
       <Source>MultiplayerMenuTexture01.jpg</Source>
@@ -79,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\MultiplayerMenuTexture01.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\MultiplayerMenuTexture01.xnb</Output>
+      <Time>2009-03-06T12:31:03.1784959-05:00</Time>
     </Item>
     <Item>
       <Source>pgi.png</Source>
@@ -88,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\pgi.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\pgi.xnb</Output>
+      <Time>2009-03-06T12:31:02.9909863-05:00</Time>
     </Item>
     <Item>
       <Source>menu.png</Source>
@@ -97,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\menu.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\menu.xnb</Output>
+      <Time>2009-03-06T12:31:02.9284831-05:00</Time>
     </Item>
     <Item>
       <Source>Models\sky1.bmp</Source>
@@ -106,9 +115,9 @@
       <Importer>TextureImporter</Importer>
       <Processor>SkyProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\sky1.xnb</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\sky_0.xnb</Request>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\sky1.xnb</Output>
+      <Time>2009-03-06T12:24:40.5720141-05:00</Time>
+      <Request>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\sky_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\yhsjw2.bmp</Source>
@@ -116,9 +125,9 @@
       <Importer>TextureImporter</Importer>
       <Processor>TerrainProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\yhsjw2.xnb</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\rocks_0.xnb</Request>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\yhsjw2.xnb</Output>
+      <Time>2009-03-06T12:24:40.5251331-05:00</Time>
+      <Request>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\rocks_0.xnb</Request>
     </Item>
     <Item>
       <Source>cat.tga</Source>
@@ -126,8 +135,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\cat.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\cat.xnb</Output>
+      <Time>2009-03-06T12:31:03.1003669-05:00</Time>
     </Item>
     <Item>
       <Source>ShipDiffuse.tga</Source>
@@ -135,8 +144,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\ShipDiffuse.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\ShipDiffuse.xnb</Output>
+      <Time>2009-03-06T12:31:03.1159927-05:00</Time>
     </Item>
     <Item>
       <Source>sunset.tga</Source>
@@ -144,8 +153,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\sunset.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\sunset.xnb</Output>
+      <Time>2009-03-06T12:31:03.1472443-05:00</Time>
     </Item>
     <Item>
       <Source>terrain.tga</Source>
@@ -153,8 +162,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\terrain.xnb</Output>
-      <Time>2009-02-01T18:51:54+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\terrain.xnb</Output>
+      <Time>2009-03-06T12:31:03.2566249-05:00</Time>
     </Item>
     <Item>
       <Source>copper_pipe.tga</Source>
@@ -162,8 +171,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\copper_pipe.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\copper_pipe.xnb</Output>
+      <Time>2009-03-06T12:31:02.8503541-05:00</Time>
     </Item>
     <Item>
       <Source>ship_ceiling.tga</Source>
@@ -171,8 +180,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\ship_ceiling.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\ship_ceiling.xnb</Output>
+      <Time>2009-03-06T12:31:03.1941217-05:00</Time>
     </Item>
     <Item>
       <Source>Ship_Wall.tga</Source>
@@ -180,8 +189,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Ship_Wall.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Ship_Wall.xnb</Output>
+      <Time>2009-03-06T12:31:03.1628701-05:00</Time>
     </Item>
     <Item>
       <Source>steel_floor_final.tga</Source>
@@ -189,8 +198,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\steel_floor_final.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\steel_floor_final.xnb</Output>
+      <Time>2009-03-06T12:31:02.9909863-05:00</Time>
     </Item>
     <Item>
       <Source>Wire_floor.tga</Source>
@@ -198,8 +207,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Wire_floor.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Wire_floor.xnb</Output>
+      <Time>2009-03-06T12:31:02.8972315-05:00</Time>
     </Item>
     <Item>
       <Source>famas-1.wav</Source>
@@ -207,8 +216,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\famas-1.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\famas-1.xnb</Output>
+      <Time>2009-03-06T12:31:03.0847411-05:00</Time>
     </Item>
     <Item>
       <Source>famas_forearm.wav</Source>
@@ -216,8 +225,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\famas_forearm.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\famas_forearm.xnb</Output>
+      <Time>2009-03-06T12:31:02.9441089-05:00</Time>
     </Item>
     <Item>
       <Source>mystery.wav</Source>
@@ -225,8 +234,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\mystery.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\mystery.xnb</Output>
+      <Time>2009-03-06T12:31:03.0534895-05:00</Time>
     </Item>
     <Item>
       <Source>Models\Ship.fbx</Source>
@@ -234,14 +243,84 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\Ship.xnb</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\Ship.xnb</Output>
+      <Time>2009-03-06T12:24:40.3688631-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ship_0.xml</Key>
-        <Value>2009-02-01T23:28:44+01:00</Value>
+        <Value>2009-03-13T13:42:01.5954921-04:00</Value>
       </Dependency>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\terrain_0.xnb</Request>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\sunset_0.xnb</Request>
+      <Request>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\terrain_0.xnb</Request>
+      <Request>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\sunset_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>ship_map.fbx</Source>
+      <Name>ship_map</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>TrianglePickingProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\ship_map.xnb</Output>
+      <Time>2009-03-06T12:31:03.4910119-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\ship_map_0.xml</Key>
+        <Value>2009-03-13T13:42:04.298669-04:00</Value>
+      </Dependency>
+      <Request>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Ship_Wall_0.xnb</Request>
+      <Request>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Wire_floor_0.xnb</Request>
+      <Request>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\steel_floor_final_0.xnb</Request>
+      <Request>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\ship_ceiling_0.xnb</Request>
+      <Request>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\copper_pipe_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\pistol(1).fbx</Source>
+      <Name>Models\pistol(1)</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\pistol(1).xnb</Output>
+      <Time>2009-03-06T12:24:40.4469981-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\pistol(1)_0.xml</Key>
+        <Value>2009-03-13T13:42:08.2674952-04:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\bullpup.fbx</Source>
+      <Name>Models\bullpup</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\bullpup.xnb</Output>
+      <Time>2009-03-06T12:24:40.5095061-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\bullpup_0.xml</Key>
+        <Value>2009-03-13T13:42:08.7831301-04:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\grenade.fbx</Source>
+      <Name>Models\grenade</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\grenade.xnb</Output>
+      <Time>2009-03-06T12:24:40.4157441-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\grenade_0.xml</Key>
+        <Value>2009-03-13T13:42:09.9394023-04:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\sniper_rifle.fbx</Source>
+      <Name>Models\sniper_rifle</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\sniper_rifle.xnb</Output>
+      <Time>2009-03-06T12:24:40.4782521-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\sniper_rifle_0.xml</Key>
+        <Value>2009-03-13T13:42:11.5956841-04:00</Value>
+      </Dependency>
     </Item>
     <Item>
       <Source>Models\model.x</Source>
@@ -249,15 +328,15 @@
       <Importer>XImporter</Importer>
       <Processor>ModelTriangleProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\model.xnb</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\model.xnb</Output>
+      <Time>2009-03-06T12:24:40.5876411-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\model_0.xml</Key>
-        <Value>2009-02-01T23:28:50+01:00</Value>
+        <Value>2009-03-13T13:42:12.2988226-04:00</Value>
       </Dependency>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_0.xnb</Request>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_1.xnb</Request>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_2.xnb</Request>
+      <Request>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_0.xnb</Request>
+      <Request>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_1.xnb</Request>
+      <Request>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_2.xnb</Request>
     </Item>
     <Item>
       <Source>Models\LevelPreVis1.x</Source>
@@ -265,11 +344,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\LevelPreVis1.xnb</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\LevelPreVis1.xnb</Output>
+      <Time>2009-03-06T12:24:40.4313711-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\LevelPreVis1_0.xml</Key>
-        <Value>2009-02-01T23:28:50+01:00</Value>
+        <Value>2009-03-13T13:42:13.0175864-04:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -278,11 +357,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\cube.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\cube.xnb</Output>
+      <Time>2009-03-06T12:31:03.1159927-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\cube_0.xml</Key>
-        <Value>2009-02-01T23:28:50+01:00</Value>
+        <Value>2009-03-13T13:42:13.1425888-04:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -291,8 +370,17 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Effects\PostProcessing.xnb</Output>
-      <Time>2009-02-01T18:50:58+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Effects\PostProcessing.xnb</Output>
+      <Time>2009-03-06T12:28:41.0618449-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Effects\VertexShader.fx</Source>
+      <Name>Effects\VertexShader</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Effects\VertexShader.xnb</Output>
+      <Time>2009-03-13T12:22:00.7218028-04:00</Time>
     </Item>
     <Item>
       <Source>gamefont.spritefont</Source>
@@ -300,8 +388,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\gamefont.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\gamefont.xnb</Output>
+      <Time>2009-03-06T12:31:02.9284831-05:00</Time>
     </Item>
     <Item>
       <Source>menufont.spritefont</Source>
@@ -309,8 +397,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\menufont.xnb</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\menufont.xnb</Output>
+      <Time>2009-03-06T12:31:03.1316185-05:00</Time>
     </Item>
     <Item>
       <Source>Debug\Font.spritefont</Source>
@@ -318,16 +406,25 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Debug\Font.xnb</Output>
-      <Time>2009-02-01T18:50:58+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Debug\Font.xnb</Output>
+      <Time>2009-03-06T12:28:48.3590935-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Debug\Console.spritefont</Source>
+      <Name>Debug\Console</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Debug\Console.xnb</Output>
+      <Time>2009-03-06T12:28:48.3590935-05:00</Time>
     </Item>
     <Item>
       <Source>Models\sky.fx</Source>
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\sky_0.xnb</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\sky_0.xnb</Output>
+      <Time>2009-03-06T12:24:40.4001171-05:00</Time>
     </Item>
     <Item>
       <Source>Models\rocks.bmp</Source>
@@ -341,15 +438,15 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\rocks_0.xnb</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\rocks_0.xnb</Output>
+      <Time>2009-03-06T12:24:40.4626251-05:00</Time>
     </Item>
     <Item>
       <Source>Models\Ship.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Ship_0.xml</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
+      <Time>2009-03-06T12:24:40.3688631-05:00</Time>
     </Item>
     <Item>
       <Source>Models\terrain.tga</Source>
@@ -363,8 +460,8 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\terrain_0.xnb</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\terrain_0.xnb</Output>
+      <Time>2009-03-06T12:24:40.6345221-05:00</Time>
     </Item>
     <Item>
       <Source>Models\sunset.tga</Source>
@@ -378,18 +475,18 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\sunset_0.xnb</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\sunset_0.xnb</Output>
+      <Time>2009-03-06T12:24:40.4469981-05:00</Time>
     </Item>
     <Item>
       <Source>ship_map.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\ship_map_0.xml</Output>
-      <Time>2009-02-01T18:51:54+01:00</Time>
+      <Time>2009-03-06T12:31:03.4910119-05:00</Time>
     </Item>
     <Item>
-      <Source>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\XSI\Ship - Interior\Pictures\Ship_Wall.tga</Source>
+      <Source>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\XSI\Ship - Interior\Pictures\Ship_Wall.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -400,11 +497,11 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Ship_Wall_0.xnb</Output>
-      <Time>2009-02-01T18:52:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Ship_Wall_0.xnb</Output>
+      <Time>2009-03-06T12:33:29.3266033-05:00</Time>
     </Item>
     <Item>
-      <Source>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\XSI\Ship - Interior\Pictures\Wire_floor.tga</Source>
+      <Source>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\XSI\Ship - Interior\Pictures\Wire_floor.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -415,11 +512,11 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Wire_floor_0.xnb</Output>
-      <Time>2009-02-01T18:52:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Wire_floor_0.xnb</Output>
+      <Time>2009-03-06T12:33:29.2797259-05:00</Time>
     </Item>
     <Item>
-      <Source>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\XSI\Ship - Interior\Pictures\steel_floor_final.tga</Source>
+      <Source>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\XSI\Ship - Interior\Pictures\steel_floor_final.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -430,11 +527,11 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\steel_floor_final_0.xnb</Output>
-      <Time>2009-02-01T18:52:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\steel_floor_final_0.xnb</Output>
+      <Time>2009-03-06T12:33:29.2328485-05:00</Time>
     </Item>
     <Item>
-      <Source>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\XSI\Ship - Interior\Pictures\ship_ceiling.tga</Source>
+      <Source>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\XSI\Ship - Interior\Pictures\ship_ceiling.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -445,11 +542,11 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\ship_ceiling_0.xnb</Output>
-      <Time>2009-02-01T18:52:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\ship_ceiling_0.xnb</Output>
+      <Time>2009-03-06T12:33:29.3109775-05:00</Time>
     </Item>
     <Item>
-      <Source>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\XSI\Ship - Interior\Pictures\copper_pipe.tga</Source>
+      <Source>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\XSI\Ship - Interior\Pictures\copper_pipe.tga</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -460,15 +557,43 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\copper_pipe_0.xnb</Output>
-      <Time>2009-02-01T18:52:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\copper_pipe_0.xnb</Output>
+      <Time>2009-03-06T12:33:29.2015969-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\pistol(1).fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\pistol(1)_0.xml</Output>
+      <Time>2009-03-06T12:24:40.4469981-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\bullpup.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\bullpup_0.xml</Output>
+      <Time>2009-03-06T12:24:40.5095061-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\grenade.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\grenade_0.xml</Output>
+      <Time>2009-03-06T12:24:40.4157441-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\sniper_rifle.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\sniper_rifle_0.xml</Output>
+      <Time>2009-03-06T12:24:40.4782521-05:00</Time>
     </Item>
     <Item>
       <Source>Models\model.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\model_0.xml</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
+      <Time>2009-03-06T12:24:40.5876411-05:00</Time>
     </Item>
     <Item>
       <Source>Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-359.RdBitmap.jpg</Source>
@@ -482,8 +607,8 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_0.xnb</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_0.xnb</Output>
+      <Time>2009-03-06T12:24:40.4938791-05:00</Time>
     </Item>
     <Item>
       <Source>Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35b.RdBitmap.jpg</Source>
@@ -497,8 +622,8 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_1.xnb</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_1.xnb</Output>
+      <Time>2009-03-06T12:24:40.5876411-05:00</Time>
     </Item>
     <Item>
       <Source>Models\256x256x1_17240c0b-48e9c968-b872cba7-b5e05d60-35d.RdBitmap.jpg</Source>
@@ -512,79 +637,61 @@
         <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_2.xnb</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
+      <Output>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\Models\256x256x1_17240c0b-48e9c968-b872_2.xnb</Output>
+      <Time>2009-03-06T12:24:40.6032681-05:00</Time>
     </Item>
     <Item>
       <Source>Models\LevelPreVis1.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\LevelPreVis1_0.xml</Output>
-      <Time>2009-02-01T18:49:36+01:00</Time>
+      <Time>2009-03-06T12:24:40.4313711-05:00</Time>
     </Item>
     <Item>
       <Source>cube.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\cube_0.xml</Output>
-      <Time>2009-02-01T18:51:52+01:00</Time>
-    </Item>
-    <Item>
-      <Source>ship_map.fbx</Source>
-      <Name>ship_map</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>TrianglePickingProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\ship_map.xnb</Output>
-      <Time>2009-02-01T18:51:54+01:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\ship_map_0.xml</Key>
-        <Value>2009-02-01T23:28:46+01:00</Value>
-      </Dependency>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Ship_Wall_0.xnb</Request>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\Wire_floor_0.xnb</Request>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\steel_floor_final_0.xnb</Request>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\ship_ceiling_0.xnb</Request>
-      <Request>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\copper_pipe_0.xnb</Request>
+      <Time>2009-03-06T12:31:03.1159927-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\TRA Game\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\TRA Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2008-10-10T18:42:32+02:00</Value>
+        <Value>2008-10-10T18:42:32-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2008-10-10T18:43:28+02:00</Value>
+        <Value>2008-10-10T18:43:28-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2008-10-10T18:43:18+02:00</Value>
+        <Value>2008-10-10T18:43:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2008-10-10T18:48:18+02:00</Value>
+        <Value>2008-10-10T18:48:18-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2008-10-10T18:48:50+02:00</Value>
+        <Value>2008-10-10T18:48:50-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Documents and Settings\Hannes Hille\My Documents\EGGEngine\trafps\EGGPipelineExtension\bin\Zune\Debug\EGGPipelineExtension.dll</Key>
-        <Value>2009-02-01T23:28:22+01:00</Value>
+        <Key>C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGPipelineExtension\bin\Zune\Debug\EGGPipelineExtension.dll</Key>
+        <Value>2009-03-13T13:41:38.3294204-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2008-12-15T18:05:54+01:00</Value>
+        <Value>2009-01-06T13:15:16.4548726-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

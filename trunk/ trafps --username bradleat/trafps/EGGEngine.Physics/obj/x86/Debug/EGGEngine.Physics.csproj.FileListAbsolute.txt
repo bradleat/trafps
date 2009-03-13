@@ -1,0 +1,6 @@
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGEngine.Physics\bin\x86\Debug\EGGEngine.Physics.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGEngine.Physics\bin\x86\Debug\EGGEngine.Physics.pdb
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGEngine.Physics\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGEngine.Physics\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGEngine.Physics\obj\x86\Debug\EGGEngine.Physics.dll
+C:\Documents and Settings\drh242.ARL6256\Desktop\New Folder\trafps\EGGEngine.Physics\obj\x86\Debug\EGGEngine.Physics.pdb

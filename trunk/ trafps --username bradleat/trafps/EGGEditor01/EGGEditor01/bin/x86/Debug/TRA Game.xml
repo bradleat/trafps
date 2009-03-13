@@ -1,0 +1,1560 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TRA Game</name>
+    </assembly>
+    <members>
+        <member name="T:TRA_Game.MenuEntry">
+            <summary>
+            Helper class represents a single entry in a MenuScreen. By default this
+            just draws the entry text string, but it can be customized to display menu
+            entries in different ways. This also provides an event that will be raised
+            when the menu entry is selected.
+            </summary>
+        </member>
+        <member name="F:TRA_Game.MenuEntry.text">
+            <summary>
+            The text rendered for this entry.
+            </summary>
+        </member>
+        <member name="F:TRA_Game.MenuEntry.selectionFade">
+            <summary>
+            Tracks a fading selection effect on the entry.
+            </summary>
+            <remarks>
+            The entries transition out of the selection effect when they are deselected.
+            </remarks>
+        </member>
+        <member name="M:TRA_Game.MenuEntry.OnSelectEntry">
+            <summary>
+            Method for raising the Selected event.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MenuEntry.#ctor(System.String)">
+            <summary>
+            Constructs a new menu entry with the specified text.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MenuEntry.Update(TRA_Game.MenuScreen,System.Boolean,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates the menu entry.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MenuEntry.Draw(TRA_Game.MenuScreen,Microsoft.Xna.Framework.Vector2,System.Boolean,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the menu entry. This can be overridden to customize the appearance.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MenuEntry.GetHeight(TRA_Game.MenuScreen)">
+            <summary>
+            Queries how much space this menu entry requires.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.MenuEntry.Text">
+            <summary>
+            Gets or sets the text of this menu entry.
+            </summary>
+        </member>
+        <member name="E:TRA_Game.MenuEntry.Selected">
+            <summary>
+            Event raised when the menu entry is selected.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.MainMenuScreen">
+            <summary>
+            The main menu screen is the first thing displayed when the game starts up.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.MenuScreen">
+            <summary>
+            Base class for screens that contain a menu of options. The user can
+            move up and down to select an entry, or cancel to back out of the screen.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.GameScreen">
+            <summary>
+            A screen is a single layer that has update and draw logic, and which
+            can be combined with other layers to build up a complex menu system.
+            For instance the main menu, the options menu, the "are you sure you
+            want to quit" message box, and the main game itself are all implemented
+            as screens.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.GameScreen.LoadContent">
+            <summary>
+            Load graphics content for the screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.GameScreen.UnloadContent">
+            <summary>
+            Unload content for the screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.GameScreen.Update(Microsoft.Xna.Framework.GameTime,System.Boolean,System.Boolean)">
+            <summary>
+            Allows the screen to run logic, such as updating the transition position.
+            Unlike HandleInput, this method is called regardless of whether the screen
+            is active, hidden, or in the middle of a transition.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.GameScreen.UpdateTransition(Microsoft.Xna.Framework.GameTime,System.TimeSpan,System.Int32)">
+            <summary>
+            Helper for updating the screen transition position.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.GameScreen.HandleInput(TRA_Game.InputState)">
+            <summary>
+            Allows the screen to handle user input. Unlike Update, this method
+            is only called when the screen is active, and not when some other
+            screen has taken the focus.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.GameScreen.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            This is called when the screen should draw itself.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.GameScreen.ExitScreen">
+            <summary>
+            Tells the screen to go away. Unlike ScreenManager.RemoveScreen, which
+            instantly kills the screen, this method respects the transition timings
+            and will give the screen a chance to gradually transition off.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.GameScreen.IsPopup">
+            <summary>
+            Normally when one screen is brought up over the top of another,
+            the first screen will transition off to make room for the new
+            one. This property indicates whether the screen is only a small
+            popup, in which case screens underneath it do not need to bother
+            transitioning off.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.GameScreen.TransitionOnTime">
+            <summary>
+            Indicates how long the screen takes to
+            transition on when it is activated.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.GameScreen.TransitionOffTime">
+            <summary>
+            Indicates how long the screen takes to
+            transition off when it is deactivated.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.GameScreen.TransitionPosition">
+            <summary>
+            Gets the current position of the screen transition, ranging
+            from zero (fully active, no transition) to one (transitioned
+            fully off to nothing).
+            </summary>
+        </member>
+        <member name="P:TRA_Game.GameScreen.TransitionAlpha">
+            <summary>
+            Gets the current alpha of the screen transition, ranging
+            from 255 (fully active, no transition) to 0 (transitioned
+            fully off to nothing).
+            </summary>
+        </member>
+        <member name="P:TRA_Game.GameScreen.ScreenState">
+            <summary>
+            Gets the current screen transition state.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.GameScreen.IsExiting">
+            <summary>
+            There are two possible reasons why a screen might be transitioning
+            off. It could be temporarily going away to make room for another
+            screen that is on top of it, or it could be going away for good.
+            This property indicates whether the screen is exiting for real:
+            if set, the screen will automatically remove itself as soon as the
+            transition finishes.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.GameScreen.IsActive">
+            <summary>
+            Checks whether this screen is active and can respond to user input.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.GameScreen.ScreenManager">
+            <summary>
+            Gets the manager that this screen belongs to.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MenuScreen.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MenuScreen.HandleInput(TRA_Game.InputState)">
+            <summary>
+            Responds to user input, changing the selected entry and accepting
+            or cancelling the menu.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MenuScreen.OnSelectEntry(System.Int32)">
+            <summary>
+            Handler for when the user has chosen a menu entry.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MenuScreen.OnCancel">
+            <summary>
+            Handler for when the user has cancelled the menu.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MenuScreen.OnCancel(System.Object,System.EventArgs)">
+            <summary>
+            Helper overload makes it easy to use OnCancel as a MenuEntry event handler.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MenuScreen.Update(Microsoft.Xna.Framework.GameTime,System.Boolean,System.Boolean)">
+            <summary>
+            Updates the menu.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MenuScreen.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the menu.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.MenuScreen.MenuEntries">
+            <summary>
+            Gets the list of menu entries, so derived classes can add
+            or change the menu contents.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MainMenuScreen.#ctor(System.Boolean,EGGEngine.Audio.Audio)">
+            <summary>
+            Constructor fills in the menu contents.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MainMenuScreen.OptionsMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the Single Player menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MainMenuScreen.AssemblerMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the Single Player menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MainMenuScreen.TheatherMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the Single Player menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MainMenuScreen.MultiplayerMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the Single Player menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MainMenuScreen.TrainingMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the Single Player menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MainMenuScreen.OnCancel">
+            <summary>
+            When the user cancels the main menu, ask if they want to exit the sample.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MainMenuScreen.ConfirmExitMessageBoxAccepted(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the user selects ok on the "are you sure
+            you want to exit" message box.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.InputState">
+            <summary>
+            Helper for reading input from keyboard and gamepad. This class tracks both
+            the current and previous state of both input devices, and implements query
+            properties for high level input actions such as "move up through the menu"
+            or "pause the game".
+            </summary>
+        </member>
+        <member name="M:TRA_Game.InputState.#ctor">
+            <summary>
+            Constructs a new input state.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.InputState.Update">
+            <summary>
+            Reads the latest state of the keyboard and gamepad.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.InputState.IsNewKeyPress(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>
+            Helper for checking if a key was newly pressed during this update,
+            by any player.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.InputState.IsNewKeyPress(Microsoft.Xna.Framework.Input.Keys,Microsoft.Xna.Framework.PlayerIndex)">
+            <summary>
+            Helper for checking if a key was newly pressed during this update,
+            by the specified player.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.InputState.IsNewButtonPress(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>
+            Helper for checking if a button was newly pressed during this update,
+            by any player.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.InputState.IsNewButtonPress(Microsoft.Xna.Framework.Input.Buttons,Microsoft.Xna.Framework.PlayerIndex)">
+            <summary>
+            Helper for checking if a button was newly pressed during this update,
+            by the specified player.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.InputState.IsMenuSelect(Microsoft.Xna.Framework.PlayerIndex)">
+            <summary>
+            Checks for a "menu select" input action from the specified player.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.InputState.IsMenuCancel(Microsoft.Xna.Framework.PlayerIndex)">
+            <summary>
+            Checks for a "menu cancel" input action from the specified player.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.InputState.MenuUp">
+            <summary>
+            Checks for a "menu up" input action, from any player,
+            on either keyboard or gamepad.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.InputState.MenuDown">
+            <summary>
+            Checks for a "menu down" input action, from any player,
+            on either keyboard or gamepad.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.InputState.MenuSelect">
+            <summary>
+            Checks for a "menu select" input action, from any player,
+            on either keyboard or gamepad.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.InputState.MenuCancel">
+            <summary>
+            Checks for a "menu cancel" input action, from any player,
+            on either keyboard or gamepad.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.InputState.PauseGame">
+            <summary>
+            Checks for a "pause the game" input action, from any player,
+            on either keyboard or gamepad.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.ProfileSignInScreen">
+            <summary>
+            In order to play a networked game, you must have a player profile signed in.
+            If you want to play on Live, that has to be a Live profile. Rather than just
+            failing with an error message, it is nice if we can automatically bring up the
+            Guide screen when we detect that no suitable profiles are currently signed in,
+            so the user can easily correct the problem. This screen checks the sign in
+            state, and brings up the Guide user interface if there is a problem with it.
+            It then raises an event as soon as a valid profile has been signed in.
+            
+            There are two scenarios for how this can work. If no good profile is signed in:
+            
+                - MainMenuScreen activates the ProfileSignInScreen
+                - ProfileSignInScreen activates the Guide user interface
+                - User signs in a profile
+                - ProfileSignInScreen raises the ProfileSignedIn event
+                - This advances to the CreateOrFindSessionScreen
+            
+            Alternatively, there might already be a valid profile signed in. In this case:
+            
+                - MainMenuScreen activates the ProfileSignInScreen
+                - ProfileSignInScreen notices everything is already good
+                - ProfileSignInScreen raises the ProfileSignedIn event
+                - This advances to the CreateOrFindSessionScreen
+            
+            In this second case, the ProfileSignInScreen is only active for a single
+            Update, so the user just sees a transition directly from the MainMenuScreen
+            to the CreateOrFindSessionScreen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ProfileSignInScreen.#ctor(Microsoft.Xna.Framework.Net.NetworkSessionType)">
+            <summary>
+            Constructs a new profile sign in screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ProfileSignInScreen.Update(Microsoft.Xna.Framework.GameTime,System.Boolean,System.Boolean)">
+            <summary>
+            Updates the profile sign in screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ProfileSignInScreen.ValidProfileSignedIn">
+            <summary>
+            Helper checks whether a valid player profile is signed in.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.NetworkErrorScreen">
+            <summary>
+            Specialized message box subclass, used to display network error messages.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.MessageBoxScreen">
+            <summary>
+            A popup message box screen, used to display "are you sure?"
+            confirmation messages.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MessageBoxScreen.#ctor(System.String)">
+            <summary>
+            Constructor automatically includes the standard "A=ok, B=cancel"
+            usage text prompt.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MessageBoxScreen.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructor lets the caller specify whether to include the standard
+            "A=ok, B=cancel" usage text prompt.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MessageBoxScreen.LoadContent">
+            <summary>
+            Loads graphics content for this screen. This uses the shared ContentManager
+            provided by the Game class, so the content will remain loaded forever.
+            Whenever a subsequent MessageBoxScreen tries to load this same content,
+            it will just get back another reference to the already loaded data.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MessageBoxScreen.HandleInput(TRA_Game.InputState)">
+            <summary>
+            Responds to user input, accepting or cancelling the message box.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MessageBoxScreen.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the message box.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkErrorScreen.#ctor(System.Exception)">
+            <summary>
+            Constructs an error message box from the specified exception.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkErrorScreen.GetErrorMessage(System.Exception)">
+            <summary>
+            Converts a network exception into a user friendly error message.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.Player">
+            <summary>
+            This is a game component that implements IUpdateable.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.Player.Initialize">
+            <summary>
+            Allows the game component to perform any initialization it needs to before starting
+            to run.  This is where it can query for any required services and load content.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.Player.Update(Microsoft.Xna.Framework.GameTime,Microsoft.Xna.Framework.Input.MouseState,Microsoft.Xna.Framework.Input.KeyboardState)">
+            <summary>
+            Allows the game component to update itself.
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>
+        </member>
+        <member name="T:TRA_Game.ScreenManager">
+            <summary>
+            The screen manager is a component which manages one or more GameScreen
+            instances. It maintains a stack of screens, calls their Update and Draw
+            methods at the appropriate times, and automatically routes input to the
+            topmost active screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ScreenManager.#ctor(Microsoft.Xna.Framework.Game)">
+            <summary>
+            Constructs a new screen manager component.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ScreenManager.Initialize">
+            <summary>
+            Initializes the screen manager component.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ScreenManager.LoadContent">
+            <summary>
+            Load your graphics content.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ScreenManager.UnloadContent">
+            <summary>
+            Unload your graphics content.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ScreenManager.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Allows each screen to run logic.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ScreenManager.TraceScreens">
+            <summary>
+            Prints a list of all the screens, for debugging.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ScreenManager.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Tells each screen to draw itself.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ScreenManager.AddScreen(TRA_Game.GameScreen)">
+            <summary>
+            Adds a new screen to the screen manager.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ScreenManager.RemoveScreen(TRA_Game.GameScreen)">
+            <summary>
+            Removes a screen from the screen manager. You should normally
+            use GameScreen.ExitScreen instead of calling this directly, so
+            the screen can gradually transition off rather than just being
+            instantly removed.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ScreenManager.GetScreens">
+            <summary>
+            Expose an array holding all the screens. We return a copy rather
+            than the real master list, because screens should only ever be added
+            or removed using the AddScreen and RemoveScreen methods.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.ScreenManager.FadeBackBufferToBlack(System.Int32)">
+            <summary>
+            Helper draws a translucent black fullscreen sprite, used for fading
+            screens in and out, and for darkening the background behind popups.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.ScreenManager.SpriteBatch">
+            <summary>
+            A default SpriteBatch shared by all the screens. This saves
+            each screen having to bother creating their own local instance.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.ScreenManager.Font">
+            <summary>
+            A default font shared by all the screens. This saves
+            each screen having to bother loading their own local copy.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.ScreenManager.TraceEnabled">
+            <summary>
+            If true, the manager prints out a list of all the screens
+            each time it is updated. This can be useful for making sure
+            everything is being added and removed at the right times.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.Level">
+            <summary>
+            This is a game component that implements IUpdateable.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.TRA_Game">
+            <summary>
+            This is the main type for your game
+            </summary>
+        </member>
+        <member name="M:TRA_Game.TRA_Game.#ctor">
+            <summary>
+            The main game constructor.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.TRA_Game.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            This is called when the game should draw itself.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.LoadingScreen">
+            <summary>
+            The loading screen coordinates transitions between the menu system and the
+            game itself. Normally one screen will transition off at the same time as
+            the next screen is transitioning on, but for larger transitions that can
+            take a longer time to load their data, we want the menu system to be entirely
+            gone before we start loading the game. This is done as follows:
+            
+            - Tell all the existing screens to transition off.
+            - Activate a loading screen, which will transition on at the same time.
+            - The loading screen watches the state of the previous screens.
+            - When it sees they have finished transitioning off, it activates the real
+              next screen, which may take a long time to load its data. The loading
+              screen will be the only thing displayed while this load is taking place.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LoadingScreen.#ctor(TRA_Game.ScreenManager,System.Boolean,TRA_Game.GameScreen[])">
+            <summary>
+            The constructor is private: loading screens should
+            be activated via the static Load method instead.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LoadingScreen.Load(TRA_Game.ScreenManager,System.Boolean,TRA_Game.GameScreen[])">
+            <summary>
+            Activates the loading screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LoadingScreen.Update(Microsoft.Xna.Framework.GameTime,System.Boolean,System.Boolean)">
+            <summary>
+            Updates the loading screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LoadingScreen.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the loading screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LoadingScreen.BackgroundWorkerThread">
+            <summary>
+            Worker thread draws the loading animation and updates the network
+            session while the load is taking place.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LoadingScreen.GetGameTime(System.Int64@)">
+            <summary>
+            Works out how long it has been since the last background thread update.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LoadingScreen.DrawLoadAnimation(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Calls directly into our Draw method from the background worker thread,
+            so as to update the load animation in parallel with the actual loading.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LoadingScreen.UpdateNetworkSession">
+            <summary>
+            Updates the network session from the background worker thread, to avoid
+            disconnecting due to network timeouts even if loading takes a long time.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.LobbyScreen">
+            <summary>
+            The lobby screen provides a place for gamers to congregate before starting
+            the actual gameplay. It displays a list of all the gamers in the session,
+            and indicates which ones are currently talking. Each gamer can press a button
+            to mark themselves as ready: gameplay will begin after everyone has done this.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LobbyScreen.#ctor(Microsoft.Xna.Framework.Net.NetworkSession,EGGEngine.Audio.Audio,System.Boolean)">
+            <summary>
+            Constructs a new lobby screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LobbyScreen.LoadContent">
+            <summary>
+            Loads graphics content used by the lobby screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LobbyScreen.Update(Microsoft.Xna.Framework.GameTime,System.Boolean,System.Boolean)">
+            <summary>
+            Updates the lobby screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LobbyScreen.HandleInput(TRA_Game.InputState)">
+            <summary>
+            Handles user input for all the local gamers in the session. Unlike most
+            screens, which use the InputState class to combine input data from all
+            gamepads, the lobby needs to individually mark specific players as ready,
+            so it loops over all the local gamers and reads their inputs individually.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LobbyScreen.HandleMenuSelect(Microsoft.Xna.Framework.Net.LocalNetworkGamer)">
+            <summary>
+            Handle MenuSelect inputs by marking ourselves as ready.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LobbyScreen.ConfirmStartGameMessageBoxAccepted(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the host selects ok on the "are you sure
+            you want to start even though not everyone is ready" message box.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LobbyScreen.HandleMenuCancel(Microsoft.Xna.Framework.Net.LocalNetworkGamer)">
+            <summary>
+            Handle MenuCancel inputs by clearing our ready status, or if it is
+            already clear, prompting if the user wants to leave the session.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LobbyScreen.SendMessage(System.IAsyncResult)">
+            <summary>
+            Handles when the user wishes to send a message.
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="M:TRA_Game.LobbyScreen.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the lobby screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LobbyScreen.DrawGamer(Microsoft.Xna.Framework.Net.NetworkGamer,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Helper draws the gamertag and status icons for a single NetworkGamer.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.LobbyScreen.FadeAlphaDuringTransition(Microsoft.Xna.Framework.Graphics.Color)">
+            <summary>
+            Helper modifies a color to fade its alpha value during screen transitions.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.CreateOrFindSessionScreen">
+            <summary>
+            This menu screen lets the user choose whether to create a new
+            network session, or search for an existing session to join.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.CreateOrFindSessionScreen.#ctor(TRA_Game.ScreenManager,Microsoft.Xna.Framework.Net.NetworkSessionType,EGGEngine.Audio.Audio,Microsoft.Xna.Framework.Audio.Cue)">
+            <summary>
+            Constructor fills in the menu contents.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.CreateOrFindSessionScreen.GetMenuTitle(Microsoft.Xna.Framework.Net.NetworkSessionType)">
+            <summary>
+            Helper chooses an appropriate menu title for the specified session type.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.CreateOrFindSessionScreen.CreateSessionMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the Create Session menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.CreateOrFindSessionScreen.FindSessionsMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the Find Sessions menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.SplashTitle.#ctor(Microsoft.Xna.Framework.Game)">
+            <summary>
+            Create user interface renderer
+            </summary>
+            
+        </member>
+        <member name="M:TRA_Game.SplashTitle.LoadContent">
+            <summary>
+            Loads the SpriteBatch and font.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.Assembler">
+            <summary>
+              Looks up a localized string similar to Assembler.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.Back">
+            <summary>
+              Looks up a localized string similar to Back.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ConfirmEndSession">
+            <summary>
+              Looks up a localized string similar to Are you sure you want to end this session?.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ConfirmExitGame">
+            <summary>
+              Looks up a localized string similar to Are you sure you want to exit?.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ConfirmForceStartGame">
+             <summary>
+               Looks up a localized string similar to Are you sure you want to start the game,
+            even though not all players are ready?.
+             </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ConfirmLeaveSession">
+            <summary>
+              Looks up a localized string similar to Are you sure you want to leave this session?.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ConfirmQuitGame">
+            <summary>
+              Looks up a localized string similar to Are you sure you want to quit this game?.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.CreateSession">
+            <summary>
+              Looks up a localized string similar to Create Session.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.EndSession">
+            <summary>
+              Looks up a localized string similar to End Session.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ErrorDisconnected">
+            <summary>
+              Looks up a localized string similar to Lost connection to the network session.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ErrorGamerPrivilege">
+             <summary>
+               Looks up a localized string similar to You must sign in a suitable gamer profile
+            in order to access this functionality.
+             </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ErrorHostEndedSession">
+            <summary>
+              Looks up a localized string similar to Host ended the session.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ErrorNetwork">
+             <summary>
+               Looks up a localized string similar to There was an error while
+            accessing the network.
+             </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ErrorRemovedByHost">
+            <summary>
+              Looks up a localized string similar to Host kicked you out of the session.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ErrorSessionFull">
+            <summary>
+              Looks up a localized string similar to This session is already full.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ErrorSessionNotFound">
+             <summary>
+               Looks up a localized string similar to Session not found. It may have ended,
+            or there may be no network connectivity
+            between the local machine and session host.
+             </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ErrorSessionNotJoinable">
+             <summary>
+               Looks up a localized string similar to You must wait for the host to return to
+            the lobby before you can join this session.
+             </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.Exit">
+            <summary>
+              Looks up a localized string similar to Exit.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.FindSessions">
+            <summary>
+              Looks up a localized string similar to Find Sessions.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.GameMode">
+            <summary>
+              Looks up a localized string similar to GameMode :.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.GameModeTypeCTF">
+            <summary>
+              Looks up a localized string similar to Capture The Flag.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.GameModeTypeDM">
+            <summary>
+              Looks up a localized string similar to Deathmatch.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.GameModeTypeTDM">
+            <summary>
+              Looks up a localized string similar to Team Deathmatch.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.HostSuffix">
+            <summary>
+              Looks up a localized string similar to  (host).
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.JoinSession">
+            <summary>
+              Looks up a localized string similar to Join Session.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.LeaveSession">
+            <summary>
+              Looks up a localized string similar to Leave Session.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.Loading">
+            <summary>
+              Looks up a localized string similar to Loading.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.Lobby">
+            <summary>
+              Looks up a localized string similar to Lobby.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.MainMenu">
+            <summary>
+              Looks up a localized string similar to Main Menu.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.MessageBoxUsage">
+             <summary>
+               Looks up a localized string similar to 
+            A button, Space, Enter = ok
+            B button, Esc = cancel.
+             </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.MessageGamerJoined">
+            <summary>
+              Looks up a localized string similar to {0} joined.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.MessageGamerLeft">
+            <summary>
+              Looks up a localized string similar to {0} left.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.MessageNewHost">
+            <summary>
+              Looks up a localized string similar to {0} is now the Host.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.MessageYouAreHost">
+            <summary>
+              Looks up a localized string similar to You are now the Host.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.Multiplayer">
+            <summary>
+              Looks up a localized string similar to MultiPlayer.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.MultiplayerMenu">
+            <summary>
+              Looks up a localized string similar to Multiplayer.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.NetworkBusy">
+            <summary>
+              Looks up a localized string similar to Networking....
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.NoSessionsFound">
+            <summary>
+              Looks up a localized string similar to No sessions found.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.NumberOfBots">
+            <summary>
+              Looks up a localized string similar to No. of Bots :.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.NumberOfBots10">
+            <summary>
+              Looks up a localized string similar to 10.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.NumerOfBots20">
+            <summary>
+              Looks up a localized string similar to 20.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.Options">
+            <summary>
+              Looks up a localized string similar to Options.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.Paused">
+            <summary>
+              Looks up a localized string similar to Paused.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.PlayerMatch">
+            <summary>
+              Looks up a localized string similar to LIVE.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.QuitGame">
+            <summary>
+              Looks up a localized string similar to Quit Game.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.Respawn">
+            <summary>
+              Looks up a localized string similar to Respawning.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ResumeGame">
+            <summary>
+              Looks up a localized string similar to Resume Game.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ReturnToLobby">
+            <summary>
+              Looks up a localized string similar to Return to Lobby.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ScoreToWin">
+            <summary>
+              Looks up a localized string similar to ScoreToWin :.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ScoreToWinType1">
+            <summary>
+              Looks up a localized string similar to 1.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ScoreToWinType3">
+            <summary>
+              Looks up a localized string similar to 3.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ScoreToWinType5">
+            <summary>
+              Looks up a localized string similar to 5.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ScoreToWinTypeFifty">
+            <summary>
+              Looks up a localized string similar to 50.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.ScoreToWinTypeTwentyFive">
+            <summary>
+              Looks up a localized string similar to 25.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.SearchSessions">
+            <summary>
+              Looks up a localized string similar to Search Sessions.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.SessionProperties">
+            <summary>
+              Looks up a localized string similar to SessionProperties - .
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.SinglePlayer">
+            <summary>
+              Looks up a localized string similar to Single Player.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.StartGame">
+            <summary>
+              Looks up a localized string similar to Start Game.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.SystemLink">
+            <summary>
+              Looks up a localized string similar to System Link.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.Theather">
+            <summary>
+              Looks up a localized string similar to Theatre.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.Training">
+            <summary>
+              Looks up a localized string similar to Training.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.Weapons">
+            <summary>
+              Looks up a localized string similar to Weapons :.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.WeaponsTypeHeavy">
+            <summary>
+              Looks up a localized string similar to Heavy.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.WeaponsTypeLight">
+            <summary>
+              Looks up a localized string similar to Light.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.Resources.WeaponsTypeNormal">
+            <summary>
+              Looks up a localized string similar to Normal.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.NetworkSessionComponent">
+            <summary>
+            Component in charge of owning and updating the current NetworkSession object.
+            This is responsible for calling NetworkSession.Update at regular intervals,
+            and also exposes the NetworkSession as a game service which can easily be
+            looked up by any other code that needs to access it.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkSessionComponent.#ctor(TRA_Game.ScreenManager,Microsoft.Xna.Framework.Net.NetworkSession)">
+            <summary>
+            The constructor is private: external callers should use the Create method.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkSessionComponent.Create(TRA_Game.ScreenManager,Microsoft.Xna.Framework.Net.NetworkSession)">
+            <summary>
+            Creates a new NetworkSessionComponent.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkSessionComponent.Initialize">
+            <summary>
+            Initializes the component.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkSessionComponent.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates the network session.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkSessionComponent.GamerJoined(System.Object,Microsoft.Xna.Framework.Net.GamerJoinedEventArgs)">
+            <summary>
+            Event handler called when a gamer joins the session.
+            Displays a notification message.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkSessionComponent.GamerLeft(System.Object,Microsoft.Xna.Framework.Net.GamerLeftEventArgs)">
+            <summary>
+            Event handler called when a gamer leaves the session.
+            Displays a notification message.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkSessionComponent.NetworkSessionEnded(System.Object,Microsoft.Xna.Framework.Net.NetworkSessionEndedEventArgs)">
+            <summary>
+            Event handler called when the network session ends.
+            Stores the end reason, so this can later be displayed to the user.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkSessionComponent.LeaveSession(TRA_Game.ScreenManager)">
+            <summary>
+            Public method called when the user wants to leave the network session.
+            Displays a confirmation message box, then disposes the session, removes
+            the NetworkSessionComponent, and returns them to the main menu screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkSessionComponent.LeaveSession">
+            <summary>
+            Internal method for leaving the network session. This disposes the 
+            session, removes the NetworkSessionComponent, and returns the user
+            to the main menu screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.RespawnScreen.#ctor(Microsoft.Xna.Framework.Net.NetworkSession)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.RespawnScreen.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the pause menu screen. This darkens down the gameplay screen
+            that is underneath us, and then chains to the base MenuScreen.Draw.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.BackgroundScreen">
+            <summary>
+            The background screen sits behind all the other menu screens.
+            It draws a background image that remains fixed in place regardless
+            of whatever transitions the screens on top of it may be doing.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.BackgroundScreen.#ctor(System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.BackgroundScreen.LoadContent">
+            <summary>
+            Loads graphics content for this screen. The background texture is quite
+            big, so we use our own local ContentManager to load it. This allows us
+            to unload before going from the menus into the game itself, wheras if we
+            used the shared ContentManager provided by the Game class, the content
+            would remain loaded forever.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.BackgroundScreen.UnloadContent">
+            <summary>
+            Unloads graphics content for this screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.BackgroundScreen.Update(Microsoft.Xna.Framework.GameTime,System.Boolean,System.Boolean)">
+            <summary>
+            Updates the background screen. Unlike most screens, this should not
+            transition off even if it has been covered by another screen: it is
+            supposed to be covered, after all! This overload forces the
+            coveredByOtherScreen parameter to false in order to stop the base
+            Update method wanting to transition off.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.BackgroundScreen.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the background screen.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.IMessageDisplay">
+            <summary>
+            Interface used to display notification messages when interesting events occur,
+            for instance when gamers join or leave the network session. This interface
+            is registered as a service, so any piece of code wanting to display a message
+            can look it up from Game.Services, without needing to worry about how the
+            message display is implemented. In this sample, the MessageDisplayComponent
+            class implement this IMessageDisplay service.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.Program.Main(System.String[])">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.NetworkBusyScreen">
+            <summary>
+            When an asynchronous network operation (for instance searching for or joining a
+            session) is in progress, we want to display some sort of busy indicator to let
+            the user know the game hasn't just locked up. We also want to make sure they
+            can't pick some other menu option before the current operation has finished.
+            This screen takes care of both requirements in a single stroke. It monitors
+            the IAsyncResult returned by an asynchronous network call, displaying a busy
+            indicator for as long as the call is still in progress. When it notices the
+            IAsyncResult has completed, it raises an event to let the game know it should
+            proceed to the next step, after which the busy screen automatically goes away.
+            Because this screen is on top of all others for as long as the asynchronous
+            operation is in progress, it automatically takes over all user input,
+            preventing any other menu entries being selected until the operation completes.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkBusyScreen.#ctor(System.IAsyncResult)">
+            <summary>
+            Constructs a network busy screen for the specified asynchronous operation.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkBusyScreen.LoadContent">
+            <summary>
+            Loads graphics content for this screen. This uses the shared ContentManager
+            provided by the Game class, so the content will remain loaded forever.
+            Whenever a subsequent NetworkBusyScreen tries to load this same content,
+            it will just get back another reference to the already loaded data.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkBusyScreen.Update(Microsoft.Xna.Framework.GameTime,System.Boolean,System.Boolean)">
+            <summary>
+            Updates the NetworkBusyScreen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.NetworkBusyScreen.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the NetworkBusyScreen.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.MessageDisplayComponent">
+            <summary>
+            Component implements the IMessageDisplay interface. This is used to show
+            notification messages when interesting events occur, for instance when
+            gamers join or leave the network session
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MessageDisplayComponent.#ctor(Microsoft.Xna.Framework.Game)">
+            <summary>
+            Constructs a new message display component.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MessageDisplayComponent.LoadContent">
+            <summary>
+            Load graphics content for the message display.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MessageDisplayComponent.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates the message display component.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MessageDisplayComponent.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the message display component.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MessageDisplayComponent.ShowMessage(System.String,System.Object[])">
+            <summary>
+            Shows a new notification message.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.MessageDisplayComponent.NotificationMessage">
+            <summary>
+            Helper class stores the position and text of a single notification message.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.Weapon">
+            <summary>
+            This is a game component that implements IUpdateable.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.Weapon.Initialize">
+            <summary>
+            Allows the game component to perform any initialization it needs to before starting
+            to run.  This is where it can query for any required services and load content.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.Weapon.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Allows the game component to update itself.
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>
+        </member>
+        <member name="M:TRA_Game.SessionPropertiesScreen.#ctor(TRA_Game.ScreenManager,Microsoft.Xna.Framework.Net.NetworkSessionType,EGGEngine.Audio.Audio,Microsoft.Xna.Framework.Audio.Cue,System.Boolean,EGGEngine.Networking.NetworkHelper)">
+            <summary>
+            Constructor fills in the menu contents.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.SessionPropertiesScreen.GetMenuTitle(Microsoft.Xna.Framework.Net.NetworkSessionType)">
+            <summary>
+            Helper chooses an appropriate menu title for the specified session type.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.SessionPropertiesScreen.CreateSessionMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the Create Session menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.SessionPropertiesScreen.CreateSessionOperationCompleted(System.Object,TRA_Game.OperationCompletedEventArgs)">
+            <summary>
+            Event handler for when the asynchronous create network session
+            operation has completed.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.SessionPropertiesScreen.SearchSessionsMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the Find Sessions menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.SessionPropertiesScreen.FindSessionsOperationCompleted(System.Object,TRA_Game.OperationCompletedEventArgs)">
+            <summary>
+            Event handler for when the asynchronous find network sessions
+            operation has completed.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.OperationCompletedEventArgs">
+            <summary>
+            Custom EventArgs class used by the NetworkBusyScreen.OperationCompleted event.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.OperationCompletedEventArgs.#ctor(System.IAsyncResult)">
+            <summary>
+            Constructs a new event arguments class.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.OperationCompletedEventArgs.AsyncResult">
+            <summary>
+            Gets or sets the IAsyncResult associated with
+            the network operation that has just completed.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:TRA_Game.MultiplayerMenuScreen.#ctor(EGGEngine.Audio.Audio,Microsoft.Xna.Framework.Audio.Cue)" -->
+        <member name="M:TRA_Game.MultiplayerMenuScreen.BackMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MultiplayerMenuScreen.LiveMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the Live menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MultiplayerMenuScreen.SystemLinkMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the System Link menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MultiplayerMenuScreen.CreateOrFindSession(Microsoft.Xna.Framework.Net.NetworkSessionType)">
+            <summary>
+            Helper method shared by the Live and System Link menu event handlers.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MultiplayerMenuScreen.OnCancel">
+            <summary>
+            When the user cancels the main menu, ask if they want to exit the sample.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MultiplayerMenuScreen.ConfirmExitMessageBoxAccepted(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the user selects ok on the "are you sure
+            you want to exit" message box.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.AvailableSessionMenuEntry">
+            <summary>
+            Helper class customizes the standard MenuEntry class
+            for displaying AvailableNetworkSession objects.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.AvailableSessionMenuEntry.#ctor(Microsoft.Xna.Framework.Net.AvailableNetworkSession)">
+            <summary>
+            Constructs a menu entry describing an available network session.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.AvailableSessionMenuEntry.GetMenuItemText(Microsoft.Xna.Framework.Net.AvailableNetworkSession)">
+            <summary>
+            Formats session information to create the menu text string.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.AvailableSessionMenuEntry.Update(TRA_Game.MenuScreen,System.Boolean,Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates the menu item text, adding information about the network
+            quality of service as soon as that becomes available.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.AvailableSessionMenuEntry.AvailableSession">
+            <summary>
+            Gets the available network session corresponding to this menu entry.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.ScreenState">
+            <summary>
+            Enum describes the screen transition state.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.JoinSessionScreen">
+            <summary>
+            This menu screen displays a list of available network sessions,
+            and lets the user choose which one to join.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.JoinSessionScreen.#ctor(Microsoft.Xna.Framework.Net.AvailableNetworkSessionCollection,EGGEngine.Audio.Audio,Microsoft.Xna.Framework.Audio.Cue)">
+            <summary>
+            Constructs a menu screen listing the available network sessions.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.JoinSessionScreen.AvailableSessionMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when an available session menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.JoinSessionScreen.JoinSessionOperationCompleted(System.Object,TRA_Game.OperationCompletedEventArgs)">
+            <summary>
+            Event handler for when the asynchronous join network session
+            operation has completed.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.JoinSessionScreen.BackMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the Back menu entry is selected.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.HUD">
+            <summary>
+            This is a game component that implements IUpdateable.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.PauseMenuScreen">
+            <summary>
+            The pause menu comes up over the top of the game,
+            giving the player options to resume or quit.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.PauseMenuScreen.#ctor(Microsoft.Xna.Framework.Net.NetworkSession)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.PauseMenuScreen.QuitGameMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the Quit Game menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.PauseMenuScreen.ConfirmQuitMessageBoxAccepted(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the user selects ok on the "are you sure
+            you want to quit" message box. This uses the loading screen to
+            transition from the game back to the main menu screen.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.PauseMenuScreen.ReturnToLobbyMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the Return to Lobby menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.PauseMenuScreen.LeaveSessionMenuEntrySelected(System.Object,System.EventArgs)">
+            <summary>
+            Event handler for when the End/Leave Session menu entry is selected.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.PauseMenuScreen.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the pause menu screen. This darkens down the gameplay screen
+            that is underneath us, and then chains to the base MenuScreen.Draw.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.LevelCreator">
+            <summary>
+            This is a game component that implements IUpdateable.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.MainMenu.#ctor(Microsoft.Xna.Framework.Game)">
+            <summary>
+            Create user interface renderer
+            </summary>
+            
+        </member>
+        <member name="M:TRA_Game.MainMenu.LoadContent">
+            <summary>
+            Loads the SpriteBatch and font.
+            </summary>
+        </member>
+        <member name="T:TRA_Game.GameplayScreen">
+            <summary>
+            This screen implements the actual game logic. It is just a
+            placeholder to get the idea across: you'll probably want to
+            put some more interesting gameplay in here!
+            </summary>
+        </member>
+        <member name="M:TRA_Game.GameplayScreen.#ctor(Microsoft.Xna.Framework.Net.NetworkSession,TRA_Game.ModelTypes.Levels)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.GameplayScreen.LoadContent">
+            <summary>
+            Load graphics content for the game.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.GameplayScreen.UnloadContent">
+            <summary>
+            Unload graphics content used by the game.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.GameplayScreen.Update(Microsoft.Xna.Framework.GameTime,System.Boolean,System.Boolean)">
+            <summary>
+            Updates the state of the game.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.GameplayScreen.CheckPlayerCollision(Microsoft.Xna.Framework.Ray,System.Nullable{System.Single}@)">
+            <summary>
+            Checks if bullet sphere is in player sphere
+            </summary>
+            <param name="sphere">the bullet's bounding sphere</param>
+            <returns>1 if colission
+            0 if no collision</returns>
+        </member>
+        <member name="M:TRA_Game.GameplayScreen.HandleInput(TRA_Game.InputState)">
+            <summary>
+            Lets the game respond to player input. Unlike the Update method,
+            this will only be called when the gameplay screen is active.
+            </summary>
+        </member>
+        <member name="M:TRA_Game.GameplayScreen.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Draws the gameplay screen.
+            </summary>
+        </member>
+        <member name="P:TRA_Game.GameplayScreen.IsActive">
+            <summary>
+            The logic for deciding whether the game is paused depends on whether
+            this is a networked or single player game. If we are in a network session,
+            we should go on updating the game even when the user tabs away from us or
+            brings up the pause menu, because even though the local player is not
+            responding to input, other remote players may not be paused. In single
+            player modes, however, we want everything to pause if the game loses focus.
+            </summary>
+        </member>
+    </members>
+</doc>
