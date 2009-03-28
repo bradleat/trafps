@@ -26,6 +26,7 @@ using EGGEngine.Debug;
 using EGGEngine.Rendering;
 using EGGEngine.Rendering.Shaders;
 using EGGEngine.Helpers;
+using EGGEngine.Networking;
 using EGGEngine.Utils;
 using EGGEngine.Audio;
 using EGGEngine.Awards;
@@ -54,14 +55,19 @@ namespace TRA_Game
     {
         ModelTypes.Levels currentLevel;
         GameLevel level;
-        Player player;
+        Player localPlayer;
         Weapon weapon;
 
+        NetworkSessionComponent.GameMode gameMode;
 
+        private NetworkSessionComponent.GameMode currentGameMode;
+        public NetworkSessionComponent.GameMode CurrentGameMode
+        {
+            get { return currentGameMode; }
+            set { currentGameMode = value; }
+        }
 
-
-
-
+        NetworkHelper networkHelper;
 
 
 
@@ -70,7 +76,7 @@ namespace TRA_Game
         public static FrameRateCounter fpsCounter;
 
         //Classes
-        NetworkSession networkSession;
+        Microsoft.Xna.Framework.Net.NetworkSession networkSession;
         ContentManager Content;
         ConsoleMenu console;
         DrawableModel person1;
@@ -218,11 +224,13 @@ namespace TRA_Game
         /// <summary>
         /// Constructor.
         /// </summary>
-        public GameplayScreen(NetworkSession networkSession, ModelTypes.Levels  currentLevel)
+        public GameplayScreen(Microsoft.Xna.Framework.Net.NetworkSession networkSession, ModelTypes.Levels currentLevel)
         {
+            networkHelper = new NetworkHelper();
             this.networkSession = networkSession;
             this.currentLevel = currentLevel;
-            
+            networkHelper.NetworkGameSession = networkSession;
+
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
         }
@@ -236,6 +244,9 @@ namespace TRA_Game
             if (Content == null)
                 Content = new ContentManager(ScreenManager.Game.Services, "Content");
 
+
+            if (gameMode == null)
+                throw new Exception("No gameMode selected");
             //Classes
             input = new InputHelper();
             console = new ConsoleMenu(ScreenManager.Game);
@@ -246,12 +257,24 @@ namespace TRA_Game
 
             camera = new FirstPersonCamera(ScreenManager.GraphicsDevice.Viewport);
             level = LevelCreator.CreateLevel(ScreenManager.Game, currentLevel);
-            player = level.player;
+            //player = level.player;
             weapon = level.weapon;
+
+            foreach (NetworkGamer gamer in networkSession.AllGamers)
+            {
+                Player player = gamer.Tag as Player;
+
+                player.Initialize(ModelTypes.PlayerType.TankGirl, new Vector3(0, -3, -5), 0, new Vector3(0, 5, 0), level.world, level.weapon);
+            }
+
+            if (networkSession.LocalGamers.Count > 0)
+            {
+                localPlayer = networkSession.LocalGamers[0].Tag as Player;
+            }
 
             #region HUD
             //HUD
-            hud = new HUD(ScreenManager.Game, player, weapon.BulletsCount, weapon.MaxBullets, ScreenManager.Game.Content, ScreenManager.SpriteBatch);
+            hud = new HUD(ScreenManager.Game, localPlayer, weapon.BulletsCount, weapon.MaxBullets, ScreenManager.Game.Content, ScreenManager.SpriteBatch);
             ScreenManager.Game.Components.Add(hud);
             messageList = hud.messageList;
 
@@ -280,7 +303,8 @@ namespace TRA_Game
             string filename = Environment.CurrentDirectory + "GameVariables";
             OpenFile(filename);
 
-
+            
+     
             #region unused - speed up loading time
             //person2.Position = new Vector3(0, 15, -30);
             //bulletAmount = maxBullets;
@@ -297,7 +321,6 @@ namespace TRA_Game
             #endregion
 
         }
-
 
         /// <summary>
         /// Unload graphics content used by the game.
@@ -320,8 +343,39 @@ namespace TRA_Game
         {
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
 
+
+            switch (currentGameMode )
+            {
+                case NetworkSessionComponent.GameMode.DeathMatch:
+                    UpdateDeathMatch();
+                    break;
+                case NetworkSessionComponent.GameMode.TeamDeathmatch:
+                    UpdateTeamDeathMatch();
+                    break;
+                case NetworkSessionComponent.GameMode.CaptureTheFlag:
+                    UpdateCTF();
+                    break;
+                default:
+                    break;
+            }
+
             if (IsActive)
             {
+                
+                MouseState current_Mouse = Mouse.GetState();
+                KeyboardState KeyState = Keyboard.GetState();
+
+                localPlayer.Update(gameTime, current_Mouse, KeyState);
+
+                camera.Position = localPlayer.Position + avatarOffset;
+
+                camera.Update(localPlayer.Rotation, current_Mouse);
+
+                Mouse.SetPosition(0, 0);
+            
+                // If we are in a network session, update it.
+                UpdateNetworkSession();
+                /*
                 MouseState current_Mouse = Mouse.GetState();
                 KeyboardState KeyState = Keyboard.GetState();
 
@@ -332,7 +386,7 @@ namespace TRA_Game
                 camera.Update(player.Rotation, current_Mouse);
 
                 Mouse.SetPosition(0, 0);
-                
+                */
             }
 
             for (int i = 0; i < hud.messageList.Count; i++)
@@ -358,6 +412,181 @@ namespace TRA_Game
 
         }
         #endregion
+
+        void UpdateNetworkSession()
+        {
+            SendLocalPlayer();
+
+            // If we are the server, update all the tanks and transmit
+            // their latest positions back out over the network.
+            if (networkSession.IsHost)
+            {
+                UpdateServer();
+            }
+
+            // Pump the underlying session object.
+            networkSession.Update();
+
+            // Make sure the session has not ended.
+            if (networkSession == null)
+                return;
+
+            // Read any incoming network packets.
+            foreach (LocalNetworkGamer gamer in networkSession.LocalGamers)
+            {
+                if (gamer.IsHost)
+                {
+                    ServerReadPlayerFromClients(gamer);
+                }
+                else
+                {
+                    ClientReadGameStateFromServer(gamer);
+                }
+            }
+        }
+
+        void SendLocalPlayer()
+        {
+            
+            // Only send if we are not the server. There is no point sending packets
+            // to ourselves, because we already know what they will contain!
+            if (!networkSession.IsHost)
+            {
+                // Write our latest input state into a network packet.
+                networkHelper.ClientPacketWriter.Write(localPlayer.Position); //packetWriter.Write(localTank.TankInput);
+                networkHelper.ClientPacketWriter.Write(localPlayer.Rotation); //packetWriter.Write(localTank.TurretInput);
+
+                networkHelper.SendClientData();
+                // Send our input data to the server.
+                //gamer.SendData(packetWriter,
+                  //             SendDataOptions.InOrder, networkSession.Host);
+            }
+        }
+
+        /// <summary>
+        /// This method only runs on the server. It calls Update on all the
+        /// tank instances, both local and remote, using inputs that have
+        /// been received over the network. It then sends the resulting
+        /// tank position data to everyone in the session.
+        /// </summary>
+        void UpdateServer()
+        {
+            networkHelper.ServerPacketWriter.Write(networkSession.AllGamers.Count);
+
+            // First off, our packet will indicate how many tanks it has data for.
+            //packetWriter.Write(networkSession.AllGamers.Count);
+
+            // Loop over all the players in the session, not just the local ones!
+            foreach (NetworkGamer gamer in networkSession.AllGamers)
+            {
+                // Look up what tank is associated with this player.
+                Player player = gamer.Tag as Player;
+
+                // Update the tank.
+                //tank.Update();
+
+                //Some smoothing predfiction code here....
+
+                // Write the tank state into the output network packet.
+                networkHelper.ServerPacketWriter.Write(player.Position);
+                networkHelper.ServerPacketWriter.Write(player.Rotation);
+
+                //packetWriter.Write(tank.Position);
+                //packetWriter.Write(tank.TankRotation);
+                //packetWriter.Write(tank.TurretRotation);
+            }
+
+            networkHelper.SendServerData();
+
+            //server.SendData(packetWriter, SendDataOptions.InOrder);
+        }
+
+        /// <summary>
+        /// This method only runs on the server. It reads tank inputs that
+        /// have been sent over the network by a client machine, storing
+        /// them for later use by the UpdateServer method.
+        /// </summary>
+        void ServerReadPlayerFromClients(LocalNetworkGamer gamer)
+        {
+            // Keep reading as long as incoming packets are available.
+            while (gamer.IsDataAvailable)
+            {
+                NetworkGamer sender;
+
+                sender = networkHelper.ReadServerData(gamer);
+
+                // Read a single packet from the network.
+                //gamer.ReceiveData(packetReader, out sender);
+
+                if (!sender.IsLocal)
+                {
+                    // Look up the tank associated with whoever sent this packet.
+                    Player remotePlayer = sender.Tag as Player;
+
+                    // Read the latest inputs controlling this tank.
+                    remotePlayer.Position = networkHelper.ServerPacketReader.ReadVector3();
+                    remotePlayer.Rotation = networkHelper.ServerPacketReader.ReadSingle();
+
+                    //remoteTank.TankInput = packetReader.ReadVector2();
+                    //remoteTank.TurretInput = packetReader.ReadVector2();
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method only runs on client machines. It reads
+        /// tank position data that has been computed by the server.
+        /// </summary>
+        void ClientReadGameStateFromServer(LocalNetworkGamer gamer)
+        {
+            // Keep reading as long as incoming packets are available.
+            while (gamer.IsDataAvailable)
+            {
+                NetworkGamer sender;
+
+                sender = networkHelper.ReadClientData(gamer);
+                // Read a single packet from the network.
+                //gamer.ReceiveData(packetReader, out sender);
+
+                // If a player has recently joined or left, it is possible the server
+                // might have sent information about a different number of players
+                // than the client currently knows about. If so, we will be unable
+                // to match up which data refers to which player. The solution is
+                // just to ignore the packet for now: this situation will resolve
+                // itself as soon as the client gets the join/leave notification.
+                if (networkSession.AllGamers.Count != networkHelper.ClientPacketReader.ReadInt32())
+                    continue;
+
+                // This packet contains data about all the players in the session.
+                foreach (NetworkGamer remoteGamer in networkSession.AllGamers)
+                {
+                    Player player = remoteGamer.Tag as Player;
+
+                    // Read the state of this tank from the network packet.
+                    player.Position = networkHelper.ClientPacketReader.ReadVector3();
+                    player.Rotation = networkHelper.ClientPacketReader.ReadSingle();
+
+                    //tank.Position = packetReader.ReadVector2();
+                    //tank.TankRotation = packetReader.ReadSingle();
+                    //tank.TurretRotation = packetReader.ReadSingle();
+                }
+            }
+        }
+
+        void UpdateDeathMatch()
+        {
+
+        }
+
+        void UpdateTeamDeathMatch()
+        {
+
+        }
+
+        void UpdateCTF()
+        {
+
+        }
 
         #region  UpdateEnemy / UpdateWeapon
         private void UpdateEnemy(GameTime gameTime)
@@ -487,7 +716,14 @@ namespace TRA_Game
             level.sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
             level.level.Draw(camera);
 
-            player.Draw(gameTime, camera);
+            
+            foreach (NetworkGamer gamer in networkSession.AllGamers)
+            {
+                Player networkPlayer = gamer.Tag as Player;
+                networkPlayer.Draw(gameTime, camera);
+            } 
+            
+            
 
             
             base.Draw(gameTime);

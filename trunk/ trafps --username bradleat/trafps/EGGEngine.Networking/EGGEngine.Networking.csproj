@@ -81,7 +81,7 @@
   <ItemGroup>
     <Compile Include="NetworkHelper.cs" />
     <Compile Include="NetworkInterface.cs" />
-    <Compile Include="NetworkSession.cs" />
+    <Compile Include="SessionManager.cs" />
     <Compile Include="NetworkStatus.cs" />
     <Compile Include="PacketReader.cs" />
     <Compile Include="PacketWriter.cs" />

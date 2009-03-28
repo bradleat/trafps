@@ -54,7 +54,10 @@ namespace TRA_Game
             : base(Resources.SessionProperties + GetMenuTitle(sessionType), false)
         {
 
-            this.networkHelper = networkHelper;
+            if (networkHelper != null)
+                this.networkHelper = networkHelper;
+            else
+                this.networkHelper = new NetworkHelper();
             networkInterface = new NetworkInterface();
             networkInterface.InitNetwork(screenManager.Game);
             this.audioHelper = audioHelper;
@@ -141,10 +144,54 @@ namespace TRA_Game
 
         void StartGameMenuEntrySelected(object sender, EventArgs e)
         {
-            audioHelper.Stop(mystery);
-            audioHelper.Play(famas_1, false, new AudioListener(), new AudioEmitter());
-            LoadingScreen.Load(ScreenManager, true, new GameplayScreen(null, ModelTypes.Levels.shipMap));
+            try
+            {
+                IAsyncResult asyncResult = networkInterface.CreateNetwork(ScreenManager.Game, sessionType, NetworkSessionComponent.MaxLocalGamers, NetworkSessionComponent.MaxGamers, 0, null, true, true);
+
+                NetworkBusyScreen busyScreen = new NetworkBusyScreen(asyncResult);
+
+                busyScreen.OperationCompleted += CreateSinglePlayerOperationCompleted;
+
+                ScreenManager.AddScreen(busyScreen);
+            }
+            catch (NetworkException exception)
+            {
+                ScreenManager.AddScreen(new NetworkErrorScreen(exception));
+            }
+            catch (GamerPrivilegeException exception)
+            {
+                ScreenManager.AddScreen(new NetworkErrorScreen(exception));
+            }
         }
+
+        void CreateSinglePlayerOperationCompleted(object sender, OperationCompletedEventArgs e)
+        {
+            try
+            {
+                // End the asynchronous create network session operation.
+                networkHelper.NetworkGameSession = Microsoft.Xna.Framework.Net.NetworkSession.EndCreate(e.AsyncResult);
+
+                // Create a component that will manage the session we just created.
+                NetworkSessionComponent.Create(ScreenManager, networkHelper.NetworkGameSession);
+
+                networkHelper.NetworkGameSession.StartGame();
+
+                audioHelper.Stop(mystery);
+                audioHelper.Play(famas_1, false, new AudioListener(), new AudioEmitter());
+                // Go to the lobby screen.
+                LoadingScreen.Load(ScreenManager, true, new GameplayScreen(networkHelper.NetworkGameSession, ModelTypes.Levels.shipMap));
+
+            }
+            catch (NetworkException exception)
+            {
+                ScreenManager.AddScreen(new NetworkErrorScreen(exception));
+            }
+            catch (GamerPrivilegeException exception)
+            {
+                ScreenManager.AddScreen(new NetworkErrorScreen(exception));
+            }
+        }
+
         void NoOfBotsMenuEntry(object sender, EventArgs e)
         {
             ChangeNoOfBots();
@@ -318,8 +365,8 @@ namespace TRA_Game
             {
                 // End the asynchronous create network session operation.
                 networkHelper.NetworkGameSession = Microsoft.Xna.Framework.Net.NetworkSession.EndCreate(e.AsyncResult);
-                networkHelper.NetworkGameSession.AllowHostMigration = true;
-                networkHelper.NetworkGameSession.AllowJoinInProgress = true;
+                //networkHelper.NetworkGameSession.AllowHostMigration = true;
+                //networkHelper.NetworkGameSession.AllowJoinInProgress = true;
 
                 // Create a component that will manage the session we just created.
                 NetworkSessionComponent.Create(ScreenManager, networkHelper.NetworkGameSession);

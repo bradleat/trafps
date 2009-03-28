@@ -58,9 +58,9 @@ namespace EGGEngine.Networking
         /// <returns></returns>
         public IAsyncResult CreateNetwork(Game game, NetworkSessionType sessionType, int maxLocalGamers, int maxGamers, int privateGamerSlots, NetworkSessionProperties sessionProperties, bool AllowHostMigration, bool AllowJoinInProgress)
         {
-            NetworkSession networkSessionClass = new NetworkSession(game);
+            SessionManager sessionManager = new SessionManager(game);
 
-            IAsyncResult asyncResult = networkSessionClass.CreateSession(sessionType, maxLocalGamers, maxGamers, privateGamerSlots, sessionProperties);
+            IAsyncResult asyncResult = sessionManager.CreateSession(sessionType, maxLocalGamers, maxGamers, privateGamerSlots, sessionProperties);
             /*
             if (networkHelper.NetworkGameSession != null)
             {
@@ -195,8 +195,8 @@ namespace EGGEngine.Networking
         public IAsyncResult JoinNetwork(Game game,
             NetworkSessionType sessionType, int maxLocalGamers, NetworkSessionProperties sessionProperties)
         {
-            NetworkSession networkSessionClass = new NetworkSession(game);
-            IAsyncResult asyncResult = networkSessionClass.JoinSession(sessionType, maxLocalGamers, sessionProperties);
+            SessionManager sessionManager = new SessionManager(game);
+            IAsyncResult asyncResult = sessionManager.JoinSession(sessionType, maxLocalGamers, sessionProperties);
 
             /*if (networkHelper.NetworkGameSession == null)
             {

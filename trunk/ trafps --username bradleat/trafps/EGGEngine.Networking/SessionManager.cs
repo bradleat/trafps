@@ -32,10 +32,10 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace EGGEngine.Networking
 {
-    public class NetworkSession
+    public class SessionManager
     {
         NetworkHelper networkHelper;
-        public NetworkSession(Game game)
+        public SessionManager(Game game)
         {
             networkHelper = (NetworkHelper)
             game.Services.GetService(typeof(NetworkHelper));
