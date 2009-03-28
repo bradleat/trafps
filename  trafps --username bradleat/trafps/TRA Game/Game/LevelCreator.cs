@@ -46,7 +46,7 @@ namespace TRA_Game
             gameLevel.world = new EGGEngine.Physics.World(gameLevel.level.Model);
             // Player
             gameLevel.weapon = new Weapon(game, ModelTypes.WeaponType.Pistol);
-            gameLevel.player = new Player(game, ModelTypes.PlayerType.TankGirl, new Vector3(0, -3, -5), 0, new Vector3(0, 5, 0), gameLevel.world, gameLevel.weapon);
+            //gameLevel.player = new Player(game);//, ModelTypes.PlayerType.TankGirl, new Vector3(0, -3, -5), 0, new Vector3(0, 5, 0), gameLevel.world, gameLevel.weapon);
            
             return gameLevel;
         }

@@ -41,6 +41,8 @@ namespace TRA_Game
             One, Three, Five, TwentyFive, Fifty
         }
 
+        
+
         ScreenManager screenManager;
 
         NetworkSession networkSession;
@@ -155,6 +157,8 @@ namespace TRA_Game
         /// </summary>
         void GamerJoined(object sender, GamerJoinedEventArgs e)
         {
+            e.Gamer.Tag = new Player(Game);
+
             if (notifyWhenPlayersJoinOrLeave)
             {
                 messageDisplay.ShowMessage(Resources.MessageGamerJoined,
