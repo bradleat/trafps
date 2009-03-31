@@ -59,13 +59,10 @@ namespace TRA_Game
         Weapon weapon;
 
         NetworkSessionComponent.GameMode gameMode;
-
-        private NetworkSessionComponent.GameMode currentGameMode;
-        public NetworkSessionComponent.GameMode CurrentGameMode
-        {
-            get { return currentGameMode; }
-            set { currentGameMode = value; }
-        }
+        NetworkSessionComponent.ScoreToWin scoreToWin;
+        NetworkSessionComponent.NoOfBots noOfBots;
+        NetworkSessionComponent.Weapons Weapons;
+        
 
         NetworkHelper networkHelper;
 
@@ -231,6 +228,8 @@ namespace TRA_Game
             this.currentLevel = currentLevel;
             networkHelper.NetworkGameSession = networkSession;
 
+            GetVariables();
+
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
         }
@@ -334,6 +333,15 @@ namespace TRA_Game
         }
         #endregion
 
+        void GetVariables()
+        {
+            gameMode = (NetworkSessionComponent.GameMode)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.GameMode];
+            Weapons = (NetworkSessionComponent.Weapons)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.Weapons];
+            scoreToWin = (NetworkSessionComponent.ScoreToWin)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.ScoreToWin];
+            noOfBots = (NetworkSessionComponent.NoOfBots)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.NoOfBots];
+        }
+
+
         #region Update
         /// <summary>
         /// Updates the state of the game.
@@ -344,7 +352,7 @@ namespace TRA_Game
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
 
 
-            switch (currentGameMode )
+            switch (gameMode)
             {
                 case NetworkSessionComponent.GameMode.DeathMatch:
                     UpdateDeathMatch();
@@ -374,7 +382,10 @@ namespace TRA_Game
                 Mouse.SetPosition(0, 0);
             
                 // If we are in a network session, update it.
-                UpdateNetworkSession();
+                if (networkSession.SessionType != NetworkSessionType.Local)
+                {
+                    UpdateNetworkSession();
+                }
                 /*
                 MouseState current_Mouse = Mouse.GetState();
                 KeyboardState KeyState = Keyboard.GetState();
