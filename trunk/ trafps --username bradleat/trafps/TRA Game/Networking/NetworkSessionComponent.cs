@@ -24,9 +24,10 @@ namespace TRA_Game
         public const int MaxGamers = 16;
         public const int MaxLocalGamers = 4;
 
+        
         public enum SessionProperties
         {
-            GameMode, Weapons, ScoreToWin
+            GameMode, Weapons, ScoreToWin, NoOfBots
         }
         public enum GameMode
         {
@@ -40,9 +41,12 @@ namespace TRA_Game
         {
             One, Three, Five, TwentyFive, Fifty
         }
+        public enum NoOfBots
+        {
+            Ten,Twenty
+        }
 
         
-
         ScreenManager screenManager;
 
         NetworkSession networkSession;

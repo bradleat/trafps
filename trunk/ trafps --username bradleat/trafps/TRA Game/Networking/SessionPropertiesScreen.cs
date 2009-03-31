@@ -31,16 +31,7 @@ namespace TRA_Game
         NetworkSessionComponent.GameMode gameModeType;
         NetworkSessionComponent.Weapons weaponsType;
         NetworkSessionComponent.ScoreToWin scoreToWinType;
-
-        enum NoofBots
-        {
-            Ten,
-            Twenty
-        }
-
-        NoofBots noofBots;
-
-        bool isSinglePlayer = false;
+        NetworkSessionComponent.NoOfBots noOfBots;
 
         #endregion
 
@@ -53,7 +44,7 @@ namespace TRA_Game
         public SessionPropertiesScreen(ScreenManager screenManager,NetworkSessionType sessionType, Audio audioHelper, Cue mystery, bool createSession, NetworkHelper networkHelper)
             : base(Resources.SessionProperties + GetMenuTitle(sessionType), false)
         {
-
+         
             if (networkHelper != null)
                 this.networkHelper = networkHelper;
             else
@@ -76,7 +67,7 @@ namespace TRA_Game
             MenuEntry searchSessionMenuEntry = new MenuEntry(Resources.SearchSessions);
             MenuEntry StartGameMenuEntry = new MenuEntry(Resources.StartGame);
             MenuEntry noofbotsMenuEntry = new MenuEntry(Resources.NumberOfBots);
-            noofBots = NoofBots.Ten;
+            noOfBots = NetworkSessionComponent.NoOfBots.Ten;
 
             /*
             MenuEntry createSessionMenuEntry = new MenuEntry(Resources.CreateSession);
@@ -101,17 +92,15 @@ namespace TRA_Game
             MenuEntries.Add(gameModeMenuEntry);
             MenuEntries.Add(weaponsMenuEntry);
             MenuEntries.Add(scoreToWinMenuEntry);
+            MenuEntries.Add(noofbotsMenuEntry);
+
             if (sessionType != NetworkSessionType.Local)
                 if(createSession)
                     MenuEntries.Add(createSessionMenuEntry);
                 else
                     MenuEntries.Add(searchSessionMenuEntry);
             else
-            {
-                MenuEntries.Add(noofbotsMenuEntry);
                 MenuEntries.Add(StartGameMenuEntry);
-                isSinglePlayer = true;
-            }
             MenuEntries.Add(backMenuEntry);
         }
 
@@ -146,7 +135,9 @@ namespace TRA_Game
         {
             try
             {
-                IAsyncResult asyncResult = networkInterface.CreateNetwork(ScreenManager.Game, sessionType, NetworkSessionComponent.MaxLocalGamers, NetworkSessionComponent.MaxGamers, 0, null, true, true);
+                NetworkSessionProperties searchProperties = GetSessionProperties();
+
+                IAsyncResult asyncResult = networkInterface.CreateNetwork(ScreenManager.Game, sessionType, NetworkSessionComponent.MaxLocalGamers, NetworkSessionComponent.MaxGamers, 0, searchProperties, true, true);
 
                 NetworkBusyScreen busyScreen = new NetworkBusyScreen(asyncResult);
 
@@ -178,6 +169,7 @@ namespace TRA_Game
 
                 audioHelper.Stop(mystery);
                 audioHelper.Play(famas_1, false, new AudioListener(), new AudioEmitter());
+
                 // Go to the lobby screen.
                 LoadingScreen.Load(ScreenManager, true, new GameplayScreen(networkHelper.NetworkGameSession, ModelTypes.Levels.shipMap));
 
@@ -198,18 +190,18 @@ namespace TRA_Game
         }
         void ChangeNoOfBots()
         {
-            if (noofBots == NoofBots.Ten)
-                noofBots = NoofBots.Twenty;
-            else if (noofBots == NoofBots.Twenty)
-                noofBots = NoofBots.Ten;
+            if (noOfBots == NetworkSessionComponent.NoOfBots.Ten)
+                noOfBots = NetworkSessionComponent.NoOfBots.Twenty;
+            else if (noOfBots == NetworkSessionComponent.NoOfBots.Twenty)
+                noOfBots = NetworkSessionComponent.NoOfBots.Ten;
         }
         string GetNoOfBots()
         {
-            switch (noofBots)
+            switch (noOfBots)
             {
-                case NoofBots.Ten:
+                case NetworkSessionComponent.NoOfBots.Ten:
                     return Resources.NumberOfBots10;
-                case NoofBots.Twenty:
+                case NetworkSessionComponent.NoOfBots.Twenty:
                     return Resources.NumerOfBots20;
                 default:
                     throw new NotSupportedException();
@@ -314,11 +306,11 @@ namespace TRA_Game
             searchProperties[(int)NetworkSessionComponent.SessionProperties.GameMode] = (int)gameModeType;
             searchProperties[(int)NetworkSessionComponent.SessionProperties.Weapons] = (int)weaponsType;
             searchProperties[(int)NetworkSessionComponent.SessionProperties.ScoreToWin] = (int)scoreToWinType;
+            searchProperties[(int)NetworkSessionComponent.SessionProperties.NoOfBots] = (int)noOfBots;
             return searchProperties;
         }
 
-
-
+        
         
         /// <summary>
         /// Event handler for when the Create Session menu entry is selected.
@@ -372,7 +364,7 @@ namespace TRA_Game
                 NetworkSessionComponent.Create(ScreenManager, networkHelper.NetworkGameSession);
 
                 // Go to the lobby screen.
-                ScreenManager.AddScreen(new LobbyScreen(networkHelper.NetworkGameSession, audioHelper,true));
+                ScreenManager.AddScreen(new LobbyScreen(networkHelper.NetworkGameSession, audioHelper, true));
             }
             catch (NetworkException exception)
             {
@@ -442,6 +434,7 @@ namespace TRA_Game
                 }
                 else
                 {
+
                     // If we did find some sessions, proceed to the JoinSessionScreen.
                     ScreenManager.AddScreen(new JoinSessionScreen(availableSessions, audioHelper, mystery));
                 }
@@ -474,8 +467,7 @@ namespace TRA_Game
             position.Y += 27;
             spriteBatch.DrawString(font, GetScoreToWinType(), position, Color.Yellow);
             position.Y += 27;
-            if(isSinglePlayer)
-                spriteBatch.DrawString(font, GetNoOfBots(), position, Color.Yellow);
+            spriteBatch.DrawString(font, GetNoOfBots(), position, Color.Yellow);
             spriteBatch.End();
             base.Draw(gameTime);
         }

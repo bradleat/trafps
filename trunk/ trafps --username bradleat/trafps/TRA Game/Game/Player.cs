@@ -34,7 +34,7 @@ namespace TRA_Game
         private EGGEngine.Physics.Player physicsPlayer;
         private int currentAnimationId;
         private FirstPersonCamera camera;
-        private bool hasFlag;
+        private Flag flag;
 
         #region Properties
         public Vector3 Position
@@ -67,10 +67,10 @@ namespace TRA_Game
             get { return secondaryWeapon; }
             set { secondaryWeapon = value; }
         }
-        public bool HasFlag
+        public Flag Flag
         {
-            get { return hasFlag; }
-            set { hasFlag = value; }
+            get { return flag; }
+            set { flag = value; }
         }
         #endregion
 

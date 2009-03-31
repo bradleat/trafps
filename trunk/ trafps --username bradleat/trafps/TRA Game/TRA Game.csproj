@@ -92,6 +92,8 @@
     <Compile Include="ConsoleMenu.cs" />
     <Compile Include="GameScreens\MainMenu.cs" />
     <Compile Include="GameScreens\SplashTitle.cs" />
+    <Compile Include="Game\Flag.cs" />
+    <Compile Include="Game\Variables.cs" />
     <Compile Include="Game\HUD.cs" />
     <Compile Include="Game\Level.cs" />
     <Compile Include="Game\LevelCreator.cs" />
@@ -109,6 +111,9 @@
     <Compile Include="Networking\NetworkSessionComponent.cs" />
     <Compile Include="Networking\OperationCompletedEventArgs.cs" />
     <Compile Include="Networking\ProfileSignInScreen.cs" />
+    <Compile Include="Networking\SessionPropertiesPopUpScreen.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Networking\SessionPropertiesScreen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

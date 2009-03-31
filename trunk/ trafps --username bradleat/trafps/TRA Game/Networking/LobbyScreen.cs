@@ -43,6 +43,13 @@ namespace TRA_Game
         Audio audioHelper;
         Cue mystery;
 
+        
+
+        NetworkSessionComponent.GameMode gameModeType;
+        NetworkSessionComponent.NoOfBots noOfBots;
+        NetworkSessionComponent.ScoreToWin scoreToWinType;
+        NetworkSessionComponent.Weapons weapons;
+
         // This will hold a string of messages until
         // a breakpoint ("[END]") is reached. Uses a
         // dictionary to maintain a string for each
@@ -62,10 +69,10 @@ namespace TRA_Game
         /// <summary>
         /// Constructs a new lobby screen.
         /// </summary>
-        public LobbyScreen(NetworkSession networkSession, Audio audioHelper,bool audio_on)
+        public LobbyScreen(NetworkSession networkSession, Audio audioHelper, bool audio_on)
         {
             this.networkSession = networkSession;
-
+            GetVariables();
             // Adds a simple message to tell the user what to do.
             // Since we will be using the guide to get commands,
             // we need to tell them how to open it up!
@@ -102,6 +109,7 @@ namespace TRA_Game
             voiceMutedTexture = content.Load<Texture2D>("chat_mute");
         }
 
+        
 
         #endregion
 
@@ -116,9 +124,24 @@ namespace TRA_Game
         {
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
 
+            if (IsActive && networkSession.IsHost)
+            {
+                KeyboardState keyboardState = Keyboard.GetState();
+
+                if (keyboardState.IsKeyDown(Keys.F1))
+                {
+                    ScreenManager.AddScreen(new SessionPropertiesPopUpScreen(networkSession));
+                }
+            }
+
+            GetVariables();
+
             if (!IsExiting)
             {
+                
+
                 UpdateChat();
+
                 if (networkSession.SessionState == NetworkSessionState.Playing)
                 {
                     audioHelper.Stop(mystery);
@@ -134,6 +157,14 @@ namespace TRA_Game
                     networkSession.StartGame();
                 }
             }
+        }
+
+        void GetVariables()
+        {
+            gameModeType = (NetworkSessionComponent.GameMode)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.GameMode];
+            weapons = (NetworkSessionComponent.Weapons)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.Weapons];
+            scoreToWinType = (NetworkSessionComponent.ScoreToWin)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.ScoreToWin];
+            noOfBots = (NetworkSessionComponent.NoOfBots)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.NoOfBots];
         }
 
         void UpdateChat()
@@ -390,6 +421,21 @@ namespace TRA_Game
             spriteBatch.End();
 
             DrawChat();
+
+            DrawVariables();
+        }
+
+        void DrawVariables()
+        {
+            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+            SpriteFont spriteFont = ScreenManager.Font;
+
+            Vector2 position = new Vector2(100, 250);
+            string text = GetGameModeType();
+
+            spriteBatch.Begin();
+            spriteBatch.DrawString(spriteFont, text, position, Color.Yellow);
+            spriteBatch.End();
         }
 
         void DrawChat()
@@ -477,6 +523,8 @@ namespace TRA_Game
                                    FadeAlphaDuringTransition(color));
         }
 
+        
+
 
         /// <summary>
         /// Helper modifies a color to fade its alpha value during screen transitions.
@@ -486,6 +534,67 @@ namespace TRA_Game
             return new Color(color.R, color.G, color.B, TransitionAlpha);
         }
 
+        string GetNoOfBots()
+        {
+            switch (noOfBots)
+            {
+                case NetworkSessionComponent.NoOfBots.Ten:
+                    return Resources.NumberOfBots10;
+                case NetworkSessionComponent.NoOfBots.Twenty:
+                    return Resources.NumerOfBots20;
+                default:
+                    throw new NotSupportedException();
+            }
+        }
+
+        string GetGameModeType()
+        {
+            switch (gameModeType)
+            {
+                case NetworkSessionComponent.GameMode.DeathMatch:
+                    return Resources.GameModeTypeDM;
+                case NetworkSessionComponent.GameMode.TeamDeathmatch:
+                    return Resources.GameModeTypeTDM;
+                case NetworkSessionComponent.GameMode.CaptureTheFlag:
+                    return Resources.GameModeTypeCTF;
+                default:
+                    throw new NotSupportedException();
+            }
+        }
+
+        string GetWeaponType()
+        {
+            switch (weapons)
+            {
+                case NetworkSessionComponent.Weapons.Light:
+                    return Resources.WeaponsTypeLight;
+                case NetworkSessionComponent.Weapons.Normal:
+                    return Resources.WeaponsTypeNormal;
+                case NetworkSessionComponent.Weapons.Heavy:
+                    return Resources.WeaponsTypeHeavy;
+                default:
+                    throw new NotSupportedException();
+            }
+        }
+
+        string GetScoreToWinType()
+        {
+            switch (scoreToWinType)
+            {
+                case NetworkSessionComponent.ScoreToWin.One:
+                    return Resources.ScoreToWinType1;
+                case NetworkSessionComponent.ScoreToWin.Three:
+                    return Resources.ScoreToWinType3;
+                case NetworkSessionComponent.ScoreToWin.Five:
+                    return Resources.ScoreToWinType5;
+                case NetworkSessionComponent.ScoreToWin.TwentyFive:
+                    return Resources.ScoreToWinTypeTwentyFive;
+                case NetworkSessionComponent.ScoreToWin.Fifty:
+                    return Resources.ScoreToWinTypeFifty;
+                default:
+                    throw new NotSupportedException();
+            }
+        }
 
         #endregion
     }
