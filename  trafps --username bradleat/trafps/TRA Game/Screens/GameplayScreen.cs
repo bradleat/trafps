@@ -418,7 +418,8 @@ namespace TRA_Game
             if ((networkSession != null) && !IsExiting) 
                 if (networkSession.SessionState == NetworkSessionState.Lobby)
                     LoadingScreen.Load(ScreenManager, true,
-                                       new BackgroundScreen(true),
+                                       new BackgroundScreen(false, ModelTypes.Levels.shipMap),
+                                                   
                                        new LobbyScreen(networkSession, null, false));
 
         }

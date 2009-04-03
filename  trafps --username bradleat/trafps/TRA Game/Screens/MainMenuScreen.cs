@@ -39,7 +39,21 @@ namespace TRA_Game
         public MainMenuScreen(bool audio_on, Audio audioHelper)
             : base(Resources.MainMenu, false)
         {
+            this.audio_on = audio_on;
+            this.audioHelper = audioHelper;
             
+        }
+
+
+        /// <summary>
+        /// Loads graphics content for this screen. The background texture is quite
+        /// big, so we use our own local ContentManager to load it. This allows us
+        /// to unload before going from the menus into the game itself, wheras if we
+        /// used the shared ContentManager provided by the Game class, the content
+        /// would remain loaded forever.
+        /// </summary>
+        public override void LoadContent()
+        {
             // Create our menu entries.
             MenuEntry trainingMenuEntry = new MenuEntry(Resources.Training);
             MenuEntry multiplayerMenuEntry = new MenuEntry(Resources.Multiplayer);
@@ -81,7 +95,11 @@ namespace TRA_Game
             }
 
             this.audioHelper.Update();
+
         }
+
+
+
         #endregion
 
         #region EventHandlers
@@ -114,7 +132,7 @@ namespace TRA_Game
         /// </summary>
         void MultiplayerMenuEntrySelected(object sender, EventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(true), new MultiplayerMenuScreen(this.audioHelper, mystery));
+            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(true, ModelTypes.Levels.shipMap), new MultiplayerMenuScreen(this.audioHelper, mystery));
         }
 
         /// <summary>

@@ -99,7 +99,7 @@ namespace TRA_Game
         /// </summary>
         void ConfirmQuitMessageBoxAccepted(object sender, EventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(false),
+            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(false, ModelTypes.Levels.shipMap),
                                                      new MainMenuScreen(false, null));
         }
 
