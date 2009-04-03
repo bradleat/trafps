@@ -48,7 +48,7 @@ namespace TRA_Game
         /// </summary>
         void BackMenuEntrySelected(object sender, EventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(false),
+            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(false, ModelTypes.Levels.shipMap),
                                                      new MainMenuScreen(true, this.audioHelper));
         }
         /// <summary>

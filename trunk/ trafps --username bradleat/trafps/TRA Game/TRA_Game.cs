@@ -76,12 +76,13 @@ namespace TRA_Game
             Components.Add(new GamerServicesComponent(this));
 
             // Activate the first screens.
-            screenManager.AddScreen(new BackgroundScreen(false));
-            screenManager.AddScreen(new MainMenuScreen(false, null));
+            screenManager.AddScreen(new SplashScreen(false));
+            //screenManager.AddScreen(new BackgroundScreen(false));
+            //screenManager.AddScreen(new MainMenuScreen(false, null));
 
             //Update the audio
-            audioHelper = new Audio("Content\\TRA_Game.xgs");
-            audioHelper.Update(); 
+            //audioHelper = new Audio("Content\\TRA_Game.xgs");
+            //audioHelper.Update(); 
             
         }
 

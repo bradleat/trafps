@@ -9,27 +9,9 @@
 
 #region Using Statements
 using System;
-using System.Threading;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Net;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Storage;
-using Microsoft.Xna.Framework.GamerServices;
-using EasyConfig;
-using EGGEngine;
-using EGGEngine.Cameras;
-using EGGEngine.Debug;
-using EGGEngine.Rendering;
-using EGGEngine.Rendering.Shaders;
-using EGGEngine.Helpers;
-using EGGEngine.Utils;
-using EGGEngine.Audio;
-using EGGEngine.Awards;
-using EGGEngine.Physics;
 #endregion
 
 namespace TRA_Game
@@ -39,35 +21,16 @@ namespace TRA_Game
     /// It draws a background image that remains fixed in place regardless
     /// of whatever transitions the screens on top of it may be doing.
     /// </summary>
-    class BackgroundScreen : GameScreen
+    class SplashScreen : GameScreen
     {
         #region Fields
 
         ContentManager content;
-        ModelTypes.Levels currentLevel;
-        EGGEngine.Rendering.Shaders.PostProcessing postProc;
-        World world;
-        GameLevel level;
-       
-        Model ship_Map;
-        Sky sky;
-        Matrix[] boneTransforms;
-        FirstPersonCamera camera;
-
-        Vector3 initialPos2 = new Vector3(0, 15, -15);
-        Vector3 pistolOffset = new Vector3(1, 1, -10);
-        Vector3 initalPos1 = new Vector3(0, 15, -2);
-        Vector3 translate = Vector3.Zero;
-        Vector3 modelPosition = new Vector3(0, -3, -5);
-        Vector3 levelPos = new Vector3(0, 0, 0);
-        Vector3 avatarOffset = new Vector3(0, 3, 0);
-
-        bool isMultiplayer = false;
-
+        Texture2D texture;
+        bool isAudio;
+        float waitCounter;
+        
         #endregion
-
-
-   
 
         #region Initialization
 
@@ -75,12 +38,12 @@ namespace TRA_Game
         /// <summary>
         /// Constructor.
         /// </summary>
-        public BackgroundScreen(bool isMultiplayer, ModelTypes.Levels currentLevel)
+        public SplashScreen(bool isAudio)
         {
-            //this.isMultiplayer = isMultiplayer;
-            TransitionOnTime = TimeSpan.FromSeconds(0.5);
-            TransitionOffTime = TimeSpan.FromSeconds(0.5);
-            this.currentLevel = currentLevel;
+            this.isAudio = isAudio;
+            TransitionOnTime = TimeSpan.FromSeconds(0.6);
+            TransitionOffTime = TimeSpan.FromSeconds(0.6);
+            waitCounter = 0;
         }
 
 
@@ -95,11 +58,8 @@ namespace TRA_Game
         {
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
-
-            camera = new FirstPersonCamera(ScreenManager.GraphicsDevice.Viewport);
-            level = LevelCreator.CreateLevel(ScreenManager.Game, currentLevel);
            
-           
+            texture = content.Load<Texture2D>("splash");
         }
 
 
@@ -128,12 +88,13 @@ namespace TRA_Game
                                                        bool coveredByOtherScreen)
         {
             base.Update(gameTime, otherScreenHasFocus, false);
-            MouseState current_Mouse = new MouseState();
-            
+            waitCounter += gameTime.ElapsedGameTime.Milliseconds;
+            if (waitCounter > 2000)
+            {
+                LoadingScreen.Load(ScreenManager, true, new BackgroundScreen(false, ModelTypes.Levels.shipMap),
+                                                     new MainMenuScreen(false, null));
+            }
 
-            camera.Position = new Vector3(-65,18,-100);
-
-            camera.Update(0.8f,current_Mouse);
         }
 
 
@@ -142,22 +103,17 @@ namespace TRA_Game
         /// </summary>
         public override void Draw(GameTime gameTime)
         {
-            ScreenManager.GraphicsDevice.Clear(ClearOptions.Target | ClearOptions.DepthBuffer,
-                Color.White, 1, 0);
+            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+            Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
+            Rectangle fullscreen = new Rectangle(0, 0, viewport.Width, viewport.Height);
+            byte fade = TransitionAlpha;
 
-            ScreenManager.GraphicsDevice.RenderState.CullMode = CullMode.None;
-            ScreenManager.GraphicsDevice.RenderState.DepthBufferEnable = true;
-            ScreenManager.GraphicsDevice.RenderState.AlphaBlendEnable = false;
-            ScreenManager.GraphicsDevice.RenderState.AlphaTestEnable = false;
+            spriteBatch.Begin(SpriteBlendMode.None);
 
-            level.sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
-            level.level.Draw(camera);
+            spriteBatch.Draw(texture, fullscreen,
+                             new Color(fade, fade, fade));
 
-            base.Draw(gameTime);
-
-            // If the game is transitioning on or off, fade it out to black.
-            //if (TransitionPosition > 0)
-            //    ScreenManager.FadeBackBufferToBlack(255 - TransitionAlpha);
+            spriteBatch.End();
         }
 
 
