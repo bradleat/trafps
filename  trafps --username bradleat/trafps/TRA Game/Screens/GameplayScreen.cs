@@ -128,11 +128,12 @@ namespace TRA_Game
         int enemyScore;
         
         //Hud
-        HUD hud;
-        HUD.message playerMessage = new HUD.message();
-        HUD.message enemyMessage = new HUD.message();
-        HUD.message bulletAmountMessage = new HUD.message();       
-        List<HUD.message> messageList;
+        HUDScreen hud;
+        HUDScreen.message playerMessage = new HUDScreen.message();
+        HUDScreen.message enemyMessage = new HUDScreen.message();
+        HUDScreen.message bulletAmountMessage = new HUDScreen.message();
+        List<HUDScreen.message> messageList;
+
 
         //Awards
         AwardsComponent awards;
@@ -272,9 +273,14 @@ namespace TRA_Game
             }
 
             #region HUD
+
             //HUD
-            hud = new HUD(ScreenManager.Game, localPlayer, weapon.BulletsCount, weapon.MaxBullets, ScreenManager.Game.Content, ScreenManager.SpriteBatch);
-            ScreenManager.Game.Components.Add(hud);
+            hud = new HUDScreen(localPlayer, weapon.BulletsCount, weapon.MaxBullets);
+            LoadingScreen.Load(ScreenManager, false,true,hud );
+            /*
+             hud = new HUD(ScreenManager.Game, localPlayer, weapon.BulletsCount, weapon.MaxBullets, ScreenManager.Game.Content, ScreenManager.SpriteBatch);
+             ScreenManager.Game.Components.Add(hud);
+             */
             messageList = hud.messageList;
 
             playerMessage.title = "p";
@@ -297,6 +303,7 @@ namespace TRA_Game
             bulletAmountMessage.color = Color.White;
             bulletAmountMessage.text = "Pistol :" + weapon.BulletsCount + "/" + weapon.MaxBullets;
             messageList.Add(bulletAmountMessage);
+           
             #endregion
 
             string filename = Environment.CurrentDirectory + "GameVariables";
@@ -326,7 +333,7 @@ namespace TRA_Game
         /// </summary>
         public override void UnloadContent()
         {
-            ScreenManager.Game.Components.Remove(hud);
+            //ScreenManager.Game.Components.Remove(hud);
             ScreenManager.Game.Components.Remove(fpsCounter);
             ScreenManager.Game.Components.Remove(console);
             Content.Unload();
@@ -400,9 +407,10 @@ namespace TRA_Game
                 */
             }
 
+            
             for (int i = 0; i < hud.messageList.Count; i++)
             {
-                HUD.message currentMessage = hud.messageList[i];
+                HUDScreen.message currentMessage = hud.messageList[i];
                 if (currentMessage.title == "b")
                      currentMessage.text = "Pistol :" + bulletAmount + "/" + maxBullets;
                 else if (currentMessage.title == "p")
@@ -411,6 +419,7 @@ namespace TRA_Game
                     currentMessage.text = "Enemy Score :" + enemyScore.ToString();
                 hud.messageList[i] = currentMessage;
             }
+            
             
            
             

@@ -9,11 +9,28 @@
 
 #region Using Statements
 using System;
+using System;
+using System.Threading;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Audio;
-
-using EGGEngine.Audio;
+using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.GamerServices;
+using EasyConfig;
+using EGGEngine;
+using EGGEngine.Cameras;
 using EGGEngine.Debug;
+using EGGEngine.Rendering;
+using EGGEngine.Rendering.Shaders;
+using EGGEngine.Helpers;
+using EGGEngine.Utils;
+using EGGEngine.Audio;
+using EGGEngine.Awards;
+using EGGEngine.Physics;
 #endregion
 
 namespace TRA_Game
@@ -30,6 +47,7 @@ namespace TRA_Game
         bool audio_on = false;
         bool gamePlayed;
 
+        
         #endregion
 
         #region Constructor
@@ -54,6 +72,7 @@ namespace TRA_Game
         /// </summary>
         public override void LoadContent()
         {
+            
             // Create our menu entries.
             MenuEntry trainingMenuEntry = new MenuEntry(Resources.Training);
             MenuEntry multiplayerMenuEntry = new MenuEntry(Resources.Multiplayer);
@@ -97,6 +116,8 @@ namespace TRA_Game
             this.audioHelper.Update();
 
         }
+
+  
 
 
 
@@ -171,7 +192,10 @@ namespace TRA_Game
         {
             ScreenManager.Game.Exit();
         }
+
         #endregion
+
+     
 
     }
 }

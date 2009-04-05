@@ -38,6 +38,7 @@ namespace TRA_Game
 
         bool loadingIsSlow;
         bool otherScreensAreGone;
+        bool addNewScreen;
 
         GameScreen[] screensToLoad;
 
@@ -64,6 +65,7 @@ namespace TRA_Game
         {
             this.loadingIsSlow = loadingIsSlow;
             this.screensToLoad = screensToLoad;
+            this.addNewScreen = false;
 
             TransitionOnTime = TimeSpan.FromSeconds(0.5);
 
@@ -108,10 +110,30 @@ namespace TRA_Game
         }
 
 
-        
+        /// <summary>
+        /// Activates the loading screen.
+        /// </summary>
+        public static void Load(ScreenManager screenManager, bool loadingIsSlow,bool addNewScreen,
+                                params GameScreen[] screensToLoad)
+        {
+            // Tell all the current screens to transition off.
+            if (!addNewScreen)
+            {
+                foreach (GameScreen screen in screenManager.GetScreens())
+                    screen.ExitScreen();
+            }
 
-        
+            // Create and activate the loading screen.
+            LoadingScreen loadingScreen = new LoadingScreen(screenManager,
+                                                            loadingIsSlow,
+                                                            screensToLoad);
+            if (addNewScreen)
+                loadingScreen.addNewScreen = true;
+            
+            screenManager.AddScreen(loadingScreen);
+        }
 
+       
 
         /// <summary>
         /// Updates the loading screen.
@@ -123,7 +145,7 @@ namespace TRA_Game
 
             // If all the previous screens have finished transitioning
             // off, it is time to actually perform the load.
-            if (otherScreensAreGone)
+            if (otherScreensAreGone||addNewScreen)
             {
                 // Start up the background thread, which will update the network
                 // session and draw the animation while we are loading.
@@ -155,6 +177,8 @@ namespace TRA_Game
                 // the  game timing mechanism that we have just finished a very
                 // long frame, and that it should not try to catch up.
                 ScreenManager.Game.ResetElapsedTime();
+
+                addNewScreen = false;
             }
         }
         #endregion
