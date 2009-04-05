@@ -69,6 +69,11 @@
       <Name>config</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Compile Include="title.png">
+      <Name>title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="splash.png">
       <Name>splash</Name>
       <Importer>TextureImporter</Importer>

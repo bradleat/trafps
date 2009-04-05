@@ -48,7 +48,7 @@ namespace TRA_Game
         EGGEngine.Rendering.Shaders.PostProcessing postProc;
         World world;
         GameLevel level;
-       
+        Texture2D texture;
         Model ship_Map;
         Sky sky;
         Matrix[] boneTransforms;
@@ -98,7 +98,8 @@ namespace TRA_Game
 
             camera = new FirstPersonCamera(ScreenManager.GraphicsDevice.Viewport);
             level = LevelCreator.CreateLevel(ScreenManager.Game, currentLevel);
-           
+   
+            texture = content.Load<Texture2D>("title");
            
         }
 
@@ -153,11 +154,24 @@ namespace TRA_Game
             level.sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
             level.level.Draw(camera);
 
+            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+            Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
+            Rectangle screenTarget = new Rectangle(0, 0, texture.Width, texture.Height);
+            byte fade = TransitionAlpha;
+
+            spriteBatch.Begin(SpriteBlendMode.AlphaBlend);
+
+            spriteBatch.Draw(texture, new Vector2(viewport.Width / 2 - texture.Width/2 , 135), screenTarget,
+                             new Color(fade, fade, fade));
+
+            spriteBatch.End();
+
             base.Draw(gameTime);
 
             // If the game is transitioning on or off, fade it out to black.
             //if (TransitionPosition > 0)
             //    ScreenManager.FadeBackBufferToBlack(255 - TransitionAlpha);
+
         }
 
 
