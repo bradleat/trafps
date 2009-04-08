@@ -82,7 +82,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Intersection.cs" />
+    <Compile Include="Octree.cs" />
+    <Compile Include="RigidBodies\Intersection.cs" />
     <Compile Include="World.cs" />
     <Compile Include="Primatives.cs" />
     <Compile Include="Player.cs" />
