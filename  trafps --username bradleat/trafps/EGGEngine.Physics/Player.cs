@@ -17,7 +17,9 @@ namespace EGGEngine.Physics
         Vector3 boundingBoxSize;
         Vector3 oldPosition;
         Intersection intersection;
-        Primatives.TriangleMesh world;
+        World world;
+
+        int TrianglesTested;
 
         bool wasJumping;
 
@@ -57,7 +59,7 @@ namespace EGGEngine.Physics
 
         public Player(Vector3 InitialPosition, float InitialRotation, Vector3 BoundingBoxSize, World world)
         {
-            this.world = world.Mesh;
+            this.world = world;
             this.position = InitialPosition;
             this.rotation = InitialRotation;
             this.boundingBoxSize = BoundingBoxSize;
@@ -97,13 +99,14 @@ namespace EGGEngine.Physics
 
             intersection = new Intersection();
 
-            //float[] intersectionPoints = new float[4];
-
                 Primatives.Line Line = new Primatives.Line(position - boundingBoxSize.Y * Vector3.UnitY / 2, position + boundingBoxSize.Y * Vector3.UnitY / 2);
 
-                for (int i = 0; i < world.Triangles.Length; i++)
+                Stack<Primatives.Triangle> triangles = world.OctMesh(Line.Vertices[0]);
+
+                //for (int i = 0; i < world.Mesh.Triangles.Length; i++)
+                foreach(Primatives.Triangle triangle in triangles)
                 {
-                    float intersectionPoint = intersection.LineTriangle(world.Triangles[i], Line);
+                    float intersectionPoint = intersection.LineTriangle(triangle, Line);
                     if (intersectionPoint != -1)
                     {
                         velocity.Y = 0f;

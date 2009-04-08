@@ -10,13 +10,11 @@ namespace EGGEngine.Physics
 {
     public class Primatives
     {
-
         public class Triangle
         {
             private Vector3[] vertices;
             private Vector3 normal;
-            private Vector3 position;
-            private float radius;
+            private int[] octTag = new int[2];
 
             public Triangle(Vector3 v1, Vector3 v2, Vector3 v3)
             {
@@ -25,12 +23,13 @@ namespace EGGEngine.Physics
                 vertices[1] = v2;
                 vertices[2] = v3;
                 normal = Vector3.Normalize(Vector3.Cross(v2 - v1, v3 - v1));
-                position = (v1 + v2 + v3) / 3;
-
-                radius = MathHelper.Max(Vector3.Distance(v1, position), Vector3.Distance(v2, position));
-                radius = MathHelper.Max(Vector3.Distance(v3, position), radius);
             }
 
+            public int[] OctTag
+            {
+                get { return octTag; }
+                set { octTag = value; }
+            }
 
             public Vector3[] Vertices
             {
@@ -39,14 +38,6 @@ namespace EGGEngine.Physics
             public Vector3 Normal
             {
                 get { return normal; }
-            }
-            public float Radius
-            {
-                get { return radius; }
-            }
-            public Vector3 Position
-            {
-                get { return position; }
             }
         }
 
