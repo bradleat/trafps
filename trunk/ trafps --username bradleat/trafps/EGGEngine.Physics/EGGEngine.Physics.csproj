@@ -90,7 +90,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RigidBodies\Box.cs" />
     <Compile Include="RigidBodies\Sphere.cs" />
-    <Compile Include="RigidBodies\Polyagonal.cs" />
   </ItemGroup>
   <ItemGroup>
     <NestedContentProject Include="Content\Content.contentproj">

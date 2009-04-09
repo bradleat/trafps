@@ -1,4 +1,24 @@
-﻿using System;
+﻿#region License
+//=============================================================================
+// System  : Game
+// File    : World.cs
+// Author  : Hannes Hille
+// Note    : Copyright 2008, Portal Games, All Rights Reserved
+// Compiler: Microsoft C#
+//
+// This file is for containing and processing the information for the static
+// environment around the player.
+// 
+// This code is published under the Microsoft Reciprocal License (Ms-RL). A 
+// copy of the license should be distributed with the code. It can also be found
+// at the project website: http://www.CodePlex.com/trafps. This notice, the
+// author's name, and all copyright notices must remain intact in all
+// applications, documentation, and source files.
+//
+// ============================================================================
+#endregion
+
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -10,13 +30,12 @@ namespace EGGEngine.Physics
 {
     public class World
     {
-        public List<int>[][] OctreeReferences = new List<int>[numDivisions + 1][];
 
         Primatives.TriangleMesh mesh;
-        const short numDivisions = 2;
+        const short numDivisions = 6;
         Octree octree;
-        
 
+        public List<int>[][] OctreeReferences = new List<int>[numDivisions + 1][];
 
 
         #region Properties
@@ -29,9 +48,12 @@ namespace EGGEngine.Physics
 
             for(short i = 0; i < octlets.Length; i++)
             {
-                foreach (int triangle in OctreeReferences[i][octlets[i]])
+                if (OctreeReferences[i][octlets[i]] != null)
                 {
-                    triangles.Push(mesh.Triangles[triangle]);
+                    foreach (int triangle in OctreeReferences[i][octlets[i]])
+                    {
+                        triangles.Push(mesh.Triangles[triangle]);
+                    }
                 }
             }
 
