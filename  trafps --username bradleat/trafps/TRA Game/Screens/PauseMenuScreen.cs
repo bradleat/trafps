@@ -11,6 +11,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Net;
+using EGGEngine.Audio;
 #endregion
 
 namespace TRA_Game
@@ -22,17 +23,18 @@ namespace TRA_Game
     class PauseMenuScreen : MenuScreen
     {
         
-
+        AudioManager audioManager;
         NetworkSession networkSession;
         
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public PauseMenuScreen(NetworkSession networkSession)
+        public PauseMenuScreen(NetworkSession networkSession, AudioManager audioManager)
             : base(Resources.Paused, false)
         {
             this.networkSession = networkSession;
+            this.audioManager = audioManager;
 
             // Flag that there is no need for the game to transition
             // off when the pause menu is on top of it.
@@ -99,8 +101,8 @@ namespace TRA_Game
         /// </summary>
         void ConfirmQuitMessageBoxAccepted(object sender, EventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(false, ModelTypes.Levels.shipMap),
-                                                     new MainMenuScreen(false, null));
+            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(false, NetworkSessionComponent.Level.shipMap),
+                                                     new MainMenuScreen(false, audioManager));
         }
 
 

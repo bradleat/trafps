@@ -9,28 +9,11 @@
 
 #region Using Statements
 using System;
-using System;
-using System.Threading;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Storage;
-using Microsoft.Xna.Framework.GamerServices;
-using EasyConfig;
-using EGGEngine;
-using EGGEngine.Cameras;
-using EGGEngine.Debug;
-using EGGEngine.Rendering;
-using EGGEngine.Rendering.Shaders;
-using EGGEngine.Helpers;
-using EGGEngine.Utils;
+
 using EGGEngine.Audio;
-using EGGEngine.Awards;
-using EGGEngine.Physics;
+using EGGEngine.Debug;
 #endregion
 
 namespace TRA_Game
@@ -41,38 +24,21 @@ namespace TRA_Game
     class MainMenuScreen : MenuScreen
     {
         #region Fields
-        Audio audioHelper;
-        Cue mystery;
-        Cue famas_1;
+        AudioManager audioManager;
+
         bool audio_on = false;
         bool gamePlayed;
 
-        
         #endregion
 
         #region Constructor
         /// <summary>
         /// Constructor fills in the menu contents.
         /// </summary>
-        public MainMenuScreen(bool audio_on, Audio audioHelper)
+        public MainMenuScreen(bool audio_on, AudioManager audioManager)// Audio audioHelper)
             : base(Resources.MainMenu, false)
         {
-            this.audio_on = audio_on;
-            this.audioHelper = audioHelper;
-            
-        }
 
-
-        /// <summary>
-        /// Loads graphics content for this screen. The background texture is quite
-        /// big, so we use our own local ContentManager to load it. This allows us
-        /// to unload before going from the menus into the game itself, wheras if we
-        /// used the shared ContentManager provided by the Game class, the content
-        /// would remain loaded forever.
-        /// </summary>
-        public override void LoadContent()
-        {
-            
             // Create our menu entries.
             MenuEntry trainingMenuEntry = new MenuEntry(Resources.Training);
             MenuEntry multiplayerMenuEntry = new MenuEntry(Resources.Multiplayer);
@@ -97,6 +63,14 @@ namespace TRA_Game
             MenuEntries.Add(optionsMenuEntry);
             MenuEntries.Add(exitMenuEntry);
 
+            if (audioManager == null)
+                audioManager = new AudioManager(this.ScreenManager.Game);
+
+            this.audioManager = audioManager;
+
+            audioManager.PlaySong("mystery", true);
+
+            /*
             if (audioHelper == null)
                 this.audioHelper = new Audio("Content\\TRA_Game.xgs");
             else
@@ -113,14 +87,10 @@ namespace TRA_Game
                 famas_1 = this.audioHelper.GetCue("famas-1");
             }
 
-            this.audioHelper.Update();
+            this.audioHelper.Update();*/
+
 
         }
-
-  
-
-
-
         #endregion
 
         #region EventHandlers
@@ -153,7 +123,7 @@ namespace TRA_Game
         /// </summary>
         void MultiplayerMenuEntrySelected(object sender, EventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(true, ModelTypes.Levels.shipMap), new MultiplayerMenuScreen(this.audioHelper, mystery));
+            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(true, NetworkSessionComponent.Level.shipMap), new MultiplayerMenuScreen(this.audioManager)); //this.audioHelper, mystery));
         }
 
         /// <summary>
@@ -161,13 +131,14 @@ namespace TRA_Game
         /// </summary>
         void TrainingMenuEntrySelected(object sender, EventArgs e)
         {
-            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager, NetworkSessionType.Local,audioHelper, mystery,false,null));
-            /*audioHelper.Stop(mystery);
+            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager, NetworkSessionType.Local, audioManager //audioHelper,mystery
+                , true, null));
+            /*audioHelper.Stop(mystery); 
             audioHelper.Play(famas_1, false, new AudioListener(), new AudioEmitter());
             LoadingScreen.Load(ScreenManager, true, new GameplayScreen(null));*/
         }
 
-       
+
 
 
         /// <summary>
@@ -192,10 +163,7 @@ namespace TRA_Game
         {
             ScreenManager.Game.Exit();
         }
-
         #endregion
-
-     
 
     }
 }

@@ -19,6 +19,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.GamerServices;
 
 using EGGEngine.Audio;
+using EGGEngine.Networking;
 #endregion
 
 namespace TRA_Game
@@ -40,15 +41,18 @@ namespace TRA_Game
         Texture2D isTalkingTexture;
         Texture2D voiceMutedTexture;
 
-        Audio audioHelper;
-        Cue mystery;
+        AudioManager audioManager;
 
-        
+        Player localPlayer;
+        KeyboardState oldKeyboardState = new KeyboardState();
 
+        NetworkSessionComponent.Level level;
         NetworkSessionComponent.GameMode gameModeType;
         NetworkSessionComponent.NoOfBots noOfBots;
         NetworkSessionComponent.ScoreToWin scoreToWinType;
         NetworkSessionComponent.Weapons weapons;
+
+        NetworkHelper networkHelper;
 
         // This will hold a string of messages until
         // a breakpoint ("[END]") is reached. Uses a
@@ -59,7 +63,7 @@ namespace TRA_Game
         // A simple list of messages to render them
         // each frame.
         List<string[]> messages = new List<string[]>();
-        
+
 
         #endregion
 
@@ -69,15 +73,30 @@ namespace TRA_Game
         /// <summary>
         /// Constructs a new lobby screen.
         /// </summary>
-        public LobbyScreen(NetworkSession networkSession, Audio audioHelper, bool audio_on)
+        public LobbyScreen(NetworkSession networkSession, AudioManager audioManager //Audio audioHelper
+            , bool audio_on)
         {
             this.networkSession = networkSession;
+
+            networkSession.GamerJoined += GamerJoined;
+
+            networkHelper = new NetworkHelper();
+
             GetVariables();
+
+            if (networkSession.LocalGamers.Count > 0)
+            {
+                localPlayer = networkSession.LocalGamers[0].Tag as Player;
+            }
+
             // Adds a simple message to tell the user what to do.
             // Since we will be using the guide to get commands,
             // we need to tell them how to open it up!
             messages.Add(new string[] { "System", "Press [Tab] to send a message " });
 
+
+            this.audioManager = audioManager;
+            /*
             if (audioHelper == null)
                 this.audioHelper = new Audio("Content\\TRA_Game.xgs");
             else
@@ -90,7 +109,7 @@ namespace TRA_Game
             else
                 mystery = this.audioHelper.GetCue("mystery");
 
-            this.audioHelper.Update();
+            this.audioHelper.Update();*/
             TransitionOnTime = TimeSpan.FromSeconds(0.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
         }
@@ -109,7 +128,7 @@ namespace TRA_Game
             voiceMutedTexture = content.Load<Texture2D>("chat_mute");
         }
 
-        
+
 
         #endregion
 
@@ -124,34 +143,51 @@ namespace TRA_Game
         {
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
 
-            if (IsActive && networkSession.IsHost)
+            if (IsActive)
             {
-                KeyboardState keyboardState = Keyboard.GetState();
+                UpdateNetwork();
 
-                if (keyboardState.IsKeyDown(Keys.F1))
+                KeyboardState keyboardState = Keyboard.GetState();
+                if (keyboardState.IsKeyDown(Keys.F1) && !oldKeyboardState.IsKeyDown(Keys.T) && networkSession.IsHost)
                 {
                     ScreenManager.AddScreen(new SessionPropertiesPopUpScreen(networkSession));
                 }
+                if (keyboardState.IsKeyDown(Keys.T) && !oldKeyboardState.IsKeyDown(Keys.T) && !networkSession.LocalGamers[0].IsReady)
+                {
+                    if (localPlayer.TeamID == 0)
+                    {
+                        localPlayer.TeamID = 1;
+                    }
+                    else
+                        localPlayer.TeamID = 0;
+
+                    //Write the team packet
+                    networkHelper.ClientPacketWriter.Write('T');
+                    networkHelper.ClientPacketWriter.Write(localPlayer.TeamID);
+                    networkHelper.SendToAll(networkSession, networkHelper.ClientPacketWriter, SendDataOptions.None);
+
+                    networkSession.Update();
+
+                }
+                oldKeyboardState = keyboardState;
             }
+
 
             GetVariables();
 
             if (!IsExiting)
             {
-                
-
-                UpdateChat();
 
                 if (networkSession.SessionState == NetworkSessionState.Playing)
                 {
-                    audioHelper.Stop(mystery);
+                    //audioHelper.Stop(mystery);
                     // Check if we should leave the lobby and begin gameplay.
                     LoadingScreen.Load(ScreenManager, true,
-                                       new GameplayScreen(networkSession, ModelTypes.Levels.shipMap));
+                                       new GameplayScreen(networkSession, audioManager));
                 }
                 else if (networkSession.IsHost && networkSession.IsEveryoneReady)
                 {
-                    audioHelper.Stop(mystery);
+                    //audioHelper.Stop(mystery);
                     // The host checks whether everyone has marked themselves
                     // as ready, and starts the game in response.
                     networkSession.StartGame();
@@ -159,15 +195,31 @@ namespace TRA_Game
             }
         }
 
+        /// <summary>
+        /// Event handler called when a gamer joins the session.
+        /// Displays a notification message.
+        /// </summary>
+        void GamerJoined(object sender, GamerJoinedEventArgs e)
+        {
+            if (e.Gamer != networkSession.LocalGamers[0])
+            {
+                networkHelper.ClientPacketWriter.Write('T');
+                networkHelper.ClientPacketWriter.Write(localPlayer.TeamID);
+                networkHelper.SendToAll(networkSession, networkHelper.ClientPacketWriter, SendDataOptions.ReliableInOrder);
+
+            }
+        }
+
         void GetVariables()
         {
+            level = (NetworkSessionComponent.Level)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.Level];
             gameModeType = (NetworkSessionComponent.GameMode)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.GameMode];
             weapons = (NetworkSessionComponent.Weapons)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.Weapons];
             scoreToWinType = (NetworkSessionComponent.ScoreToWin)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.ScoreToWin];
             noOfBots = (NetworkSessionComponent.NoOfBots)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.NoOfBots];
         }
 
-        void UpdateChat()
+        void UpdateNetwork()
         {
             // If the session isn't null and we are actually in it,
             // we need to handle a few things.
@@ -182,50 +234,53 @@ namespace TRA_Game
                     // we should probably grab it.
                     if (networkSession.LocalGamers[0].IsDataAvailable)
                     {
+
                         // This will allow us to decode a string.
                         System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
 
-                        // Loop through every other gamer in the room.
-                        for (int i = 0; i < networkSession.RemoteGamers.Count; i++)
+                        NetworkGamer sender;
+
+                        sender = networkHelper.ReadClientData(networkSession.LocalGamers[0]);
+                        try
                         {
-                            // Get a reference to the gamer.
-                            NetworkGamer ngamer = networkSession.RemoteGamers[i];
-
-                            // Instantiate a packet reader to...
-                            // well... read some packets.
-                            PacketReader reader = new PacketReader();
-
-                            // Get the data!
-                            networkSession.LocalGamers[0].ReceiveData(reader, out ngamer);
-
-                            // Check to make sure the gamer didn't
-                            // return as null!
-                            if (ngamer == null)
-                                continue;
-
-                            // Decode the packet!
-                            string packetString = encoding.GetString(reader.ReadBytes(reader.Length));
-
-                            // If the gamertag isn't logged already, add it to
-                            // the dictionary. Otherwise add the string to the
-                            // current string.
-                            if (incomingMessages.ContainsKey(ngamer.Gamertag))
-                                incomingMessages[ngamer.Gamertag] += packetString;
-                            else
-                                incomingMessages.Add(ngamer.Gamertag, packetString);
-
-                            // If there is a breakpoint in the string, we need to
-                            // take care of the message!
-                            if (incomingMessages[ngamer.Gamertag].Contains("[END]"))
+                            while (networkHelper.ClientPacketReader.PeekChar() != -1)
                             {
-                                messages.Add(
-                                    new string[] { ngamer.Gamertag,
-                                    incomingMessages[ngamer.Gamertag].Substring(0, incomingMessages[ngamer.Gamertag].IndexOf("[END]")) }
-                                    );
+                                char header = networkHelper.ClientPacketReader.ReadChar();
+                                if (header == 'C')
+                                {
+                                    string packetString = encoding.GetString(networkHelper.ClientPacketReader.ReadBytes(networkHelper.ClientPacketReader.Length));// networkHelper.ClientPacketReader.ReadInt32();
 
-                                // Wipe out the string!
-                                incomingMessages[ngamer.Gamertag] = string.Empty;
+                                    // If the gamertag isn't logged already, add it to
+                                    // the dictionary. Otherwise add the string to the
+                                    // current string.
+                                    if (incomingMessages.ContainsKey(sender.Gamertag))
+                                        incomingMessages[sender.Gamertag] += packetString;
+                                    else
+                                        incomingMessages.Add(sender.Gamertag, packetString);
+
+                                    // If there is a breakpoint in the string, we need to
+                                    // take care of the message!
+                                    if (incomingMessages[sender.Gamertag].Contains("[END]"))
+                                    {
+                                        messages.Add(
+                                            new string[] { sender.Gamertag,
+                                    incomingMessages[sender.Gamertag].Substring(0, incomingMessages[sender.Gamertag].IndexOf("[END]")) }
+                                            );
+
+                                        // Wipe out the string!
+                                        incomingMessages[sender.Gamertag] = string.Empty;
+                                    }
+                                }
+                                else if (header == 'T')
+                                {
+                                    Player remotePlayer = sender.Tag as Player;
+                                    remotePlayer.TeamID = networkHelper.ClientPacketReader.ReadInt32();
+                                }
                             }
+                        }
+                        catch (Exception e)
+                        {
+                            return;
                         }
                     }
                 }
@@ -316,7 +371,7 @@ namespace TRA_Game
             }
             else
             {
-                NetworkSessionComponent.LeaveSessionFromGame(ScreenManager, audioHelper);
+                NetworkSessionComponent.LeaveSessionFromGame(ScreenManager, audioManager); //audioHelper);
             }
         }
 
@@ -346,16 +401,13 @@ namespace TRA_Game
 
             // Write it to a construct that helps
             // with sending messages.
-            PacketWriter writer = new PacketWriter();
-            writer.Write(bytes);
+            //PacketWriter writer = new PacketWriter();
+            //writer.Write(bytes);
 
-            // For each gamer in the room, send them the message.
-            foreach (NetworkGamer ngamer in networkSession.RemoteGamers)
-            {
-                // We send it from our gamertag so they know
-                // who it comes from.
-                networkSession.LocalGamers[0].SendData(writer, SendDataOptions.Chat, ngamer);
-            }
+            // C for chat
+            networkHelper.ClientPacketWriter.Write('C');
+            networkHelper.ClientPacketWriter.Write(bytes);
+            networkHelper.SendToAll(networkSession, networkHelper.ClientPacketWriter, SendDataOptions.Chat);
 
             networkSession.Update();
         }
@@ -430,11 +482,53 @@ namespace TRA_Game
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
             SpriteFont spriteFont = ScreenManager.Font;
 
-            Vector2 position = new Vector2(100, 250);
-            string text = GetGameModeType();
-
+            Vector2 position = new Vector2(50, 400);
             spriteBatch.Begin();
+
+            string text = Resources.Level;
+
+            //string text = GetGameModeType();
+            spriteBatch.DrawString(spriteFont, text, position, Color.White);
+
+            text = Resources.GameMode;
+            position.Y += 27;
+            spriteBatch.DrawString(spriteFont, text, position, Color.White);
+
+            text = Resources.Weapons;
+            position.Y += 27;
+            spriteBatch.DrawString(spriteFont, text, position, Color.White);
+
+            text = Resources.ScoreToWin;
+            position.Y += 27;
+            spriteBatch.DrawString(spriteFont, text, position, Color.White);
+
+            text = Resources.NumberOfBots;
+            position.Y += 27;
+            spriteBatch.DrawString(spriteFont, text, position, Color.White);
+
+
+            // Varibles---------------------------------
+
+            text = GetLevel();
+            position = new Vector2(200, 400);
             spriteBatch.DrawString(spriteFont, text, position, Color.Yellow);
+
+            text = GetGameModeType();
+            position.Y += 27;
+            spriteBatch.DrawString(spriteFont, text, position, Color.Yellow);
+
+            text = GetWeaponType();
+            position.Y += 27;
+            spriteBatch.DrawString(spriteFont, text, position, Color.Yellow);
+
+            text = GetScoreToWinType();
+            position.Y += 27;
+            spriteBatch.DrawString(spriteFont, text, position, Color.Yellow);
+
+            text = GetNoOfBots();
+            position.Y += 27;
+            spriteBatch.DrawString(spriteFont, text, position, Color.Yellow);
+
             spriteBatch.End();
         }
 
@@ -442,35 +536,35 @@ namespace TRA_Game
         {
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
             SpriteFont font = ScreenManager.Font;
-            if ( messages.Count > 0 )
+            if (messages.Count > 0)
             {
                 // If there are more than 20 messages,
                 // trim the array.
-                if ( messages.Count > 10 )
-                    messages.RemoveAt ( 0 );
+                if (messages.Count > 10)
+                    messages.RemoveAt(0);
 
-                Vector2 pos = new Vector2 ( 600, 150 );
+                Vector2 pos = new Vector2(600, 150);
 
-                spriteBatch.Begin ();
+                spriteBatch.Begin();
 
-                for ( int i = 0; i < messages.Count; i++ )
+                for (int i = 0; i < messages.Count; i++)
                 {
-                    if ( messages[i].Length < 2 )
+                    if (messages[i].Length < 2)
                         continue;
 
-                    Vector2 measure = font.MeasureString ( messages[i][0] + ": " );
+                    Vector2 measure = font.MeasureString(messages[i][0] + ": ");
                     float height = measure.Y + 5;
                     measure.Y = 0;
 
-                    spriteBatch.DrawString ( font, messages[i][0] + ": ", pos, Color.DarkOrange);
-                    spriteBatch.DrawString ( font, messages[i][1], pos + measure, Color.Yellow);
+                    spriteBatch.DrawString(font, messages[i][0] + ": ", pos, Color.DarkOrange);
+                    spriteBatch.DrawString(font, messages[i][1], pos + measure, Color.Yellow);
 
                     pos.Y += height;
                 }
 
-                spriteBatch.End ();
+                spriteBatch.End();
             }
-        
+
         }
         /// <summary>
         /// Helper draws the gamertag and status icons for a single NetworkGamer.
@@ -479,6 +573,8 @@ namespace TRA_Game
         {
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
             SpriteFont font = ScreenManager.Font;
+
+            Player networkPlayer = gamer.Tag as Player;
 
             Vector2 iconWidth = new Vector2(34, 0);
             Vector2 iconOffset = new Vector2(0, 0);
@@ -517,13 +613,18 @@ namespace TRA_Game
             if (gamer.IsHost)
                 text += Resources.HostSuffix;
 
-            Color color = (gamer.IsLocal) ? Color.Yellow : Color.White;
+            Color color; //= (gamer.IsLocal) ? Color.Yellow : Color.White;
+
+            if (networkPlayer.TeamID == 1)
+                color = Color.Red;
+            else
+                color = Color.Blue;
 
             spriteBatch.DrawString(font, text, position + iconWidth * 2,
                                    FadeAlphaDuringTransition(color));
         }
 
-        
+
 
 
         /// <summary>
@@ -532,6 +633,19 @@ namespace TRA_Game
         Color FadeAlphaDuringTransition(Color color)
         {
             return new Color(color.R, color.G, color.B, TransitionAlpha);
+        }
+
+        string GetLevel()
+        {
+            switch (level)
+            {
+                case NetworkSessionComponent.Level.shipMap:
+                    return Resources.Level_ShipMap;
+                case NetworkSessionComponent.Level.Level_1:
+                    return Resources.Level_1;
+                default:
+                    throw new Exception();
+            }
         }
 
         string GetNoOfBots()

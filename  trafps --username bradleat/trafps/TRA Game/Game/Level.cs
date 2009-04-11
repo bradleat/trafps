@@ -59,7 +59,7 @@ namespace TRA_Game
             model.CopyAbsoluteBoneTransformsTo(boneTransforms);
         }
 
-        public void Draw(FirstPersonCamera camera)
+        public void Draw(FirstPersonCamera camera, float scale)
         {
             foreach (ModelMesh mesh in model.Meshes)
             {
@@ -68,7 +68,7 @@ namespace TRA_Game
                     effect.EnableDefaultLighting();
 
                     effect.World = boneTransforms[mesh.ParentBone.Index] * Matrix.CreateRotationY(rotation)
-                                                                        * Matrix.CreateTranslation(position);
+                                                                        * Matrix.CreateTranslation(position) * Matrix.CreateScale(scale);
                     effect.SpecularColor = new Vector3(1, 0, 0);
                     effect.View = camera.ViewMatrix;
                     effect.Projection = camera.ProjectionMatrix;

@@ -134,7 +134,7 @@
     <Compile Include="Screens\MultiplayerMenuScreen.cs" />
     <Compile Include="Screens\PauseMenuScreen.cs" />
     <Compile Include="Screens\RespawnScreen.cs" />
-    <Compile Include="Screens\SplashScreen.cs" />
+    <Compile Include="SplashScreen.cs" />
     <Compile Include="TRA_Game.cs" />
   </ItemGroup>
   <ItemGroup>

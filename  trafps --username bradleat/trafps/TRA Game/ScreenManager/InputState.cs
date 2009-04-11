@@ -140,6 +140,7 @@ namespace TRA_Game
         /// Reads the latest state of the keyboard and gamepad.
         /// </summary>
         public void Update()
+      
         {
             for (int i = 0; i < MaxInputs; i++)
             {

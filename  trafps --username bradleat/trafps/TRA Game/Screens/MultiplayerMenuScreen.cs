@@ -12,23 +12,24 @@ namespace TRA_Game
 {
     class MultiplayerMenuScreen : MenuScreen
     {
-        // We need this to keep the sound loop going
-        Audio audioHelper;
-        Cue mystery;
+
+        AudioManager audioManager;
 
         // <summary>
         /// Constructor fills in the menu contents.
         /// </summary>
-        public MultiplayerMenuScreen(Audio audioHelper, Cue mystery)
+        public MultiplayerMenuScreen(AudioManager audioManager)//  Audio audioHelper, Cue mystery)
             : base(Resources.MultiplayerMenu, false)
         {
-            this.audioHelper = audioHelper;
-            this.mystery = mystery;
+            this.audioManager = audioManager;
+
+            //this.audioHelper = audioHelper;
+            //this.mystery = mystery;
             // Create our menu entries.
             MenuEntry liveMenuEntry = new MenuEntry(Resources.PlayerMatch);
             MenuEntry systemlinkMenuEntry = new MenuEntry(Resources.SystemLink);
             MenuEntry backMenuEntry = new MenuEntry(Resources.Back);
-            
+
 
             // Hook up menu event handlers.
             liveMenuEntry.Selected += LiveMenuEntrySelected;
@@ -40,7 +41,7 @@ namespace TRA_Game
             MenuEntries.Add(systemlinkMenuEntry);
             MenuEntries.Add(backMenuEntry);
 
-            this.audioHelper.Update();
+
         }
 
         /// <summary>
@@ -48,8 +49,8 @@ namespace TRA_Game
         /// </summary>
         void BackMenuEntrySelected(object sender, EventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(false, ModelTypes.Levels.shipMap),
-                                                     new MainMenuScreen(true, this.audioHelper));
+            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(false, NetworkSessionComponent.Level.shipMap),
+                                                     new MainMenuScreen(true, audioManager));//this.audioHelper));
         }
         /// <summary>
         /// Event handler for when the Live menu entry is selected.
@@ -68,7 +69,7 @@ namespace TRA_Game
             CreateOrFindSession(NetworkSessionType.SystemLink);
         }
 
-        
+
         /// <summary>
         /// Helper method shared by the Live and System Link menu event handlers.
         /// </summary>
@@ -81,7 +82,8 @@ namespace TRA_Game
             // it will activate the CreateOrFindSessionScreen.
             profileSignIn.ProfileSignedIn += delegate
             {
-                ScreenManager.AddScreen(new CreateOrFindSessionScreen(ScreenManager, sessionType, this.audioHelper, this.mystery));
+                ScreenManager.AddScreen(new CreateOrFindSessionScreen(ScreenManager, sessionType, audioManager));//this.audioHelper
+                //, this.mystery));
             };
 
             // Activate the ProfileSignInScreen.

@@ -35,6 +35,7 @@ namespace TRA_Game
         private int currentAnimationId;
         private FirstPersonCamera camera;
         private Flag flag;
+        private int teamID;
 
         #region Properties
         public Vector3 Position
@@ -72,6 +73,12 @@ namespace TRA_Game
             get { return flag; }
             set { flag = value; }
         }
+        public int TeamID
+        {
+            get { return teamID; }
+            set { teamID = value; }
+        }
+
         #endregion
 
 
@@ -92,7 +99,7 @@ namespace TRA_Game
 
             physicsPlayer = new EGGEngine.Physics.Player(this.position, this.rotation, boundingBoxSize, world);
             // TODO: Construct any child components here*/
-        }   
+        }
 
         /// <summary>
         /// Allows the game component to perform any initialization it needs to before starting
@@ -100,18 +107,18 @@ namespace TRA_Game
         /// </summary>
         public void Initialize(ModelTypes.PlayerType playerType, Vector3 initialPosition, float initialRotation, Vector3 boundingBoxSize, EGGEngine.Physics.World world, Weapon currentWeapon)
         {
-                this.playerType = playerType;
-                this.position = initialPosition;
-                this.rotation = initialRotation;
-                this.health = ModelTypes.PlayerHealth[(int)playerType];
-                this.maxHealth = this.health;
-                this.shield = ModelTypes.ShieldHealth[(int)playerType];
-                this.maxShield = this.shield;
+            this.playerType = playerType;
+            this.position = initialPosition;
+            this.rotation = initialRotation;
+            this.health = ModelTypes.PlayerHealth[(int)playerType];
+            this.maxHealth = this.health;
+            this.shield = ModelTypes.ShieldHealth[(int)playerType];
+            this.maxShield = this.shield;
 
-                this.model = Game.Content.Load<Model>(ModelTypes.PlayerModelFileName[(int)playerType]);
+            this.model = Game.Content.Load<Model>(ModelTypes.PlayerModelFileName[(int)playerType]);
 
 
-                physicsPlayer = new EGGEngine.Physics.Player(this.position, this.rotation, boundingBoxSize, world);
+            physicsPlayer = new EGGEngine.Physics.Player(this.position, this.rotation, boundingBoxSize, world);
             // TODO: Add your initialization code here
             base.Initialize();
         }
@@ -173,7 +180,7 @@ namespace TRA_Game
             physicsPlayer.Update(moveDirection, state, Jump);
 
             this.rotation = physicsPlayer.Rotation;
-            this.position  = physicsPlayer.Position;
+            this.position = physicsPlayer.Position;
 
             //primaryWeapon.Update(gameTime);
 

@@ -97,6 +97,7 @@
     <Compile Include="Animation\Util.cs" />
     <Compile Include="Animation\Visualisation\CubeComponent.cs" />
     <Compile Include="Audio\Audio.cs" />
+    <Compile Include="Audio\AudioManager.cs" />
     <Compile Include="Awards\Award.cs" />
     <Compile Include="Awards\AwardsComponent.cs" />
     <Compile Include="Awards\AwardsProgress.cs" />

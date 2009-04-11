@@ -29,8 +29,8 @@ namespace TRA_Game
         #region Fields
 
         NetworkSessionType sessionType;
-        Audio audioHelper;
-        Cue mystery;
+
+        AudioManager audioManager;
 
         NetworkHelper networkHelper;
         NetworkInterface networkInterface;
@@ -43,15 +43,16 @@ namespace TRA_Game
         /// <summary>
         /// Constructor fills in the menu contents.
         /// </summary>
-        public CreateOrFindSessionScreen(ScreenManager screenManager,NetworkSessionType sessionType, Audio audioHelper, Cue mystery)
+        public CreateOrFindSessionScreen(ScreenManager screenManager, NetworkSessionType sessionType, AudioManager audioManager)//Audio audioHelper, Cue mystery)
             : base(GetMenuTitle(sessionType), false)
         {
-            
+
             networkHelper = new NetworkHelper();
             networkInterface = new NetworkInterface();
             networkInterface.InitNetwork(screenManager.Game);
-            this.audioHelper = audioHelper;
-            this.mystery = mystery;
+            this.audioManager = audioManager;
+            //this.audioHelper = audioHelper;
+            //this.mystery = mystery;
             this.sessionType = sessionType;
 
             // Create our menu entries.
@@ -100,8 +101,9 @@ namespace TRA_Game
         /// </summary>
         void CreateSessionMenuEntrySelected(object sender, EventArgs e)
         {
-            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager,sessionType,audioHelper, mystery, true, networkHelper));
-            
+            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager, sessionType, audioManager  //audioHelpermystery
+                , true, networkHelper));
+
         }
 
         /// <summary>
@@ -109,8 +111,9 @@ namespace TRA_Game
         /// </summary>
         void FindSessionsMenuEntrySelected(object sender, EventArgs e)
         {
-            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager,sessionType,audioHelper, mystery, false, networkHelper));
-            
+            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager, sessionType, audioManager//audioHelper ,mystery
+                , false, networkHelper));
+
         }
         #endregion
     }

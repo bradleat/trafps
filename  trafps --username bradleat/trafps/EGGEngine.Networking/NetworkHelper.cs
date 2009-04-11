@@ -135,5 +135,13 @@ namespace EGGEngine.Networking
             gamer.ReceiveData(ClientPacketReader, out sender);
             return sender;
         }
+
+        public void SendToAll(NetworkSession networkSession, Microsoft.Xna.Framework.Net.PacketWriter writer, SendDataOptions option)
+        {
+            foreach (NetworkGamer gamer in networkSession.RemoteGamers)
+            {
+                networkSession.LocalGamers[0].SendData(writer, option, gamer);
+            }
+        }
     }
 }

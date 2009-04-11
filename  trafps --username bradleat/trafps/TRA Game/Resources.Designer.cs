@@ -61,6 +61,15 @@ namespace TRA_Game {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Any.
+        /// </summary>
+        internal static string Any {
+            get {
+                return ResourceManager.GetString("Any", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Assembler.
         /// </summary>
         internal static string Assembler {
@@ -297,6 +306,33 @@ namespace TRA_Game {
         internal static string LeaveSession {
             get {
                 return ResourceManager.GetString("LeaveSession", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Level :.
+        /// </summary>
+        internal static string Level {
+            get {
+                return ResourceManager.GetString("Level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Level_1.
+        /// </summary>
+        internal static string Level_1 {
+            get {
+                return ResourceManager.GetString("Level_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ShipMap.
+        /// </summary>
+        internal static string Level_ShipMap {
+            get {
+                return ResourceManager.GetString("Level_ShipMap", resourceCulture);
             }
         }
         
