@@ -44,7 +44,7 @@ namespace TRA_Game
         #region Fields
 
         ContentManager content;
-        ModelTypes.Levels currentLevel;
+        NetworkSessionComponent.Level currentLevel;
         EGGEngine.Rendering.Shaders.PostProcessing postProc;
         World world;
         GameLevel level;
@@ -75,7 +75,7 @@ namespace TRA_Game
         /// <summary>
         /// Constructor.
         /// </summary>
-        public BackgroundScreen(bool isMultiplayer, ModelTypes.Levels currentLevel)
+        public BackgroundScreen(bool isMultiplayer, NetworkSessionComponent.Level currentLevel)
         {
             //this.isMultiplayer = isMultiplayer;
             TransitionOnTime = TimeSpan.FromSeconds(0.5);
@@ -152,7 +152,7 @@ namespace TRA_Game
             ScreenManager.GraphicsDevice.RenderState.AlphaTestEnable = false;
 
             level.sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
-            level.level.Draw(camera);
+            level.level.Draw(camera, 1f);
 
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
             Viewport viewport = ScreenManager.GraphicsDevice.Viewport;

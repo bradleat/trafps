@@ -9,9 +9,13 @@
 
 #region Using Statements
 using System;
+using System.Threading;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+
+using EGGEngine.Audio;
 #endregion
 
 namespace TRA_Game
@@ -29,7 +33,8 @@ namespace TRA_Game
         Texture2D texture;
         bool isAudio;
         float waitCounter;
-        
+        AudioManager audioManager;
+
         #endregion
 
         #region Initialization
@@ -38,9 +43,10 @@ namespace TRA_Game
         /// <summary>
         /// Constructor.
         /// </summary>
-        public SplashScreen(bool isAudio)
+        public SplashScreen(AudioManager audioManager)
         {
-            this.isAudio = isAudio;
+            //this.isAudio = isAudio;
+            this.audioManager = audioManager;
             TransitionOnTime = TimeSpan.FromSeconds(0.6);
             TransitionOffTime = TimeSpan.FromSeconds(0.6);
             waitCounter = 0;
@@ -58,7 +64,7 @@ namespace TRA_Game
         {
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
-           
+
             texture = content.Load<Texture2D>("splash");
         }
 
@@ -89,12 +95,11 @@ namespace TRA_Game
         {
             base.Update(gameTime, otherScreenHasFocus, false);
             waitCounter += gameTime.ElapsedGameTime.Milliseconds;
+            
             if (waitCounter > 2000)
             {
-                LoadingScreen.Load(ScreenManager, true, new BackgroundScreen(false, ModelTypes.Levels.shipMap),
-                                                     new MainMenuScreen(false, null));
+                LoadingScreen.Load(ScreenManager, true, new BackgroundScreen(false, NetworkSessionComponent.Level.shipMap), new MainMenuScreen(false, audioManager));
             }
-
         }
 
 
@@ -114,9 +119,9 @@ namespace TRA_Game
                              new Color(fade, fade, fade));
 
             spriteBatch.End();
-        }
 
 
         #endregion
+        }
     }
 }

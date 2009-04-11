@@ -20,18 +20,34 @@ namespace TRA_Game
     /// </summary>
     public static class LevelCreator
     {
-        public static GameLevel CreateLevel(Game game, ModelTypes.Levels level)
+        public static GameLevel CreateLevel(Game game, NetworkSessionComponent.Level level)
         {
             switch (level)
             {
-                case ModelTypes.Levels.shipMap:
+                case NetworkSessionComponent.Level.shipMap:
                     return CreateShipMapLevel(game);
-                    
-
+                case NetworkSessionComponent.Level.Level_1:
+                    return CreateLevel_1Level(game);
                 default:
                     throw new ArgumentException("Invalid game level");
-                   
             }
+        }
+
+        private static GameLevel CreateLevel_1Level(Game game)
+        {
+            ContentManager Content = game.Content;
+            GameLevel gameLevel = new GameLevel();
+            // Terrain
+            gameLevel.level = new Level(game, ModelTypes.levelModelFileName[(int)ModelTypes.Levels.Level_1]);
+            // Sky
+            gameLevel.sky = Content.Load<Sky>("Models\\sky1");
+
+            gameLevel.world = new EGGEngine.Physics.World(gameLevel.level.Model);
+            // Player
+            gameLevel.weapon = new Weapon(game, ModelTypes.WeaponType.Pistol);
+            //gameLevel.player = new Player(game);//, ModelTypes.PlayerType.TankGirl, new Vector3(0, -3, -5), 0, new Vector3(0, 5, 0), gameLevel.world, gameLevel.weapon);
+
+            return gameLevel;
         }
 
         private static GameLevel CreateShipMapLevel(Game game)

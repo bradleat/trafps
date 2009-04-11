@@ -55,6 +55,7 @@ namespace TRA_Game
         ScreenManager screenManager;
 
         Audio audioHelper;
+        AudioManager audioManager;
 
         /// <summary>
         /// The main game constructor.
@@ -75,8 +76,12 @@ namespace TRA_Game
             Components.Add(new MessageDisplayComponent(this));
             Components.Add(new GamerServicesComponent(this));
 
+            audioManager = new AudioManager(this);
+            audioManager.LoadSong("mystery");
+            audioManager.LoadSound("famas-1");
+
             // Activate the first screens.
-            screenManager.AddScreen(new SplashScreen(false));
+            screenManager.AddScreen(new SplashScreen(audioManager));
             //screenManager.AddScreen(new BackgroundScreen(false));
             //screenManager.AddScreen(new MainMenuScreen(false, null));
 
@@ -86,6 +91,10 @@ namespace TRA_Game
             
         }
 
+        protected override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+        }
        
         /// <summary>
         /// This is called when the game should draw itself.

@@ -18,6 +18,7 @@ namespace TRA_Game
 
         NetworkSession networkSession;
 
+        NetworkSessionComponent.Level level;
         NetworkSessionComponent.GameMode gameModeType;
         NetworkSessionComponent.Weapons weaponsType;
         NetworkSessionComponent.ScoreToWin scoreToWinType;
@@ -36,18 +37,21 @@ namespace TRA_Game
             // off when the pause menu is on top of it.
             IsPopup = true;
 
+            MenuEntry levelMenuEntry = new MenuEntry(Resources.Level);
             MenuEntry gameModeMenuEntry = new MenuEntry(Resources.GameMode);
             MenuEntry weaponsMenuEntry = new MenuEntry(Resources.Weapons);
             MenuEntry scoreToWinMenuEntry = new MenuEntry(Resources.ScoreToWin);
             MenuEntry noofbotsMenuEntry = new MenuEntry(Resources.NumberOfBots);
             MenuEntry lobbyMenuEntry = new MenuEntry(Resources.ReturnToLobby);
 
+            levelMenuEntry.Selected += LevelMenuEntrySelected;
             gameModeMenuEntry.Selected += GameModeMenuEntrySelected;
             weaponsMenuEntry.Selected += WeaponsMenuEntrySelected;
             scoreToWinMenuEntry.Selected += ScoreToWinMenuEntrySelected;
             noofbotsMenuEntry.Selected += NoOfBotsMenuEntrySelected;
             lobbyMenuEntry.Selected += ReturnToLobbyMenuEntrySelected;
 
+            MenuEntries.Add(levelMenuEntry);
             MenuEntries.Add(gameModeMenuEntry);
             MenuEntries.Add(weaponsMenuEntry);
             MenuEntries.Add(scoreToWinMenuEntry);
@@ -65,12 +69,39 @@ namespace TRA_Game
 
         void GetVariables()
         {
+            level = (NetworkSessionComponent.Level)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.Level];
             gameModeType = (NetworkSessionComponent.GameMode)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.GameMode];
             weaponsType = (NetworkSessionComponent.Weapons)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.Weapons];
             scoreToWinType = (NetworkSessionComponent.ScoreToWin)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.ScoreToWin];
             noOfBots = (NetworkSessionComponent.NoOfBots)networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.NoOfBots];
         }
-        
+
+        void LevelMenuEntrySelected(object sender, EventArgs e)
+        {
+            ChangeLevel();
+        }
+
+        void ChangeLevel()
+        {
+            if (level == NetworkSessionComponent.Level.shipMap)
+                level = NetworkSessionComponent.Level.Level_1;
+            else if (level == NetworkSessionComponent.Level.Level_1)
+                level = NetworkSessionComponent.Level.shipMap;
+        }
+
+        string GetLevel()
+        {
+            switch (level)
+            {
+                case NetworkSessionComponent.Level.shipMap:
+                    return Resources.Level_ShipMap;
+                case NetworkSessionComponent.Level.Level_1:
+                    return Resources.Level_1;
+                default:
+                    throw new Exception("Level Not found");
+            }
+        }
+
         /// <summary>
         /// Event handler for when the Quit Game menu entry is selected.
         /// </summary>
@@ -231,6 +262,8 @@ namespace TRA_Game
             Vector2 position = new Vector2(300, 387);
 
             spriteBatch.Begin();
+            spriteBatch.DrawString(font, GetLevel(), position, Color.Yellow);
+            position.Y += 27;
             spriteBatch.DrawString(font, GetGameModeType(), position, Color.Yellow);
             position.Y += 27;
             spriteBatch.DrawString(font, GetWeaponType(), position, Color.Yellow);
@@ -244,6 +277,7 @@ namespace TRA_Game
 
         void SetSessionProperties()
         {
+            networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.Level] = (int)level;
             networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.GameMode] = (int)gameModeType;
             networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.Weapons] = (int)weaponsType;
             networkSession.SessionProperties[(int)NetworkSessionComponent.SessionProperties.ScoreToWin] = (int)scoreToWinType;

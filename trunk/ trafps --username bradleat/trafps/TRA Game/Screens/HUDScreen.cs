@@ -75,7 +75,7 @@ namespace TRA_Game
             this.player = player;
             this.bulletAmount = bulletAmount;
             this.maxBullets = maxBullets;
-            IsPopup = true;
+            //IsPopup = true;
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
             messageList = new List<message>();
@@ -123,7 +123,15 @@ namespace TRA_Game
         #region Update and Draw
 
 
-        
+        public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
+        {
+            base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
+        }
+
+        public override void HandleInput(InputState input)
+        {
+            base.HandleInput(input);
+        }
 
 
         /// <summary>

@@ -17,36 +17,39 @@ namespace TRA_Game
     /// and also exposes the NetworkSession as a game service which can easily be
     /// looked up by any other code that needs to access it.
     /// </summary>
-    class NetworkSessionComponent : GameComponent
+    public class NetworkSessionComponent : GameComponent
     {
         #region Fields
 
         public const int MaxGamers = 16;
         public const int MaxLocalGamers = 4;
 
-        
+
         public enum SessionProperties
         {
-            GameMode, Weapons, ScoreToWin, NoOfBots
+            Level, GameMode, Weapons, ScoreToWin, NoOfBots
+        }
+        public enum Level
+        {
+            shipMap, Level_1, Any
         }
         public enum GameMode
         {
-            DeathMatch, TeamDeathmatch, CaptureTheFlag
+            DeathMatch, TeamDeathmatch, CaptureTheFlag, Any
         }
         public enum Weapons
         {
-            Light,Normal,Heavy
+            Light, Normal, Heavy, Any
         }
         public enum ScoreToWin
         {
-            One, Three, Five, TwentyFive, Fifty
+            One, Three, Five, TwentyFive, Fifty, Any
         }
         public enum NoOfBots
         {
-            Ten,Twenty
+            Ten, Twenty, Any
         }
 
-        
         ScreenManager screenManager;
 
         NetworkSession networkSession;
@@ -71,7 +74,7 @@ namespace TRA_Game
         {
             this.screenManager = screenManager;
             this.networkSession = networkSession;
-            
+
 
             // Hook up our session event handlers.
             networkSession.GamerJoined += GamerJoined;
@@ -192,7 +195,7 @@ namespace TRA_Game
                     messageDisplay.ShowMessage(Resources.MessageYouAreHost, null);
                 else
                     messageDisplay.ShowMessage(Resources.MessageNewHost, e.NewHost.Gamertag);
-                
+
             }
         }
 
@@ -268,7 +271,7 @@ namespace TRA_Game
                 }
             }
         }
-        public static void LeaveSessionFromGame(ScreenManager screenManager, Audio audioHelper)
+        public static void LeaveSessionFromGame(ScreenManager screenManager, AudioManager audioManager)// Audio audioHelper)
         {
             // Search through Game.Components to find the NetworkSessionComponent.
             foreach (IGameComponent component in screenManager.Game.Components)
@@ -290,7 +293,7 @@ namespace TRA_Game
                     // Hook the messge box ok event to actually leave the session.
                     confirmMessageBox.Accepted += delegate
                     {
-                        self.LeaveSessionFromGame(audioHelper);
+                        self.LeaveSessionFromGame(audioManager);//audioHelper);
                     };
 
                     screenManager.AddScreen(confirmMessageBox);
@@ -300,7 +303,7 @@ namespace TRA_Game
             }
         }
 
-        void LeaveSessionFromGame(Audio audioHelper)
+        void LeaveSessionFromGame(AudioManager audioManager)//Audio audioHelper)
         {
             // Remove the NetworkSessionComponent.
             Game.Components.Remove(this);
@@ -367,8 +370,8 @@ namespace TRA_Game
             // If we didn't find a CreateOrFindSessionsScreen, reset everything and
             // go back to the main menu. The why-did-the-session-end message box
             // will be displayed after the loading screen has completed.
-            LoadingScreen.Load(screenManager, false, new BackgroundScreen(false, ModelTypes.Levels.shipMap),
-                                                     new MainMenuScreen(true, audioHelper),
+            LoadingScreen.Load(screenManager, false, new BackgroundScreen(false, NetworkSessionComponent.Level.shipMap),
+                                                     new MainMenuScreen(true, audioManager),//audioHelper),
                                                      messageBox);
         }
 
@@ -444,10 +447,8 @@ namespace TRA_Game
             // If we didn't find a CreateOrFindSessionsScreen, reset everything and
             // go back to the main menu. The why-did-the-session-end message box
             // will be displayed after the loading screen has completed.
-            LoadingScreen.Load(screenManager, false, new BackgroundScreen(false, ModelTypes.Levels.shipMap),
-                                                    
-                                                  
-                                                     new MainMenuScreen(false,null),
+            LoadingScreen.Load(screenManager, false, new BackgroundScreen(false, NetworkSessionComponent.Level.shipMap),
+                                                     new MainMenuScreen(false, null),
                                                      messageBox);
         }
 
