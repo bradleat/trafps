@@ -51,14 +51,14 @@ namespace TRA_Game
                                                       "level_1"   };
 
         public static Vector3[] BlueTeamSpawnPoint = { new Vector3((float)52.238, (float)-4.86833572, (float)-5.327177),
-                                                         new Vector3(0,-3,0)};
+                                                         new Vector3((float)58.3029556,(float)14.5489264,(float)23.1811275)};
         public static Vector3[] RedTeamSpawnPoint = { new Vector3((float)-32.7520447, (float)-4.86833572, (float)-5.2758193),
-                                                        new Vector3(0,-3,0)};
+                                                        new Vector3((float)58.3029556,(float)14.5489264,(float)23.1811275)};
 
         public static float[] BlueTeamSpawnRotation = {(float)-1.56999528,
-                                                          0f               };
+                                                          (float)-1.58999908};   
         public static float[] RedTeamSpawnRotation = {(float)-4.729999,
-                                                         0f            };              
+                                                         (float)-1.58999908};              
 
     }
 }

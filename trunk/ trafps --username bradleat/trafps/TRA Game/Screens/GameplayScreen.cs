@@ -66,7 +66,6 @@ namespace TRA_Game
         NetworkSessionComponent.NoOfBots noOfBots;
         NetworkSessionComponent.Weapons Weapons;
 
-
         NetworkHelper networkHelper;
 
         Vector3 redTeamSpawnPoint = new Vector3((float)-32.7520447, (float)-4.86833572, (float)-5.2758193);
@@ -786,7 +785,7 @@ namespace TRA_Game
             level.sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
             if (currentLevel == NetworkSessionComponent.Level.Level_1)
             {
-                level.level.Draw(camera,4f);
+                level.level.Draw(camera,1f);
 
             }
             else
