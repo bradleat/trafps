@@ -41,11 +41,10 @@ namespace TRA_Game
         /// <summary>
         /// Constructs a menu screen listing the available network sessions.
         /// </summary>
-        public JoinSessionScreen(AvailableNetworkSessionCollection availableSessions, AudioManager audioManager)//Audio audioHelper,Cue mystery)
+        public JoinSessionScreen(AvailableNetworkSessionCollection availableSessions)//Audio audioHelper,Cue mystery)
             : base(Resources.JoinSession, false)
         {
             this.availableSessions = availableSessions;
-            this.audioManager = audioManager;
             //this.audioHelper = audioHelper;
             //this.mystery = mystery;
 
@@ -72,6 +71,13 @@ namespace TRA_Game
 
 
         #endregion
+
+        public override void LoadContent()
+        {
+            this.audioManager = (AudioManager)ScreenManager.Game.Services.GetService(typeof(AudioManager));
+
+            base.LoadContent();
+        }
 
         #region Event Handlers
 
@@ -125,8 +131,7 @@ namespace TRA_Game
                 NetworkSessionComponent.Create(ScreenManager, networkSession);
 
                 // Go to the lobby screen.
-                ScreenManager.AddScreen(new LobbyScreen(networkSession, audioManager//audioHelper
-                    , true));
+                ScreenManager.AddScreen(new LobbyScreen(networkSession));
 
                 availableSessions.Dispose();
             }

@@ -370,8 +370,8 @@ namespace TRA_Game
             // If we didn't find a CreateOrFindSessionsScreen, reset everything and
             // go back to the main menu. The why-did-the-session-end message box
             // will be displayed after the loading screen has completed.
-            LoadingScreen.Load(screenManager, false, new BackgroundScreen(false, NetworkSessionComponent.Level.shipMap),
-                                                     new MainMenuScreen(true, audioManager),//audioHelper),
+            LoadingScreen.Load(screenManager, false, new BackgroundScreen(NetworkSessionComponent.Level.shipMap),
+                                                     new MainMenuScreen(),
                                                      messageBox);
         }
 
@@ -447,8 +447,8 @@ namespace TRA_Game
             // If we didn't find a CreateOrFindSessionsScreen, reset everything and
             // go back to the main menu. The why-did-the-session-end message box
             // will be displayed after the loading screen has completed.
-            LoadingScreen.Load(screenManager, false, new BackgroundScreen(false, NetworkSessionComponent.Level.shipMap),
-                                                     new MainMenuScreen(false, null),
+            LoadingScreen.Load(screenManager, false, new BackgroundScreen(NetworkSessionComponent.Level.shipMap),
+                                                     new MainMenuScreen(),
                                                      messageBox);
         }
 

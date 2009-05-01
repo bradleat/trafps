@@ -73,8 +73,7 @@ namespace TRA_Game
         /// <summary>
         /// Constructs a new lobby screen.
         /// </summary>
-        public LobbyScreen(NetworkSession networkSession, AudioManager audioManager //Audio audioHelper
-            , bool audio_on)
+        public LobbyScreen(NetworkSession networkSession)
         {
             this.networkSession = networkSession;
 
@@ -95,7 +94,6 @@ namespace TRA_Game
             messages.Add(new string[] { "System", "Press [Tab] to send a message " });
 
 
-            this.audioManager = audioManager;
             /*
             if (audioHelper == null)
                 this.audioHelper = new Audio("Content\\TRA_Game.xgs");
@@ -126,6 +124,9 @@ namespace TRA_Game
             hasVoiceTexture = content.Load<Texture2D>("chat_able");
             isTalkingTexture = content.Load<Texture2D>("chat_talking");
             voiceMutedTexture = content.Load<Texture2D>("chat_mute");
+
+            this.audioManager = (AudioManager)ScreenManager.Game.Services.GetService(typeof(AudioManager));
+
         }
 
 
@@ -183,7 +184,7 @@ namespace TRA_Game
                     //audioHelper.Stop(mystery);
                     // Check if we should leave the lobby and begin gameplay.
                     LoadingScreen.Load(ScreenManager, true,
-                                       new GameplayScreen(networkSession, audioManager));
+                                       new GameplayScreen(networkSession));
                 }
                 else if (networkSession.IsHost && networkSession.IsEveryoneReady)
                 {

@@ -43,7 +43,7 @@ namespace TRA_Game
         /// <summary>
         /// Constructor fills in the menu contents.
         /// </summary>
-        public SessionPropertiesScreen(ScreenManager screenManager, NetworkSessionType sessionType, AudioManager audioManager, //Audio audioHelper, Cue mystery
+        public SessionPropertiesScreen(ScreenManager screenManager, NetworkSessionType sessionType, //Audio audioHelper, Cue mystery
              bool createSession, NetworkHelper networkHelper)
             : base(Resources.SessionProperties + GetMenuTitle(sessionType), false)
         {
@@ -54,7 +54,7 @@ namespace TRA_Game
                 this.networkHelper = new NetworkHelper();
             networkInterface = new NetworkInterface();
             networkInterface.InitNetwork(screenManager.Game);
-            this.audioManager = audioManager;
+
             //this.audioHelper = audioHelper;
             //this.mystery = mystery;
             this.sessionType = sessionType;
@@ -121,6 +121,13 @@ namespace TRA_Game
         }
 
 
+        public override void LoadContent()
+        {
+            this.audioManager = (AudioManager)ScreenManager.Game.Services.GetService(typeof(AudioManager));
+            
+            base.LoadContent();
+        }
+
         /// <summary>
         /// Helper chooses an appropriate menu title for the specified session type.
         /// </summary>
@@ -184,8 +191,7 @@ namespace TRA_Game
 
                 //audioHelper.Play(famas_1, false, new AudioListener(), new AudioEmitter());
 
-                LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(true, NetworkSessionComponent.Level.shipMap), new LobbyScreen(networkHelper.NetworkGameSession, audioManager,//audioHelper
-                    true));
+                LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(NetworkSessionComponent.Level.shipMap), new LobbyScreen(networkHelper.NetworkGameSession));
 
                 // Go to the lobby screen.
                 //ScreenManager.AddScreen(new LobbyScreen(networkHelper.NetworkGameSession, audioHelper, true));
@@ -460,8 +466,7 @@ namespace TRA_Game
                 NetworkSessionComponent.Create(ScreenManager, networkHelper.NetworkGameSession);
 
                 // Go to the lobby screen.
-                ScreenManager.AddScreen(new LobbyScreen(networkHelper.NetworkGameSession, audioManager //audioHelper
-                    , true));
+                ScreenManager.AddScreen(new LobbyScreen(networkHelper.NetworkGameSession));
             }
             catch (NetworkException exception)
             {
@@ -531,8 +536,7 @@ namespace TRA_Game
                 {
 
                     // If we did find some sessions, proceed to the JoinSessionScreen.
-                    ScreenManager.AddScreen(new JoinSessionScreen(availableSessions, audioManager));//audioHelper
-                    // , mystery));
+                    ScreenManager.AddScreen(new JoinSessionScreen(availableSessions));
                 }
             }
             catch (NetworkException exception)

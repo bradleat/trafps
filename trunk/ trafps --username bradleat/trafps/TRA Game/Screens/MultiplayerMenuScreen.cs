@@ -18,10 +18,9 @@ namespace TRA_Game
         // <summary>
         /// Constructor fills in the menu contents.
         /// </summary>
-        public MultiplayerMenuScreen(AudioManager audioManager)//  Audio audioHelper, Cue mystery)
+        public MultiplayerMenuScreen()//  Audio audioHelper, Cue mystery)
             : base(Resources.MultiplayerMenu, false)
         {
-            this.audioManager = audioManager;
 
             //this.audioHelper = audioHelper;
             //this.mystery = mystery;
@@ -44,13 +43,20 @@ namespace TRA_Game
 
         }
 
+        public override void LoadContent()
+        {
+            this.audioManager = (AudioManager)ScreenManager.Game.Services.GetService(typeof(AudioManager));
+
+            base.LoadContent();
+        }
+
         /// <summary>
         /// 
         /// </summary>
         void BackMenuEntrySelected(object sender, EventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(false, NetworkSessionComponent.Level.shipMap),
-                                                     new MainMenuScreen(true, audioManager));//this.audioHelper));
+            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(NetworkSessionComponent.Level.shipMap),
+                                                     new MainMenuScreen());
         }
         /// <summary>
         /// Event handler for when the Live menu entry is selected.

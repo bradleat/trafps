@@ -79,6 +79,13 @@ namespace TRA_Game
         Vector3 redFlagBottomRightCorner = new Vector3((float)48.5904541, (float)-4.86833572, (float)-8.284273);
         Vector3 redFlagBottomLeftCorner = new Vector3((float)48.45163, (float)-4.86833572, (float)-2.13709331);
 
+        KeyboardState keyBoardState;
+        KeyboardState oldKeyBoardState;
+        KeyboardState defaultKeyboardState = new KeyboardState();
+        MouseState mouseState;
+        MouseState oldMouseState;
+        MouseState defaultMouseState = new MouseState();
+
 
         #region Fields
 
@@ -225,10 +232,9 @@ namespace TRA_Game
         /// <summary>
         /// Constructor.
         /// </summary>
-        public GameplayScreen(Microsoft.Xna.Framework.Net.NetworkSession networkSession, AudioManager audioManager)
+        public GameplayScreen(Microsoft.Xna.Framework.Net.NetworkSession networkSession)
         {
             networkHelper = new NetworkHelper();
-            this.audioManager = audioManager;
             this.networkSession = networkSession;
             this.currentLevel = currentLevel;
             networkHelper.NetworkGameSession = networkSession;
@@ -259,6 +265,9 @@ namespace TRA_Game
                 default:
                     break;
             }
+
+            this.audioManager = (AudioManager)ScreenManager.Game.Services.GetService(typeof(AudioManager));
+
 
 
             //Classes
@@ -402,17 +411,12 @@ namespace TRA_Game
 
             if (IsActive)
             {
-
-                MouseState current_Mouse = Mouse.GetState();
-                KeyboardState KeyState = Keyboard.GetState();
-
-                localPlayer.Update(gameTime, current_Mouse, KeyState);
+                
+                localPlayer.Update(gameTime, mouseState, keyBoardState);
 
                 camera.Position = localPlayer.Position + avatarOffset;
 
-                camera.Update(localPlayer.Rotation, current_Mouse);
-
-                Mouse.SetPosition(0, 0);
+                camera.Update(localPlayer.Rotation, mouseState);
 
                 // If we are in a network session, update it.
                 if (networkSession.SessionType != NetworkSessionType.Local)
@@ -440,8 +444,8 @@ namespace TRA_Game
             if ((networkSession != null) && !IsExiting)
                 if (networkSession.SessionState == NetworkSessionState.Lobby)
                     LoadingScreen.Load(ScreenManager, true,
-                                       new BackgroundScreen(true, NetworkSessionComponent.Level.shipMap),
-                                       new LobbyScreen(networkSession, audioManager, false));
+                                       new BackgroundScreen(NetworkSessionComponent.Level.shipMap),
+                                       new LobbyScreen(networkSession));
 
         }
         #endregion
@@ -724,9 +728,27 @@ namespace TRA_Game
             if (input == null)
                 throw new ArgumentNullException("input");
 
+             
+            
+
+            mouseState = Mouse.GetState();
+            keyBoardState = Keyboard.GetState();
+
             if (input.PauseGame)
+            {
+                keyBoardState = defaultKeyboardState;
+                mouseState = defaultMouseState;
                 // If they pressed pause, bring up the pause menu screen.
-                ScreenManager.AddScreen(new PauseMenuScreen(networkSession, audioManager));
+                ScreenManager.AddScreen(new PauseMenuScreen(networkSession));
+            }
+
+            oldKeyBoardState = keyBoardState;
+            oldMouseState = mouseState;
+
+            Mouse.SetPosition(0, 0);
+
+             
+
         }
 
 

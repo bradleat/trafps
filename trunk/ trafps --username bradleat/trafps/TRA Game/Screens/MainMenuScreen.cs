@@ -35,7 +35,7 @@ namespace TRA_Game
         /// <summary>
         /// Constructor fills in the menu contents.
         /// </summary>
-        public MainMenuScreen(bool audio_on, AudioManager audioManager)// Audio audioHelper)
+        public MainMenuScreen()// Audio audioHelper)
             : base(Resources.MainMenu, false)
         {
 
@@ -63,35 +63,21 @@ namespace TRA_Game
             MenuEntries.Add(optionsMenuEntry);
             MenuEntries.Add(exitMenuEntry);
 
-            if (audioManager == null)
-                audioManager = new AudioManager(this.ScreenManager.Game);
-
-            this.audioManager = audioManager;
-
-            audioManager.PlaySong("mystery", true);
-
-            /*
-            if (audioHelper == null)
-                this.audioHelper = new Audio("Content\\TRA_Game.xgs");
-            else
-                this.audioHelper = audioHelper;
-            if (audio_on == false)
-            {
-                mystery = this.audioHelper.GetCue("mystery");
-                famas_1 = this.audioHelper.GetCue("famas-1");
-                this.audioHelper.Play(mystery, false, new AudioListener(), new AudioEmitter());
-            }
-            else
-            {
-                mystery = this.audioHelper.GetCue("mystery");
-                famas_1 = this.audioHelper.GetCue("famas-1");
-            }
-
-            this.audioHelper.Update();*/
-
+            
 
         }
         #endregion
+
+        public override void LoadContent()
+        {
+            this.audioManager = (AudioManager)ScreenManager.Game.Services.GetService(typeof(AudioManager));
+            if (this.audioManager == null)
+                throw new NullReferenceException("No audio Manager");
+
+            this.audioManager.PlaySong("mystery", true);
+
+            base.LoadContent();
+        }
 
         #region EventHandlers
         /// <summary>
@@ -123,7 +109,7 @@ namespace TRA_Game
         /// </summary>
         void MultiplayerMenuEntrySelected(object sender, EventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(true, NetworkSessionComponent.Level.shipMap), new MultiplayerMenuScreen(this.audioManager)); //this.audioHelper, mystery));
+            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(NetworkSessionComponent.Level.shipMap), new MultiplayerMenuScreen());
         }
 
         /// <summary>
@@ -131,8 +117,8 @@ namespace TRA_Game
         /// </summary>
         void TrainingMenuEntrySelected(object sender, EventArgs e)
         {
-            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager, NetworkSessionType.Local, audioManager //audioHelper,mystery
-                , true, null));
+            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager, NetworkSessionType.Local,
+                 true, null));
             /*audioHelper.Stop(mystery); 
             audioHelper.Play(famas_1, false, new AudioListener(), new AudioEmitter());
             LoadingScreen.Load(ScreenManager, true, new GameplayScreen(null));*/

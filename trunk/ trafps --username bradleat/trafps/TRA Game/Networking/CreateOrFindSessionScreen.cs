@@ -101,8 +101,8 @@ namespace TRA_Game
         /// </summary>
         void CreateSessionMenuEntrySelected(object sender, EventArgs e)
         {
-            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager, sessionType, audioManager  //audioHelpermystery
-                , true, networkHelper));
+            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager, sessionType,
+                 true, networkHelper));
 
         }
 
@@ -111,8 +111,8 @@ namespace TRA_Game
         /// </summary>
         void FindSessionsMenuEntrySelected(object sender, EventArgs e)
         {
-            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager, sessionType, audioManager//audioHelper ,mystery
-                , false, networkHelper));
+            ScreenManager.AddScreen(new SessionPropertiesScreen(ScreenManager, sessionType,
+                 false, networkHelper));
 
         }
         #endregion

@@ -66,9 +66,12 @@ namespace TRA_Game
 
             graphics = new GraphicsDeviceManager(this);
 
+            /*
             graphics.PreferredBackBufferWidth = 1067;
             graphics.PreferredBackBufferHeight = 600;
+            */
 
+            graphics.IsFullScreen = true;
             // Create components.
             screenManager = new ScreenManager(this);
 
@@ -80,8 +83,9 @@ namespace TRA_Game
             audioManager.LoadSong("mystery");
             audioManager.LoadSound("famas-1");
 
+            Services.AddService(typeof(AudioManager), audioManager);
             // Activate the first screens.
-            screenManager.AddScreen(new SplashScreen(audioManager));
+            screenManager.AddScreen(new SplashScreen());
             //screenManager.AddScreen(new BackgroundScreen(false));
             //screenManager.AddScreen(new MainMenuScreen(false, null));
 
