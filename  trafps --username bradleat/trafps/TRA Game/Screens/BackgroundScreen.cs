@@ -75,9 +75,8 @@ namespace TRA_Game
         /// <summary>
         /// Constructor.
         /// </summary>
-        public BackgroundScreen(bool isMultiplayer, NetworkSessionComponent.Level currentLevel)
+        public BackgroundScreen(NetworkSessionComponent.Level currentLevel)
         {
-            //this.isMultiplayer = isMultiplayer;
             TransitionOnTime = TimeSpan.FromSeconds(0.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
             this.currentLevel = currentLevel;

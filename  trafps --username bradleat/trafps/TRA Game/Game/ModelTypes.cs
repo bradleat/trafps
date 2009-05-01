@@ -48,7 +48,7 @@ namespace TRA_Game
             Level_1
         }
         public static string[] levelModelFileName = { "ship_map",
-                                                      "level_1"   };
+                                                      "two"   };
 
         public static Vector3[] BlueTeamSpawnPoint = { new Vector3((float)52.238, (float)-4.86833572, (float)-5.327177),
                                                          new Vector3((float)58.3029556,(float)14.5489264,(float)23.1811275)};

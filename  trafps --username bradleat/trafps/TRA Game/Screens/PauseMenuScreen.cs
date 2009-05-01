@@ -30,11 +30,10 @@ namespace TRA_Game
         /// <summary>
         /// Constructor.
         /// </summary>
-        public PauseMenuScreen(NetworkSession networkSession, AudioManager audioManager)
+        public PauseMenuScreen(NetworkSession networkSession)
             : base(Resources.Paused, false)
         {
             this.networkSession = networkSession;
-            this.audioManager = audioManager;
 
             // Flag that there is no need for the game to transition
             // off when the pause menu is on top of it.
@@ -76,7 +75,12 @@ namespace TRA_Game
         }
 
 
-        
+        public override void LoadContent()
+        {
+            this.audioManager = (AudioManager)ScreenManager.Game.Services.GetService(typeof(AudioManager));
+
+            base.LoadContent();
+        }
 
         
 
@@ -101,8 +105,8 @@ namespace TRA_Game
         /// </summary>
         void ConfirmQuitMessageBoxAccepted(object sender, EventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(false, NetworkSessionComponent.Level.shipMap),
-                                                     new MainMenuScreen(false, audioManager));
+            LoadingScreen.Load(ScreenManager, false, new BackgroundScreen(NetworkSessionComponent.Level.shipMap),
+                                                     new MainMenuScreen());
         }
 
 

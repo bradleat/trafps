@@ -43,10 +43,10 @@ namespace TRA_Game
         /// <summary>
         /// Constructor.
         /// </summary>
-        public SplashScreen(AudioManager audioManager)
+        public SplashScreen()
         {
+
             //this.isAudio = isAudio;
-            this.audioManager = audioManager;
             TransitionOnTime = TimeSpan.FromSeconds(0.6);
             TransitionOffTime = TimeSpan.FromSeconds(0.6);
             waitCounter = 0;
@@ -64,6 +64,9 @@ namespace TRA_Game
         {
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
+
+            this.audioManager = (AudioManager)this.ScreenManager.Game.Services.GetService(typeof(AudioManager));
+
 
             texture = content.Load<Texture2D>("splash");
         }
@@ -98,7 +101,7 @@ namespace TRA_Game
             
             if (waitCounter > 2000)
             {
-                LoadingScreen.Load(ScreenManager, true, new BackgroundScreen(false, NetworkSessionComponent.Level.shipMap), new MainMenuScreen(false, audioManager));
+                LoadingScreen.Load(ScreenManager, true, new BackgroundScreen(NetworkSessionComponent.Level.shipMap), new MainMenuScreen());
             }
         }
 
