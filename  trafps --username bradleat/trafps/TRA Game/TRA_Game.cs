@@ -66,12 +66,12 @@ namespace TRA_Game
 
             graphics = new GraphicsDeviceManager(this);
 
-            /*
+            
             graphics.PreferredBackBufferWidth = 1067;
             graphics.PreferredBackBufferHeight = 600;
-            */
+            
 
-            graphics.IsFullScreen = true;
+            
             // Create components.
             screenManager = new ScreenManager(this);
 
