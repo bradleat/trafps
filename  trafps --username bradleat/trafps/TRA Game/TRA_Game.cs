@@ -78,6 +78,7 @@ namespace TRA_Game
             Components.Add(screenManager);
             Components.Add(new MessageDisplayComponent(this));
             Components.Add(new GamerServicesComponent(this));
+            //Components.Add(new VersionDrawer(this, 0.01f, screenManager.Font));
 
             audioManager = new AudioManager(this);
             audioManager.LoadSong("mystery");

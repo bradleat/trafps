@@ -136,6 +136,7 @@
     <Compile Include="Screens\RespawnScreen.cs" />
     <Compile Include="Screens\SplashScreen.cs" />
     <Compile Include="TRA_Game.cs" />
+    <Compile Include="VersionDrawer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
