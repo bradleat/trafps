@@ -45,7 +45,6 @@ namespace TRA_Game
         /// </summary>
         public SplashScreen()
         {
-
             //this.isAudio = isAudio;
             TransitionOnTime = TimeSpan.FromSeconds(0.6);
             TransitionOffTime = TimeSpan.FromSeconds(0.6);
@@ -69,6 +68,8 @@ namespace TRA_Game
 
 
             texture = content.Load<Texture2D>("splash");
+            ScreenManager.Game.Components.Add(new VersionDrawer(ScreenManager.Game, 0.01f));
+
         }
 
 
